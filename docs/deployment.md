@@ -2,32 +2,39 @@
 
 ## Entornos
 
-| Entorno | Uso | Publicación |
+| Entorno | Uso | Estado |
 | --- | --- | --- |
-| `npm run dev` | Fuente local, recarga manual | No |
-| `npm run preview` | Salida de build local | No |
-| GitHub | Código, documentación y controles | Repositorio de portfolio |
-| Sites existente | Vista privada de la landing | Requiere autorización para nuevos despliegues |
+| npm run dev | Astro local con recarga | Disponible |
+| npm run preview | Salida estática local | Requiere build |
+| GitHub | Fuente, documentación y controles | Repositorio de portfolio existente |
+| Vercel | Hosting previsto de producción | Configuración preparada; cuenta y proyecto sin conectar |
+| Sites histórico | Referencia privada de diseño | Conserva su publicación anterior |
 
-No hay bases de datos, escrituras de formularios ni migraciones. El dato ficticio enviado por un test se envía solo al servidor local y se rechaza con 405.
+## Configuración de Vercel
 
-## Publicar una actualización autorizada
+vercel.json está versionado con framework astro, installCommand npm ci, buildCommand npm run build y outputDirectory dist. Usar Node 24, raíz del repositorio y conectar pereyrajuanig/landing-circulo-er. La salida es estática; no necesita @astrojs/vercel ni funciones Node.
 
-1. Resolver la tarea en una rama, pasar controles y obtener autorización de merge.
-2. Generar `dist/` con `npm run build`; revisar con `npm run preview`.
-3. Conservar el ID de `.openai/hosting.json`; no registrar un nuevo Site.
-4. Usar el flujo del plugin Sites para sincronizar fuente, empaquetar la salida y guardar una versión. Credenciales de corta duración solo por stdin, nunca en archivos o argumentos.
-5. Mantener el acceso privado y publicar la versión guardada; esperar el estado `succeeded`.
-6. Verificar la web, sus enlaces e interacciones. Registrar commit, versión, despliegue y fecha.
+La configuración se comprobó mediante build local. No se ha creado un proyecto de Vercel ni confirmado un despliegue real. No hay secretos ni variables requeridas en esta versión.
 
-El hosting no está conectado a GitHub Actions. No hay despliegues automáticos ni GitHub Pages habilitado.
+## Primera publicación
+
+1. Aprobar y fusionar la migración mediante PR con quality aprobado.
+2. Autorizar la publicación y conectar el repositorio en la cuenta de Vercel correspondiente.
+3. Elegir main como rama de producción y verificar los valores de vercel.json y Node 24.
+4. Revisar la preview antes de publicar: escritorio, móvil, enlaces y contenido confirmado.
+5. Configurar el dominio real. Agregar URL canónica, metadatos sociales y sitemap cuando se conozca ese dominio; no usar la URL privada histórica como dominio de producción.
+6. Confirmar el estado del despliegue y comprobar la URL publicada. Registrar commit, dominio y fecha.
+
+Vercel puede producir previews para ramas y PR mediante su integración Git. Una vez conectado, los cambios en la rama de producción pueden disparar despliegues automáticamente. Confirmar ese comportamiento antes de activar la integración; GitHub Actions por sí solo no publica la web.
 
 ## Recuperación
 
-- En GitHub: revertir el commit de la tarea mediante una nueva rama y PR, conservando el historial.
-- En Sites: volver a desplegar una versión guardada anterior, con autorización y respetando el acceso actual.
-- Un revert o push a GitHub no cambia por sí solo el Site publicado.
+En GitHub, revertir la tarea mediante rama y PR sin reescribir historial. En Vercel, restaurar un despliegue anterior o publicar el revert según el flujo autorizado. Verificar la URL y el contenido tras la recuperación.
 
-## Referencia actual
+No hay bases de datos ni migraciones. Cuando se añada un CMS, recuperar un build no revertirá los registros editoriales.
 
-La revisión cálida publicada tiene el commit de origen Sites `648e72f7daca19a45c00ae5fc82427d385cce449`. El proyecto se importó al nuevo repositorio de portfolio con esa misma fuente visual. Los IDs de versión son propios de Sites y no deben inventarse.
+## Referencia de Sites
+
+.openai/hosting.json conserva appgprj_6ac91d0b16288191855648c8ff952d2b. No cambiar su audiencia privada ni crear otro Site. La fuente visual anterior conserva el commit de origen Sites 648e72f7daca19a45c00ae5fc82427d385cce449. La migración local no sincroniza ni despliega en Sites.
+
+Referencias: [Astro estático en Vercel](https://docs.astro.build/en/guides/deploy/vercel/), [integración Git de Vercel](https://vercel.com/docs/git), [configuración de build](https://vercel.com/docs/builds/configure-a-build).

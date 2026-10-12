@@ -18,3 +18,7 @@ La capa visual está en `dist/warmth.css`, cargada después de `dist/styles.css`
 ## 1.0 - 9 de octubre de 2026
 
 Base visual aceptada: azul profundo, dorado, tipografía Libre Caslon Display y DM Sans, escudo protagonista y estructura institucional. Documentada en el PDF original de 22 páginas.
+
+## 12/10/2026 · Versión 1.2 · Astro
+
+Migración solicitada por el usuario: Astro 7.3.8, TypeScript, componentes y cuatro colecciones JSON. Se conserva CSS y escudo. Configuración estática de Vercel preparada, sin desplegar. Manual y documentación actualizados. El CMS queda como una fase posterior con requisitos por acordar.

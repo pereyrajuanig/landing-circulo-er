@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { institution: CollectionEntry<'institution'>['data'] }
+const { institution } = Astro.props;
+---
+<footer>
+<div class="wrap footer-top">
+<a class="brand footer-brand" href="#inicio">
+<img src="/assets/escudo.png" alt="" width="50" height="60">
+<span>Círculo de Retirados y Pensionados<small>DE LA POLICÍA DE ENTRE RÍOS</small>
+</span>
+</a>
+<p>Historia. Compromiso. Comunidad.</p>
+<a href="#inicio">Volver al inicio <span aria-hidden="true">↑</span>
+</a>
+</div>
+<div class="wrap footer-bottom">
+<span>© <span id="year">{new Date().getFullYear()}</span> {institution.name}</span>
+<span>Entre Ríos, Argentina</span>
+</div>
+</footer>

@@ -1,41 +1,43 @@
-# Estado de la entrega
+# Estado del proyecto
 
 Fecha: 12 de octubre de 2026.
 
-## Proyecto
+## Migración vigente
 
-- Fuente visual importada: versión cálida del 11/10/2026.
-- Stack: HTML, CSS, JavaScript; herramientas Node 24 y npm, sin paquetes externos.
-- Carpeta de trabajo solicitada: `Desktop/Landing-CirculoER`.
-- Repo objetivo: `pereyrajuanig/landing-circulo-er`, público para portfolio.
-- Site existente: privado; esta preparación del repositorio no requiere cambiar su publicación.
+- Astro 7.3.8, TypeScript 6.0.3, Node 24 y npm; salida estática.
+- Rama de tarea: codex/migracion-astro; main conserva la entrega anterior hasta el merge autorizado.
+- Proyecto: Desktop/Landing-CirculoER. Repo público existente: pereyrajuanig/landing-circulo-er.
+- Nueve componentes, un layout y cuatro colecciones JSON validadas. CSS y escudo preservados.
+- Vercel preparado con vercel.json. Cuenta, proyecto, dominio y despliegue real pendientes.
+- CMS sin instalar. El plan de edición institucional está en cms-roadmap.md.
 
-## Verificaciones
+## Verificación local de esta migración
 
-Los resultados locales y la configuración externa se comprobaron durante la entrega. Las futuras tareas deben ejecutar nuevamente sus controles cuando cambie el código; la presencia de una checklist no prueba su ejecución.
-
-| Control | Estado |
+| Control | Resultado |
 | --- | --- |
-| Instalación con npm ci | Aprobada en la carpeta del Escritorio |
-| Lint estructural | Aprobado |
-| Tests de integración | 4 pruebas aprobadas |
-| Build | Aprobado; salida dist/ validada |
-| Dev / preview HTTP | Preview HTTP 200 con el build de la carpeta del Escritorio |
-| PDF vigente, render y revisión | Versión 1.1, 22 páginas; render revisado |
-| Push a GitHub | Publicado en https://github.com/pereyrajuanig/landing-circulo-er |
-| GitHub Actions | quality aprobado en la carga inicial; ejecución 38295850256 |
-| Protección efectiva de main | PR, quality, base actualizada, historial lineal y conversaciones resueltas; administradores incluidos; force push y borrado bloqueados; 0 aprobaciones adicionales |
-| VS Code con la carpeta | Ventana README.md - Landing-CirculoER verificada |
+| Instalación reproducible con npm ci | Aprobada; npm reportó 0 vulnerabilidades |
+| Diagnóstico Astro y TypeScript | 0 errores, 0 advertencias, 0 hints |
+| Build | Salida estática construida y validada |
+| Tests | 6 pruebas aprobadas: texto y anclas, datos, filtro, mailto, MIME y archivos internos |
+| Preview real | HTTP 200 en Astro preview |
+| Navegador | Escritorio y móvil: diseño cálido; menú / Escape / navegación, filtro con y sin resultados, selección y apertura múltiple de servicios |
+| Reflujo | Sin desborde horizontal en las vistas inspeccionadas |
+| Manual | Versión 1.2, 22 páginas; render completo revisado |
+| Vercel | Configuración preparada, sin despliegue real |
+| Sites | Publicación histórica privada conservada |
 
-## Pendientes del producto
+La verificación local no certifica WCAG ni sustituye la confirmación de la institución. Cada cambio requiere controles nuevos. GitHub Actions de la rama debe confirmar los controles antes de fusionar.
 
-Revisión final de la propuesta cálida por el usuario, fotos institucionales y confirmación de contenido variable. Auditoría completa de accesibilidad, navegación con lector de pantalla y validación de datos no realizadas.
+## Producto pendiente
 
-## Trazabilidad
+Aceptación visual final por el usuario; fotos reales; autoridades, horarios, contactos y prestaciones confirmados. Auditoría completa con lector de pantalla y zoom. Definir panel editorial cuando la institución lo requiera.
 
-- Historial de diseño importado, con origen Sites 648e72f y f3caebc.
-- Carga inicial de portfolio: 9a37660.
-- Actions: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38295850256.
-- Solo squash merge habilitado; ramas de tareas se eliminan después del merge.
-- El dossier original permanece local y excluido de Git; no fue publicado.
-- No se realizó un nuevo despliegue en Sites durante esta preparación.
+## Historial y configuración externa
+
+Fuente visual cálida de Sites: 648e72f7daca19a45c00ae5fc82427d385cce449. Importación de portfolio: 9a37660. Última entrega anterior en main: bbd930c.
+
+Durante la preparación inicial se verificaron VS Code abierto en esta carpeta, GitHub y protección de main: PR, quality, base actualizada, historial lineal, conversaciones resueltas, administradores incluidos; force push y borrado bloqueados; 0 aprobaciones humanas adicionales. Solo squash merge habilitado.
+
+CI histórico de la entrega anterior: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38296496078.
+
+El dossier original permanece local, fuera de Git y del build. Las versiones anteriores del PDF se conservan como archivo histórico. Esta migración no cambió el hosting publicado.

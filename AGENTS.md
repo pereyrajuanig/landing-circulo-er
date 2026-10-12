@@ -3,8 +3,8 @@
 ## Contexto y decisiones
 
 - Landing del Círculo de Retirados y Pensionados de la Policía de Entre Ríos; público: retirados, pensionados y familias.
-- HTML, CSS y JavaScript nativo. Node 24 y npm solo para desarrollo, controles y build; sin framework, CMS ni base de datos.
-- Fuente: `src/`. `styles.css` es la base institucional y `warmth.css` la revisión de calidez, cargada al final. Mantener el escudo, Libre Caslon Display, DM Sans, azul, dorado y fondos cálidos.
+- Astro 7.3.8, TypeScript estricto, CSS propio y salida estática. Node 24 y npm para desarrollo, controles y build; sin CMS ni base de datos. Migración solicitada por el usuario el 12/10/2026.
+- Fuente: `src/pages/`, `src/layouts/`, `src/components/` y colecciones JSON de `src/content/`. `src/styles/styles.css` es la base institucional y `src/styles/warmth.css` la revisión de calidez, importada después. Mantener el escudo, Libre Caslon Display, DM Sans, azul, dorado y fondos cálidos.
 - Datos institucionales variables requieren confirmación; no inventar teléfonos, prestaciones, tarifas, autoridades ni testimonios.
 - Documentación: [README](README.md), [diseño](docs/design-system.md), [arquitectura](docs/architecture.md), [flujo](docs/workflow.md) y [despliegue](docs/deployment.md).
 
@@ -21,16 +21,16 @@
 
 - Preservar el stack y las funciones existentes. Evitar refactors generales y dependencias nuevas sin necesidad.
 - Usar npm y su lockfile. Comandos: `npm ci`, `npm run dev`, `npm run lint`, `npm test`, `npm run build`, `npm run preview`.
-- `lint` verifica estructura, enlaces locales y sintaxis JS; no es una auditoría CSS o WCAG completa.
+- `lint` ejecuta astro check (Astro y TypeScript). Build valida colecciones y referencias de dist; npm test incluye build. No son una auditoría CSS o WCAG completa.
 - Revisar cambios visuales en navegador de escritorio y móvil; menú, servicios, búsqueda y alojamientos.
-- El servidor de desarrollo sirve solo `src/` (o `dist/` en preview); no usarlo como servidor de producción.
+- Usar Astro dev para desarrollo y Astro preview para revisar dist. No usar esos servidores como hosting de producción; solo public/ y la salida generada son públicos.
 - Mantener documentos y PDF alineados con los cambios. No presentar como verificado un control pendiente.
 - No guardar secretos, exports de cuentas ni archivos sensibles. No incorporar otros materiales del Escritorio.
 
 ## Despliegue y colaboración
 
 - Sites conserva el proyecto existente de `.openai/hosting.json`, con acceso privado. No crear otro Site ni desplegar mediante GitHub Pages por defecto.
-- GitHub es fuente y portfolio; CI comprueba el proyecto, no publica automáticamente en Sites.
+- Vercel es el hosting previsto, con vercel.json preparado. La integración de cuenta/GitHub aún no está conectada. GitHub es fuente y portfolio; CI comprueba el proyecto, no publica por sí solo. Conservar el Site histórico.
 - No hay base de datos ni migraciones. Las consultas usan mailto y no escriben datos desde la web.
 - Delegar solo cuando el usuario o instrucciones aplicables lo pidan.
 - Informar resultado, comprobaciones, limitaciones y pasos externos pendientes.

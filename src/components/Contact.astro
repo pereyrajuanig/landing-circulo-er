@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { mailTo } from '../lib/contact';
+interface Props { institution: CollectionEntry<'institution'>['data'] }
+const { institution } = Astro.props;
+---
+<section id="contacto" class="section contact">
+<div class="wrap contact-grid">
+<div>
+<p class="eyebrow dark">05 / HABLEMOS</p>
+<h2>Contanos.<br>
+<em>Estamos para escucharte.</em>
+</h2>
+<p>Si tenés una consulta, necesitás orientación o querés conocer cómo formar parte del Círculo, acercate. El primer paso puede ser una conversación.</p>
+<a class="button button-navy" href={mailTo(institution.email)}>Quiero hacer una consulta <span aria-hidden="true">↗</span>
+</a>
+</div>
+<div class="contact-info">
+<div>
+<span>TE ESPERAMOS EN LA SEDE CENTRAL</span>
+<h3>{institution.address}</h3>
+<p>{institution.city} · {institution.province} · CP {institution.postalCode}</p>
+<a href={institution.mapUrl} target="_blank" rel="noopener noreferrer">Ver ubicación <span aria-hidden="true">↗</span>
+</a>
+</div>
+<div>
+<span>TAMBIÉN PODÉS ESCRIBIRNOS</span>
+<a class="email" href={mailTo(institution.email)}>{institution.email} <span aria-hidden="true">↗</span>
+</a>
+</div>
+</div>
+</div>
+</section>

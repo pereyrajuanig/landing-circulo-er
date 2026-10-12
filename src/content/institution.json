@@ -1,0 +1,18 @@
+[
+  {
+    "id": "circulo",
+    "name": "Círculo de Retirados y Pensionados de la Policía de Entre Ríos",
+    "title": "Círculo de Retirados y Pensionados · Policía de Entre Ríos",
+    "description": "Círculo de Retirados y Pensionados de la Policía de Entre Ríos. Historia, acompañamiento, servicios y comunidad desde 1975.",
+    "email": "retiradospoliciaentrerios@gmail.com",
+    "address": "Urquiza 669",
+    "city": "Paraná",
+    "province": "Entre Ríos",
+    "postalCode": "3100",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Urquiza+669+Paran%C3%A1+Entre+R%C3%ADos",
+    "history": [
+      "Desde el 21 de septiembre de 1975, el Círculo reúne a retirados y pensionados de la Policía de Entre Ríos. Compartimos el deseo de cuidar los vínculos y acompañar el bienestar de nuestros integrantes y sus familias.",
+      "Somos una asociación civil con autoridades y patrimonio propios, vinculada a la comunidad policial entrerriana. Encontrás acá un espacio de representación, orientación y encuentro, cerca de tus necesidades y de tu vida cotidiana."
+    ]
+  }
+]

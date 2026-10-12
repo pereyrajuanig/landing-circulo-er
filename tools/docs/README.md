@@ -1,6 +1,6 @@
 # Regenerar el manual visual
 
-El PDF vigente se guarda en `docs/design-system.pdf`. El archivo de la primera propuesta se conserva en `docs/archive/design-system-v1.0.pdf`.
+El PDF vigente se guarda en `docs/design-system.pdf`. Las versiones anteriores 1.0 y 1.1 se conservan en docs/archive/. La versión 1.2 documenta Astro y la preparación de Vercel.
 
 ## Requisitos opcionales
 

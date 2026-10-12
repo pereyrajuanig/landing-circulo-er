@@ -1,0 +1,122 @@
+[
+  {
+    "id": "concordia",
+    "order": 0,
+    "name": "Concordia"
+  },
+  {
+    "id": "colon",
+    "order": 1,
+    "name": "Colón"
+  },
+  {
+    "id": "diamante",
+    "order": 2,
+    "name": "Diamante"
+  },
+  {
+    "id": "federacion",
+    "order": 3,
+    "name": "Federación"
+  },
+  {
+    "id": "federal",
+    "order": 4,
+    "name": "Federal"
+  },
+  {
+    "id": "feliciano",
+    "order": 5,
+    "name": "Feliciano"
+  },
+  {
+    "id": "gualeguay",
+    "order": 6,
+    "name": "Gualeguay"
+  },
+  {
+    "id": "gualeguaychu",
+    "order": 7,
+    "name": "Gualeguaychú"
+  },
+  {
+    "id": "concepcion-del-uruguay",
+    "order": 8,
+    "name": "Concepción del Uruguay"
+  },
+  {
+    "id": "hasenkamp",
+    "order": 9,
+    "name": "Hasenkamp"
+  },
+  {
+    "id": "cerrito",
+    "order": 10,
+    "name": "Cerrito"
+  },
+  {
+    "id": "chajari",
+    "order": 11,
+    "name": "Chajarí"
+  },
+  {
+    "id": "crespo",
+    "order": 12,
+    "name": "Crespo"
+  },
+  {
+    "id": "la-paz",
+    "order": 13,
+    "name": "La Paz"
+  },
+  {
+    "id": "maria-grande",
+    "order": 14,
+    "name": "María Grande"
+  },
+  {
+    "id": "nogoya",
+    "order": 15,
+    "name": "Nogoyá"
+  },
+  {
+    "id": "rosario-del-tala",
+    "order": 16,
+    "name": "Rosario del Tala"
+  },
+  {
+    "id": "general-ramirez",
+    "order": 17,
+    "name": "General Ramírez"
+  },
+  {
+    "id": "san-salvador",
+    "order": 18,
+    "name": "San Salvador"
+  },
+  {
+    "id": "santa-elena",
+    "order": 19,
+    "name": "Santa Elena"
+  },
+  {
+    "id": "urdinarrain",
+    "order": 20,
+    "name": "Urdinarrain"
+  },
+  {
+    "id": "viale",
+    "order": 21,
+    "name": "Viale"
+  },
+  {
+    "id": "victoria",
+    "order": 22,
+    "name": "Victoria"
+  },
+  {
+    "id": "villaguay",
+    "order": 23,
+    "name": "Villaguay"
+  }
+]

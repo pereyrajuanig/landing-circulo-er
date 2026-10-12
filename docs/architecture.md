@@ -1,27 +1,50 @@
-# Arquitectura
+# Arquitectura · Astro
 
-## Página estática
+## Decisión
 
-`src/index.html` contiene estructura semántica y contenido. Carga `styles.css`, después `warmth.css`, y ejecuta `app.js` con `defer`. El archivo `assets/escudo.png` se utiliza en cabecera, portada, pie y favicon.
+El 12/10/2026 el usuario solicitó migrar a Astro ante una posible necesidad futura de edición institucional. Se conserva la landing cálida; la decisión organiza el desarrollo y el contenido. No incorpora un panel de administración.
 
-La revisión cálida sobrescribe tokens y reglas de la base. Al cambiar un estilo, comprobar ambas hojas y sus media queries. La base no debe eliminarse hasta que una tarea de consolidación sea definida y revisada.
+Astro 7.3.8 genera HTML estático. TypeScript usa la configuración strict. Node 24 y npm ejecutan desarrollo, validación y build. No hay React, renderizado bajo demanda, API ni base de datos. Los paquetes de Astro son herramientas de construcción; no se sirven completos al visitante.
+
+## Renderizado y componentes
+
+src/pages/index.astro carga las cuatro colecciones y ordena servicios, filiales y alojamientos por order. BaseLayout.astro define idioma, metadatos, favicon y estilos globales. Header, Hero, Institution, Services, Branches, Accommodation, Community, Contact y Footer conservan la estructura anterior.
+
+src/styles/styles.css se importa antes de src/styles/warmth.css. La revisión cálida sobrescribe la base; comprobar ambas hojas y media queries al modificar estilos. Vite reúne los estilos en un recurso generado. El escudo se sirve desde public/assets/escudo.png, compartido por cabecera, inicio, pie y favicon.
+
+## Contenido
+
+src/content.config.ts usa defineCollection y el loader file de Astro. Los esquemas validan campos obligatorios, correo, URL de Maps, orden y acciones de servicios al sincronizar y construir.
+
+| Colección | Fuente | Uso |
+| --- | --- | --- |
+| institution | institution.json | Nombre, SEO, historia y contacto central |
+| services | services.json | Cinco servicios, acción y asunto de consulta |
+| branches | branches.json | 24 filiales con orden explícito |
+| stays | stays.json | Seis destinos y descripciones |
+
+Cada entrada tiene id único. Los componentes reciben datos tipados. Alojamiento serializa su colección en data-stays para el script del navegador: botones, descripción inicial y cambios posteriores provienen de la misma fuente. Los textos se interpolan con escape de Astro; no se interpretan como HTML arbitrario.
+
+Los mensajes editoriales de bienvenida y los rótulos de sección continúan en componentes. Si se incorporan al futuro panel, deben pasar a campos del modelo editorial definido para ese CMS.
 
 ## Interacciones
 
-- Menú: controla `#navigation`, actualiza `aria-expanded`; cierra por enlace o Escape.
-- Servicios: `details/summary`; Salud inicia abierto y pueden permanecer varias categorías abiertas.
-- Filiales: filtra el listado de 24 localidades, normalizando tildes y mayúsculas. La sede de Paraná permanece visible.
-- Alojamiento: botones con `aria-pressed`; modifica título, descripción y asunto del enlace de correo. No hay reservas reales ni navegación ARIA por flechas.
-- Contacto: `mailto` abre el cliente de correo del visitante; Google Maps abre una búsqueda de ubicación.
+src/scripts/landing.ts se procesa como un módulo por Astro. Mantiene menú con aria-expanded y cierre por enlace o Escape; filtro de filiales con normalización; selección de alojamiento con aria-pressed, aria-live y asunto de correo; año del pie.
 
-## Herramientas de desarrollo
+Los servicios mantienen details/summary nativos, Salud abierto y múltiples categorías abiertas. La sede central permanece visible durante la búsqueda. Las reservas se coordinan con la institución. Contacto usa mailto; Maps abre en otra pestaña.
 
-Node 24 utiliza exclusivamente módulos propios: HTTP, filesystem, procesos y el runner de tests. `scripts/dev.mjs` inicia un servidor ligado a `127.0.0.1`. `scripts/build.mjs` valida la fuente y copia a `dist/`, verificando que la salida esté dentro del proyecto y no sea un enlace simbólico.
+Sin JavaScript, el contenido, los servicios y la consulta del primer alojamiento permanecen disponibles; búsqueda, selector y menú colapsado requieren JavaScript como en la versión anterior.
 
-El build incluye únicamente `src/`; README, documentación, configuración Git y herramientas no se sirven como parte de la landing.
+## Desarrollo, build y verificación
 
-## Datos y dependencias
+Astro dev reemplaza el servidor propio y ofrece recarga. Astro build genera dist/. scripts/check-build.mjs valida HTML, anclas, IDs y recursos de esa salida y comprueba que no incluya archivos internos. Astro preview permite inspeccionar el build y no se usa como servidor de producción.
 
-No hay API, servidor de aplicación, base de datos ni CMS. El filtro y los destinos están en el HTML/JS. Google Fonts es la única dependencia visual externa; Georgia y Arial son los fallbacks.
+npm run lint ejecuta astro check; npm test construye y prueba texto y anclas preservados, datos renderizados, filtro, correo y respuestas HTTP de Astro preview. El runner usa Node 24. Los tests cierran su servidor al finalizar.
 
-La autenticación de Sites protege la vista de revisión; no es un sistema de autenticación propio del Círculo.
+Vercel recibe solo dist/ como salida pública. vercel.json declara Astro, npm ci y npm run build. No se necesita adaptador de Vercel para esta salida estática. Dominio y conexión GitHub/Vercel son pasos externos pendientes.
+
+## Evolución editorial
+
+Un CMS puede reemplazar las fuentes de las colecciones conservando el contrato de los componentes. El [plan editorial](cms-roadmap.md) define las decisiones necesarias. Con contenido estático, una edición debe disparar un nuevo build para publicarse.
+
+Referencias: [colecciones de Astro](https://docs.astro.build/en/guides/content-collections/), [scripts](https://docs.astro.build/en/guides/client-side-scripts/), [Astro en Vercel](https://docs.astro.build/en/guides/deploy/vercel/).

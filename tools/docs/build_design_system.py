@@ -25,13 +25,13 @@ M = 44
 CW = W - 2*M
 NAVY = '#092b48'; DEEP = '#062139'; GOLD = '#d2b16a'; CREAM = '#f3eee4'
 PAPER = '#fcfaf5'; INK = '#143049'; MUTED = '#56656c'; LINE = '#dfd8cb'
-ESCUDO = ROOT / 'src/assets/escudo.png'
+ESCUDO = ROOT / 'public/assets/escudo.png'
 SITE = 'https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site'
 SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación de la landing | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.1. Identidad, componentes, contenido, implementación y mantenimiento. 12 de octubre de 2026.')
+c.setSubject('Versión 1.2. Identidad, componentes, contenido, implementación y mantenimiento. 12 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.1 · 12 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.2 · 12 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -112,13 +112,13 @@ text('system',M,406,76,'Caslon',GOLD)
 para('Documentación de<br/>la landing page',M,510,CW,39,43,PAPER,'Caslon',False)
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
-text('REVISIÓN DE CALIDEZ / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.1',M,770,10,'DM',PAPER)
+text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
+text('Versión 1.2',M,770,10,'DM',PAPER)
 right('12 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
 y=begin('guia_01','Cómo usar este documento','Una referencia común para la institución, diseño, desarrollo y futuras actualizaciones.')
-y=para('Este manual documenta la revisión cálida solicitada el 11/10/2026 y su preparación como proyecto de portfolio. Conserva la base institucional aceptada. La revisión visual final y la vigencia de los datos del dossier siguen pendientes de confirmación.',M,y)+18
+y=para('Este manual documenta la revisión cálida solicitada el 11/10/2026 y su migración a Astro para el proyecto de portfolio. Conserva la base institucional aceptada. La revisión visual final y la vigencia de los datos del dossier siguen pendientes de confirmación.',M,y)+18
 y=table(['Estado','Qué significa'],[
  ['IMPLEMENTADO','Valor, componente o comportamiento presente en el código actual.'],
  ['RECOMENDADO','Criterio para futuras incorporaciones; no implica que ya esté aplicado.'],
@@ -339,7 +339,7 @@ label('ALOJAMIENTO INSTITUCIONAL',M+152,y+16); text('Paraná',M+152,y+42,30,'Cas
 para('Habitaciones y espacios comunes para integrantes y familiares.',M+152,y+83,CW-175,9,13)
 y+=170
 y=block('Destinos y estado','Paraná, María Grande, Victoria, Nogoyá, La Paz y Santa Elena. Paraná se entrega seleccionado. El conjunto utiliza role="group"; cada botón expone aria-pressed. No es un tablist ARIA ni implementa navegación por flechas.',y)
-y=block('Actualización de contenido','Al elegir un destino, JavaScript modifica el título, la descripción y el asunto del enlace mailto. El panel anuncia los cambios mediante aria-live="polite". El origen de las descripciones está en el objeto stayCopy de app.js.',y)
+y=block('Actualización de contenido','Al elegir un destino, JavaScript modifica el título, la descripción y el asunto del enlace mailto. El panel anuncia los cambios mediante aria-live="polite". Las descripciones y botones provienen de la colección stays, validada por Astro. El script recibe esos mismos datos desde el HTML.',y)
 y=block('Adaptación y finalidad','Escritorio: selector vertical de 270 px y panel flexible. Hasta 800 px: tres columnas; hasta 420 px: dos columnas, sobre el detalle. "Consultar alojamiento" abre el correo del visitante con el destino en el asunto.',y)
 note('CONDICIONES POR CONFIRMAR','Disponibilidad, tarifas, capacidad, equipamiento, requisitos y contacto de reserva de cada destino. El componente no consulta una base de reservas, no bloquea cupos y no confirma estadías. [D, pp. 6-7 y 9]',y)
 
@@ -383,38 +383,38 @@ y=block('Información estable','Historia, naturaleza institucional, misión y de
 note('INFORMACIÓN VARIABLE','Autoridades, contactos de filiales, horarios, OSER y procedimientos, convenio MEDICAL, Plan Óptico Solidario, convenios comerciales, precios y reservas requieren validación institucional. El dossier señala una asamblea para el 28/10/2026; se documenta como dato del dossier, no como evento verificado nuevamente. [D, pp. 8-9]',y)
 
 # 19. Technical handoff
-y=begin('implementacion_18','Base técnica y archivos','Sitio estático sin framework. Node 24 y npm se usan para herramientas locales y controles.')
+y=begin('implementacion_18','Base técnica y archivos','Astro 7.3.8 y TypeScript. Node 24 y npm construyen una salida HTML estática para Vercel.')
 rect(M,y,CW,133,DEEP)
-for i,s in enumerate(['proyecto/','  .openai/hosting.json','  src/','    index.html','    styles.css + warmth.css','    app.js','    assets/escudo.png']):
+for i,s in enumerate(['proyecto/','  astro.config.mjs + vercel.json','  src/pages/ + layouts/','  src/components/ + content/','  src/styles/','  src/scripts/landing.ts','  public/assets/escudo.png']):
     text(s,M+18,y+14+i*15,9,'DM',PAPER if i!=0 else GOLD)
 y+=154
 y=table(['Archivo','Responsabilidad'],[
- ['src/index.html','Estructura semántica, textos, anclas, filiales, botones de destinos y metadatos.'],
+ ['pages/ + layouts/','Ruta, metadatos y documento HTML; componentes de secciones.'],
  ['styles.css / warmth.css','Base institucional y revisión cálida: tokens, composición, estados y breakpoints.'],
- ['app.js','Menú, filtro de filiales, alojamientos y actualización del año.'],
- ['assets/escudo.png','Activo institucional rasterizado, compartido por cabecera, inicio, pie y favicon.'],
- ['scripts/ y tests/','Servidor local, lint estructural, tests HTTP y build estático en dist/.']
+ ['content/ + landing.ts','Colecciones JSON validadas; menú, búsqueda y selector.'],
+ ['public/assets/','Escudo compartido por cabecera, inicio, pie y favicon.'],
+ ['scripts/ y tests/','Control de dist, regresión de texto y anclas, helpers y preview HTTP.']
 ],[128,CW-128],y,8.6)+22
-y=block('Dependencias y datos','Las fuentes se cargan desde Google Fonts. Correo y Google Maps son enlaces externos. No hay CMS, API, base de datos ni formularios persistentes. La configuración .openai/hosting.json conserva el Site existente.',y)
-note('ENTREGA PUBLICADA','GitHub conserva código y documentación de portfolio; el check quality comprueba lint, tests y build. El Site sigue siendo una vista privada. CI no despliega automáticamente. Consultar docs/project-status.md para la configuración efectivamente verificada.',y)
+y=block('Dependencias y datos','Astro genera dist/. Las fuentes usan Google Fonts; correo y Maps son enlaces. No hay CMS ni base de datos. Las cuatro colecciones locales separan contenido de interfaz; el panel editorial requiere una fase posterior.',y)
+note('DESPLIEGUE PREPARADO','Vercel está configurado en vercel.json, sin conectar cuenta ni desplegar. quality comprueba Astro, build y tests. Sites conserva la vista histórica privada. El estado efectivo se registra en docs/project-status.md.',y)
 
 # 20. Maintenance
 y=begin('operacion_19','Mantenimiento y cambios','Un sistema útil debe indicar qué actualizar, dónde hacerlo y cómo comprobarlo.')
 y=table(['Necesidad','Archivo / lugar','Verificación'],[
- ['Cambiar historia, misión o contacto','index.html','Revisar texto, enlace, móvil y fuentes.'],
- ['Agregar o quitar una filial','Lista #branch-list en index.html','Probar búsqueda, tildes, conteo y estado vacío.'],
- ['Modificar un alojamiento','Botón data-stay en HTML y stayCopy en JS','Mismo nombre en ambos; comprobar título, texto y asunto.'],
- ['Modificar un color principal',':root en styles.css','Revisar todos los usos y contrastes.'],
- ['Cambiar el escudo','assets/escudo.png + tamaños si corresponde','Proporción, nitidez, blend modes y favicon.'],
+ ['Cambiar historia o contacto','src/content/institution.json','Revisar texto, enlace, móvil y fuentes.'],
+ ['Agregar o quitar una filial','src/content/branches.json','Probar búsqueda, tildes, conteo y estado vacío.'],
+ ['Modificar un alojamiento','src/content/stays.json','Comprobar orden, título, texto y asunto; fuente única.'],
+ ['Modificar un color principal',':root en src/styles/; revisar warmth.css','Revisar todos los usos y contrastes.'],
+ ['Cambiar el escudo','public/assets/escudo.png','Proporción, nitidez, blend modes y favicon.'],
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
-y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Ejecutar npm run lint, npm test y npm run build; revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Publicar en Sites solo con autorización; verificar versión y acceso.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.1. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Ejecutar npm run lint y npm test (incluye build); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.2. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
 y=table(['Verificado en la propuesta inicial','Alcance de la comprobación'],[
- ['HTML y JavaScript','Anclas e imágenes presentes, IDs únicos y sintaxis de app.js correcta.'],
+ ['HTML y JavaScript','Referencia de la primera versión: anclas, imágenes, IDs y JS válidos. Astro se valida con check, build y tests; ver project-status.md.'],
  ['Interacciones','Menú móvil; filtro sin tildes; selección de alojamientos; apertura de servicios.'],
  ['Adaptación','Revisión visual de escritorio y pantallas pequeñas; sin desborde horizontal en las vistas inspeccionadas.'],
  ['Publicación','Sites confirmó despliegue privado exitoso de la primera versión.']
@@ -426,7 +426,7 @@ note('PRIORIDAD DE MEJORA','El sitio ya incorpora skip-link, idioma es-AR, alt e
 # 22. Sources
 y=begin('referencias_21','Fuentes y trazabilidad','Documento elaborado el 12 de octubre de 2026 a partir de la base visual aceptada y de la fuente local.')
 y=block('[D] Dossier suministrado por el usuario','Dossier_Circulo_Retirados_Policia_Entre_Rios_con_logo.pdf. Corte: 8 de octubre de 2026. 10 páginas. Fuente de historia, identidad, servicios, localidades y pendientes de validación. Ubicación de origen: carpeta Downloads del usuario. Sus recomendaciones se trataron como material de referencia.',y)
-y=block('[C] Implementación y proyecto de portfolio','Fuente: src/index.html, styles.css, warmth.css, app.js y assets/escudo.png. La fuente visual importada conserva este commit de origen Sites:',y)
+y=block('[C] Implementación y proyecto de portfolio','Fuente actual: pages, layouts, components, content, styles y landing.ts. Escudo en public/assets/. La fuente visual importada conserva este commit de origen Sites:',y)
 y=para(SHA,M,y,CW,8.5,13,INK)+16
 label('ENLACE DE LA PROPUESTA',M,y); y+=17
 y=para(f'<link href="{SITE}" color="{NAVY}">{SITE}</link>',M,y,CW,8.7,13,INK)+21

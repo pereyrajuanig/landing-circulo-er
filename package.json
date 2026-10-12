@@ -1,17 +1,28 @@
 {
   "name": "landing-circulo-er",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Landing institucional del Círculo de Retirados y Pensionados de la Policía de Entre Ríos",
   "type": "module",
-  "engines": { "node": ">=24 <25" },
-  "scripts": {
-    "dev": "node scripts/dev.mjs",
-    "lint": "node scripts/check.mjs",
-    "check": "node scripts/check.mjs",
-    "test": "node --test --test-reporter=spec",
-    "build": "node scripts/build.mjs",
-    "preview": "node scripts/dev.mjs --built"
+  "engines": {
+    "node": ">=24 <25"
   },
-  "repository": { "type": "git", "url": "https://github.com/pereyrajuanig/landing-circulo-er.git" }
+  "scripts": {
+    "dev": "astro dev",
+    "lint": "astro check",
+    "check": "astro check",
+    "test": "npm run build && node --test --test-reporter=spec",
+    "build": "astro build && node scripts/check-build.mjs",
+    "preview": "astro preview",
+    "test:update": "npm run build && node scripts/update-content-contract.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pereyrajuanig/landing-circulo-er.git"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "astro": "7.3.8",
+    "typescript": "6.0.3"
+  }
 }

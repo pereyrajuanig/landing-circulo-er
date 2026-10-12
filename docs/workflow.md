@@ -17,8 +17,7 @@ Revisar cambios locales antes de cambiar de rama. No descartar modificaciones aj
 ```powershell
 npm ci
 npm run lint
-npm test
-npm run build
+npm test # incluye build
 git diff --check
 git diff
 ```
@@ -43,6 +42,6 @@ El PR debe explicar problema, resultado, validación y limitaciones. Utilizar la
 
 La configuración efectiva se registra en [project-status.md](project-status.md). La carga inicial del repositorio es el punto de partida autorizado; no constituye autorización para todos los cambios futuros.
 
-## GitHub y Sites
+## GitHub, Vercel y Sites
 
-`origin` es GitHub. `.openai/hosting.json` identifica el Site existente. Un push a GitHub ejecuta CI, pero no publica en Sites. El flujo de publicación está en [deployment.md](deployment.md).
+`origin` es GitHub. `.openai/hosting.json` identifica el Site existente. Un push ejecuta CI, pero no publica en Sites. Vercel es el hosting previsto; la integración Git aún no está conectada. Una vez conectada, main y las ramas pueden disparar producción y previews respectivamente. El flujo de publicación está en [deployment.md](deployment.md).
