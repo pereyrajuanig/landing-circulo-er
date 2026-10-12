@@ -1,0 +1,17 @@
+{
+  "name": "landing-circulo-er",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Landing institucional del Círculo de Retirados y Pensionados de la Policía de Entre Ríos",
+  "type": "module",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "lint": "node scripts/check.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test --test-reporter=spec",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/dev.mjs --built"
+  },
+  "repository": { "type": "git", "url": "https://github.com/pereyrajuanig/landing-circulo-er.git" }
+}
