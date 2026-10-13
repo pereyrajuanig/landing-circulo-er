@@ -15,8 +15,10 @@
     "02": {
       "status": "pending_integration",
       "branch": "codex/etapa-02-diseno-ux",
-      "pullRequest": null,
-      "summary": "7 tareas verificadas. Matriz y reflujo aprobados; zoom 200 % confirmado por el usuario. PR, revisión final y merge pendientes."
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/4",
+      "summary": "7 tareas verificadas. PR #4 con quality aprobado; zoom 200 % confirmado por el usuario. Revisión final y merge pendientes.",
+      "codeCommit": "cb87892497455ebf8a54fa1f4cafce054c0d9210",
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193"
     }
   },
   "tasks": {
@@ -129,9 +131,9 @@
     "trace_status": "7 verificadas; integración pendiente",
     "trace_owner": "Desarrollo / usuario",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base main 4410368 / rama codex/etapa-02-diseno-ux",
+    "trace_commit": "Base 4410368 / código cb87892 / PR #4",
     "trace_method": "Siete viewports CSS reales y reflujo 320px; flujos y textos extensos.\nZoom de navegador al 200 %: revisión manual confirmada por Juan.\nnpm run validate; revisión de capturas y PDFs.",
-    "trace_result": "7 tareas verificadas; tipos, lint, formato, build y 6 pruebas aprobados.\nZoom 200 %: el usuario confirma lectura y uso sin recortes.\nEvidencia en docs/stage-02-design-ux.md; CI de esta etapa pendiente.",
+    "trace_result": "7 tareas verificadas; tipos, lint, formato, build y 6 pruebas aprobados.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193\nZoom 200 % confirmado manualmente; evidencia en stage-02-design-ux.md.",
     "trace_limits": "Revisión final del PR, autorización de merge y despliegue pendientes.\nLa confirmación de zoom es manual; no certifica conformidad WCAG.\nAuditoría integral y contenido definitivo corresponden a otras etapas.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",

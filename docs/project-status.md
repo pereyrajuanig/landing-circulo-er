@@ -47,3 +47,5 @@ El dossier original permanece local, fuera de Git y del build. Las versiones ant
 CI de etapa 01, código b8fba32: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100. ESLint inspeccionó 21 archivos sin errores ni advertencias; Prettier aprobado. Checklist v1.1: 22 páginas, 136 campos interactivos validados; siete tareas de base verificadas. PR #3 fusionado con autorización; main 4410368 y quality de main aprobado.
 
 Etapa 02: ver stage-02-design-ux.md y stage-02-evidence.json. Manual v1.4 y checklist v1.2 actualizados; etapa 01 cerrada en el registro. No se desplegó esta revisión.
+
+CI de etapa 02, código cb87892: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193. PR #4 revisable, siete tareas verificadas y zoom 200 % confirmado manualmente por el usuario. Integración y aprobación visual final pendientes.

@@ -34,7 +34,7 @@ DATE = '13 de octubre de 2026'
 SHA = PROGRESS.get('baselineCommit', 'aec7c2759948f893330e4afe36d224bba26f11b3')
 REPO = 'https://github.com/pereyrajuanig/landing-circulo-er'
 PR = REPO + '/pull/2'
-CI = PROGRESS.get('stages', {}).get('01', {}).get('ciRunUrl', REPO + '/actions/runs/38301508137')
+CI = PROGRESS.get('stages', {}).get('02', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('01', {}).get('ciRunUrl', REPO + '/actions/runs/38301508137')
 ESCUDO = ROOT / 'public/assets/escudo.png'
 OUT.parent.mkdir(parents=True, exist_ok=True)
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
@@ -234,7 +234,7 @@ y = box('Edición y evidencia', 'Las casillas y campos son editables en un lecto
 # 03 / Snapshot
 y = begin('estado_inicial', 'El punto de partida', 'Base y seguimiento al 13/10/2026. Separar lo verificado de las tareas que esperan autorización o integración.')
 y = table(['Área', 'Evidencia y estado'], [
-    ['Fuente auditada', 'Base main '+SHA[:7]+'. Código de etapa 01: '+PROGRESS.get('stages', {}).get('01', {}).get('codeCommit', SHA)[:7]+'. Registro en checklist-progress.json.'],
+    ['Fuente auditada', 'Base main '+SHA[:7]+'. Código verificado: '+(PROGRESS.get('stages', {}).get('02', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('01', {}).get('codeCommit', SHA))[:7]+'. Registro en checklist-progress.json.'],
     ['Migración', f'PR #2 fusionado con autorización el 13/10/2026. Base main: 5d87930; quality aprobado. <link href="{PR}" color="{NAVY}">Ver Pull Request</link>.'],
     ['Arquitectura', 'Astro 7.3.8, TypeScript estricto, Node 24; nueve componentes, un layout y cuatro colecciones JSON.'],
     ['Controles', f'Tipos, lint, formato, build y seis tests aprobados en CI. <link href="{CI}" color="{NAVY}">Ver ejecución</link>.'],
@@ -242,7 +242,7 @@ y = table(['Área', 'Evidencia y estado'], [
     ['Dependencias', 'npm audit reportó 0 vulnerabilidades conocidas el 13/10/2026. Es un dato puntual; no certifica toda la seguridad del sitio.'],
     ['Vercel', 'vercel.json preparado. Cuenta, proyecto, dominio y despliegue real pendientes.'],
     ['CMS', 'No instalado. Su incorporación depende de requisitos de edición acordados con la institución.'],
-    ['Documentación', 'Manual visual v1.4; registro de tareas en checklist-progress.json. Consultar stage-01-quality.md para evidencia actual.'],
+    ['Documentación', 'Manual visual v1.4; registro de tareas en checklist-progress.json. Consultar stage-02-design-ux.md para evidencia actual.'],
     ['Etapa 01', escape(PROGRESS.get('stages', {}).get('01', {}).get('summary', 'Pendiente de registro.'))],
     ['Etapa 02', escape(PROGRESS.get('stages', {}).get('02', {}).get('summary', 'Pendiente de registro.'))],
 ], [119, CW-119], y, 8.6)+21

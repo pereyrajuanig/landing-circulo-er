@@ -332,5 +332,12 @@
     "selected": 1,
     "stay": "Nogoyá",
     "width": 390
+  },
+  "codeCommit": "cb87892497455ebf8a54fa1f4cafce054c0d9210",
+  "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/4",
+  "ci": {
+    "status": "success",
+    "url": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193",
+    "commit": "cb87892497455ebf8a54fa1f4cafce054c0d9210"
   }
 }

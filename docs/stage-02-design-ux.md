@@ -41,7 +41,7 @@ Hover del botón principal observado en #E2C585. Foco de alojamiento seleccionad
 
 ## Controles y límites
 
-npm run validate aprobado: tipos sin diagnósticos, lint sin advertencias, formato correcto, build de una única página y seis pruebas aprobadas. El texto y las anclas originales permanecen iguales. CI se registra después de ejecutarse en el PR de esta etapa.
+npm run validate aprobado: tipos sin diagnósticos, lint sin advertencias, formato correcto, build de una única página y seis pruebas aprobadas. El texto y las anclas originales permanecen iguales. quality aprobado para código cb87892497455ebf8a54fa1f4cafce054c0d9210 en el [PR #4](https://github.com/pereyrajuanig/landing-circulo-er/pull/4): [ejecución de CI](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193). El commit documental final vuelve a pasar los controles. Main se integra después de la revisión y autorización del usuario.
 
 El navegador integrado no aplica el atajo de zoom ni ofrece esa capacidad; no hay Chrome/Edge conectado. Juan confirmó la prueba manual solicitada de zoom de navegador al 200 %: «Se lee y puedo usarla al 200 %», incluyendo lectura, menú, filtro y alojamientos. No precisó si usó Chrome o Edge. La tarea 02.07 queda verificada por su respuesta; se conserva la distinción entre revisión manual y pruebas automatizadas. No se declara conformidad WCAG ni aprobación visual final del usuario. Merge y publicación requieren sus autorizaciones.
 
