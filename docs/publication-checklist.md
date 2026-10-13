@@ -18,11 +18,13 @@ Esta lista no autoriza merge ni despliegue.
 - [ ] vercel.json y Node 24 comprobados en la configuración real.
 - [ ] Preview revisada antes de producción; dominio y metadatos finales configurados.
 - [ ] Despliegue anterior disponible para recuperación.
+- [ ] Inventario de cookies/logs y privacidad revisado por la institución.
 
 ## Después
 
 - [ ] Vercel confirma éxito; URL, recursos e interacciones comprobados.
 - [ ] Commit, dominio y fecha registrados.
+- [ ] Headers en portada/assets/404 comprobados; CSP Report-Only observada; HTTPS y certificado revisados antes de decidir HSTS.
 - [ ] Limitaciones y datos por validar informados.
 
 El Site histórico se conserva privado. No hay base de datos ni CMS en esta versión.

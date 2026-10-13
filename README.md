@@ -59,7 +59,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preview del build                                       | npm run preview      |
 | Medición de rendimiento local                           | npm run perf         |
 
-npm test construye y ejecuta diez pruebas Node más dieciséis casos Chromium. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta once pruebas Node y veinte Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
@@ -107,9 +107,13 @@ main recibe cambios mediante PR con quality aprobado. No se exige otra persona p
 - [Etapa 04: cobertura y evidencia](docs/stage-04-testing.md)
 - [SEO y dominio pendiente](docs/seo.md)
 - [Etapa 06: rendimiento medido](docs/stage-06-performance.md)
+- [Seguridad y privacidad preparada](docs/security-privacy.md)
+- [Inventario para decisión institucional](docs/privacy-review.md)
 - [Estado y validaciones](docs/project-status.md)
 - [Regenerar el manual](tools/docs/README.md)
 
 Quedan pendientes fotos reales, autoridades, horarios, contactos de filiales y condiciones de prestaciones, con validación institucional. Las referencias del dossier tienen corte del 8/10/2026. Etapa 03: teclado, foco, contraste y reflujo revisados; prueba real con lector de pantalla pendiente por decisión del usuario. Zoom al 200 % confirmado manualmente en etapa 02. No se declara conformidad WCAG.
 
 Las versiones anteriores del manual se conservan en docs/archive/. El vigente es docs/design-system.pdf.
+
+Seguridad: headers y CSP Report-Only preparados para Vercel, probados localmente. npm run test:csp verifica el modo exigido local; npm run security:update actualiza el hash después de cambios revisados. No acredita headers/HTTPS del hosting real. Ver docs/security-privacy.md.

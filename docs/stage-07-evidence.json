@@ -1,0 +1,340 @@
+{
+  "date": "2026-10-13",
+  "baselineCommit": "b263601931e05da994f6615dbd840e7cdd71e389",
+  "codeCommit": "1e9938c6723ff57103b4b6ea509b0a2041d698d1",
+  "audit": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 1,
+      "dev": 452,
+      "optional": 87,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 452
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Content-Security-Policy-Report-Only",
+          "value": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'"
+        }
+      ]
+    }
+  ],
+  "scope": "Local y código versionado; sin despliegue, dominio ni comprobación de hosting real.",
+  "checks": {
+    "reportOnly": {
+      "stats": {
+        "startTime": "2026-10-13T23:11:17.294Z",
+        "duration": 24335.109,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "CSP permite la aplicación y detecta o bloquea un script inline no autorizado",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "CSP permite la aplicación y detecta o bloquea un script inline no autorizado",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "salto de teclado y CTA llevan al contenido y a contacto",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "menú y navegación conservan estado, destino y retorno de foco",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "seis alojamientos cambian selección única, contenido y asunto del correo",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "servicios nativos abren con teclado y permiten varias categorías",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "cambios de tamaño y menú bajo mantienen foco utilizable sin desborde",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "404 ofrece un regreso por teclado sin desborde",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "recursos locales y consultas no crean almacenamiento de aplicación",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "salto de teclado y CTA llevan al contenido y a contacto",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "menú y navegación conservan estado, destino y retorno de foco",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "seis alojamientos cambian selección única, contenido y asunto del correo",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "servicios nativos abren con teclado y permiten varias categorías",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "cambios de tamaño y menú bajo mantienen foco utilizable sin desborde",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "404 ofrece un regreso por teclado sin desborde",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "recursos locales y consultas no crean almacenamiento de aplicación",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        }
+      ]
+    },
+    "enforced": {
+      "stats": {
+        "startTime": "2026-10-13T23:11:44.573Z",
+        "duration": 23227.835000000003,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "CSP permite la aplicación y detecta o bloquea un script inline no autorizado",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "CSP permite la aplicación y detecta o bloquea un script inline no autorizado",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "salto de teclado y CTA llevan al contenido y a contacto",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "menú y navegación conservan estado, destino y retorno de foco",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "seis alojamientos cambian selección única, contenido y asunto del correo",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "servicios nativos abren con teclado y permiten varias categorías",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "cambios de tamaño y menú bajo mantienen foco utilizable sin desborde",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "404 ofrece un regreso por teclado sin desborde",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "recursos locales y consultas no crean almacenamiento de aplicación",
+          "project": "chromium-desktop",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "salto de teclado y CTA llevan al contenido y a contacto",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "menú y navegación conservan estado, destino y retorno de foco",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "seis alojamientos cambian selección única, contenido y asunto del correo",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "servicios nativos abren con teclado y permiten varias categorías",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "cambios de tamaño y menú bajo mantienen foco utilizable sin desborde",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "404 ofrece un regreso por teclado sin desborde",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        },
+        {
+          "title": "recursos locales y consultas no crean almacenamiento de aplicación",
+          "project": "chromium-mobile",
+          "status": "expected",
+          "results": ["passed"]
+        }
+      ]
+    }
+  },
+  "privacy": {
+    "loadedResources": "mismo origen",
+    "thirdPartyNavigation": [
+      "mailto al correo de la institución",
+      "Google Maps, enlace externo con noopener noreferrer"
+    ],
+    "cookies": 0,
+    "localStorageKeys": 0,
+    "sessionStorageKeys": 0,
+    "indexedDBDatabases": 0,
+    "serviceWorkers": 0,
+    "analytics": "no incorporada en la landing",
+    "scope": "Contextos de navegador nuevos, tras filtro y cambio de alojamiento; no caracteriza cookies/logs de hosting futuro."
+  },
+  "limitations": [
+    "Astro preview 7.3.8 no aplica server.headers a su respuesta 404; comprobar 404 en hosting real.",
+    "CSP Vercel Report-Only, sin endpoint de recepción. Observación local por DOM/consola; sin telemetría automática.",
+    "CSP exigida solo en servidor de pruebas; no activada en Vercel.",
+    "Detección de secretos limitada a patrones reconocibles en texto rastreado; no historial ni binarios.",
+    "HTTPS, redirecciones, certificado, HSTS y aviso institucional pendientes."
+  ],
+  "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
+  "buildGitIndependence": "Control de build probado con PATH vacío en proceso hijo; revisión Git separada y obligatoria en validate/CI."
+}
