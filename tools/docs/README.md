@@ -37,3 +37,5 @@ El generador usa los mismos requisitos y fuentes del manual. Verifica las 22 pá
 Al cerrar un lote, registrar comando, resultado, fecha, responsable y evidencia. Mantener separado el cierre técnico de la autorización de merge o despliegue. Renderizar y revisar las páginas afectadas.
 
 La tarjeta social se regenera con build_social_card.py y Pillow usando los recursos locales.
+
+La versión 1.8 registra escudo optimizado, fuentes locales y rendimiento; checklist v1.6 con evidencia de etapa06. Fuentes WOFF2: tools/performance/build_fonts.py con dependencias opcionales separadas.

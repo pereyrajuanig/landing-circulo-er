@@ -10,7 +10,7 @@ Astro 7.3.8 genera HTML estático. TypeScript usa la configuración strict. Node
 
 src/pages/index.astro carga las cuatro colecciones y ordena servicios, filiales y alojamientos por order. BaseLayout.astro define idioma, metadatos, favicon y estilos globales. Header, Hero, Institution, Services, Branches, Accommodation, Community, Contact y Footer conservan la estructura anterior.
 
-src/styles/styles.css se importa antes de src/styles/warmth.css. La revisión cálida sobrescribe la base; comprobar ambas hojas y media queries al modificar estilos. Vite reúne los estilos en un recurso generado. El escudo se sirve desde public/assets/escudo.png, compartido por cabecera, inicio, pie y favicon.
+src/styles/styles.css se importa antes de src/styles/warmth.css. La revisión cálida sobrescribe la base; comprobar ambas hojas y media queries al modificar estilos. Vite reúne los estilos en un recurso generado. El PNG original está en public/assets/escudo.png. Astro genera WebP por tamaño para cabecera, inicio y pie, y un favicon PNG reducido. Las fuentes WOFF2 se sirven desde public/assets/fonts/.
 
 ## Contenido
 

@@ -29,7 +29,7 @@ Tres tests adicionales comprueban configuración SEO, rastreo y 404. Playwright 
 
 Cada caso parte de un contexto aislado. Usa locators por rol/etiqueta o estructura HTML nativa; expect espera estados observables. No hay pausas fijas, retries ni selección automática de nuevos snapshots para ocultar una regresión. Antes de encadenar saltos por teclado se espera la posición del primer destino, no solamente su foco.
 
-Se bloquean recursos externos en e2e: las fuentes remotas no condicionan el resultado y se usan los fallbacks. Correo y Maps se verifican como destinos; las pruebas no activan esos enlaces externos. Errores de JavaScript o fallos de recursos locales hacen fallar el caso. Los datos son los institucionales existentes, sin credenciales ni cuentas autenticadas.
+Se bloquean recursos externos en e2e: las dos fuentes locales se cargan y verifican antes de cada flujo. Correo y Maps se verifican como destinos; las pruebas no activan esos enlaces externos. Errores de JavaScript o fallos de recursos locales hacen fallar el caso. Los datos son los institucionales existentes, sin credenciales ni cuentas autenticadas.
 
 ## Diagnosticar un fallo
 
@@ -47,3 +47,5 @@ Se comprobó ese circuito con un fallo real: [ejecución 38454238089](https://gi
 ## Límites
 
 Estas pruebas cubren Chromium en Windows y Ubuntu, con emulación móvil; no equivalen a dispositivos físicos, Safari/Firefox, snapshots visuales, mediciones de rendimiento ni auditoría WCAG. El lector real de la tarea 03.06 sigue pendiente por decisión del usuario. Un texto editorial nuevo exige revisión del contrato; npm run test:update se utiliza solo después de aceptar ese cambio, no para hacer pasar una prueba fallida sin investigar.
+
+Medición de laboratorio: npm run perf; detalles y límites en [etapa06](stage-06-performance.md). No se impone un umbral temporal inestable en CI.

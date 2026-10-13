@@ -37,7 +37,7 @@ npm run dev
 
 Abrí http://127.0.0.1:4173/. Astro recarga los cambios durante el desarrollo. Si el puerto está ocupado: npm run dev -- --port 4174. La extensión recomendada de VS Code es Astro.
 
-Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO de producción requiere SITE_URL y SEO_INDEXABLE=true cuando se confirme el dominio; previews mantienen noindex. Ver [SEO](docs/seo.md). Las fuentes se cargan desde Google Fonts con fallback local.
+Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO de producción requiere SITE_URL y SEO_INDEXABLE=true cuando se confirme el dominio; previews mantienen noindex. Ver [SEO](docs/seo.md). Las dos fuentes se cargan como WOFF2 locales con preload, swap y fallback.
 
 ## Comandos
 
@@ -105,6 +105,7 @@ main recibe cambios mediante PR con quality aprobado. No se exige otra persona p
 - [Pruebas y diagnóstico de fallos](docs/testing.md)
 - [Etapa 04: cobertura y evidencia](docs/stage-04-testing.md)
 - [SEO y dominio pendiente](docs/seo.md)
+- [Etapa 06: rendimiento medido](docs/stage-06-performance.md)
 - [Estado y validaciones](docs/project-status.md)
 - [Regenerar el manual](tools/docs/README.md)
 
