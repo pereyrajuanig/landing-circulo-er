@@ -27,3 +27,7 @@ Se evaluó Organization. No se agrega JSON-LD todavía: nombre, domicilio y corr
 ## Referencias
 
 [Astro site](https://docs.astro.build/en/reference/configuration-reference/#site), [Google noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing), [Google Organization](https://developers.google.com/search/docs/appearance/structured-data/organization). Consultadas el 13/10/2026.
+
+## Evidencia técnica
+
+Código a154e70, [PR #7](https://github.com/pereyrajuanig/landing-circulo-er/pull/7), [quality aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38464271027). Astro check: 26 archivos sin diagnósticos; lint y formato correctos. Diez pruebas Node y dieciséis Chromium aprobadas localmente y en Ubuntu CI. CI también valida builds de producción y preview con example.invalid. Capturas 404: docs/media/etapa05-404-desktop.png y etapa05-404-mobile.png; fuentes de respaldo en e2e. No prueba indexación real ni lectores de pantalla.

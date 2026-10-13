@@ -34,7 +34,7 @@ DATE = '13 de octubre de 2026'
 SHA = PROGRESS.get('baselineCommit', 'aec7c2759948f893330e4afe36d224bba26f11b3')
 REPO = 'https://github.com/pereyrajuanig/landing-circulo-er'
 PR = REPO + '/pull/2'
-CI = PROGRESS.get('stages', {}).get('04', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('03', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('02', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('01', {}).get('ciRunUrl', REPO + '/actions/runs/38301508137')
+CI = PROGRESS.get('stages', {}).get('05', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('04', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('03', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('02', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('01', {}).get('ciRunUrl', REPO + '/actions/runs/38301508137')
 ESCUDO = ROOT / 'public/assets/escudo.png'
 OUT.parent.mkdir(parents=True, exist_ok=True)
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
@@ -234,7 +234,7 @@ y = box('Edición y evidencia', 'Las casillas y campos son editables en un lecto
 # 03 / Snapshot
 y = begin('estado_inicial', 'El punto de partida', 'Base y seguimiento al 13/10/2026. Separar lo verificado de las tareas que esperan autorización o integración.')
 y = table(['Área', 'Evidencia y estado'], [
-    ['Fuente auditada', 'Base main '+SHA[:7]+'. Código verificado: '+(PROGRESS.get('stages', {}).get('04', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('03', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('02', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('01', {}).get('codeCommit', SHA))[:7]+'. Registro en checklist-progress.json.'],
+    ['Fuente auditada', 'Base main '+SHA[:7]+'. Código verificado: '+(PROGRESS.get('stages', {}).get('05', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('04', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('03', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('02', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('01', {}).get('codeCommit', SHA))[:7]+'. Registro en checklist-progress.json.'],
     ['Migración', f'PR #2 fusionado con autorización el 13/10/2026. Base main: 5d87930; quality aprobado. <link href="{PR}" color="{NAVY}">Ver Pull Request</link>.'],
     ['Arquitectura', 'Astro 7.3.8, TypeScript estricto, Node 24; nueve componentes, un layout y cuatro colecciones JSON.'],
     ['Controles', f'Tipos, lint, formato, build, 10 tests Node y 16 casos Chromium aprobados en CI. <link href="{CI}" color="{NAVY}">Ver ejecución</link>.'],

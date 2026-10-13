@@ -44,7 +44,10 @@
     "05": {
       "status": "in_progress_pending_domain",
       "branch": "codex/etapa-05-seo",
-      "summary": "Dominio diferido por el usuario. SEO preparado; 404 y evaluación de datos estructurados verificadas; cierre público pendiente."
+      "summary": "Dominio diferido por el usuario. SEO preparado; 404 y evaluación de datos estructurados verificadas; cierre público pendiente.",
+      "codeCommit": "a154e708aec4412c62a199c60a4552a329150484",
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38464271027",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/7"
     }
   },
   "tasks": {
@@ -271,10 +274,10 @@
     "trace_status": "2 verificadas; dominio pendiente",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 9938f6d / rama etapa-05-seo",
+    "trace_commit": "Base 9938f6d / código a154e70 / PR #7",
     "trace_method": "Build: producción de prueba y preview sin dominio.\n10 pruebas Node + 16 Chromium; 404 y teclado.\nDominio reservado example.invalid solo para tests.",
-    "trace_result": "SEO preparado; dominio e indexación real pendientes.\n404 útil y evaluación de Organization verificadas.\nGuía y límites: docs/seo.md.",
-    "trace_limits": "Dominio, datos institucionales y despliegue sin confirmar.\nLector real 03.06 pendiente. PR y merge pendientes.\nSin Search Console ni garantía de indexación.",
+    "trace_result": "26 pruebas aprobadas; tipos, lint y formato correctos.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38464271027\nSEO preparado; cierre público pendiente. Guía: docs/seo.md.",
+    "trace_limits": "Dominio, datos institucionales y despliegue sin confirmar.\nLector real 03.06 pendiente. PR #7 revisable; merge pendiente.\nSin Search Console ni garantía de indexación.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
