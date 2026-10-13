@@ -1,34 +1,31 @@
 # Estado del proyecto
 
-Fecha: 13 de octubre de 2026.
+Fecha: 13 de octubre de 2026. Proyecto canónico: Desktop/Landing-CirculoER. Repositorio de portfolio: pereyrajuanig/landing-circulo-er.
 
-## Fuente e integración
+## Integraciones y lote vigente
 
-Proyecto canónico: Desktop/Landing-CirculoER. Repositorio público de portfolio: pereyrajuanig/landing-circulo-er.
-
-Astro 7.3.8, TypeScript 6.0.3 estricto, Node 24, npm y salida estática; nueve componentes, un layout y cuatro colecciones JSON. CSS propio, marfil, azul, dorado y escudo preservados. Sin CMS instalado ni base de datos.
-
-- PR #2 migración integrado con autorización: 5d87930.
+- PR #2 Astro integrado con autorización: 5d87930.
 - PR #3 etapa 01 integrado con autorización: 4410368.
-- PR #4 etapa 02 integrado con autorización: 20181ac3a8869de1ef0b9a5cd0a77f08fc8aa878. [Quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38445597091) aprobado. Siete tareas verificadas; zoom 200 % confirmado manualmente por Juan.
-- Etapa 03 en codex/etapa-03-accesibilidad: seis tareas verificadas, 03.06 pendiente por decisión del usuario; [PR #5](https://github.com/pereyrajuanig/landing-circulo-er/pull/5) abierto; merge técnico pendiente. La etapa completa sigue abierta.
+- PR #4 etapa 02 integrado con autorización: 20181ac; siete tareas verificadas y zoom 200 % confirmado manualmente por el usuario.
+- PR #5 integrado con autorización: 480eaef8f44797fed5e62def3d56fc9de769e320; [quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38452363417) aprobado. Etapa 03 con seis tareas verificadas; lector real 03.06 pendiente por decisión del usuario.
+- Etapa 04 en codex/etapa-04-pruebas-flujos: siete tareas verificadas, código 976292f4c27d27f64319ee6549abf1b9d66cc1db, [quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742) aprobado; [PR #6](https://github.com/pereyrajuanig/landing-circulo-er/pull/6) abierto; merge pendiente.
 
-## Verificación vigente
+## Validación vigente
 
-Código c790ccae0fc2eadbfc1403e60d9978a48e92b08d: tipos (22 archivos) sin diagnósticos, ESLint sin advertencias, Prettier correcto, build estático y siete tests aprobados. [Quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38449679551). La nueva prueba revisa el contrato accesible del HTML construido; las seis anteriores preservan texto, datos, filtro, correo, recursos y privacidad del build.
+Astro 7.3.8, TypeScript estricto, Node 24, npm y salida estática. Nueve componentes, un layout y cuatro colecciones; CSS, escudo y contenido conservados. Playwright 1.64.0 es dependencia de desarrollo.
 
-Teclado en escritorio y móvil, foco visible y retorno del menú; reflujo 320 px y menú bajo; contraste de estados CSS y cota del gradiente. [Reporte de etapa 03](stage-03-accessibility.md) y [registro](checklist-progress.json). Atributos ARIA inspeccionados; lector real y anuncios de voz no probados. No certifica WCAG.
+Tipos: 24 archivos sin diagnósticos. Lint sin advertencias; formato correcto; build estático; siete pruebas Node más catorce casos Chromium aprobados en Windows y Ubuntu. [Guía de pruebas](testing.md), [etapa 04](stage-04-testing.md) y [registro](checklist-progress.json). Se corrigió la pérdida de foco al ocultar Menú; fallos reales produjeron captura y traza, y se verificó la carga del artefacto de CI.
 
-Manual v1.5 y checklist v1.3: 22 páginas cada uno, formularios editables y versiones anteriores archivadas. Mantener separado el resultado técnico de la autorización de integración o publicación.
+Manual v1.6 y checklist v1.4: 22 páginas cada uno; campos editables conservados y versiones previas archivadas. No se declara auditoría WCAG completa: lector real pendiente, Chromium emulado y fuentes de respaldo en e2e. Revisión adicional visual en navegador integrado.
 
-## Pendientes de producto y publicación
+## Pendientes de producto
 
-Lector de pantalla diferido; aceptación visual final; fotos reales, autoridades, horarios, contactos de filiales y condiciones de servicios con validación institucional. Carga sin fuentes externas y matriz integral de navegadores aún pendientes. No se considera esta revisión una auditoría WCAG completa.
+Aceptación visual final; lector de pantalla diferido; fotos reales, autoridades, horarios, contactos de filiales y condiciones de prestaciones confirmados por la institución. Matriz integral de navegadores, rendimiento y SEO corresponden a las siguientes etapas. Sin CMS ni base de datos.
 
-Vercel tiene vercel.json preparado, sin conexión de cuenta/proyecto, dominio ni despliegue real. Sites conserva la publicación histórica privada y su ID. GitHub Actions solo comprueba. Toda publicación y merge requiere autorización.
+Vercel preparado con vercel.json, sin cuenta/proyecto conectado, dominio ni despliegue real. Sites conserva su publicación histórica privada y su ID. GitHub Actions comprueba; merge y publicación requieren autorización.
 
 ## Configuración e historial
 
-Main exige PR y quality, base actualizada, historial lineal, conversaciones resueltas y controles también para administradores; sin force push ni borrado. No se exige otra aprobación humana en este proyecto individual. Solo squash habilitado.
+Main exige PR y quality, base actualizada, historial lineal, conversaciones resueltas y controles para administradores; sin force push ni borrado. Proyecto individual, sin otra aprobación humana exigida; squash habilitado.
 
-Origen visual Sites: 648e72f7daca19a45c00ae5fc82427d385cce449. Preparación de portfolio: 9a37660. El dossier original permanece local, fuera de Git y del build. Documentos y código internos no se sirven como contenido público de la landing.
+Origen visual Sites: 648e72f7daca19a45c00ae5fc82427d385cce449. Dossier original local, fuera de Git y del build. Pruebas, reportes, documentos y archivos de desarrollo no se sirven como contenido público de la landing.

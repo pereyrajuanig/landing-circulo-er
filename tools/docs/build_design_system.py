@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación de la landing | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.5. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
+c.setSubject('Versión 1.6. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.5 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.6 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación de<br/>la landing page',M,510,CW,39,43,PAPER,'Caslon',False
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.5',M,770,10,'DM',PAPER)
+text('Versión 1.6',M,770,10,'DM',PAPER)
 right('13 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -273,7 +273,7 @@ text('POLICÍA DE ENTRE RÍOS',M+54,y+48,6,'DM',MUTED)
 text('Institución   Servicios   Filiales',M+251,y+32,7); rect(M+424,y+20,65,32,CREAM,'#c9b48b',.8); text('Contacto',M+436,y+32,7)
 y+=95
 y=block('Cabecera de escritorio','Franja superior con origen e identificación de la sede. Header sticky en top: 0, z-index: 20 y fondo claro casi opaco. Altura mínima: 100 px. Navegación por anclas y contacto enmarcado.',y)
-y=block('Menú móvil','A partir de 800 px, el header mide al menos 83 px. El botón "Menú" controla #navigation mediante aria-expanded y aria-controls. Las opciones se despliegan bajo el header. Al elegir una sección se cierra y enfoca su título después de navegar. Escape cierra y vuelve al botón; Tab fuera de la cabecera cierra. Cambiar el ancho mantiene un control de foco visible. En pantallas bajas tiene scroll interno.',y)
+y=block('Menú móvil','A partir de 800 px, el header mide al menos 83 px. El botón "Menú" controla #navigation mediante aria-expanded y aria-controls. Las opciones se despliegan bajo el header. Al elegir una sección se cierra y enfoca su título después de navegar. Escape cierra y vuelve al botón; Tab fuera de la cabecera cierra. Al cambiar el ancho, el foco pasa al control visible: Menú o el primer enlace de escritorio. En pantallas bajas tiene scroll interno.',y)
 y=block('Pie de página','Fondo azul profundo, escudo, nombre institucional, frase de cierre y enlace de regreso al inicio. El año se actualiza con JavaScript. Detalle de marca 10px; pie auxiliar 12px. En pantallas pequeñas los elementos se redistribuyen y se oculta la frase lateral.',y)
 note('VERIFICACIÓN RECOMENDADA','Probar la cabecera con nombres completos, zoom de 200%, navegación por teclado y rotación del dispositivo. El menú actual no implementa cierre por clic fuera ni bloqueo de scroll; no documentar esas funciones como disponibles.',y)
 
@@ -393,10 +393,10 @@ y=table(['Archivo','Responsabilidad'],[
  ['styles.css / warmth.css','Base institucional y revisión cálida: tokens, composición, estados y breakpoints.'],
  ['content/ + landing.ts','Colecciones JSON validadas; menú, búsqueda y selector.'],
  ['public/assets/','Escudo compartido por cabecera, inicio, pie y favicon.'],
- ['scripts/ y tests/','Control de dist, regresión de texto y anclas, helpers y preview HTTP.']
+ ['scripts/ y tests/','Control de dist, siete tests Node y catorce casos Chromium de flujos.']
 ],[128,CW-128],y,8.6)+22
 y=block('Dependencias y datos','Astro genera dist/. Las fuentes usan Google Fonts; correo y Maps son enlaces. No hay CMS ni base de datos. Las cuatro colecciones locales separan contenido de interfaz; el panel editorial requiere una fase posterior.',y)
-note('DESPLIEGUE PREPARADO','Vercel está configurado en vercel.json, sin conectar cuenta ni desplegar. quality comprueba tipos, ESLint, formato, build y tests. Sites conserva la vista histórica privada. El estado efectivo se registra en docs/project-status.md.',y)
+note('DESPLIEGUE PREPARADO','Vercel está configurado en vercel.json, sin conectar cuenta ni desplegar. quality comprueba tipos, lint, formato, build y 21 pruebas; guarda captura y traza si falla. Playwright es solo de desarrollo. Sites conserva la vista histórica privada. El estado efectivo se registra en docs/project-status.md.',y)
 
 # 20. Maintenance
 y=begin('operacion_19','Mantenimiento y cambios','Un sistema útil debe indicar qué actualizar, dónde hacerlo y cómo comprobarlo.')
@@ -408,19 +408,19 @@ y=table(['Necesidad','Archivo / lugar','Verificación'],[
  ['Cambiar el escudo','public/assets/escudo.png','Proporción, nitidez, blend modes y favicon.'],
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
-y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Ejecutar npm run validate (tipos, lint, formato, build y tests); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.5. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Preparar Chromium con npm run test:install; cerrar preview de revisión. Ejecutar npm run validate (21 pruebas); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.6. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
 y=table(['Verificado en la propuesta inicial','Alcance de la comprobación'],[
  ['HTML y JavaScript','Referencia de la primera versión: anclas, imágenes, IDs y JS válidos. Astro se valida con check, build y tests; ver project-status.md.'],
- ['Interacciones','Menú móvil; filtro sin tildes; selección de alojamientos; apertura de servicios.'],
+ ['Interacciones','Etapa 04: 14 casos Chromium; menú, foco, filiales, seis alojamientos, servicios, enlaces y 404. Siete tests Node preservados.'],
  ['Adaptación','Siete viewports CSS efectivos, de 360 a 1920px, y reflujo a 320px. Sin desborde; zoom 200% confirmado manualmente por el usuario.'],
  ['Publicación','Sites confirmó despliegue privado exitoso de la primera versión.']
 ],[207,CW-207],y,8.6)+21
 y=block('Antes del lanzamiento institucional','Confirmar contacto y horarios; contactos de filiales; autoridades; cobertura y condiciones de servicios; reserva de alojamientos; reglamentos de espacios. Incorporar fotos reales y revisar la nomenclatura institucional. [D, p. 9]',y)
-y=block('Accesibilidad y calidad por completar','Etapa 03: teclado, foco, reflujo y contrastes revisados; lector real diferido por el usuario. Carga sin fuentes externas y auditoría integral pendientes. Zoom al 200% confirmado manualmente por el usuario. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
+y=block('Accesibilidad y calidad por completar','Etapa 03: teclado, foco, reflujo y contrastes revisados; lector real diferido por el usuario. Flujos con fuentes de respaldo probados en etapa 04; revisión visual integral y lector real pendientes. Zoom al 200% confirmado manualmente por el usuario. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
 note('PRIORIDAD DE MEJORA','El sitio ya incorpora skip-link, idioma es-AR, alt en imágenes informativas, estados ARIA y movimiento reducido. Los textos auxiliares se ampliaron en la etapa 02. El usuario confirmó zoom al 200%. Colores funcionales revisados en etapa 03; falta la prueba de lector de pantalla. No se realizó una auditoría completa con lector de pantalla ni una certificación WCAG.',y)
 
 # 22. Sources

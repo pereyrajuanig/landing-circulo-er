@@ -15,3 +15,7 @@ tools/docs/fonts/
 package-lock.json
 *.pdf
 *.py
+
+# Evidencia temporal de Playwright
+playwright-report/
+test-results/
