@@ -26,7 +26,8 @@
       "branch": "codex/etapa-03-accesibilidad",
       "codeCommit": "c790ccae0fc2eadbfc1403e60d9978a48e92b08d",
       "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38449679551",
-      "summary": "6 tareas verificadas. Lector real (03.06) pendiente por decisión del usuario. Cambios técnicos en rama; merge pendiente."
+      "summary": "6 tareas verificadas. PR #5 revisable; merge pendiente. Lector real (03.06) pendiente por decisión del usuario.",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/5"
     }
   },
   "tasks": {
@@ -180,7 +181,7 @@
     "trace_status": "6 verificadas; lector real pendiente",
     "trace_owner": "Desarrollo / usuario",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 20181ac / código c790cca / etapa 03",
+    "trace_commit": "Base 20181ac / código c790cca / PR #5",
     "trace_method": "Teclado en 1440 y 390 px; reflujo 320 y menú bajo 640x360.\nContrastes CSS efectivos, hover y cota del gradiente; preview estática.\nnpm run validate: tipos, lint, formato, build y 7 pruebas.",
     "trace_result": "6 tareas verificadas. Código c790cca; quality aprobado.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38449679551\nEvidencia: stage-03-accessibility.md y stage-03-evidence.json.",
     "trace_limits": "03.06 pendiente por decisión del usuario; voz y anuncios reales sin probar.\nNo certifica WCAG. Merge y despliegue requieren autorización.\nAceptación visual final e información institucional definitiva pendientes.",

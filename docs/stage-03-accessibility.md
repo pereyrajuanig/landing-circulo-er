@@ -2,7 +2,7 @@
 
 Fecha: 13 de octubre de 2026. Rama: codex/etapa-03-accesibilidad. Base: 20181ac3a8869de1ef0b9a5cd0a77f08fc8aa878. Código: c790ccae0fc2eadbfc1403e60d9978a48e92b08d.
 
-Seis de siete tareas verificadas. **03.06 continúa pendiente**: Juan respondió «Prefiero dejar esa prueba pendiente» para la revisión real con lector de pantalla. El trabajo técnico se presenta en PR; la etapa completa no se considera cerrada.
+Seis de siete tareas verificadas. **03.06 continúa pendiente**: Juan respondió «Prefiero dejar esa prueba pendiente» para la revisión real con lector de pantalla. El trabajo técnico se presenta en [PR #5](https://github.com/pereyrajuanig/landing-circulo-er/pull/5); la etapa completa no se considera cerrada.
 
 ## Cambios y motivo
 

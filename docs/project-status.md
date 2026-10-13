@@ -11,7 +11,7 @@ Astro 7.3.8, TypeScript 6.0.3 estricto, Node 24, npm y salida estática; nueve c
 - PR #2 migración integrado con autorización: 5d87930.
 - PR #3 etapa 01 integrado con autorización: 4410368.
 - PR #4 etapa 02 integrado con autorización: 20181ac3a8869de1ef0b9a5cd0a77f08fc8aa878. [Quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38445597091) aprobado. Siete tareas verificadas; zoom 200 % confirmado manualmente por Juan.
-- Etapa 03 en codex/etapa-03-accesibilidad: seis tareas verificadas, 03.06 pendiente por decisión del usuario; PR/merge técnico pendiente. La etapa completa sigue abierta.
+- Etapa 03 en codex/etapa-03-accesibilidad: seis tareas verificadas, 03.06 pendiente por decisión del usuario; [PR #5](https://github.com/pereyrajuanig/landing-circulo-er/pull/5) abierto; merge técnico pendiente. La etapa completa sigue abierta.
 
 ## Verificación vigente
 
