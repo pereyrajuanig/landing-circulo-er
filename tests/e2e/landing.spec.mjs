@@ -37,6 +37,19 @@ test('salto de teclado y CTA llevan al contenido y a contacto', async ({ page })
   await expect(page.getByRole('link', { name: 'Ir al contenido', exact: true })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('main')).toBeFocused();
+  // Esperar el destino de la primera ancla antes de iniciar otra navegación.
+  await expect
+    .poll(() =>
+      page
+        .getByRole('main')
+        .evaluate((element) =>
+          Math.abs(
+            element.getBoundingClientRect().top -
+              parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop),
+          ),
+        ),
+    )
+    .toBeLessThan(2);
   await page.keyboard.press('Tab');
   const cta = page.getByRole('link', { name: 'Hablemos', exact: true });
   await expect(cta).toBeFocused();
