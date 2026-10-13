@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import crest from '../../public/assets/escudo.png';
 import type { CollectionEntry } from 'astro:content';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
@@ -9,7 +11,17 @@ const { institution } = Astro.props;
 <footer>
   <div class="wrap footer-top">
     <a class="brand footer-brand" href="#inicio">
-      <img src="/assets/escudo.png" alt="" width="50" height="60" />
+      <Image
+        src={crest}
+        format="webp"
+        quality={100}
+        alt=""
+        width={50}
+        widths={[50, 100]}
+        sizes="50px"
+        loading="lazy"
+        height="60"
+      />
       <span>
         Círculo de Retirados y Pensionados<small>DE LA POLICÍA DE ENTRE RÍOS</small>
       </span>

@@ -30,6 +30,17 @@ const test = base.extend({
 test.beforeEach(async ({ page }) => {
   const response = await page.goto('/');
   expect(response.status()).toBe(200);
+  await page.evaluate(() => document.fonts.ready);
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        [...document.fonts]
+          .filter((font) => font.status === 'loaded')
+          .map((font) => font.family)
+          .sort(),
+      ),
+    )
+    .toEqual(['DM Sans', 'Libre Caslon Display']);
 });
 
 test('salto de teclado y CTA llevan al contenido y a contacto', async ({ page }) => {

@@ -131,7 +131,11 @@ test('Astro preview sirve HTML, CSS, JavaScript y escudo con sus MIME correctos'
       ? /text\/css/
       : path.endsWith('.js')
         ? /(?:text|application)\/javascript/
-        : /image\/png/;
+        : path.endsWith('.woff2')
+          ? /font\/woff2/
+          : path.endsWith('.webp')
+            ? /image\/webp/
+            : /image\/png/;
     assert.match(asset.headers.get('content-type'), type, path);
     assert((await asset.arrayBuffer()).byteLength > 0, path);
   }
