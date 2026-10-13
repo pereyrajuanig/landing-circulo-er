@@ -1,0 +1,56 @@
+[
+  {
+    "id": "salud",
+    "order": 0,
+    "name": "Salud y bienestar",
+    "caption": "Cuidarnos en cada etapa",
+    "description": "Consultorios, enfermería y orientación para acompañar las necesidades de salud de nuestros integrantes. Consultá las especialidades, los turnos y los beneficios disponibles.",
+    "action": "Consultar atención",
+    "target": "email",
+    "subject": "Consulta sobre salud y bienestar",
+    "initiallyOpen": true
+  },
+  {
+    "id": "tramites",
+    "order": 1,
+    "name": "Trámites y asesoramiento",
+    "caption": "Orientación y representación",
+    "description": "Acompañamiento en gestiones previsionales, recepción de documentación, consultas y asesoramiento legal. Un punto de referencia para encontrar orientación.",
+    "action": "Consultar un trámite",
+    "target": "email",
+    "subject": "Consulta sobre trámites",
+    "initiallyOpen": false
+  },
+  {
+    "id": "farmacia",
+    "order": 2,
+    "name": "Farmacia y beneficios",
+    "caption": "Apoyo para la vida cotidiana",
+    "description": "Farmacia Social y herramientas de acceso a compras y beneficios. Comunicate con el Círculo para conocer los convenios y las condiciones vigentes.",
+    "action": "Consultar beneficios",
+    "target": "email",
+    "subject": "Consulta sobre farmacia y beneficios",
+    "initiallyOpen": false
+  },
+  {
+    "id": "turismo",
+    "order": 3,
+    "name": "Turismo y alojamiento",
+    "caption": "Descanso y nuevos encuentros",
+    "description": "Alojamientos institucionales y turismo social para integrantes y familias. Las reservas se coordinan con la sede central o la filial correspondiente, según disponibilidad.",
+    "action": "Explorar alojamientos",
+    "target": "alojamiento",
+    "initiallyOpen": false
+  },
+  {
+    "id": "recreacion",
+    "order": 4,
+    "name": "Recreación y comunidad",
+    "caption": "Tiempo para compartir",
+    "description": "Camping, salones y espacios de encuentro en Paraná. Actividades sociales, culturales y recreativas que fortalecen los vínculos de nuestra comunidad.",
+    "action": "Consultar espacios y actividades",
+    "target": "email",
+    "subject": "Consulta sobre recreación",
+    "initiallyOpen": false
+  }
+]

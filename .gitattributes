@@ -11,3 +11,6 @@
 *.png binary
 *.jpg binary
 *.ttf binary
+*.astro text eol=lf
+*.ts text eol=lf
+.gitignore text eol=lf

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "parana",
+    "order": 0,
+    "name": "Paraná",
+    "description": "La sede central cuenta con habitaciones y espacios comunes para el hospedaje de integrantes y familiares. Una base de encuentro en la capital entrerriana."
+  },
+  {
+    "id": "maria-grande",
+    "order": 1,
+    "name": "María Grande",
+    "description": "El Círculo publica una opción de alojamiento en María Grande. Consultá con la institución el contacto responsable y las condiciones actuales para organizar tu visita."
+  },
+  {
+    "id": "victoria",
+    "order": 2,
+    "name": "Victoria",
+    "description": "Una de las localidades de la red de alojamiento institucional. Consultá con el Círculo las opciones disponibles para tu estadía en Victoria."
+  },
+  {
+    "id": "nogoya",
+    "order": 3,
+    "name": "Nogoyá",
+    "description": "La red institucional incluye alojamiento en Nogoyá. Comunicate para conocer la disponibilidad, el equipamiento y las condiciones de reserva."
+  },
+  {
+    "id": "la-paz",
+    "order": 4,
+    "name": "La Paz",
+    "description": "El Círculo cuenta con una opción de alojamiento publicada en La Paz. Consultá las condiciones y coordiná tu estadía con la institución."
+  },
+  {
+    "id": "santa-elena",
+    "order": 5,
+    "name": "Santa Elena",
+    "description": "Santa Elena forma parte de las localidades con alojamiento institucional publicado. Consultá disponibilidad y contacto de reserva para planificar tu visita."
+  }
+]

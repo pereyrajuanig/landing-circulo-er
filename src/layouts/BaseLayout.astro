@@ -1,0 +1,18 @@
+---
+import '../styles/styles.css';
+import '../styles/warmth.css';
+interface Props { title: string; description: string }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#092b48" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href="/assets/escudo.png" type="image/png" />
+  </head>
+  <body><a class="skip-link" href="#contenido">Ir al contenido</a><slot /></body>
+</html>

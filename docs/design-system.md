@@ -1,6 +1,6 @@
-# Sistema de diseño · 1.1
+# Sistema de diseño · 1.2
 
-La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente.
+La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
 ## Dirección
 
@@ -21,7 +21,7 @@ Tradición, pertenencia y utilidad, con una bienvenida centrada en la persona. P
 | `--gold-ink` | `#826329` | Énfasis legible sobre claros |
 | `--warm-panel` | `#EEE7DA` | Filiales |
 
-Valores efectivos: `warmth.css` redefine parte de `:root` de `styles.css`. Servicios usa `#F0EDE6`, comunidad `#E7DBC5`, panel de alojamiento `#FFFDF9` y escudo `#FAF6EE`.
+Valores efectivos: `src/styles/warmth.css` redefine parte de `:root` de `src/styles/styles.css`. Servicios usa `#F0EDE6`, comunidad `#E7DBC5`, panel de alojamiento `#FFFDF9` y escudo `#FAF6EE`.
 
 ## Tipografías y espacio
 

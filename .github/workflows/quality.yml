@@ -29,11 +29,9 @@ jobs:
           node-version: '24'
       - name: Preparar proyecto
         run: npm ci
-      - name: Sintaxis y estructura
+      - name: Diagnóstico Astro y TypeScript
         run: npm run lint
-      - name: Tests de integración
+      - name: Build estático y tests de integración
         run: npm test
-      - name: Build estático
-        run: npm run build
       - name: Comprobar formato del diff
         run: git diff --check

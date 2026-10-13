@@ -1,31 +1,28 @@
 # Checklist de entrega y publicación
 
-Usar en cada tarea. Esta lista no configura GitHub ni autoriza un despliegue.
+Esta lista no autoriza merge ni despliegue.
 
 ## Antes del PR
 
-- [ ] Tarea y alcance claros; rama desde main actualizado.
-- [ ] Diff revisado y sin cambios ajenos, secretos o datos sensibles.
-- [ ] `npm run lint`, `npm test`, `npm run build` y `git diff --check` aprobados.
-- [ ] Flujo visual probado en escritorio y celular cuando corresponde.
-- [ ] Documentos y PDF reflejan los cambios.
-- [ ] PR explica problema, resultado, validación y pendientes.
+- [ ] Alcance claro; rama desde main actualizado; diff sin cambios ajenos o secretos.
+- [ ] npm ci, npm run lint, npm test (incluye build) y git diff --check aprobados.
+- [ ] Escritorio y móvil revisados; menú, servicios, filiales y alojamiento probados.
+- [ ] Documentación y PDF alineados; PR con validaciones y límites.
+- [ ] Dossier original excluido de Git y dist.
 
-## Antes de publicar en Sites
+## Antes de publicar en Vercel
 
-- [ ] Merge y despliegue autorizados para la tarea.
-- [ ] Check `quality` de GitHub aprobado.
-- [ ] Datos institucionales nuevos confirmados por el responsable.
-- [ ] Vista local del build revisada.
-- [ ] ID del Site y acceso conservados.
-- [ ] Versión anterior identificada para recuperar.
-- [ ] Credenciales manejadas sin persistirlas.
+- [ ] Merge y despliegue autorizados; quality aprobado.
+- [ ] Contenido nuevo confirmado por la institución.
+- [ ] Cuenta, titularidad, dominio y rama de producción definidos.
+- [ ] vercel.json y Node 24 comprobados en la configuración real.
+- [ ] Preview revisada antes de producción; dominio y metadatos finales configurados.
+- [ ] Despliegue anterior disponible para recuperación.
 
 ## Después
 
-- [ ] Sites confirma estado final exitoso.
-- [ ] URL, contenido, enlaces y flujo afectados comprobados.
-- [ ] Commit, versión y fecha registrados.
-- [ ] Limitaciones y validaciones pendientes informadas.
+- [ ] Vercel confirma éxito; URL, recursos e interacciones comprobados.
+- [ ] Commit, dominio y fecha registrados.
+- [ ] Limitaciones y datos por validar informados.
 
-Base de datos, migraciones, respaldos de registros y concurrencia de formularios: no aplica a la versión estática actual.
+El Site histórico se conserva privado. No hay base de datos ni CMS en esta versión.

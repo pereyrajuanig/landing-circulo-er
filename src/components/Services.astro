@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { mailTo } from '../lib/contact';
+interface Props { institution: CollectionEntry<'institution'>['data']; services: CollectionEntry<'services'>[] }
+const { institution, services } = Astro.props;
+---
+<section id="servicios" class="section services">
+<div class="wrap">
+<div class="section-heading">
+<div>
+<p class="eyebrow dark">02 / ACOMPAÑAMIENTO Y BENEFICIOS</p>
+<h2>Acompañarte<br>
+<em>en lo cotidiano.</em>
+</h2>
+</div>
+<p>Cada consulta es un punto de partida. Explorá nuestros servicios y, si necesitás orientación, acercate: podemos conversar sobre cómo ayudarte.</p>
+</div>
+<div class="service-list">
+
+        {services.map(service => (
+          <details open={service.data.initiallyOpen}>
+<summary>
+<span class="service-number">{String(service.data.order + 1).padStart(2, '0')}</span>
+<span class="service-name">{service.data.name}</span>
+<span class="service-caption">{service.data.caption}</span>
+<span class="details-icon" aria-hidden="true">+</span>
+</summary>
+<div class="service-content">
+<p>{service.data.description}</p>
+<a href={service.data.target === 'email' ? mailTo(institution.email, service.data.subject) : '#alojamiento'}>{service.data.action} <span aria-hidden="true">{service.data.target === 'email' ? '↗' : '→'}</span>
+</a>
+</div>
+</details>
+        ))}
+      </div>
+</div>
+</section>

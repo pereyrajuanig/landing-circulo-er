@@ -2,92 +2,96 @@
 
 [![Calidad](https://github.com/pereyrajuanig/landing-circulo-er/actions/workflows/quality.yml/badge.svg)](https://github.com/pereyrajuanig/landing-circulo-er/actions/workflows/quality.yml)
 
-Landing institucional para el Círculo de Retirados y Pensionados de la Policía de Entre Ríos. Combina identidad, historia, servicios y contacto con una experiencia centrada en la cercanía y el acompañamiento.
+Landing institucional para el Círculo de Retirados y Pensionados de la Policía de Entre Ríos. Combina historia, servicios y contacto con una experiencia centrada en la cercanía y el acompañamiento.
 
 ![Portada de la versión cálida](docs/media/landing-desktop.jpg)
 
 ## Diseño y alcance
 
-La propuesta se desarrolló con participación del usuario: una primera base institucional y una revisión más cálida, con fondos marfil, el escudo íntegro y el mensaje **«Tu historia nos une. Seguimos a tu lado»**.
+La propuesta se desarrolló con participación del usuario: base institucional y revisión cálida con fondos marfil, escudo íntegro y el mensaje **«Tu historia nos une. Seguimos a tu lado»**. La migración a Astro conserva esa composición.
 
 - Servicios desplegables con HTML nativo.
-- Búsqueda de filiales que reconoce mayúsculas y tildes.
+- Búsqueda de 24 filiales que reconoce mayúsculas y tildes.
 - Selección informativa de seis destinos de alojamiento.
 - Contacto por correo y ubicación de la sede.
 - Diseño adaptable, menú móvil, foco visible y movimiento reducido.
 
-[Vista privada en Sites](https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site/) · [Design system](docs/design-system.md) · [Documentación en PDF](docs/design-system.pdf)
+[Vista privada histórica en Sites](https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site/) · [Design system](docs/design-system.md) · [Manual en PDF](docs/design-system.pdf)
 
-La vista alojada requiere una cuenta con acceso en ChatGPT. No hay área de socios, turnos ni reservas en línea.
+La vista histórica requiere una cuenta con acceso en ChatGPT. La migración no se ha desplegado allí ni en Vercel. No hay área de socios, turnos, reservas en línea ni panel editorial.
 
 ## Stack
 
-HTML, CSS y JavaScript nativo. **Node.js 24 y npm** se usan para las herramientas locales y CI. La página publicada es estática y no necesita Node en producción. No hay dependencias de npm.
+**Astro 7.3.8**, TypeScript estricto, CSS propio y JavaScript para las interacciones. Node.js 24 y npm se usan en desarrollo, CI y build. La salida es HTML estático: no necesita un servidor Node en producción.
+
+Cuatro colecciones de contenido JSON, validadas por esquemas, separan datos de la interfaz. Esta base permite integrar un CMS en una tarea posterior; no incluye uno instalado.
 
 ## Empezar
 
-```powershell
+~~~powershell
 git clone https://github.com/pereyrajuanig/landing-circulo-er.git
 cd landing-circulo-er
 npm ci
 npm run dev
-```
+~~~
 
-Abrí `http://127.0.0.1:4173/`. Editá `src/` y recargá el navegador. Si el puerto está ocupado: `npm run dev -- --port 4174`.
+Abrí http://127.0.0.1:4173/. Astro recarga los cambios durante el desarrollo. Si el puerto está ocupado: npm run dev -- --port 4174. La extensión recomendada de VS Code es Astro.
 
-No hacen falta variables de entorno, claves ni una base de datos. Las tipografías se cargan desde Google Fonts y tienen fallback local.
+No hacen falta variables de entorno, claves ni base de datos. Las fuentes se cargan desde Google Fonts con fallback local.
 
 ## Comandos
 
 | Acción | Comando |
 | --- | --- |
-| Preparar el proyecto | `npm ci` |
-| Desarrollo | `npm run dev` |
-| Sintaxis JS y validación estructural | `npm run lint` |
-| Pruebas HTTP y recursos de la landing | `npm test` |
-| Build estático | `npm run build` |
-| Revisar el build | `npm run preview` |
+| Instalación reproducible | npm ci |
+| Desarrollo con recarga | npm run dev |
+| Diagnóstico Astro y TypeScript | npm run lint |
+| Build y pruebas de regresión / HTTP | npm test |
+| Actualizar referencia tras un cambio editorial revisado | npm run test:update |
+| Build y control de referencias de salida | npm run build |
+| Preview del build | npm run preview |
 
-`lint` es un control de referencias, anclas, IDs, idioma y sintaxis JavaScript; no equivale a una auditoría completa de CSS, accesibilidad o contenido institucional. El build se genera en `dist/`, que no se versiona.
+npm test construye antes de probar. npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
-```text
-src/                 Página, estilos, JavaScript y escudo
-scripts/             Desarrollo, validación y build sin dependencias
-tests/               Pruebas de integración del servidor local
-docs/                Diseño, arquitectura, flujo, mantenimiento y PDF
-tools/docs/          Fuente reproducible del PDF y tipografías
-.github/             CI y plantilla de Pull Request
-.vscode/             Tareas de desarrollo y controles
-.openai/hosting.json  Identidad del Site existente
-```
+~~~text
+src/pages/          Ruta principal
+src/layouts/        Documento HTML y estilos globales
+src/components/     Cabecera, secciones y pie
+src/content/        Institución, servicios, filiales y alojamientos
+src/content.config.ts  Esquemas y loaders de Astro
+src/styles/         Base institucional y revisión cálida
+src/scripts/        Interacciones del navegador
+src/lib/            Búsqueda y enlaces de contacto
+public/assets/      Escudo y favicon
+scripts/            Control del build
+tests/              Regresión de contenido y preview HTTP
+docs/               Diseño, arquitectura, flujo y manual
+tools/docs/         Generador reproducible del PDF
+vercel.json         Configuración del despliegue estático
+.openai/hosting.json  Referencia del Site histórico
+~~~
 
-## Flujo de trabajo
+## Flujo y publicación
 
-`Tarea → rama codex/* → implementación → controles → commit → push → PR → revisión → merge autorizado → despliegue autorizado → verificación`.
+Tarea → rama codex/* → implementación → controles → commit → push → PR → revisión → merge autorizado → despliegue autorizado → verificación.
 
-`main` debe recibir cambios mediante PR con el control `quality` aprobado. No se exige una segunda persona para aprobar un proyecto individual. La configuración efectiva y los resultados de CI se registran en [el estado de entrega](docs/project-status.md).
-
-La carga inicial es el punto de partida del repositorio. Los cambios posteriores siguen el flujo de [docs/workflow.md](docs/workflow.md).
+main recibe cambios mediante PR con quality aprobado. No se exige otra persona para aprobar este proyecto individual. GitHub Actions comprueba el código. La integración con Vercel aún debe conectarse a la cuenta y al repositorio; ver [despliegue](docs/deployment.md).
 
 ## Documentación
 
-- [Arquitectura y responsabilidades](docs/architecture.md)
-- [Sistema de diseño vigente](docs/design-system.md)
-- [Manual visual en PDF](docs/design-system.pdf)
-- [Registro de diseño](docs/design-changelog.md)
+- [Arquitectura](docs/architecture.md)
+- [Sistema de diseño](docs/design-system.md) y [manual visual](docs/design-system.pdf)
+- [Registro de cambios](docs/design-changelog.md)
 - [Flujo Git y GitHub](docs/workflow.md)
-- [Despliegue, verificación y recuperación](docs/deployment.md)
+- [Despliegue y recuperación](docs/deployment.md)
 - [Mantenimiento de contenido](docs/content-maintenance.md)
+- [Plan para un futuro CMS](docs/cms-roadmap.md)
 - [Checklist de publicación](docs/publication-checklist.md)
 - [Estado y validaciones](docs/project-status.md)
-- [Cómo regenerar el PDF](tools/docs/README.md)
+- [Regenerar el manual](tools/docs/README.md)
 
-## Entornos y pendientes
+Quedan pendientes fotos reales, autoridades, horarios, contactos de filiales y condiciones de prestaciones, con validación institucional. Las referencias del dossier tienen corte del 8/10/2026. Falta una auditoría completa con lector de pantalla y zoom.
 
-Desarrollo y preview sirven archivos locales. El Site existente es una vista privada. GitHub almacena el código y ejecuta controles; no publica automáticamente la web.
-
-Quedan pendientes fotos reales, autoridades, horarios, contactos de filiales y condiciones de prestaciones. Las referencias del dossier tienen corte del 8 de octubre de 2026 y requieren validación institucional. Falta una revisión completa de accesibilidad con lector de pantalla y zoom.
-
-El PDF de la primera propuesta se conserva en `docs/archive/` como referencia histórica; el documento vigente es `docs/design-system.pdf`.
+Las versiones anteriores del manual se conservan en docs/archive/. El vigente es docs/design-system.pdf.

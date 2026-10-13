@@ -17,3 +17,6 @@ Thumbs.db
 __pycache__/
 
 docs/reference/
+
+.astro/
+.vercel/
