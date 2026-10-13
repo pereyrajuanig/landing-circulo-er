@@ -11,7 +11,7 @@ Fecha: 13 de octubre de 2026. Proyecto canónico: Desktop/Landing-CirculoER. Rep
 - PR #6 etapa 04 integrado con autorización: 9938f6d; quality de main 38461526636 aprobado.
 - PR #7 SEO integrado con autorización: main5bf1798, quality38465530841 aprobado; dominio y cierre público pendientes.
 - PR #8 integrado con autorización: main b263601, quality38479593548 aprobado. Laboratorio verificado; métricas de campo pendientes.
-- Etapa07 en codex/etapa-07-seguridad-privacidad, código 1e9938c: cuatro tareas verificadas localmente; hosting/HTTPS y acuerdo institucional pendientes. Ver [seguridad](security-privacy.md).
+- Etapa07 en codex/etapa-07-seguridad-privacidad, código 1e9938c: cuatro tareas verificadas localmente; [PR #9](https://github.com/pereyrajuanig/landing-circulo-er/pull/9) revisable. Hosting/HTTPS y acuerdo institucional pendientes. Ver [seguridad](security-privacy.md).
 
 ## Validación vigente
 

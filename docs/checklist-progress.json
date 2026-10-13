@@ -66,7 +66,8 @@
       "branch": "codex/etapa-07-seguridad-privacidad",
       "codeCommit": "1e9938c6723ff57103b4b6ea509b0a2041d698d1",
       "summary": "4 tareas verificadas en local; headers/HTTPS de hosting y acuerdo institucional de privacidad pendientes. CSP de Vercel Report-Only.",
-      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426"
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/9"
     }
   },
   "tasks": {
@@ -368,10 +369,10 @@
     "trace_status": "4 verificadas; hosting pendiente",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base b263601 / código1e9938c",
+    "trace_commit": "Base b263601 / código1e9938c / PR #9",
     "trace_method": "11 Node +20 Chromium Report-Only +20 exigida local.\nHTTP portada/assets; CSP, cookies y almacenamiento.\nGit/dist y npm audit; límites de404 documentados.",
     "trace_result": "51 comprobaciones aprobadas; audit0 conocidas.\nCSP detecta/bloquea según modo; hosting pendiente.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
-    "trace_limits": "Hosting,404 con headers, HTTPS y dominio pendientes.\nPrivacidad institucional y lector03.06 pendientes.\nPR y autorización de merge pendientes; sin despliegue.",
+    "trace_limits": "Hosting,404 con headers, HTTPS y dominio pendientes.\nPrivacidad institucional y lector03.06 pendientes.\nPR #9 revisable; merge pendiente; sin despliegue.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",

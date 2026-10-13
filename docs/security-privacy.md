@@ -63,3 +63,5 @@ Referencias consultadas el13/10/2026: [Vercel headers](https://vercel.com/docs/p
 El chequeo de textos rastreados requiere Git y se ejecuta en validate/CI por separado. npm run build valida el HTML, los hashes y las exclusiones de dist sin depender de metadata Git, de modo que también puede construir una copia de fuentes sin .git.
 
 Código1e9938c: [quality aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426). Revisión del repositorio en validate/CI; control de build sin Git probado con PATH vacío en proceso hijo. Hosting sigue pendiente.
+
+[PR #9 de preparación](https://github.com/pereyrajuanig/landing-circulo-er/pull/9). Fusión pendiente de autorización; no despliegue ni cierre de comprobaciones de hosting.

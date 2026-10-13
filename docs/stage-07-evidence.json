@@ -336,5 +336,6 @@
     "HTTPS, redirecciones, certificado, HSTS y aviso institucional pendientes."
   ],
   "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
-  "buildGitIndependence": "Control de build probado con PATH vacío en proceso hijo; revisión Git separada y obligatoria en validate/CI."
+  "buildGitIndependence": "Control de build probado con PATH vacío en proceso hijo; revisión Git separada y obligatoria en validate/CI.",
+  "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/9"
 }
