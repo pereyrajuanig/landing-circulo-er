@@ -42,3 +42,7 @@ Siete flujos Chromium en dos viewports se incorporan a quality, con captura y tr
 ## 1.7 · 13/10/2026
 
 SEO preparado sin dominio ficticio; previews noindex. Tarjeta social y 404 con identidad existente. Dominio diferido por el usuario, rastreo real pendiente.
+
+## 1.8 · 13/10/2026
+
+Escudo optimizado con Astro y fuentes locales de las mismas familias; composición conservada. Rendimiento medido antes/después; INP de campo pendiente.

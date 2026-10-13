@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import crest from '../../public/assets/escudo.png';
+---
+
 <section id="inicio" class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -29,9 +34,14 @@
     <div class="hero-emblem">
       <div class="emblem-frame">
         <span class="emblem-label">NUESTRA HISTORIA, NUESTRO VÍNCULO</span>
-        <img
-          src="/assets/escudo.png"
-          width="494"
+        <Image
+          src={crest}
+          format="webp"
+          quality={100}
+          width={494}
+          widths={[180, 360, 494]}
+          sizes="(max-width: 800px) 140px, 180px"
+          loading="eager"
           height="590"
           alt="Escudo institucional: sol, laureles y manos unidas"
         />

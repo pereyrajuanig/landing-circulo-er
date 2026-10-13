@@ -31,7 +31,7 @@ export default defineConfig(
     languageOptions: { globals: globals.browser },
   },
   {
-    files: ['tests/e2e/**/*.mjs'],
+    files: ['tests/e2e/**/*.mjs', 'tools/performance/**/*.mjs'],
     languageOptions: { globals: { ...globals.node, ...globals.browser } },
   },
   ...astro.configs.recommended,

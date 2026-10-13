@@ -20,7 +20,8 @@
     "validate": "npm run check && npm run lint && npm run format:check && npm test",
     "test:unit": "node --test --test-reporter=spec tests/landing.test.mjs",
     "test:e2e": "npm run build && playwright test",
-    "test:install": "playwright install chromium"
+    "test:install": "playwright install chromium",
+    "perf": "npm run build && node tools/performance/measure.mjs"
   },
   "repository": {
     "type": "git",

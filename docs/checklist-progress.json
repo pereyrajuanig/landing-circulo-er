@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-10-13",
-  "baselineCommit": "9938f6df92ca18d8f19c224122338f304fd514ee",
+  "baselineCommit": "5bf1798211f040ff9c419eb8d6fe65af304a028c",
   "stages": {
     "01": {
       "status": "complete",
@@ -42,12 +42,22 @@
       "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38461526636"
     },
     "05": {
-      "status": "in_progress_pending_domain",
+      "status": "integrated_pending_domain",
       "branch": "codex/etapa-05-seo",
-      "summary": "Dominio diferido por el usuario. SEO preparado; 404 y evaluación de datos estructurados verificadas; cierre público pendiente.",
+      "summary": "PR #7 integrado con autorización y quality de main aprobado. Dominio, datos y cierre público pendientes por decisión del usuario.",
       "codeCommit": "a154e708aec4412c62a199c60a4552a329150484",
       "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38464271027",
-      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/7"
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/7",
+      "mergeCommit": "5bf1798211f040ff9c419eb8d6fe65af304a028c",
+      "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38465530841"
+    },
+    "06": {
+      "status": "pending_integration",
+      "branch": "codex/etapa-06-rendimiento",
+      "codeCommit": "3927479e3e7c84f39028cb5b3a35cd7e7f39a86d",
+      "summary": "7 tareas con evidencia de laboratorio; 26 pruebas aprobadas. Integración pendiente; INP y rendimiento de campo pendientes de publicación.",
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/8"
     }
   },
   "tasks": {
@@ -266,18 +276,60 @@
       "status": "pending",
       "responsible": "Desarrollo / autoridades",
       "evidence": "Sin despliegue autorizado ni dominio. Rastreo real, redirecciones y Search Console pendientes de publicación y cuenta institucional."
+    },
+    "06.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / laboratorio",
+      "evidence": "Referencia: main 5bf1798; Windows, Chromium156, 3 muestras/escenario, CPU/red emuladas documentadas. Evidencia stage-06-evidence.json."
+    },
+    "06.02": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / laboratorio",
+      "evidence": "LCP H1#hero-title. Fuentes preload y swap; título e imágenes del inicio sin carga diferida. Medianas 324→148ms desktop y 1376→1300ms móvil emulado."
+    },
+    "06.03": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / laboratorio",
+      "evidence": "Escudo nativo Astro WebP a varios tamaños y quality100; fuente intacta. DPR1 cabecera+inicio 24282B frente al PNG348751B; favicon reducido. Fotos futuras sin inventar."
+    },
+    "06.04": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / laboratorio",
+      "evidence": "Dos WOFF2 locales, mismas familias y pesos, fallback, OFL y cobertura española verificada. Fuentes reales cargadas en los 16 casos Chromium. Fallback probado con ambos WOFF2 bloqueados: lectura y flujos utilizables, sin desborde en 1440/390."
+    },
+    "06.05": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / laboratorio",
+      "evidence": "CSS gzip6070→6065B, sin refactor general. Módulo inline2545B/gzip1107B; JavaScript de interacción sin cambios ni dependencia npm nueva."
+    },
+    "06.06": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / laboratorio",
+      "evidence": "CLS medido0 final; máximo Event Timing32ms de muestras scriptadas. No se declara INP real: queda pendiente de visitantes. 26 pruebas y revisión visual."
+    },
+    "06.07": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / laboratorio",
+      "evidence": "6 muestras antes y6 después, todas conservadas, condiciones idénticas. Variación primer acceso registrada; laboratorio separado de datos de campo."
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "05.01 a 05.07 / etapa 05",
-    "trace_status": "2 verificadas; dominio pendiente",
+    "trace_id": "06.01 a 06.07 / etapa 06",
+    "trace_status": "7 verificadas en laboratorio",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 9938f6d / código a154e70 / PR #7",
-    "trace_method": "Build: producción de prueba y preview sin dominio.\n10 pruebas Node + 16 Chromium; 404 y teclado.\nDominio reservado example.invalid solo para tests.",
-    "trace_result": "26 pruebas aprobadas; tipos, lint y formato correctos.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38464271027\nSEO preparado; cierre público pendiente. Guía: docs/seo.md.",
-    "trace_limits": "Dominio, datos institucionales y despliegue sin confirmar.\nLector real 03.06 pendiente. PR #7 revisable; merge pendiente.\nSin Search Console ni garantía de indexación.",
+    "trace_commit": "Base 5bf1798 / código 3927479 / PR #8",
+    "trace_method": "Chromium156, Windows; 3 muestras por tamaño y lote.\nDesktop1440x900; móvil390x844, CPU4x, RTT150ms.\nCaché fría, red1,6Mbit/s; observadores LCP/CLS/eventos.",
+    "trace_result": "LCP mediano: 324 a148ms desktop; 1376 a1300ms móvil.\nCLS0 final; 26 pruebas aprobadas. Eventos no son INP.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674",
+    "trace_limits": "Laboratorio local; INP y métricas de campo pendientes.\nDominio, publicación y lector03.06 pendientes.\nPR #8 revisable; autorización de merge pendiente.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -300,6 +352,7 @@
     "task_k_07": true,
     "owner_04": "Desarrollo / revisión del usuario",
     "date_04": "13/10/2026",
-    "owner_05": "Desarrollo / dominio: autoridades"
+    "owner_05": "Desarrollo / dominio: autoridades",
+    "owner_06": "Desarrollo / laboratorio"
   }
 }

@@ -1,0 +1,2479 @@
+{
+  "baselineCommit": "5bf1798211f040ff9c419eb8d6fe65af304a028c",
+  "optimizedCodeCommit": "3927479e3e7c84f39028cb5b3a35cd7e7f39a86d",
+  "measurementNote": "La referencia se midió sobre main. Las muestras optimizadas se tomaron antes de crear el commit de código, con los mismos recursos que se versionaron. El campo commit del harness registra HEAD al medir, no identifica cambios aún sin commit.",
+  "method": {
+    "os": "Windows",
+    "browser": "156.0.8078.4",
+    "node": "v24.20.0",
+    "desktop": "1440x900 DPR1, CPU/red sin throttling",
+    "mobile": "390x844 DPR1 emulado, CPU4x, RTT150ms, descarga200000B/s, subida93750B/s",
+    "runsPerScenario": 3,
+    "cache": "contexto nuevo y caché HTTP desactivada; mismo proceso de navegador por lote, DNS/TLS no reiniciados",
+    "observation": "networkidle + document.fonts.ready + 1500ms antes de interacción; 300ms tras interacciones",
+    "interactions": "Menú móvil, enlace Filiales, fill MARIA/borrado, selección alojamiento; Event Timing muestreado >=16ms",
+    "limits": "No Lighthouse ni puntuación, no INP de campo, no p75 real. Loopback y emulación no predicen Vercel ni dispositivos reales."
+  },
+  "before": {
+    "label": "before",
+    "commit": "5bf1798211f040ff9c419eb8d6fe65af304a028c",
+    "node": "v24.20.0",
+    "chromium": "156.0.8078.4",
+    "date": "2026-10-13T22:22:12.565Z",
+    "runs": [
+      {
+        "scenario": "desktop",
+        "run": 1,
+        "loading": {
+          "lcp": {
+            "time": 3100,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0.001470130499694573,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.CyqOxQx0.css",
+              "encodedBytes": 6070,
+              "transferredBytes": 6370,
+              "duration": 8.600000001490116
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/escudo.png",
+              "encodedBytes": 348751,
+              "transferredBytes": 349051,
+              "duration": 12.299999997019768
+            },
+            {
+              "url": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Libre+Caslon+Display&display=swap",
+              "encodedBytes": 563,
+              "transferredBytes": 863,
+              "duration": 2861.400000002235
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 40,
+              "height": 49,
+              "complete": true,
+              "naturalWidth": 494
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4618
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4618
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4618
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 4625
+            },
+            {
+              "duration": 24,
+              "name": "keyup",
+              "interactionId": 4625
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4632
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4632
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4632
+            }
+          ],
+          "longtasks": []
+        },
+        "failures": []
+      },
+      {
+        "scenario": "desktop",
+        "run": 2,
+        "loading": {
+          "lcp": {
+            "time": 316,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0.001470130499694573,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.CyqOxQx0.css",
+              "encodedBytes": 6070,
+              "transferredBytes": 6370,
+              "duration": 4.900000002235174
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/escudo.png",
+              "encodedBytes": 348751,
+              "transferredBytes": 349051,
+              "duration": 5.700000002980232
+            },
+            {
+              "url": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Libre+Caslon+Display&display=swap",
+              "encodedBytes": 563,
+              "transferredBytes": 863,
+              "duration": 147.10000000149012
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 40,
+              "height": 49,
+              "complete": true,
+              "naturalWidth": 494
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 7851
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 7851
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 7851
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 7858
+            },
+            {
+              "duration": 24,
+              "name": "keyup",
+              "interactionId": 7858
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 7865
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 7865
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 7865
+            }
+          ],
+          "longtasks": []
+        },
+        "failures": []
+      },
+      {
+        "scenario": "desktop",
+        "run": 3,
+        "loading": {
+          "lcp": {
+            "time": 324,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0.001470130499694573,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.CyqOxQx0.css",
+              "encodedBytes": 6070,
+              "transferredBytes": 6370,
+              "duration": 5.899999998509884
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/escudo.png",
+              "encodedBytes": 348751,
+              "transferredBytes": 349051,
+              "duration": 8.299999997019768
+            },
+            {
+              "url": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Libre+Caslon+Display&display=swap",
+              "encodedBytes": 563,
+              "transferredBytes": 863,
+              "duration": 152.5
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 40,
+              "height": 49,
+              "complete": true,
+              "naturalWidth": 494
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 3665
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 3665
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 3665
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 3672
+            },
+            {
+              "duration": 24,
+              "name": "keyup",
+              "interactionId": 3672
+            },
+            {
+              "duration": 16,
+              "name": "pointerdown",
+              "interactionId": 3679
+            },
+            {
+              "duration": 16,
+              "name": "pointerup",
+              "interactionId": 3679
+            },
+            {
+              "duration": 16,
+              "name": "click",
+              "interactionId": 3679
+            }
+          ],
+          "longtasks": []
+        },
+        "failures": []
+      },
+      {
+        "scenario": "mobile",
+        "run": 1,
+        "loading": {
+          "lcp": {
+            "time": 1424,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.CyqOxQx0.css",
+              "encodedBytes": 6070,
+              "transferredBytes": 6370,
+              "duration": 228
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/escudo.png",
+              "encodedBytes": 348751,
+              "transferredBytes": 349051,
+              "duration": 2272.60000000149
+            },
+            {
+              "url": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Libre+Caslon+Display&display=swap",
+              "encodedBytes": 563,
+              "transferredBytes": 863,
+              "duration": 260.4000000022352
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 494
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 6388
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 6388
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 6388
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 6395
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 6395
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 6395
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 6402
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 6409
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 6409
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 6409
+            }
+          ],
+          "longtasks": []
+        },
+        "failures": []
+      },
+      {
+        "scenario": "mobile",
+        "run": 2,
+        "loading": {
+          "lcp": {
+            "time": 1356,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.CyqOxQx0.css",
+              "encodedBytes": 6070,
+              "transferredBytes": 6370,
+              "duration": 216.10000000149012
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/escudo.png",
+              "encodedBytes": 348751,
+              "transferredBytes": 349051,
+              "duration": 2228.199999999255
+            },
+            {
+              "url": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Libre+Caslon+Display&display=swap",
+              "encodedBytes": 636,
+              "transferredBytes": 936,
+              "duration": 265.80000000074506
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 494
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 2740
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 2740
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 2740
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 2747
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 2747
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 2747
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 2754
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 2761
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 2761
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 2761
+            }
+          ],
+          "longtasks": []
+        },
+        "failures": []
+      },
+      {
+        "scenario": "mobile",
+        "run": 3,
+        "loading": {
+          "lcp": {
+            "time": 1376,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "400",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "450",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "500",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "550",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "600",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "650",
+              "status": "loaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "DM Sans",
+              "weight": "700",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "unloaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.CyqOxQx0.css",
+              "encodedBytes": 6070,
+              "transferredBytes": 6370,
+              "duration": 221.30000000074506
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/escudo.png",
+              "encodedBytes": 348751,
+              "transferredBytes": 349051,
+              "duration": 2279.800000000745
+            },
+            {
+              "url": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Libre+Caslon+Display&display=swap",
+              "encodedBytes": 563,
+              "transferredBytes": 863,
+              "duration": 260.30000000074506
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 494
+            },
+            {
+              "src": "http://127.0.0.1:4176/assets/escudo.png",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 494
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 16,
+              "name": "pointerdown",
+              "interactionId": 4652
+            },
+            {
+              "duration": 16,
+              "name": "pointerup",
+              "interactionId": 4652
+            },
+            {
+              "duration": 16,
+              "name": "click",
+              "interactionId": 4652
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4659
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4659
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4659
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 4666
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4673
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4673
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4673
+            }
+          ],
+          "longtasks": [141]
+        },
+        "failures": []
+      }
+    ],
+    "inventory": [
+      {
+        "path": "dist/404.html",
+        "bytes": 1947,
+        "gzip": 745
+      },
+      {
+        "path": "dist/assets/escudo.png",
+        "bytes": 348751,
+        "gzip": 348879
+      },
+      {
+        "path": "dist/assets/social-card.png",
+        "bytes": 87079,
+        "gzip": 83087
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 18720,
+        "gzip": 5658
+      },
+      {
+        "path": "dist/robots.txt",
+        "bytes": 23,
+        "gzip": 43
+      },
+      {
+        "path": "dist/_astro/style.CyqOxQx0.css",
+        "bytes": 26166,
+        "gzip": 6070
+      }
+    ]
+  },
+  "after": {
+    "label": "after-final",
+    "commit": "5bf1798211f040ff9c419eb8d6fe65af304a028c",
+    "node": "v24.20.0",
+    "chromium": "156.0.8078.4",
+    "date": "2026-10-13T22:27:47.806Z",
+    "runs": [
+      {
+        "scenario": "desktop",
+        "run": 1,
+        "loading": {
+          "lcp": {
+            "time": 160,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "loaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 70244,
+              "transferredBytes": 70544,
+              "duration": 13.799999997019768
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 29640,
+              "transferredBytes": 29940,
+              "duration": 13.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 16.199999999254942
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 15.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 15.199999999254942
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 180
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 40,
+              "height": 49,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4566
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4566
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4566
+            },
+            {
+              "duration": 16,
+              "name": "keydown",
+              "interactionId": 4573
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4580
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4580
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4580
+            }
+          ],
+          "longtasks": [79]
+        },
+        "failures": []
+      },
+      {
+        "scenario": "desktop",
+        "run": 2,
+        "loading": {
+          "lcp": {
+            "time": 148,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "loaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 70244,
+              "transferredBytes": 70544,
+              "duration": 9.899999998509884
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 29640,
+              "transferredBytes": 29940,
+              "duration": 10.599999997764826
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 11.600000001490116
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 11.600000001490116
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 10.799999997019768
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 180
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 40,
+              "height": 49,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 5715
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 5715
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 5715
+            },
+            {
+              "duration": 32,
+              "name": "keydown",
+              "interactionId": 5722
+            },
+            {
+              "duration": 24,
+              "name": "keyup",
+              "interactionId": 5722
+            },
+            {
+              "duration": 16,
+              "name": "pointerdown",
+              "interactionId": 5729
+            },
+            {
+              "duration": 16,
+              "name": "pointerup",
+              "interactionId": 5729
+            },
+            {
+              "duration": 16,
+              "name": "click",
+              "interactionId": 5729
+            }
+          ],
+          "longtasks": [84]
+        },
+        "failures": []
+      },
+      {
+        "scenario": "desktop",
+        "run": 3,
+        "loading": {
+          "lcp": {
+            "time": 140,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "loaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 70244,
+              "transferredBytes": 70544,
+              "duration": 8.300000000745058
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 29640,
+              "transferredBytes": 29940,
+              "duration": 8.799999997019768
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 9.800000000745058
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 9.800000000745058
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 8.5
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 180
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 40,
+              "height": 49,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 7513
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 7513
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 7513
+            },
+            {
+              "duration": 32,
+              "name": "keydown",
+              "interactionId": 7520
+            },
+            {
+              "duration": 32,
+              "name": "keyup",
+              "interactionId": 7520
+            },
+            {
+              "duration": 16,
+              "name": "pointerdown",
+              "interactionId": 7527
+            },
+            {
+              "duration": 16,
+              "name": "pointerup",
+              "interactionId": 7527
+            },
+            {
+              "duration": 16,
+              "name": "click",
+              "interactionId": 7527
+            }
+          ],
+          "longtasks": [75]
+        },
+        "failures": []
+      },
+      {
+        "scenario": "mobile",
+        "run": 1,
+        "loading": {
+          "lcp": {
+            "time": 1300,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "loaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 70244,
+              "transferredBytes": 70544,
+              "duration": 848.4000000022352
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 29640,
+              "transferredBytes": 29940,
+              "duration": 641.1999999992549
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 325.8999999985099
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 264.69999999925494
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 559.8000000007451
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 140
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 16,
+              "name": "pointerdown",
+              "interactionId": 7939
+            },
+            {
+              "duration": 16,
+              "name": "pointerup",
+              "interactionId": 7939
+            },
+            {
+              "duration": 16,
+              "name": "click",
+              "interactionId": 7939
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 7946
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 7946
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 7946
+            },
+            {
+              "duration": 32,
+              "name": "keydown",
+              "interactionId": 7953
+            },
+            {
+              "duration": 16,
+              "name": "keyup",
+              "interactionId": 7953
+            },
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 7960
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 7960
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 7960
+            }
+          ],
+          "longtasks": [176]
+        },
+        "failures": []
+      },
+      {
+        "scenario": "mobile",
+        "run": 2,
+        "loading": {
+          "lcp": {
+            "time": 1292,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "loaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 70244,
+              "transferredBytes": 70544,
+              "duration": 831.9000000022352
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 29640,
+              "transferredBytes": 29940,
+              "duration": 628.0999999977648
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 309.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 261.80000000074506
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 547.2999999970198
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 140
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 16,
+              "name": "pointerdown",
+              "interactionId": 2617
+            },
+            {
+              "duration": 16,
+              "name": "pointerup",
+              "interactionId": 2617
+            },
+            {
+              "duration": 16,
+              "name": "click",
+              "interactionId": 2617
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 2624
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 2624
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 2624
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 2631
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 2638
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 2638
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 2638
+            }
+          ],
+          "longtasks": [189]
+        },
+        "failures": []
+      },
+      {
+        "scenario": "mobile",
+        "run": 3,
+        "loading": {
+          "lcp": {
+            "time": 1340,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "loaded"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "loaded"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 70244,
+              "transferredBytes": 70544,
+              "duration": 844.0999999977648
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 29640,
+              "transferredBytes": 29940,
+              "duration": 635.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 335.30000000074506
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 270.69999999925494
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 554.6000000014901
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 140
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4619
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4619
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4619
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4626
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4626
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4626
+            },
+            {
+              "duration": 32,
+              "name": "keydown",
+              "interactionId": 4633
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 4640
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 4640
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 4640
+            }
+          ],
+          "longtasks": [204]
+        },
+        "failures": []
+      }
+    ],
+    "inventory": [
+      {
+        "path": "dist/404.html",
+        "bytes": 2339,
+        "gzip": 907
+      },
+      {
+        "path": "dist/assets/escudo.png",
+        "bytes": 348751,
+        "gzip": 348879
+      },
+      {
+        "path": "dist/assets/fonts/dm-sans-latin.woff2",
+        "bytes": 70244,
+        "gzip": 70109
+      },
+      {
+        "path": "dist/assets/fonts/DMSans-OFL.txt",
+        "bytes": 4388,
+        "gzip": 1974
+      },
+      {
+        "path": "dist/assets/fonts/libre-caslon-display-latin.woff2",
+        "bytes": 29640,
+        "gzip": 29668
+      },
+      {
+        "path": "dist/assets/fonts/LibreCaslonDisplay-OFL.txt",
+        "bytes": 4402,
+        "gzip": 1984
+      },
+      {
+        "path": "dist/assets/social-card.png",
+        "bytes": 87079,
+        "gzip": 83087
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 19488,
+        "gzip": 5875
+      },
+      {
+        "path": "dist/robots.txt",
+        "bytes": 23,
+        "gzip": 43
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_1ickqd.webp",
+        "bytes": 20878,
+        "gzip": 20906
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_2mXu8w.webp",
+        "bytes": 58288,
+        "gzip": 58326
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_YQohW.webp",
+        "bytes": 7234,
+        "gzip": 7257
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z18UzsF.webp",
+        "bytes": 19806,
+        "gzip": 19834
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1d2Upl.webp",
+        "bytes": 94196,
+        "gzip": 94244
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+        "bytes": 3404,
+        "gzip": 3427
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1sSUxB.webp",
+        "bytes": 9142,
+        "gzip": 9165
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z2hqbqS.png",
+        "bytes": 10985,
+        "gzip": 11008
+      },
+      {
+        "path": "dist/_astro/style.DYBowYgJ.css",
+        "bytes": 26346,
+        "gzip": 6065
+      }
+    ]
+  },
+  "fallbackQA": {
+    "label": "fallback",
+    "commit": "467d1ae34fe551077744937a1f7d29d2ce5a2c65",
+    "node": "v24.20.0",
+    "chromium": "156.0.8078.4",
+    "date": "2026-10-13T22:39:49.661Z",
+    "runs": [
+      {
+        "scenario": "desktop",
+        "run": 1,
+        "loading": {
+          "horizontalOverflow": 0,
+          "lcp": {
+            "time": 220,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "error"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "error"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 12.599999997764826
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 14.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 22.699999999254942
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 22.800000000745058
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 19.5
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 180
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 40,
+              "height": 49,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 5945
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 5945
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 5945
+            },
+            {
+              "duration": 32,
+              "name": "keydown",
+              "interactionId": 5952
+            },
+            {
+              "duration": 24,
+              "name": "keyup",
+              "interactionId": 5952
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 5959
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 5959
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 5959
+            }
+          ],
+          "longtasks": [133]
+        },
+        "failures": [
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          }
+        ]
+      },
+      {
+        "scenario": "mobile",
+        "run": 1,
+        "loading": {
+          "horizontalOverflow": 0,
+          "lcp": {
+            "time": 1244,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "error"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "error"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 16.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 14.300000000745058
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 239.69999999925494
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 238.40000000223517
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 333.69999999925494
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 140
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 3326
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 3326
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 3326
+            },
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 3333
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 3333
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 3333
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 3340
+            },
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 3347
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 3347
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 3347
+            }
+          ],
+          "longtasks": []
+        },
+        "failures": [
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          }
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "path": "dist/404.html",
+        "bytes": 2339,
+        "gzip": 907
+      },
+      {
+        "path": "dist/assets/escudo.png",
+        "bytes": 348751,
+        "gzip": 348879
+      },
+      {
+        "path": "dist/assets/fonts/dm-sans-latin.woff2",
+        "bytes": 70244,
+        "gzip": 70109
+      },
+      {
+        "path": "dist/assets/fonts/DMSans-OFL.txt",
+        "bytes": 4388,
+        "gzip": 1974
+      },
+      {
+        "path": "dist/assets/fonts/libre-caslon-display-latin.woff2",
+        "bytes": 29640,
+        "gzip": 29668
+      },
+      {
+        "path": "dist/assets/fonts/LibreCaslonDisplay-OFL.txt",
+        "bytes": 4402,
+        "gzip": 1984
+      },
+      {
+        "path": "dist/assets/social-card.png",
+        "bytes": 87079,
+        "gzip": 83087
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 19488,
+        "gzip": 5875
+      },
+      {
+        "path": "dist/robots.txt",
+        "bytes": 23,
+        "gzip": 43
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_1ickqd.webp",
+        "bytes": 20878,
+        "gzip": 20906
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_2mXu8w.webp",
+        "bytes": 58288,
+        "gzip": 58326
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_YQohW.webp",
+        "bytes": 7234,
+        "gzip": 7257
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z18UzsF.webp",
+        "bytes": 19806,
+        "gzip": 19834
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1d2Upl.webp",
+        "bytes": 94196,
+        "gzip": 94244
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+        "bytes": 3404,
+        "gzip": 3427
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1sSUxB.webp",
+        "bytes": 9142,
+        "gzip": 9165
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z2hqbqS.png",
+        "bytes": 10985,
+        "gzip": 11008
+      },
+      {
+        "path": "dist/_astro/style.DYBowYgJ.css",
+        "bytes": 26346,
+        "gzip": 6065
+      }
+    ]
+  },
+  "fallbackNote": "Una muestra por tamaño con WOFF2 bloqueados deliberadamente; cuatro fallos de solicitudes por muestra al navegar dos veces. No se mezclan con los lotes antes/después."
+}

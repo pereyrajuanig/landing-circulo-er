@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación de la landing | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.7. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
+c.setSubject('Versión 1.8. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.7 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.8 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación de<br/>la landing page',M,510,CW,39,43,PAPER,'Caslon',False
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.7',M,770,10,'DM',PAPER)
+text('Versión 1.8',M,770,10,'DM',PAPER)
 right('13 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -395,7 +395,7 @@ y=table(['Archivo','Responsabilidad'],[
  ['public/assets/','Escudo compartido por cabecera, inicio, pie y favicon.'],
  ['scripts/ y tests/','Control de dist, diez tests Node y dieciséis casos Chromium de flujos.']
 ],[128,CW-128],y,8.6)+22
-y=block('Dependencias y datos','Astro genera dist/. Las fuentes usan Google Fonts; correo y Maps son enlaces. No hay CMS ni base de datos. Las cuatro colecciones locales separan contenido de interfaz; el panel editorial requiere una fase posterior.',y)
+y=block('Dependencias y datos','Astro genera dist/. Dos WOFF2 locales con preload y swap; correo y Maps son enlaces. No hay CMS ni base de datos. Las cuatro colecciones locales separan contenido de interfaz; el panel editorial requiere una fase posterior.',y)
 note('DESPLIEGUE PREPARADO','Dominio pendiente. SEO y 404 preparados; previews noindex. Vercel sin cuenta conectada ni despliegue. quality comprueba tipos, lint, formato, build y 26 pruebas; guarda captura y traza si falla. Playwright es solo de desarrollo. Sites conserva la vista histórica privada. El estado efectivo se registra en docs/project-status.md.',y)
 
 # 20. Maintenance
@@ -409,7 +409,7 @@ y=table(['Necesidad','Archivo / lugar','Verificación'],[
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
 y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Preparar Chromium con npm run test:install; cerrar preview de revisión. Ejecutar npm run validate (26 pruebas); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.7. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.8. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
@@ -420,7 +420,7 @@ y=table(['Verificado en la propuesta inicial','Alcance de la comprobación'],[
  ['Publicación','Sites confirmó despliegue privado exitoso de la primera versión.']
 ],[207,CW-207],y,8.6)+21
 y=block('Antes del lanzamiento institucional','Confirmar contacto y horarios; contactos de filiales; autoridades; cobertura y condiciones de servicios; reserva de alojamientos; reglamentos de espacios. Incorporar fotos reales y revisar la nomenclatura institucional. [D, p. 9]',y)
-y=block('Accesibilidad y calidad por completar','Etapa 03: teclado, foco, reflujo y contrastes revisados; lector real diferido por el usuario. Flujos con fuentes de respaldo probados en etapa 04; revisión visual integral y lector real pendientes. Zoom al 200% confirmado manualmente por el usuario. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
+y=block('Accesibilidad y calidad por completar','Etapa 03: teclado, foco, reflujo y contrastes revisados; lector real diferido por el usuario. Flujos con fuentes locales cargadas probados en etapa06; revisión visual integral y lector real pendientes. Zoom al 200% confirmado manualmente por el usuario. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
 note('PRIORIDAD DE MEJORA','El sitio ya incorpora skip-link, idioma es-AR, alt en imágenes informativas, estados ARIA y movimiento reducido. Los textos auxiliares se ampliaron en la etapa 02. El usuario confirmó zoom al 200%. Colores funcionales revisados en etapa 03; falta la prueba de lector de pantalla. No se realizó una auditoría completa con lector de pantalla ni una certificación WCAG.',y)
 
 # 22. Sources
@@ -434,7 +434,7 @@ y=block('[W] Referencias técnicas de accesibilidad','W3C, Understanding WCAG 2.
 sources=[('W1 · Contraste de texto','https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html'),('W2 · Tamaño mínimo de objetivos','https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html'),('W3 · Foco visible','https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html')]
 for name,url in sources:
     text(name,M,y,9); y=para(f'<link href="{url}" color="{MUTED}">{url}</link>',M,y+16,CW,7.7,11,MUTED)+15
-y=block('Tipografías y licencia','Muestras regulares de Libre Caslon Display y DM Sans obtenidas del repositorio oficial google/fonts. Las familias se distribuyen bajo SIL Open Font License. La landing las carga desde Google Fonts. El generador portátil está en tools/docs/ y el PDF se guarda en docs/design-system.pdf.',y)
+y=block('Tipografías y licencia','Muestras regulares de Libre Caslon Display y DM Sans obtenidas del repositorio oficial google/fonts. Las familias se distribuyen bajo SIL Open Font License. La landing carga WOFF2 locales con licencias OFL. El generador portátil está en tools/docs/ y el PDF se guarda en docs/design-system.pdf.',y)
 para('<link href="https://github.com/google/fonts/tree/main/ofl/librecaslondisplay" color="#596877">google/fonts · Libre Caslon Display</link>  /  <link href="https://github.com/google/fonts/tree/main/ofl/dmsans" color="#596877">google/fonts · DM Sans</link>',M,y,CW,8,12,MUTED)
 
 bad=[b for b in BOUNDS if b[2]>780]

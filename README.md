@@ -37,7 +37,7 @@ npm run dev
 
 Abrí http://127.0.0.1:4173/. Astro recarga los cambios durante el desarrollo. Si el puerto está ocupado: npm run dev -- --port 4174. La extensión recomendada de VS Code es Astro.
 
-Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO de producción requiere SITE_URL y SEO_INDEXABLE=true cuando se confirme el dominio; previews mantienen noindex. Ver [SEO](docs/seo.md). Las fuentes se cargan desde Google Fonts con fallback local.
+Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO de producción requiere SITE_URL y SEO_INDEXABLE=true cuando se confirme el dominio; previews mantienen noindex. Ver [SEO](docs/seo.md). Las dos fuentes se cargan como WOFF2 locales con preload, swap y fallback.
 
 ## Comandos
 
@@ -57,6 +57,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preparar Chromium de pruebas                            | npm run test:install |
 | Build y control de referencias de salida                | npm run build        |
 | Preview del build                                       | npm run preview      |
+| Medición de rendimiento local                           | npm run perf         |
 
 npm test construye y ejecuta diez pruebas Node más dieciséis casos Chromium. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
@@ -105,6 +106,7 @@ main recibe cambios mediante PR con quality aprobado. No se exige otra persona p
 - [Pruebas y diagnóstico de fallos](docs/testing.md)
 - [Etapa 04: cobertura y evidencia](docs/stage-04-testing.md)
 - [SEO y dominio pendiente](docs/seo.md)
+- [Etapa 06: rendimiento medido](docs/stage-06-performance.md)
 - [Estado y validaciones](docs/project-status.md)
 - [Regenerar el manual](tools/docs/README.md)
 
