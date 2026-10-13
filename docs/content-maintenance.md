@@ -2,15 +2,15 @@
 
 ## Dónde editar hoy
 
-| Contenido | Archivo |
-| --- | --- |
-| Nombre, metadatos, historia, correo, dirección y Maps | src/content/institution.json |
-| Servicios, descripción, CTA y asunto | src/content/services.json |
-| Filiales | src/content/branches.json |
-| Destinos y descripción de alojamientos | src/content/stays.json |
-| Bienvenida, mensajes y títulos editoriales | src/components/*.astro |
-| Paleta y composición | src/styles/styles.css y warmth.css |
-| Escudo | public/assets/escudo.png |
+| Contenido                                             | Archivo                            |
+| ----------------------------------------------------- | ---------------------------------- |
+| Nombre, metadatos, historia, correo, dirección y Maps | src/content/institution.json       |
+| Servicios, descripción, CTA y asunto                  | src/content/services.json          |
+| Filiales                                              | src/content/branches.json          |
+| Destinos y descripción de alojamientos                | src/content/stays.json             |
+| Bienvenida, mensajes y títulos editoriales            | src/components/*.astro             |
+| Paleta y composición                                  | src/styles/styles.css y warmth.css |
+| Escudo                                                | public/assets/escudo.png           |
 
 Los JSON son arrays de objetos con id único, estable y sin tildes. Las colecciones de listas usan order (entero desde 0); mantenerlo único por lista para ordenar de forma predecible. No hace falta modificar el script al cambiar filiales o destinos.
 
@@ -20,7 +20,7 @@ En servicios, target es email con subject obligatorio, o alojamiento para enlaza
 
 1. Confirmar datos con el responsable institucional.
 2. Editar el archivo de contenido en una rama codex/*.
-3. Revisar npm run dev. Ejecutar npm run lint y npm test; el segundo incluye el build.
+3. Revisar npm run dev. Ejecutar npm run validate; incluye tipos, lint, formato, build y tests.
 4. Comprobar búsqueda, destino inicial, selector y enlaces de correo. Los tests comparan el texto y las anclas con una referencia; para un cambio editorial intencional, revisar la preview y ejecutar npm run test:update. Revisar el diff de tests/fixtures/landing-contract.json y volver a ejecutar npm test. No actualizar la referencia para ocultar una regresión.
 5. Presentar el PR; merge y publicación requieren autorización según el flujo del proyecto.
 

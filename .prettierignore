@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+.openai/
+.sites-local/
+.sites-runtime/
+.sites-checkout/
+tmp/
+docs/reference/
+docs/archive/
+docs/media/
+public/assets/
+tools/docs/fonts/
+package-lock.json
+*.pdf
+*.py

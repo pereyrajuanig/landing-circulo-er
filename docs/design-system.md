@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.2
+# Sistema de diseño · 1.3
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
@@ -8,18 +8,18 @@ Tradición, pertenencia y utilidad, con una bienvenida centrada en la persona. P
 
 ## Colores vigentes
 
-| Token | Valor | Uso |
-| --- | --- | --- |
-| `--navy` | `#092B48` | Identidad, botones y selección |
-| `--navy-deep` | `#062139` | Franja superior y pie |
-| `--gold` | `#D2B16A` | Accentos y botón principal |
-| `--cream` | `#F3EEE4` | Portada y superficies cálidas |
-| `--paper` | `#FCFAF5` | Fondo base |
-| `--ink` | `#143049` | Texto principal |
-| `--muted` | `#56656C` | Texto secundario |
-| `--line` | `#DFD8CB` | Separadores |
-| `--gold-ink` | `#826329` | Énfasis legible sobre claros |
-| `--warm-panel` | `#EEE7DA` | Filiales |
+| Token          | Valor     | Uso                            |
+| -------------- | --------- | ------------------------------ |
+| `--navy`       | `#092B48` | Identidad, botones y selección |
+| `--navy-deep`  | `#062139` | Franja superior y pie          |
+| `--gold`       | `#D2B16A` | Accentos y botón principal     |
+| `--cream`      | `#F3EEE4` | Portada y superficies cálidas  |
+| `--paper`      | `#FCFAF5` | Fondo base                     |
+| `--ink`        | `#143049` | Texto principal                |
+| `--muted`      | `#56656C` | Texto secundario               |
+| `--line`       | `#DFD8CB` | Separadores                    |
+| `--gold-ink`   | `#826329` | Énfasis legible sobre claros   |
+| `--warm-panel` | `#EEE7DA` | Filiales                       |
 
 Valores efectivos: `src/styles/warmth.css` redefine parte de `:root` de `src/styles/styles.css`. Servicios usa `#F0EDE6`, comunidad `#E7DBC5`, panel de alojamiento `#FFFDF9` y escudo `#FAF6EE`.
 
@@ -44,3 +44,5 @@ Consultar el [manual visual](design-system.pdf) para medidas y muestras. Se pres
 Texto alternativo, idioma `es-AR`, skip-link, foco visible, regiones ARIA y movimiento reducido. No se declara conformidad WCAG completa. Revisar teclado, lector de pantalla, zoom, reflujo, tamaños táctiles y combinaciones de colores.
 
 Usar voseo respetuoso y lenguaje concreto. No presentar frases editoriales como citas del estatuto. Las imágenes futuras deben ser reales, autorizadas y no confundirse con registros institucionales si son ilustrativas.
+
+La versión 1.3 alinea los controles técnicos con la etapa 01: tipos, lint, formato y CI independientes. Conserva los tokens, los componentes visuales y el contenido.

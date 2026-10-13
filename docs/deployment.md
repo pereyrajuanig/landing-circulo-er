@@ -2,13 +2,13 @@
 
 ## Entornos
 
-| Entorno | Uso | Estado |
-| --- | --- | --- |
-| npm run dev | Astro local con recarga | Disponible |
-| npm run preview | Salida estática local | Requiere build |
-| GitHub | Fuente, documentación y controles | Repositorio de portfolio existente |
-| Vercel | Hosting previsto de producción | Configuración preparada; cuenta y proyecto sin conectar |
-| Sites histórico | Referencia privada de diseño | Conserva su publicación anterior |
+| Entorno         | Uso                               | Estado                                                  |
+| --------------- | --------------------------------- | ------------------------------------------------------- |
+| npm run dev     | Astro local con recarga           | Disponible                                              |
+| npm run preview | Salida estática local             | Requiere build                                          |
+| GitHub          | Fuente, documentación y controles | Repositorio de portfolio existente                      |
+| Vercel          | Hosting previsto de producción    | Configuración preparada; cuenta y proyecto sin conectar |
+| Sites histórico | Referencia privada de diseño      | Conserva su publicación anterior                        |
 
 ## Configuración de Vercel
 

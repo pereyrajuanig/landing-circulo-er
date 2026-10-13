@@ -1,5 +1,9 @@
 export function normalize(text: string): string {
-  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
 }
 export function branchStatus(query: string, count: number): string {
   if (!normalize(query)) return '';

@@ -1,6 +1,6 @@
 # Regenerar el manual visual
 
-El PDF vigente se guarda en `docs/design-system.pdf`. Las versiones anteriores 1.0 y 1.1 se conservan en docs/archive/. La versión 1.2 documenta Astro y la preparación de Vercel.
+El PDF vigente se guarda en `docs/design-system.pdf`. Las versiones anteriores 1.0, 1.1 y 1.2 se conservan en docs/archive/. La versión 1.3 documenta Astro, la preparación de Vercel y los controles separados de tipos, lint y formato.
 
 ## Requisitos opcionales
 
@@ -23,3 +23,15 @@ pdftoppm -png -scale-to 1100 docs/design-system.pdf tmp/manual
 ```
 
 Actualizar fecha, versión, tokens y medidas cuando cambie la interfaz. Las recomendaciones deben identificarse como tales, diferenciadas de lo implementado.
+
+## Checklist y avance por etapas
+
+La checklist detallada se guarda en docs/checklist-paso-a-paso.pdf. Su estado técnico y evidencia se registran en docs/checklist-progress.json. Para actualizarla:
+
+```powershell
+python tools/docs/build_checklist.py
+```
+
+El generador usa los mismos requisitos y fuentes del manual. Verifica las 22 páginas, 136 campos y la coherencia entre valores lógicos y widgets. El registro decide los estados de tareas que contiene; los otros campos y casillas manuales existentes se conservan al regenerar. Una edición manual del PDF no modifica el JSON. Incorporar las decisiones de esa revisión al registro antes de regenerar si afectan una tarea registrada.
+
+Al cerrar un lote, registrar comando, resultado, fecha, responsable y evidencia. Mantener separado el cierre técnico de la autorización de merge o despliegue. Renderizar y revisar las páginas afectadas.

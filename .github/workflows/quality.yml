@@ -30,7 +30,11 @@ jobs:
       - name: Preparar proyecto
         run: npm ci
       - name: Diagnóstico Astro y TypeScript
+        run: npm run check
+      - name: Lint Astro, TypeScript y herramientas
         run: npm run lint
+      - name: Formato reproducible
+        run: npm run format:check
       - name: Build estático y tests de integración
         run: npm test
       - name: Comprobar formato del diff

@@ -1,23 +1,40 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-interface Props { institution: CollectionEntry<'institution'>['data'] }
+interface Props {
+  institution: CollectionEntry<'institution'>['data'];
+}
 const { institution } = Astro.props;
 ---
+
 <section id="institucion" class="section institution">
-<div class="wrap institution-grid">
-<div>
-<p class="eyebrow dark">01 / NUESTRA INSTITUCIÓN</p>
-<h2>Tu historia tiene<br>
-<em>un lugar acá.</em>
-</h2>
-<p class="section-intro">Hay experiencias que nos unen.<br>Y vínculos que seguimos construyendo.</p>
-</div>
-<div class="institution-body">{institution.history.map(paragraph =>
-<p>{paragraph}</p>)}<blockquote>Compartir nuestra historia.<br>Acompañar a nuestras familias.<br>Seguir construyendo comunidad.</blockquote>
-<div class="history-note">
-<span>21 SEPTIEMBRE 1975</span>
-<p>El comienzo de una historia que seguimos compartiendo.</p>
-</div>
-</div>
-</div>
+  <div class="wrap institution-grid">
+    <div>
+      <p class="eyebrow dark">01 / NUESTRA INSTITUCIÓN</p>
+      <h2>
+        Tu historia tiene
+        <br />
+        <em>un lugar acá.</em>
+      </h2>
+      <p class="section-intro">
+        Hay experiencias que nos unen.
+        <br />Y vínculos que seguimos construyendo.
+      </p>
+    </div>
+    <div class="institution-body">
+      {institution.history.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+      <blockquote>
+        Compartir nuestra historia.
+        <br />
+        Acompañar a nuestras familias.
+        <br />
+        Seguir construyendo comunidad.
+      </blockquote>
+      <div class="history-note">
+        <span>21 SEPTIEMBRE 1975</span>
+        <p>El comienzo de una historia que seguimos compartiendo.</p>
+      </div>
+    </div>
+  </div>
 </section>

@@ -16,8 +16,7 @@ Revisar cambios locales antes de cambiar de rama. No descartar modificaciones aj
 
 ```powershell
 npm ci
-npm run lint
-npm test # incluye build
+npm run validate # tipos, lint, formato, build y tests
 git diff --check
 git diff
 ```
@@ -29,7 +28,7 @@ git push -u origin codex/nombre-de-la-tarea
 gh pr create --base main --fill
 ```
 
-El PR debe explicar problema, resultado, validación y limitaciones. Utilizar la plantilla del repositorio. Para cuerpos extensos usar un archivo y `--body-file`.
+El PR debe explicar problema, resultado, validación y limitaciones. Registrar tareas verificadas y su evidencia en docs/checklist-progress.json; regenerar la checklist y revisar su render y sus campos. Una tarea implementada en una rama no equivale a un merge aprobado. Utilizar la plantilla del repositorio. Para cuerpos extensos usar un archivo y `--body-file`.
 
 ## Revisión y merge
 

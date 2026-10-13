@@ -5,16 +5,19 @@
   "description": "Landing institucional del Círculo de Retirados y Pensionados de la Policía de Entre Ríos",
   "type": "module",
   "engines": {
-    "node": ">=24 <25"
+    "node": ">=24.16.0 <25"
   },
   "scripts": {
     "dev": "astro dev",
-    "lint": "astro check",
     "check": "astro check",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "test": "npm run build && node --test --test-reporter=spec",
     "build": "astro build && node scripts/check-build.mjs",
     "preview": "astro preview",
-    "test:update": "npm run build && node scripts/update-content-contract.mjs"
+    "test:update": "npm run build && node scripts/update-content-contract.mjs",
+    "validate": "npm run check && npm run lint && npm run format:check && npm test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +25,14 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@eslint/js": "10.0.1",
     "astro": "7.3.8",
-    "typescript": "6.0.3"
+    "eslint": "10.12.0",
+    "eslint-plugin-astro": "3.2.1",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2"
   }
 }

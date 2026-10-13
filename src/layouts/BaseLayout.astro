@@ -1,9 +1,13 @@
 ---
 import '../styles/styles.css';
 import '../styles/warmth.css';
-interface Props { title: string; description: string }
+interface Props {
+  title: string;
+  description: string;
+}
 const { title, description } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="es-AR">
   <head>
@@ -14,5 +18,10 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <link rel="icon" href="/assets/escudo.png" type="image/png" />
   </head>
-  <body><a class="skip-link" href="#contenido">Ir al contenido</a><slot /></body>
+  <body>
+    <a class="skip-link" href="#contenido">
+      Ir al contenido
+    </a>
+    <slot />
+  </body>
 </html>

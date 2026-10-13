@@ -12,7 +12,10 @@ import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
 const [entry, services, branches, stays] = await Promise.all([
-  getEntry('institution', 'circulo'), getCollection('services'), getCollection('branches'), getCollection('stays'),
+  getEntry('institution', 'circulo'),
+  getCollection('services'),
+  getCollection('branches'),
+  getCollection('stays'),
 ]);
 if (!entry) throw new Error('Falta el contenido institucional del Círculo.');
 const institution = entry.data;
@@ -20,6 +23,7 @@ services.sort((a, b) => a.data.order - b.data.order);
 branches.sort((a, b) => a.data.order - b.data.order);
 stays.sort((a, b) => a.data.order - b.data.order);
 ---
+
 <BaseLayout title={institution.title} description={institution.description}>
   <Header />
   <main id="contenido">
@@ -32,5 +36,7 @@ stays.sort((a, b) => a.data.order - b.data.order);
     <Contact institution={institution} />
   </main>
   <Footer institution={institution} />
-  <script>import '../scripts/landing';</script>
+  <script>
+    import '../scripts/landing';
+  </script>
 </BaseLayout>

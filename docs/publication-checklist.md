@@ -5,7 +5,7 @@ Esta lista no autoriza merge ni despliegue.
 ## Antes del PR
 
 - [ ] Alcance claro; rama desde main actualizado; diff sin cambios ajenos o secretos.
-- [ ] npm ci, npm run lint, npm test (incluye build) y git diff --check aprobados.
+- [ ] npm ci, npm run validate (tipos, lint, formato, build y tests) y git diff --check aprobados.
 - [ ] Escritorio y móvil revisados; menú, servicios, filiales y alojamiento probados.
 - [ ] Documentación y PDF alineados; PR con validaciones y límites.
 - [ ] Dossier original excluido de Git y dist.

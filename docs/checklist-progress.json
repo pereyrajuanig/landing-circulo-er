@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-13",
+  "baselineCommit": "5d87930fed3728f26ef3b36f27e24e938e8471be",
+  "stages": {
+    "01": {
+      "status": "in_progress",
+      "branch": "codex/etapa-01-calidad",
+      "pullRequest": null,
+      "summary": "Astro integrado en main por PR #2. Tipos, lint y formato aprobados localmente; CI y revisión documental de esta etapa en curso."
+    }
+  },
+  "tasks": {
+    "01.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "01.02": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "04.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "07.02": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "09.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "01.03": {
+      "status": "pending",
+      "evidence": "PR #2 fusionado por squash, 5d87930; falta actualizar la rama local de esta etapa sobre origin/main."
+    },
+    "01.04": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "npm run validate: astro check (22 archivos, 0 errores/advertencias/hints) y ESLint sin advertencias, 13/10/2026."
+    },
+    "01.05": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Prettier configurado con plugin Astro; npm run format:check aprobado y seis pruebas de regresión aprobadas, 13/10/2026."
+    },
+    "01.06": {
+      "status": "pending",
+      "evidence": "En implementación y verificación de etapa 01."
+    },
+    "01.07": {
+      "status": "pending",
+      "evidence": "En implementación y verificación de etapa 01."
+    }
+  },
+  "formValues": {}
+}
