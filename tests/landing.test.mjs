@@ -7,6 +7,7 @@ import { validateSite } from '../scripts/check-build.mjs';
 import { normalize, branchStatus } from '../src/lib/search.ts';
 import { mailTo } from '../src/lib/contact.ts';
 import { getDeployment } from '../config/seo.mjs';
+import { validateSecurity } from '../scripts/check-security.mjs';
 
 const load = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
 const decode = (value) =>
@@ -237,4 +238,15 @@ test('la página inexistente ofrece regreso y conserva estado HTTP 404', async (
   assert.match(html, /href="\/"[^>]*>Volver al inicio/);
   assert.match(html, /name="robots" content="noindex, follow"/);
   assert(!html.includes('rel="canonical"'));
+});
+
+test('preview sirve los headers preparados en portada y recursos', async () => {
+  const { headers } = validateSecurity();
+  for (const path of ['/', '/assets/fonts/dm-sans-latin.woff2']) {
+    const response = await fetch(new URL(path, origin));
+    for (const [name, value] of Object.entries(headers))
+      assert.equal(response.headers.get(name), value, path + ': ' + name);
+    assert.equal(response.headers.get('content-security-policy'), null);
+    assert.equal(response.headers.get('strict-transport-security'), null);
+  }
 });

@@ -13,15 +13,17 @@
     "lint": "eslint . --max-warnings=0",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "test": "npm run build && npm run test:unit && playwright test",
-    "build": "astro build && node scripts/check-build.mjs",
+    "test": "npm run build && npm run test:unit && playwright test && npm run test:csp",
+    "build": "astro build && node scripts/check-build.mjs && node scripts/check-security.mjs",
     "preview": "astro preview",
     "test:update": "npm run build && node scripts/update-content-contract.mjs",
     "validate": "npm run check && npm run lint && npm run format:check && npm test",
     "test:unit": "node --test --test-reporter=spec tests/landing.test.mjs",
     "test:e2e": "npm run build && playwright test",
     "test:install": "playwright install chromium",
-    "perf": "npm run build && node tools/performance/measure.mjs"
+    "perf": "npm run build && node tools/performance/measure.mjs",
+    "security:update": "astro build && node scripts/update-security-policy.mjs",
+    "test:csp": "playwright test --config playwright.csp.config.mjs"
   },
   "repository": {
     "type": "git",

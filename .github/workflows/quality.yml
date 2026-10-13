@@ -29,6 +29,8 @@ jobs:
           node-version: '24'
       - name: Preparar proyecto
         run: npm ci
+      - name: Auditoría de dependencias
+        run: npm audit --audit-level=high
       - name: Diagnóstico Astro y TypeScript
         run: npm run check
       - name: Lint Astro, TypeScript y herramientas
