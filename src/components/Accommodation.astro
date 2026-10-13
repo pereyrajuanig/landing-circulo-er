@@ -34,6 +34,8 @@ if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
       <div class="stay-selector" role="group" aria-label="Elegí un alojamiento">
         {stays.map((stay, index) => (
           <button
+            type="button"
+            aria-controls="stay-detail"
             class:list={['stay-tab', { active: index === 0 }]}
             data-stay={stay.id}
             aria-pressed={index === 0 ? 'true' : 'false'}
@@ -42,7 +44,7 @@ if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
           </button>
         ))}
       </div>
-      <div class="stay-detail" aria-live="polite">
+      <div id="stay-detail" class="stay-detail" aria-live="polite">
         <span class="stay-kicker">ALOJAMIENTO INSTITUCIONAL</span>
         <h3 id="stay-title">{initialStay.data.name}</h3>
         <p id="stay-copy">{initialStay.data.description}</p>

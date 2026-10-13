@@ -1,6 +1,6 @@
 # Etapa 02 · Diseño y experiencia
 
-Fecha: 13 de octubre de 2026. Rama: codex/etapa-02-diseno-ux. Base: 4410368. Estado: siete tareas verificadas; revisión final e integración del PR pendientes.
+Fecha: 13 de octubre de 2026. Rama: codex/etapa-02-diseno-ux. Base: 4410368. Estado: siete tareas verificadas; PR #4 fusionado con autorización del usuario, main 20181ac y quality aprobado.
 
 ## Dirección acordada
 
@@ -21,13 +21,13 @@ Codex In-app Browser. Valores efectivos de innerWidth/innerHeight; clientWidth p
 
 | Viewport CSS | clientWidth / scrollWidth | Navegación                     | Filtro, destinos y servicios                  |
 | ------------ | ------------------------- | ------------------------------ | --------------------------------------------- |
-| 360 × 800    | 360 / 360                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
-| 390 × 844    | 390 / 390                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
-| 430 × 932    | 430 / 430                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
-| 768 × 1024   | 768 / 768                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
-| 1024 × 768   | 1024 / 1024               | Cabecera completa              | Colón / sin resultados; Nogoyá; dos servicios |
-| 1440 × 900   | 1440 / 1440               | Cabecera completa              | Colón / sin resultados; Nogoyá; dos servicios |
-| 1920 × 1080  | 1920 / 1920               | Cabecera completa              | Colón / sin resultados; Nogoyá; dos servicios |
+| 360 × 800    | 345 / 345                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
+| 390 × 844    | 375 / 375                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
+| 430 × 932    | 415 / 415                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
+| 768 × 1024   | 753 / 753                 | Menú, Escape y foco en destino | Colón / sin resultados; Nogoyá; dos servicios |
+| 1024 × 768   | 1009 / 1009               | Cabecera completa              | Colón / sin resultados; Nogoyá; dos servicios |
+| 1440 × 900   | 1425 / 1425               | Cabecera completa              | Colón / sin resultados; Nogoyá; dos servicios |
+| 1920 × 1080  | 1905 / 1905               | Cabecera completa              | Colón / sin resultados; Nogoyá; dos servicios |
 
 El filtro encuentra Colón al ingresar COLON y comunica la consulta sin resultados. Nogoyá cambia título, selección única y asunto mailto. Salud y Trámites pueden quedar abiertos a la vez. Registro completo: [evidencia JSON](stage-02-evidence.json).
 
@@ -41,10 +41,12 @@ Hover del botón principal observado en #E2C585. Foco de alojamiento seleccionad
 
 ## Controles y límites
 
-npm run validate aprobado: tipos sin diagnósticos, lint sin advertencias, formato correcto, build de una única página y seis pruebas aprobadas. El texto y las anclas originales permanecen iguales. quality aprobado para código cb87892497455ebf8a54fa1f4cafce054c0d9210 en el [PR #4](https://github.com/pereyrajuanig/landing-circulo-er/pull/4): [ejecución de CI](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193). El commit documental final vuelve a pasar los controles. Main se integra después de la revisión y autorización del usuario.
+npm run validate aprobado: tipos sin diagnósticos, lint sin advertencias, formato correcto, build de una única página y seis pruebas aprobadas. El texto y las anclas originales permanecen iguales. quality aprobado para código cb87892497455ebf8a54fa1f4cafce054c0d9210 en el [PR #4](https://github.com/pereyrajuanig/landing-circulo-er/pull/4): [ejecución de CI](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193). El commit documental final vuelve a pasar los controles. Main quedó integrado con autorización; quality de main aprobado en 20181ac.
 
 El navegador integrado no aplica el atajo de zoom ni ofrece esa capacidad; no hay Chrome/Edge conectado. Juan confirmó la prueba manual solicitada de zoom de navegador al 200 %: «Se lee y puedo usarla al 200 %», incluyendo lectura, menú, filtro y alojamientos. No precisó si usó Chrome o Edge. La tarea 02.07 queda verificada por su respuesta; se conserva la distinción entre revisión manual y pruebas automatizadas. No se declara conformidad WCAG ni aprobación visual final del usuario. Merge y publicación requieren sus autorizaciones.
 
 [Escritorio](media/etapa02-desktop.jpg) · [Móvil](media/etapa02-mobile.jpg) · [Foco en alojamiento](media/etapa02-focus-mobile.jpg) · [Menú horizontal](media/etapa02-menu-landscape.jpg).
 
 Comprobación final de Astro preview: una página estática, script inline, búsqueda COLON → Colón, selección única de Nogoyá, input de 44px y ausencia de enlaces a la ruta de QA. Medidas sin ocultar barras del navegador: registro JSON actualizado.
+
+Cierre registrado en etapa 03: [PR #4](https://github.com/pereyrajuanig/landing-circulo-er/pull/4) fusionado; [CI de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38445597091). La matriz presenta las medidas con barra vertical normal, alineadas con el JSON.

@@ -27,6 +27,26 @@ if (menuButton && navigation) {
       }
     });
   });
+  const header = menuButton.closest('header');
+  header?.addEventListener('focusout', (event) => {
+    if (event.relatedTarget instanceof Node && !header.contains(event.relatedTarget)) closeMenu();
+  });
+  const mobileMenu = window.matchMedia('(max-width: 800px)');
+  navigation.addEventListener('focusout', (event) => {
+    if (
+      event.relatedTarget === null &&
+      mobileMenu.matches &&
+      getComputedStyle(navigation).display === 'none'
+    )
+      menuButton.focus();
+  });
+  mobileMenu.addEventListener('change', () => {
+    const focused = document.activeElement;
+    closeMenu();
+    if (mobileMenu.matches && navigation.contains(focused)) menuButton.focus();
+    else if (!mobileMenu.matches && focused === menuButton)
+      navigation.querySelector<HTMLAnchorElement>('a')?.focus();
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && navigation.classList.contains('open')) {
       closeMenu();

@@ -11,6 +11,7 @@
   --font-control: 16px;
   --font-brand-detail: 10px;
   --target-size: 44px;
+  --control-border: #826e48;
   --radius-control: 8px;
   --radius-item: 12px;
   --radius-panel: 16px;
@@ -264,7 +265,7 @@ h2 em {
 }
 .search-field {
   background: var(--paper);
-  border: 1px solid #baac91;
+  border: 1px solid var(--control-border);
   border-radius: 9px;
   padding: 10px 15px;
   max-width: 100%;
@@ -464,6 +465,7 @@ h2 em {
     font-size: var(--font-control);
   }
   .menu-toggle {
+    border-color: var(--control-border);
     border-radius: 7px;
     min-height: 44px;
     font-size: var(--font-control);
@@ -675,6 +677,11 @@ h2 em {
 .topline .wrap > a {
   font-size: var(--font-label);
   letter-spacing: 0.02em;
+}
+.topline .wrap > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 .topline .wrap {
   flex-wrap: wrap;

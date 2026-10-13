@@ -1,0 +1,1110 @@
+{
+  "date": "2026-10-13",
+  "browser": "Codex In-app Browser",
+  "devicePixelRatio": 1.1,
+  "desktopViewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "desktopKeyboard": [
+    {
+      "bottom": 647.1164627075195,
+      "height": 55.98011016845703,
+      "id": "",
+      "name": "Hablemos ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 591.1363525390625,
+      "unobscured": true,
+      "width": 163.59375
+    },
+    {
+      "bottom": 641.1221504211426,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Cómo podemos acompañarte →",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 597.1306762695312,
+      "unobscured": true,
+      "width": 258.22442626953125
+    },
+    {
+      "bottom": 749.2045383453369,
+      "height": 25.198862075805664,
+      "id": "",
+      "name": "Conocé nuestra historia ↓",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 724.0056762695312,
+      "unobscured": true,
+      "width": 192.6988525390625
+    },
+    {
+      "bottom": 550.2698745727539,
+      "height": 95.17044830322266,
+      "id": "",
+      "name": "01Salud y bienestarCuidarnos en cada etapa+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 455.0994262695313,
+      "unobscured": true,
+      "width": 1240
+    },
+    {
+      "bottom": 615.4261054992676,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Consultar atención ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 571.4346313476562,
+      "unobscured": true,
+      "width": 180.32669067382812
+    },
+    {
+      "bottom": 764.6732559204102,
+      "height": 95.17044830322266,
+      "id": "",
+      "name": "02Trámites y asesoramientoOrientación y representación+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 669.5028076171875,
+      "unobscured": true,
+      "width": 1240
+    },
+    {
+      "bottom": 860.7527847290039,
+      "height": 95.17044830322266,
+      "id": "",
+      "name": "03Farmacia y beneficiosApoyo para la vida cotidiana+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 765.5823364257812,
+      "unobscured": true,
+      "width": 1240
+    },
+    {
+      "bottom": 899.5596084594727,
+      "height": 95.17044830322266,
+      "id": "",
+      "name": "04Turismo y alojamientoDescanso y nuevos encuentros+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 804.38916015625,
+      "unobscured": true,
+      "width": 1240
+    },
+    {
+      "bottom": 550.1846389770508,
+      "height": 95.17044830322266,
+      "id": "",
+      "name": "05Recreación y comunidadTiempo para compartir+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 455.0141906738281,
+      "unobscured": true,
+      "width": 1240
+    },
+    {
+      "bottom": 524.5454292297363,
+      "height": 43.99147415161133,
+      "id": "branch-search",
+      "name": "",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "INPUT",
+      "top": 480.553955078125,
+      "unobscured": true,
+      "width": 516.8323974609375
+    },
+    {
+      "bottom": 630.4403266906738,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Te ayudamos a contactar tu filial →",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 586.4488525390625,
+      "unobscured": true,
+      "width": 277.6278381347656
+    },
+    {
+      "bottom": 267.65624237060547,
+      "height": 162.58522033691406,
+      "id": "",
+      "name": "SEDE CENTRALParanáUrquiza 669 ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 105.0710220336914,
+      "unobscured": true,
+      "width": 577.5
+    },
+    {
+      "bottom": 539.4033889770508,
+      "height": 73.6647720336914,
+      "id": "",
+      "name": "Paraná →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 465.7386169433594,
+      "unobscured": true,
+      "width": 270
+    },
+    {
+      "bottom": 613.0681533813477,
+      "height": 73.6647720336914,
+      "id": "",
+      "name": "María Grande →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 539.4033813476562,
+      "unobscured": true,
+      "width": 270
+    },
+    {
+      "bottom": 686.7329483032227,
+      "height": 73.6647720336914,
+      "id": "",
+      "name": "Victoria →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 613.0681762695312,
+      "unobscured": true,
+      "width": 270
+    },
+    {
+      "bottom": 760.3976821899414,
+      "height": 73.6647720336914,
+      "id": "",
+      "name": "Nogoyá →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 686.73291015625,
+      "unobscured": true,
+      "width": 270
+    },
+    {
+      "bottom": 834.0624771118164,
+      "height": 73.6647720336914,
+      "id": "",
+      "name": "La Paz →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 760.397705078125,
+      "unobscured": true,
+      "width": 270
+    },
+    {
+      "bottom": 899.54541015625,
+      "height": 72.75567626953125,
+      "id": "",
+      "name": "Santa Elena →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 826.7897338867188,
+      "unobscured": true,
+      "width": 270
+    },
+    {
+      "bottom": 849.3039627075195,
+      "height": 55.98011016845703,
+      "id": "stay-link",
+      "name": "Consultar alojamiento ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 793.3238525390625,
+      "unobscured": true,
+      "width": 257.4715881347656
+    },
+    {
+      "bottom": 602.6420364379883,
+      "height": 55.98011016845703,
+      "id": "",
+      "name": "Quiero hacer una consulta ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 546.6619262695312,
+      "unobscured": true,
+      "width": 290.553955078125
+    },
+    {
+      "bottom": 473.0539436340332,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Ver ubicación ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 429.0624694824219,
+      "unobscured": true,
+      "width": 131.40625
+    },
+    {
+      "bottom": 609.5028266906738,
+      "height": 44.77272415161133,
+      "id": "",
+      "name": "retiradospoliciaentrerios@gmail.com ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 564.7301025390625,
+      "unobscured": true,
+      "width": 519.0056762695312
+    },
+    {
+      "bottom": 811.4772529602051,
+      "height": 48.99147415161133,
+      "id": "",
+      "name": "Círculo de Retirados y PensionadosDE LA POLICÍA DE ENTRE RÍOS",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 762.4857788085938,
+      "unobscured": true,
+      "width": 273.1534118652344
+    },
+    {
+      "bottom": 808.9772529602051,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Volver al inicio ↑",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 764.9857788085938,
+      "unobscured": true,
+      "width": 134.61647033691406
+    }
+  ],
+  "headerKeyboard": [
+    {
+      "bottom": 60.76704406738281,
+      "height": 48.77840805053711,
+      "id": "",
+      "name": "Ir al contenido",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 11.988636016845703,
+      "unobscured": true,
+      "width": 125.96590423583984
+    },
+    {
+      "bottom": 32.98295307159424,
+      "height": 23.99147605895996,
+      "id": "",
+      "name": "Sede Central · Paraná ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 8.991477012634277,
+      "unobscured": true,
+      "width": 142.4005584716797
+    },
+    {
+      "bottom": 123.09658813476562,
+      "height": 62.258522033691406,
+      "id": "",
+      "name": "Círculo de Retiradosy PensionadosPOLICÍA DE ENTRE RÍOS",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 60.83806610107422,
+      "unobscured": true,
+      "width": 231.4914703369141
+    },
+    {
+      "bottom": 113.96306228637695,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Institución",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 69.97158813476562,
+      "unobscured": true,
+      "width": 81.15056610107422
+    },
+    {
+      "bottom": 113.96306228637695,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Servicios",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 69.97158813476562,
+      "unobscured": true,
+      "width": 69.40340423583984
+    },
+    {
+      "bottom": 113.96306228637695,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Filiales",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 69.97158813476562,
+      "unobscured": true,
+      "width": 51.477272033691406
+    },
+    {
+      "bottom": 113.96306228637695,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Alojamiento",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 69.97158813476562,
+      "unobscured": true,
+      "width": 91.42044830322266
+    },
+    {
+      "bottom": 118.26704025268556,
+      "height": 52.58522415161133,
+      "id": "",
+      "name": "Contacto ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 65.68181610107422,
+      "unobscured": true,
+      "width": 141.2783966064453
+    }
+  ],
+  "mobileKeyboard": [
+    {
+      "bottom": 585.4687576293945,
+      "height": 55.98011016845703,
+      "id": "",
+      "name": "Hablemos ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 529.4886474609375,
+      "unobscured": true,
+      "width": 340.3551025390625
+    },
+    {
+      "bottom": 648.4516792297363,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Cómo podemos acompañarte →",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 604.460205078125,
+      "unobscured": true,
+      "width": 258.22442626953125
+    },
+    {
+      "bottom": 489.5028266906738,
+      "height": 50.39772415161133,
+      "id": "",
+      "name": "Conocé nuestra historia ↓",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 439.1051025390625,
+      "unobscured": true,
+      "width": 152.1875
+    },
+    {
+      "bottom": 506.022705078125,
+      "height": 83.59375,
+      "id": "",
+      "name": "01Salud y bienestarCuidarnos en cada etapa+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 422.428955078125,
+      "unobscured": true,
+      "width": 340.3551025390625
+    },
+    {
+      "bottom": 739.6732978820801,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Consultar atención ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 695.6818237304688,
+      "unobscured": true,
+      "width": 180.32669067382812
+    },
+    {
+      "bottom": 843.3948287963867,
+      "height": 117.18749237060548,
+      "id": "",
+      "name": "02Trámites y asesoramientoOrientación y representación+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 726.2073364257812,
+      "unobscured": true,
+      "width": 340.3551025390625
+    },
+    {
+      "bottom": 506.07952880859375,
+      "height": 83.59375,
+      "id": "",
+      "name": "03Farmacia y beneficiosApoyo para la vida cotidiana+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 422.48577880859375,
+      "unobscured": true,
+      "width": 340.3551025390625
+    },
+    {
+      "bottom": 590.5823669433594,
+      "height": 83.59375,
+      "id": "",
+      "name": "04Turismo y alojamientoDescanso y nuevos encuentros+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 506.9886169433594,
+      "unobscured": true,
+      "width": 340.3551025390625
+    },
+    {
+      "bottom": 708.6789474487305,
+      "height": 117.18749237060548,
+      "id": "",
+      "name": "05Recreación y comunidadTiempo para compartir+",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "SUMMARY",
+      "top": 591.491455078125,
+      "unobscured": true,
+      "width": 340.3551025390625
+    },
+    {
+      "bottom": 486.4772529602051,
+      "height": 43.99147415161133,
+      "id": "branch-search",
+      "name": "",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "INPUT",
+      "top": 442.48577880859375,
+      "unobscured": true,
+      "width": 279.6875
+    },
+    {
+      "bottom": 592.3721504211426,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Te ayudamos a contactar tu filial →",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 548.3806762695312,
+      "unobscured": true,
+      "width": 277.6278381347656
+    },
+    {
+      "bottom": 786.9459991455078,
+      "height": 162.58522033691406,
+      "id": "",
+      "name": "SEDE CENTRALParanáUrquiza 669 ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 624.3607788085938,
+      "unobscured": true,
+      "width": 340.3551025390625
+    },
+    {
+      "bottom": 497.4999923706054,
+      "height": 65.68181610107422,
+      "id": "",
+      "name": "Paraná →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 431.8181762695313,
+      "unobscured": true,
+      "width": 169.2613525390625
+    },
+    {
+      "bottom": 497.4999923706054,
+      "height": 65.68181610107422,
+      "id": "",
+      "name": "María Grande →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 431.8181762695313,
+      "unobscured": true,
+      "width": 169.2755584716797
+    },
+    {
+      "bottom": 563.1817855834961,
+      "height": 65.68181610107422,
+      "id": "",
+      "name": "Victoria →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 497.4999694824219,
+      "unobscured": true,
+      "width": 169.2613525390625
+    },
+    {
+      "bottom": 563.1817855834961,
+      "height": 65.68181610107422,
+      "id": "",
+      "name": "Nogoyá →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 497.4999694824219,
+      "unobscured": true,
+      "width": 169.2755584716797
+    },
+    {
+      "bottom": 628.863639831543,
+      "height": 65.68181610107422,
+      "id": "",
+      "name": "La Paz →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 563.1818237304688,
+      "unobscured": true,
+      "width": 169.2613525390625
+    },
+    {
+      "bottom": 628.863639831543,
+      "height": 65.68181610107422,
+      "id": "",
+      "name": "Santa Elena →",
+      "offset": "-4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "BUTTON",
+      "top": 563.1818237304688,
+      "unobscured": true,
+      "width": 169.2755584716797
+    },
+    {
+      "bottom": 492.4573745727539,
+      "height": 55.98011016845703,
+      "id": "stay-link",
+      "name": "Consultar alojamiento ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 436.4772644042969,
+      "unobscured": true,
+      "width": 257.4715881347656
+    },
+    {
+      "bottom": 492.315315246582,
+      "height": 55.98011016845703,
+      "id": "",
+      "name": "Quiero hacer una consulta ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 436.335205078125,
+      "unobscured": true,
+      "width": 290.553955078125
+    },
+    {
+      "bottom": 743.4232368469238,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Ver ubicación ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 699.4317626953125,
+      "unobscured": true,
+      "width": 131.40625
+    },
+    {
+      "bottom": 843.1959686279297,
+      "height": 73.55113220214844,
+      "id": "",
+      "name": "retiradospoliciaentrerios@gmail.com ↗",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 769.6448364257812,
+      "unobscured": true,
+      "width": 296.3778381347656
+    },
+    {
+      "bottom": 642.272705078125,
+      "height": 45,
+      "id": "",
+      "name": "Círculo de Retirados y PensionadosDE LA POLICÍA DE ENTRE RÍOS",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 597.272705078125,
+      "unobscured": true,
+      "width": 233.97726440429688
+    },
+    {
+      "bottom": 708.2528266906738,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Volver al inicio ↑",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 664.2613525390625,
+      "unobscured": true,
+      "width": 134.61647033691406
+    }
+  ],
+  "stayKeyboard": [
+    {
+      "copy": "La sede central cuenta con habitaciones y espacios comunes para el hospedaje de integrantes y familiares. Una base de encuentro en la capital entrerriana.",
+      "focus": "Paraná →",
+      "mailto": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Paran%C3%A1",
+      "selected": ["Paraná →"],
+      "title": "Paraná"
+    },
+    {
+      "copy": "El Círculo publica una opción de alojamiento en María Grande. Consultá con la institución el contacto responsable y las condiciones actuales para organizar tu visita.",
+      "focus": "María Grande →",
+      "mailto": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Mar%C3%ADa%20Grande",
+      "selected": ["María Grande →"],
+      "title": "María Grande"
+    },
+    {
+      "copy": "Una de las localidades de la red de alojamiento institucional. Consultá con el Círculo las opciones disponibles para tu estadía en Victoria.",
+      "focus": "Victoria →",
+      "mailto": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Victoria",
+      "selected": ["Victoria →"],
+      "title": "Victoria"
+    },
+    {
+      "copy": "La red institucional incluye alojamiento en Nogoyá. Comunicate para conocer la disponibilidad, el equipamiento y las condiciones de reserva.",
+      "focus": "Nogoyá →",
+      "mailto": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+      "selected": ["Nogoyá →"],
+      "title": "Nogoyá"
+    },
+    {
+      "copy": "El Círculo cuenta con una opción de alojamiento publicada en La Paz. Consultá las condiciones y coordiná tu estadía con la institución.",
+      "focus": "La Paz →",
+      "mailto": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20La%20Paz",
+      "selected": ["La Paz →"],
+      "title": "La Paz"
+    },
+    {
+      "copy": "Santa Elena forma parte de las localidades con alojamiento institucional publicado. Consultá disponibilidad y contacto de reserva para planificar tu visita.",
+      "focus": "Santa Elena →",
+      "mailto": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Santa%20Elena",
+      "selected": ["Santa Elena →"],
+      "title": "Santa Elena"
+    }
+  ],
+  "contrastSamples": [
+    {
+      "background": [243, 238, 228],
+      "color": "rgb(86, 101, 108)",
+      "font": "16px",
+      "ratio": 5.228152865924704,
+      "selector": ".hero-description",
+      "weight": "400"
+    },
+    {
+      "background": [243, 238, 228],
+      "color": "rgb(130, 99, 41)",
+      "font": "12px",
+      "ratio": 4.822470128480922,
+      "selector": ".hero .eyebrow",
+      "weight": "650"
+    },
+    {
+      "background": [243, 238, 228],
+      "color": "rgb(130, 99, 41)",
+      "font": "45px",
+      "ratio": 4.822470128480922,
+      "selector": "h1 em",
+      "weight": "400"
+    },
+    {
+      "background": [252, 250, 245],
+      "color": "rgb(86, 101, 108)",
+      "font": "16px",
+      "ratio": 5.795503924852334,
+      "selector": ".institution-body > p",
+      "weight": "400"
+    },
+    {
+      "background": [240, 237, 230],
+      "color": "rgb(86, 101, 108)",
+      "font": "16px",
+      "ratio": 5.170670390838285,
+      "selector": ".services .section-heading > p",
+      "weight": "400"
+    },
+    {
+      "background": [252, 250, 245],
+      "color": "rgb(86, 101, 108)",
+      "font": "14px",
+      "ratio": 5.795503924852334,
+      "selector": ".service-caption",
+      "weight": "400"
+    },
+    {
+      "background": [252, 250, 245],
+      "color": "rgb(130, 99, 41)",
+      "font": "14px",
+      "ratio": 5.34579712449763,
+      "selector": ".service-number",
+      "weight": "400"
+    },
+    {
+      "background": [233, 225, 210],
+      "color": "rgb(130, 99, 41)",
+      "font": "22px",
+      "ratio": 4.2925606106725755,
+      "selector": ".details-icon",
+      "weight": "400"
+    },
+    {
+      "background": [238, 231, 218],
+      "color": "rgb(130, 99, 41)",
+      "font": "12px",
+      "ratio": 4.534929913366459,
+      "selector": ".territory .eyebrow",
+      "weight": "650"
+    },
+    {
+      "background": [238, 231, 218],
+      "color": "rgb(86, 101, 108)",
+      "font": "14px",
+      "ratio": 4.916423781105504,
+      "selector": ".territory .search-status",
+      "weight": "400"
+    },
+    {
+      "background": [252, 250, 245],
+      "color": "rgb(20, 48, 73)",
+      "font": "16px",
+      "ratio": 12.998911227471629,
+      "selector": ".search-field input",
+      "weight": "400"
+    },
+    {
+      "background": [9, 43, 72],
+      "color": "rgb(252, 250, 245)",
+      "font": "16px",
+      "ratio": 13.876930432110845,
+      "selector": ".stay-tab.active",
+      "weight": "400"
+    },
+    {
+      "background": [243, 238, 228],
+      "color": "rgb(86, 101, 108)",
+      "font": "16px",
+      "ratio": 5.228152865924704,
+      "selector": ".stay-tab:not(.active)",
+      "weight": "400"
+    },
+    {
+      "background": [255, 253, 249],
+      "color": "rgb(130, 99, 41)",
+      "font": "12px",
+      "ratio": 5.488703977251661,
+      "selector": ".stay-kicker",
+      "weight": "650"
+    },
+    {
+      "background": [255, 253, 249],
+      "color": "rgb(86, 101, 108)",
+      "font": "14px",
+      "ratio": 5.950432592502085,
+      "selector": ".stay-note",
+      "weight": "400"
+    },
+    {
+      "background": [231, 219, 197],
+      "color": "rgb(130, 99, 41)",
+      "font": "26px",
+      "ratio": 4.072479956554043,
+      "selector": ".community em",
+      "weight": "400"
+    },
+    {
+      "background": [243, 238, 228],
+      "color": "rgb(86, 101, 108)",
+      "font": "15px",
+      "ratio": 5.228152865924704,
+      "selector": ".contact-info p",
+      "weight": "400"
+    },
+    {
+      "background": [6, 33, 57],
+      "color": "rgb(163, 180, 194)",
+      "font": "12px",
+      "ratio": 7.680680212255983,
+      "selector": ".footer-bottom",
+      "weight": "400"
+    },
+    {
+      "background": [6, 33, 57],
+      "color": "rgb(210, 177, 106)",
+      "font": "16px",
+      "ratio": 7.97069656483433,
+      "selector": ".footer-top > p",
+      "weight": "400"
+    },
+    {
+      "background": [6, 33, 57],
+      "color": "rgb(212, 223, 229)",
+      "font": "12px",
+      "ratio": 12.057223643776396,
+      "selector": ".topline",
+      "weight": "400"
+    }
+  ],
+  "mobileEscape": {
+    "expanded": "false",
+    "focus": "menu-toggle"
+  },
+  "mobileLeave": {
+    "expanded": "false",
+    "focus": "Hablemos ↗"
+  },
+  "mobileDestination": {
+    "focus": "H2",
+    "hash": "#filiales",
+    "headerBottom": 83.90625,
+    "headingTop": 193.1818084716797
+  },
+  "landscapeMenu": {
+    "focus": "Contacto ↗",
+    "height": 360,
+    "menuHeight": 275,
+    "menuScroll": 24.545454025268555,
+    "rect": {
+      "bottom": 357.6846389770508,
+      "height": 54.57386016845703,
+      "left": 21.988636016845703,
+      "right": 590.7386360168457,
+      "top": 303.11077880859375,
+      "width": 568.75,
+      "x": 21.988636016845703,
+      "y": 303.11077880859375
+    },
+    "width": 640
+  },
+  "reflow320": {
+    "clientWidth": 306,
+    "height": 800,
+    "menuRect": {
+      "bottom": 132.35795211791992,
+      "height": 46.59090805053711,
+      "left": 199.2613525390625,
+      "right": 288.35225677490234,
+      "top": 85.76704406738281,
+      "width": 89.09090423583984,
+      "x": 199.2613525390625,
+      "y": 85.76704406738281
+    },
+    "scrollWidth": 306,
+    "searchRect": {
+      "bottom": 5002.911884307861,
+      "height": 43.99147415161133,
+      "left": 62.75568008422851,
+      "right": 272.4431800842285,
+      "top": 4958.92041015625,
+      "width": 209.6875,
+      "x": 62.75568008422851,
+      "y": 4958.92041015625
+    },
+    "smallTargets": [],
+    "width": 320
+  },
+  "screenReader": {
+    "status": "pending",
+    "reason": "El usuario prefirió dejar la prueba real pendiente. No se escuchó Narrador ni NVDA."
+  },
+  "notes": [
+    "Rectángulos y outlines tienen redondeo por rasterización a DPR 1.1; objetivos CSS nominales 44 px y 24 px auxiliar.",
+    "El centro de cada control enfocado quedó visible en los recorridos; no equivale a una certificación WCAG.",
+    "El gradiente de hero requiere límite conservador adicional.",
+    "DOM ARIA inspeccionado; voz y anuncios reales pendientes."
+  ],
+  "hover": {
+    "gold": {
+      "background": "rgb(226, 197, 133)",
+      "color": "rgb(6, 33, 57)",
+      "hover": true
+    },
+    "navy": {
+      "background": "rgb(22, 68, 101)",
+      "color": "rgb(252, 250, 245)",
+      "hover": true
+    },
+    "stay": {
+      "background": "rgb(232, 223, 205)",
+      "color": "rgb(86, 101, 108)",
+      "hover": true,
+      "pressed": "false"
+    }
+  },
+  "resize": {
+    "toDesktop": {
+      "bottom": 71.98863220214844,
+      "height": 43.99147415161133,
+      "id": "",
+      "name": "Institución",
+      "offset": "4.54545px",
+      "outline": "rgb(163, 121, 35) solid 2.72727px",
+      "tag": "A",
+      "top": 27.99715805053711,
+      "unobscured": true,
+      "width": 81.15056610107422
+    },
+    "toMobile": {
+      "name": "Menú",
+      "status": "Foco recuperado al ocultarse la navegación; comprobado en navegador después de la corrección."
+    }
+  },
+  "heroGradientChecks": [
+    {
+      "closestNormalizedDistance": 0.5843525926630294,
+      "hero": {
+        "h": 664.5028076171875,
+        "w": 1426.363525390625
+      },
+      "label": {
+        "bottom": 87.59943580627441,
+        "left": 93.18181610107422,
+        "right": 778.5937423706055,
+        "top": 65.99432373046875
+      },
+      "transparentFrom": 0.6,
+      "viewport": 1440
+    },
+    {
+      "closestNormalizedDistance": 0.6128986972587545,
+      "hero": {
+        "h": 1103.4801025390625,
+        "w": 376.3636169433594
+      },
+      "label": {
+        "bottom": 88.21022415161133,
+        "left": 17.99715805053711,
+        "right": 358.3522605895996,
+        "top": 45
+      },
+      "transparentFrom": 0.6,
+      "viewport": 390
+    },
+    {
+      "closestNormalizedDistance": 0.6273943792033518,
+      "hero": {
+        "h": 1304.147705078125,
+        "w": 306.3636169433594
+      },
+      "label": {
+        "bottom": 88.21022415161133,
+        "left": 17.99715805053711,
+        "right": 288.3522605895996,
+        "top": 45
+      },
+      "transparentFrom": 0.6,
+      "viewport": 320
+    }
+  ],
+  "builtPreview": {
+    "width": 320,
+    "status": "MARIA: 1 localidad; menú y foco; Nogoyá con Space; texto y asunto coherentes; sin desborde.",
+    "search": {
+      "client": 306,
+      "focus": "branch-search",
+      "scroll": 306,
+      "status": "1 localidad encontrada.",
+      "visible": ["María Grande"],
+      "width": 320
+    }
+  },
+  "baseCommit": "20181ac3a8869de1ef0b9a5cd0a77f08fc8aa878",
+  "codeCommit": "c790ccae0fc2eadbfc1403e60d9978a48e92b08d",
+  "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38449679551",
+  "search": {
+    "MARIA": ["María Grande"],
+    "ZZZZ": "No encontramos esa localidad. Consultá con la sede central.",
+    "cleared": {
+      "visible": 24,
+      "status": ""
+    }
+  },
+  "heroGradientLimit": {
+    "maximumAlpha": 0.3333333333333333,
+    "maximumBackgroundRGB": [238, 229.33333333333334, 213],
+    "mutedMinimum": 4.848115256961279,
+    "goldInkLargeTextMinimum": 4.471921844234976,
+    "labelMethod": "Cota por rectángulo: distancia normalizada más próxima al centro del gradiente; radio farthest-corner de elipse. En 1440px, alfa máximo del rótulo <0.009; en 390/320, fondo transparente del pseudo-elemento. No se usa la cota de 4.47 para texto normal."
+  },
+  "functionalContrast": [
+    {
+      "use": "Borde buscador anterior / papel",
+      "foreground": "#BAAC91",
+      "background": "#FCFAF5",
+      "ratio": 2.1422106628840822
+    },
+    {
+      "use": "Borde actual / papel",
+      "foreground": "#826E48",
+      "background": "#FCFAF5",
+      "ratio": 4.7112831149611285
+    },
+    {
+      "use": "Borde actual / filiales",
+      "foreground": "#826E48",
+      "background": "#EEE7DA",
+      "ratio": 3.9966609713763375
+    },
+    {
+      "use": "Foco interior de selección / azul",
+      "foreground": "#A37923",
+      "background": "#092B48",
+      "ratio": 3.6646933285548884
+    },
+    {
+      "use": "Foco exterior / papel",
+      "foreground": "#A37923",
+      "background": "#FCFAF5",
+      "ratio": 3.7866553045471294
+    }
+  ]
+}

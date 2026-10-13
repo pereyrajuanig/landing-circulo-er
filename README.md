@@ -97,9 +97,10 @@ main recibe cambios mediante PR con quality aprobado. No se exige otra persona p
 - [Registro de avance](docs/checklist-progress.json)
 - [Etapa 01: controles, alcance y evidencia](docs/stage-01-quality.md)
 - [Etapa 02: diseño, UX y matriz de pantallas](docs/stage-02-design-ux.md)
+- [Etapa 03: accesibilidad, evidencia y lector pendiente](docs/stage-03-accessibility.md)
 - [Estado y validaciones](docs/project-status.md)
 - [Regenerar el manual](tools/docs/README.md)
 
-Quedan pendientes fotos reales, autoridades, horarios, contactos de filiales y condiciones de prestaciones, con validación institucional. Las referencias del dossier tienen corte del 8/10/2026. Falta una auditoría completa con lector de pantalla y zoom.
+Quedan pendientes fotos reales, autoridades, horarios, contactos de filiales y condiciones de prestaciones, con validación institucional. Las referencias del dossier tienen corte del 8/10/2026. Etapa 03: teclado, foco, contraste y reflujo revisados; prueba real con lector de pantalla pendiente por decisión del usuario. Zoom al 200 % confirmado manualmente en etapa 02. No se declara conformidad WCAG.
 
 Las versiones anteriores del manual se conservan en docs/archive/. El vigente es docs/design-system.pdf.
