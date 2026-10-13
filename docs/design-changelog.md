@@ -34,3 +34,7 @@ El usuario eligió mantener la composición. Rótulos y controles más legibles,
 ## 13/10/2026 · Versión 1.5 · Accesibilidad
 
 Salto al contenido enfocable, menú sin foco oculto al cambiar el ancho y cierre al salir por Tab. Borde funcional #826E48, filtro con estado explícito y relación de alojamientos con su panel. Teclado, contraste y reflujo revisados; prueba de lector real diferida por decisión del usuario. Etapa 02 integrada por PR #4 (20181ac).
+
+## 13/10/2026 · Versión 1.6 · Regresión de flujos
+
+Siete flujos Chromium en dos viewports se incorporan a quality, con captura y traza ante fallos. La suite detectó pérdida de foco al ampliar un viewport móvil; se recupera en el primer enlace visible. No cambian los tokens, el contenido ni la composición. PR #5 integrado técnicamente; lector real pendiente.

@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-13",
+  "baseCommit": "480eaef8f44797fed5e62def3d56fc9de769e320",
+  "codeCommit": "976292f4c27d27f64319ee6549abf1b9d66cc1db",
+  "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742",
+  "tool": "@playwright/test 1.64.0",
+  "chromium": "156.0.8078.4 / build 1248",
+  "localPlatform": "Windows / Node 24.20.0",
+  "ciPlatform": "GitHub Actions ubuntu-latest / Node 24",
+  "unitTests": 7,
+  "browserTests": {
+    "startTime": "2026-10-13T19:32:11.444Z",
+    "duration": 12457.657000000001,
+    "expected": 14,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "name": "salto de teclado y CTA llevan al contenido y a contacto",
+      "project": "chromium-desktop",
+      "status": "expected",
+      "durationMs": 638
+    },
+    {
+      "name": "menú y navegación conservan estado, destino y retorno de foco",
+      "project": "chromium-desktop",
+      "status": "expected",
+      "durationMs": 538
+    },
+    {
+      "name": "filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede",
+      "project": "chromium-desktop",
+      "status": "expected",
+      "durationMs": 578
+    },
+    {
+      "name": "seis alojamientos cambian selección única, contenido y asunto del correo",
+      "project": "chromium-desktop",
+      "status": "expected",
+      "durationMs": 941
+    },
+    {
+      "name": "servicios nativos abren con teclado y permiten varias categorías",
+      "project": "chromium-desktop",
+      "status": "expected",
+      "durationMs": 590
+    },
+    {
+      "name": "anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos",
+      "project": "chromium-desktop",
+      "status": "expected",
+      "durationMs": 936
+    },
+    {
+      "name": "cambios de tamaño y menú bajo mantienen foco utilizable sin desborde",
+      "project": "chromium-desktop",
+      "status": "expected",
+      "durationMs": 639
+    },
+    {
+      "name": "salto de teclado y CTA llevan al contenido y a contacto",
+      "project": "chromium-mobile",
+      "status": "expected",
+      "durationMs": 569
+    },
+    {
+      "name": "menú y navegación conservan estado, destino y retorno de foco",
+      "project": "chromium-mobile",
+      "status": "expected",
+      "durationMs": 873
+    },
+    {
+      "name": "filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede",
+      "project": "chromium-mobile",
+      "status": "expected",
+      "durationMs": 486
+    },
+    {
+      "name": "seis alojamientos cambian selección única, contenido y asunto del correo",
+      "project": "chromium-mobile",
+      "status": "expected",
+      "durationMs": 818
+    },
+    {
+      "name": "servicios nativos abren con teclado y permiten varias categorías",
+      "project": "chromium-mobile",
+      "status": "expected",
+      "durationMs": 479
+    },
+    {
+      "name": "anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos",
+      "project": "chromium-mobile",
+      "status": "expected",
+      "durationMs": 869
+    },
+    {
+      "name": "cambios de tamaño y menú bajo mantienen foco utilizable sin desborde",
+      "project": "chromium-mobile",
+      "status": "expected",
+      "durationMs": 620
+    }
+  ],
+  "projects": [
+    {
+      "name": "chromium-desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "chromium-mobile",
+      "width": 390,
+      "height": 844,
+      "mobileEmulation": true
+    }
+  ],
+  "extraViewports": [
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 640,
+      "height": 360
+    },
+    {
+      "width": 320,
+      "height": 800
+    }
+  ],
+  "failureProof": {
+    "local": {
+      "stats": {
+        "startTime": "2026-10-13T19:18:19.901Z",
+        "duration": 17842.374,
+        "expected": 13,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "failures": [
+        {
+          "title": "cambios de tamaño y menú bajo mantienen foco utilizable sin desborde",
+          "project": "chromium-mobile",
+          "status": "failed",
+          "message": "Error: expect(locator).toBeFocused() failed\n\nLocator:  getByRole('navigation', { name: 'Navegación principal' }).getByRole('link', { name: 'Institución', exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\n"
+        }
+      ]
+    },
+    "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38454238089",
+    "ciFailure": "13 casos aprobados, 1 fallo de salto a contacto. El test esperaba foco antes de que terminara el primer desplazamiento; ahora espera el destino observable.",
+    "artifactId": 11840899174,
+    "artifactRetentionDays": 7,
+    "artifactDownloadedAndInspected": true,
+    "files": ["test-failed-1.png", "trace.zip", "error-context.md", "results.json"],
+    "finalCiPassed": true
+  },
+  "manualBrowser": {
+    "flowDesktop": {
+      "dpr": 1,
+      "focus": "Institución",
+      "height": 900,
+      "horizontalOverflow": false,
+      "width": 1440
+    },
+    "flowMobile": {
+      "dpr": 1,
+      "height": 844,
+      "horizontalOverflow": false,
+      "status": "1 localidad encontrada.",
+      "visible": ["María Grande"],
+      "width": 390
+    },
+    "flowStay": {
+      "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+      "selected": 1,
+      "title": "Nogoyá"
+    },
+    "flowServices": 2
+  },
+  "serverLifecycle": {
+    "port": 4175,
+    "reuseExistingServer": false,
+    "closedAfterTests": true,
+    "astroPreview": "Un solo preview por checkout; cerrar preview de revisión antes de ejecutar la suite."
+  },
+  "scope": [
+    "HTML estático construido, no Astro dev.",
+    "Recursos externos bloqueados en e2e: fuentes de respaldo.",
+    "Sin reintentos, pausas fijas, envíos de correo o apertura de Maps.",
+    "Chromium emulado; no teléfonos físicos, Safari/Firefox ni lector real."
+  ]
+}

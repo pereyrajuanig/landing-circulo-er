@@ -50,12 +50,15 @@ No hacen falta variables de entorno, claves ni base de datos. Las fuentes se car
 | Comprobar formato                                       | npm run format:check |
 | Aplicar formato                                         | npm run format       |
 | Validación completa (incluye build y tests)             | npm run validate     |
-| Build y pruebas de regresión / HTTP                     | npm test             |
+| Build, integración y flujos Chromium                    | npm test             |
 | Actualizar referencia tras un cambio editorial revisado | npm run test:update  |
+| Pruebas Node sobre un build vigente                     | npm run test:unit    |
+| Build y pruebas Chromium                                | npm run test:e2e     |
+| Preparar Chromium de pruebas                            | npm run test:install |
 | Build y control de referencias de salida                | npm run build        |
 | Preview del build                                       | npm run preview      |
 
-npm test construye antes de probar. npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta siete pruebas Node más catorce casos Chromium. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
@@ -70,7 +73,8 @@ src/scripts/        Interacciones del navegador
 src/lib/            Búsqueda y enlaces de contacto
 public/assets/      Escudo y favicon
 scripts/            Control del build
-tests/              Regresión de contenido y preview HTTP
+tests/              Integración de contenido/HTTP y flujos Chromium
+playwright.config.mjs  Preview y proyectos de pruebas de navegador
 docs/               Diseño, arquitectura, flujo y manual
 tools/docs/         Generador reproducible del PDF
 vercel.json         Configuración del despliegue estático
@@ -98,6 +102,8 @@ main recibe cambios mediante PR con quality aprobado. No se exige otra persona p
 - [Etapa 01: controles, alcance y evidencia](docs/stage-01-quality.md)
 - [Etapa 02: diseño, UX y matriz de pantallas](docs/stage-02-design-ux.md)
 - [Etapa 03: accesibilidad, evidencia y lector pendiente](docs/stage-03-accessibility.md)
+- [Pruebas y diagnóstico de fallos](docs/testing.md)
+- [Etapa 04: cobertura y evidencia](docs/stage-04-testing.md)
 - [Estado y validaciones](docs/project-status.md)
 - [Regenerar el manual](tools/docs/README.md)
 

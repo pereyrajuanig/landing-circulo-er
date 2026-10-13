@@ -2,7 +2,7 @@
 
 Fecha: 13 de octubre de 2026. Rama: codex/etapa-03-accesibilidad. Base: 20181ac3a8869de1ef0b9a5cd0a77f08fc8aa878. Código: c790ccae0fc2eadbfc1403e60d9978a48e92b08d.
 
-Seis de siete tareas verificadas. **03.06 continúa pendiente**: Juan respondió «Prefiero dejar esa prueba pendiente» para la revisión real con lector de pantalla. El trabajo técnico se presenta en [PR #5](https://github.com/pereyrajuanig/landing-circulo-er/pull/5); la etapa completa no se considera cerrada.
+Seis de siete tareas verificadas. **03.06 continúa pendiente**: Juan respondió «Prefiero dejar esa prueba pendiente» para la revisión real con lector de pantalla. El trabajo técnico se integró con autorización en [PR #5](https://github.com/pereyrajuanig/landing-circulo-er/pull/5); la etapa completa no se considera cerrada.
 
 ## Cambios y motivo
 
@@ -53,10 +53,12 @@ npm run validate aprobado: 22 archivos de tipos sin diagnósticos, lint sin adve
 
 DOM y atributos de regiones live inspeccionados. **No se escuchó Narrador/NVDA**: orden de anuncios, repetición, lectura de resultados, cambio de alojamiento y estados de servicios requieren esa prueba manual. prefers-reduced-motion está implementado en CSS; en esta etapa no se emuló la preferencia del sistema. Tampoco se completó una matriz de todos los navegadores, carga sin fuentes externas o auditoría integral WCAG.
 
-Manual v1.5 y checklist v1.3 mantienen 22 páginas y formularios editables; versiones anteriores archivadas. El registro diferencia seis tareas verificadas, lector pendiente e integración del PR pendiente. El cierre de etapa 02 se registra con PR #4 autorizado, main 20181ac y [quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38445597091). No se publica en Sites ni Vercel.
+Manual v1.5 y checklist v1.3 mantienen 22 páginas y formularios editables; versiones anteriores archivadas. El registro diferencia seis tareas verificadas, lector pendiente e integración técnica autorizada del PR. El cierre de etapa 02 se registra con PR #4 autorizado, main 20181ac y [quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38445597091). No se publica en Sites ni Vercel.
 
 [Portada](media/etapa03-desktop.jpg) · [Buscador y foco móvil](media/etapa03-search-mobile.jpg) · [Selección y foco](media/etapa03-focus-mobile.jpg) · [Menú bajo](media/etapa03-menu-landscape.jpg) · [Build a 320 px](media/etapa03-search-320.jpg).
 
 ## Criterios consultados
 
 WCAG 2.2 AA se usa como referencia de revisión, sin declarar certificación. Umbrales y alcance se contrastaron el 13/10/2026 con fuentes W3C: [contraste de texto](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [contraste no textual](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html), [foco no oculto](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html), [mensajes de estado](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html), [tamaño mínimo de objetivos](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) y [reflujo](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
+
+Integración técnica autorizada del [PR #5](https://github.com/pereyrajuanig/landing-circulo-er/pull/5): main 480eaef y quality aprobado. La etapa no se cierra: 03.06 sigue pendiente. La etapa 04 amplía la regresión de foco al cambio de ancho con emulación móvil; ver stage-04-testing.md.

@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.5
+# Sistema de diseño · 1.6
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
@@ -53,3 +53,5 @@ La versión 1.4 conserva la composición por decisión del usuario y mejora lect
 El foco del selector usa separación interior de -5px; los títulos enfocados al navegar usan 6px exterior. Menú con scroll en pantallas bajas. Correo con oportunidad de salto antes de @. Se verificaron siete tamaños, 320px de reflujo y textos extensos; zoom de navegador al 200 % confirmado manualmente por el usuario. La aceptación visual final sigue pendiente. Ver [etapa 02](stage-02-design-ux.md).
 
 La versión 1.5 incorpora --control-border (#826E48), salto con foco en main, cierre del menú al salir por Tab y gestión de foco al cambiar el ancho. Estado del filtro explícito y relaciones del selector con su panel; nombre íntegro del correo. Composición, escudo y contenido conservados. Ver [etapa 03 y límites](stage-03-accessibility.md).
+
+La versión 1.6 documenta los flujos automatizados en Chromium y la recuperación de foco cuando el botón Menú se oculta al ampliar la pantalla. Mantiene composición y tokens. Guía: [pruebas](testing.md); evidencia: [etapa 04](stage-04-testing.md).

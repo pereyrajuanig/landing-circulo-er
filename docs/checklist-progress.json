@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-10-13",
-  "baselineCommit": "20181ac3a8869de1ef0b9a5cd0a77f08fc8aa878",
+  "baselineCommit": "480eaef8f44797fed5e62def3d56fc9de769e320",
   "stages": {
     "01": {
       "status": "complete",
@@ -22,12 +22,21 @@
       "mergeCommit": "20181ac3a8869de1ef0b9a5cd0a77f08fc8aa878"
     },
     "03": {
-      "status": "pending_screen_reader",
+      "status": "integrated_pending_screen_reader",
       "branch": "codex/etapa-03-accesibilidad",
       "codeCommit": "c790ccae0fc2eadbfc1403e60d9978a48e92b08d",
       "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38449679551",
-      "summary": "6 tareas verificadas. PR #5 revisable; merge pendiente. Lector real (03.06) pendiente por decisión del usuario.",
-      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/5"
+      "summary": "PR #5 integrado con autorización: main 480eaef y quality aprobado. 6 tareas verificadas; lector real 03.06 pendiente por decisión del usuario.",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/5",
+      "mergeCommit": "480eaef8f44797fed5e62def3d56fc9de769e320",
+      "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38452363417"
+    },
+    "04": {
+      "status": "pending_integration",
+      "branch": "codex/etapa-04-pruebas-flujos",
+      "codeCommit": "976292f4c27d27f64319ee6549abf1b9d66cc1db",
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742",
+      "summary": "7 tareas verificadas; 7 pruebas de integración y 14 de Chromium aprobadas. PR y merge pendientes."
     }
   },
   "tasks": {
@@ -47,7 +56,7 @@
       "status": "verified",
       "date": "2026-10-13",
       "responsible": "Desarrollo",
-      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+      "evidence": "Siete pruebas originales conservadas y aprobadas; texto/anclas, datos, filtros, correo, MIME, privacidad del build y contrato accesible. Exclusión de archivos de pruebas ampliada. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
     },
     "07.02": {
       "status": "verified",
@@ -173,18 +182,54 @@
       "status": "pending",
       "responsible": "Revisión manual con lector",
       "evidence": "El 13/10/2026 el usuario respondió: “Prefiero dejar esa prueba pendiente”. DOM y regiones ARIA inspeccionados; Narrador/NVDA y anuncios reales sin probar."
+    },
+    "04.02": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Playwright 1.64.0 como devDependency, Chromium 156; escritorio 1440x900 y móvil emulado 390x844. Preview del build en 4175, contexto aislado y sin reusar servidores. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
+    },
+    "04.03": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Menú, Escape, cierre por enlace/Tab, foco en destino y cambios de ancho automatizados. La suite detectó pérdida de foco móvil a escritorio; corregida y cubierta por regresión. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
+    },
+    "04.04": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "COLON con espacios, MARIA, consulta vacía y sin resultados; estado visible y sede central preservados. Comprobado en ambos proyectos. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
+    },
+    "04.05": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Seis destinos con Enter/Space; selección única, foco, título, descripción y asunto mailto coherentes. No se envían consultas. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
+    },
+    "04.06": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Salto y CTA, todas las referencias de anclas, consultas mailto, Maps y 404 comprobados. Servicios con teclado y apertura múltiple incluidos. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
+    },
+    "04.07": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "quality integra Chromium y 21 pruebas. Fallo real en CI produjo captura, contexto y traza, artefacto 11840899174 inspeccionado; versión corregida aprobada. Preview se cierra al terminar. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "03.01-05 y 03.07 / etapa 03",
-    "trace_status": "6 verificadas; lector real pendiente",
-    "trace_owner": "Desarrollo / usuario",
+    "trace_id": "04.01 a 04.07 / etapa 04",
+    "trace_status": "7 verificadas; integración pendiente",
+    "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 20181ac / código c790cca / PR #5",
-    "trace_method": "Teclado en 1440 y 390 px; reflujo 320 y menú bajo 640x360.\nContrastes CSS efectivos, hover y cota del gradiente; preview estática.\nnpm run validate: tipos, lint, formato, build y 7 pruebas.",
-    "trace_result": "6 tareas verificadas. Código c790cca; quality aprobado.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38449679551\nEvidencia: stage-03-accessibility.md y stage-03-evidence.json.",
-    "trace_limits": "03.06 pendiente por decisión del usuario; voz y anuncios reales sin probar.\nNo certifica WCAG. Merge y despliegue requieren autorización.\nAceptación visual final e información institucional definitiva pendientes.",
+    "trace_commit": "Base 480eaef / código 976292f / etapa 04",
+    "trace_method": "Build estático: 7 tests de integración + 14 Chromium, escritorio/móvil.\nTeclado, filtro, destinos, servicios, enlaces, 404 y cambios de ancho.\nWindows local y Ubuntu en CI; fallo real con captura y traza inspeccionadas.",
+    "trace_result": "21 pruebas aprobadas; tipos, lint y formato correctos.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742\nEvidencia: stage-04-testing.md y stage-04-evidence.json.",
+    "trace_limits": "PR y merge requieren revisión y autorización. Sin despliegue.\nLector real 03.06 pendiente por decisión del usuario.\nChromium emulado y fuentes de respaldo; no auditoría WCAG integral.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -204,6 +249,7 @@
     "task_k_04": true,
     "task_k_05": true,
     "task_k_06": true,
-    "task_k_07": true
+    "task_k_07": true,
+    "owner_04": "Desarrollo / revisión del usuario"
   }
 }

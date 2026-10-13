@@ -16,6 +16,7 @@ Revisar cambios locales antes de cambiar de rama. No descartar modificaciones aj
 
 ```powershell
 npm ci
+npm run test:install # Chromium; en Linux añadir --with-deps
 npm run validate # tipos, lint, formato, build y tests
 git diff --check
 git diff
