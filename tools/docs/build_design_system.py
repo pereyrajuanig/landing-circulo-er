@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación de la landing | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.3. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
+c.setSubject('Versión 1.4. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.3 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.4 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación de<br/>la landing page',M,510,CW,39,43,PAPER,'Caslon',False
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.3',M,770,10,'DM',PAPER)
+text('Versión 1.4',M,770,10,'DM',PAPER)
 right('13 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -199,7 +199,7 @@ def ratio(a,b):
     aa,bb=sorted([luminance(a),luminance(b)]); return (bb+.05)/(aa+.05)
 pairs=[(INK,PAPER,'Texto principal','Apto para texto normal'),(MUTED,PAPER,'Párrafo secundario','Apto para texto normal'),(GOLD,NAVY,'Acento sobre azul','Apto para texto normal'),(DEEP,GOLD,'Botón dorado','Apto para texto normal'),('#826329',PAPER,'Énfasis sobre claro','Apto para texto normal'),(GOLD,PAPER,'Dorado sobre claro','Evitar como texto informativo')]
 y=table(['Primer plano / fondo','Contraste','Uso'],[[f'{a.upper()} / {b.upper()}',f'{ratio(a,b):.2f}:1',f'{use}. {status}.'] for a,b,use,status in pairs],[181,65,CW-246],y,8.2)+23
-y=block('Estados presentes en la interfaz','Hover: botón dorado #E2C585; botón azul #164465; enlace de cabecera #8B641D. Foco visible: contorno #A37923 de 3 px y separación de 5 px. Botón de alojamiento seleccionado: azul institucional con texto claro.',y)
+y=block('Estados presentes en la interfaz','Hover: botón dorado #E2C585; botón azul #164465; enlace de cabecera #8B641D. Foco visible: #A37923, 3px; separación 5px en controles, -5px interior en selector, 6px en títulos enfocados al navegar. Botón de alojamiento seleccionado: azul institucional con texto claro.',y)
 y=block('Criterio de contraste','WCAG 2.2 AA establece 4,5:1 para texto normal y 3:1 para texto grande (24 px regular o aproximadamente 18,7 px en negrita). El dorado principal sobre blanco cálido da 1,97:1; reservar esa combinación para decoración. [W1]',y)
 note('PENDIENTE DE VALIDAR','Comprobar foco, bordes funcionales, estados y colores sobre fondos con degradados. Verificar también el color de foco actual sobre todas las superficies de la revisión cálida. No declarar conformidad WCAG sin revisar la página completa.',y)
 
@@ -216,10 +216,10 @@ y=table(['Elemento','Escritorio','Pantalla pequeña'],[
  ['Descripción del inicio','17px; interlineado 1.8','16px'],
  ['Base / body','16px; interlineado 1.8','Se conservan reglas locales'],
  ['Nombre de servicio','31px Caslon','28px Caslon'],
- ['Botones principales','14px; peso 650','14px; ancho completo en inicio ≤ 420'],
- ['Rótulo de sección','11px; tracking 0.12em','10px; tracking 0.12em']
+ ['Botones y controles','16px; peso 650 en botones','16px; ancho completo en inicio ≤ 420'],
+ ['Rótulo de sección','12px; tracking 0.12em','12px; detalle de marca 10px']
 ],[132,166,CW-298],y,8.1)+19
-note('IMPLEMENTACIÓN Y CRITERIO DE MEJORA','DM Sans se solicita en pesos 400, 450, 500, 550, 600, 650 y 700. Caslon Display se carga regular: las cursivas del sitio son sintetizadas por CSS. Fallbacks: Georgia y Arial. Para este público, conviene revisar las etiquetas auxiliares más pequeñas de 7-13 px y evaluar las fuentes a 200% de zoom antes del lanzamiento. Las muestras de este PDF usan los archivos regulares.',y)
+note('IMPLEMENTACIÓN Y CRITERIO DE MEJORA','DM Sans se solicita en pesos 400, 450, 500, 550, 600, 650 y 700. Caslon Display se carga regular: las cursivas del sitio son sintetizadas por CSS. Fallbacks: Georgia y Arial. Etapa 02: rótulos 12px, auxiliares 14px y controles 16px; detalle de marca 10px. Zoom al 200% confirmado manualmente por Juan; no fue automatizado. Las muestras de este PDF usan los archivos regulares.',y)
 
 # 09. Layout
 y=begin('fundamentos_08','Retícula, ritmo y espacio','La identidad se sostiene con alineaciones, aire y líneas finas, incorporando formas más suaves.')
@@ -240,7 +240,7 @@ for i,n in enumerate([4,8,12,16,24,32,48,64]):
     rect(x,y,42,max(3,n*.65),GOLD)
     text(f'{n} px',x,y+52,8,'DM',MUTED)
 y+=90
-note('RECOMENDADO, AÚN NO TOKENIZADO','La escala de 4 px ayuda a ordenar futuras incorporaciones. La base y su revisión también emplean valores fuera de esa escala, por ejemplo 23, 29, 65 y 87 px. Preservar la composición aprobada; no sustituir esos valores automáticamente sin una revisión visual.',y)
+note('TOKENS Y ESCALA','Variables vigentes: tipografía de apoyo 12/14/16px; marca 10px; controles 44px; radios 8/12/16px; secciones 87/65px. La escala propuesta de 4px no está normalizada en toda la interfaz; conservar valores como 23, 29 y 65px cuando sostienen la composición.',y)
 
 # 10. Responsive
 y=begin('patrones_09','La misma identidad,<br/>en cada pantalla','Puntos de adaptación reales del CSS, con esquemas de composición a escala.')
@@ -273,8 +273,8 @@ text('POLICÍA DE ENTRE RÍOS',M+54,y+48,6,'DM',MUTED)
 text('Institución   Servicios   Filiales',M+251,y+32,7); rect(M+424,y+20,65,32,CREAM,'#c9b48b',.8); text('Contacto',M+436,y+32,7)
 y+=95
 y=block('Cabecera de escritorio','Franja superior con origen e identificación de la sede. Header sticky en top: 0, z-index: 20 y fondo claro casi opaco. Altura mínima: 100 px. Navegación por anclas y contacto enmarcado.',y)
-y=block('Menú móvil','A partir de 800 px, el header mide al menos 83 px. El botón "Menú" controla #navigation mediante aria-expanded y aria-controls. Las opciones se despliegan bajo el header. Al elegir una ancla se cierra; Escape también cierra y devuelve el foco al botón.',y)
-y=block('Pie de página','Fondo azul profundo, escudo, nombre institucional, frase de cierre y enlace de regreso al inicio. El año se actualiza con JavaScript. En pantallas pequeñas los elementos se redistribuyen y se oculta la frase lateral.',y)
+y=block('Menú móvil','A partir de 800 px, el header mide al menos 83 px. El botón "Menú" controla #navigation mediante aria-expanded y aria-controls. Las opciones se despliegan bajo el header. Al elegir una sección se cierra y enfoca su título después de navegar. Escape cierra y vuelve al botón. En pantallas bajas tiene scroll interno.',y)
+y=block('Pie de página','Fondo azul profundo, escudo, nombre institucional, frase de cierre y enlace de regreso al inicio. El año se actualiza con JavaScript. Detalle de marca 10px; pie auxiliar 12px. En pantallas pequeñas los elementos se redistribuyen y se oculta la frase lateral.',y)
 note('VERIFICACIÓN RECOMENDADA','Probar la cabecera con nombres completos, zoom de 200%, navegación por teclado y rotación del dispositivo. El menú actual no implementa cierre por clic fuera ni bloqueo de scroll; no documentar esas funciones como disponibles.',y)
 
 # 12. Buttons
@@ -286,11 +286,11 @@ label('FOCO VISIBLE',M+270,y+89); button('Consultar alojamiento',M+270,y+111,230
 y+=180
 y=table(['Anatomía','Valor implementado'],[
  ['Caja','min-height: 54px; padding: 16px 23px; radio: 8px'],
- ['Texto','DM Sans 14px; peso 650'],
+ ['Texto','DM Sans 16px; peso 650; interlineado 1.5'],
  ['Separación de icono','gap: 28px; flecha de apoyo visual'],
  ['Interacción','Transición de fondo y transform de 0.2s; elevación -2px al hover'],
  ['Movimiento reducido','prefers-reduced-motion elimina transición y elevación'],
- ['Enlace de texto','14px; flecha con margen izquierdo de 14px'],
+ ['Enlace de texto','16px; altura mínima 44px; subrayado en hover'],
  ['Semántica','Enlaces con href; botones de selección con aria-pressed']
 ],[143,CW-143],y,8.7)+19
 note('AL AMPLIAR EL SISTEMA','No hay estados de carga, error, éxito ni botones deshabilitados en la versión actual. Definirlos solo si se incorporan procesos reales, como formularios o reservas. Mantener verbos concretos: "Consultar", "Conocer" y "Ver ubicación".',y)
@@ -339,7 +339,7 @@ label('ALOJAMIENTO INSTITUCIONAL',M+152,y+16); text('Paraná',M+152,y+42,30,'Cas
 para('Habitaciones y espacios comunes para integrantes y familiares.',M+152,y+83,CW-175,9,13)
 y+=170
 y=block('Destinos y estado','Paraná, María Grande, Victoria, Nogoyá, La Paz y Santa Elena. Paraná se entrega seleccionado. El conjunto utiliza role="group"; cada botón expone aria-pressed. No es un tablist ARIA ni implementa navegación por flechas.',y)
-y=block('Actualización de contenido','Al elegir un destino, JavaScript modifica el título, la descripción y el asunto del enlace mailto. El panel anuncia los cambios mediante aria-live="polite". Las descripciones y botones provienen de la colección stays, validada por Astro. El script recibe esos mismos datos desde el HTML.',y)
+y=block('Actualización de contenido','Al elegir un destino, JavaScript modifica el título, la descripción y el asunto del enlace mailto. El panel anuncia los cambios mediante aria-live="polite". Nombres extensos ajustan su línea; el contorno de foco del selector se dibuja dentro del botón. Las descripciones y botones provienen de la colección stays, validada por Astro. El script recibe esos mismos datos desde el HTML.',y)
 y=block('Adaptación y finalidad','Escritorio: selector vertical de 270 px y panel flexible. Hasta 800 px: tres columnas; hasta 420 px: dos columnas, sobre el detalle. "Consultar alojamiento" abre el correo del visitante con el destino en el asunto.',y)
 note('CONDICIONES POR CONFIRMAR','Disponibilidad, tarifas, capacidad, equipamiento, requisitos y contacto de reserva de cada destino. El componente no consulta una base de reservas, no bloquea cupos y no confirma estadías. [D, pp. 6-7 y 9]',y)
 
@@ -355,7 +355,7 @@ y=table(['Dato publicado en la landing','Contenido'],[
 for n,title,body in [('01','Consultar un servicio','Abrir una categoría → seleccionar "Consultar" → se abre el cliente de correo con un asunto específico.'),('02','Consultar un alojamiento','Seleccionar la localidad → leer las condiciones generales → abrir correo con el destino elegido.'),('03','Localizar la sede','Ir a Contacto → "Ver ubicación" → abrir Google Maps en una nueva pestaña.')]:
     label(n,M,y); yy=para(title,M+32,y,CW-32,18,22,INK,'Caslon')
     y=para(body,M+32,yy+7,CW-32)+22
-note('LÍMITES DEL CANAL','El enlace mailto requiere una aplicación de correo configurada y no garantiza que el mensaje se haya enviado. No hay backend, confirmación automática ni seguimiento. Si se incorpora un formulario, definir primero destino, tratamiento de datos y mensajes de error.',y)
+note('LÍMITES DEL CANAL','El enlace mailto requiere una aplicación de correo configurada y no garantiza que el mensaje se haya enviado. El correo tiene salto opcional antes de @ sin cambiar dirección ni enlace. No hay backend, confirmación automática ni seguimiento. Si se incorpora un formulario, definir primero destino, tratamiento de datos y mensajes de error.',y)
 
 # 17. Editorial
 y=begin('contenido_16','Una voz institucional<br/>que se siente cercana','La claridad y el respeto acompañan la identidad visual.')
@@ -409,19 +409,19 @@ y=table(['Necesidad','Archivo / lugar','Verificación'],[
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
 y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Ejecutar npm run validate (tipos, lint, formato, build y tests); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.3. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.4. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
 y=table(['Verificado en la propuesta inicial','Alcance de la comprobación'],[
  ['HTML y JavaScript','Referencia de la primera versión: anclas, imágenes, IDs y JS válidos. Astro se valida con check, build y tests; ver project-status.md.'],
  ['Interacciones','Menú móvil; filtro sin tildes; selección de alojamientos; apertura de servicios.'],
- ['Adaptación','Revisión visual de escritorio y pantallas pequeñas; sin desborde horizontal en las vistas inspeccionadas.'],
+ ['Adaptación','Siete viewports CSS efectivos, de 360 a 1920px, y reflujo a 320px. Sin desborde; zoom 200% confirmado manualmente por el usuario.'],
  ['Publicación','Sites confirmó despliegue privado exitoso de la primera versión.']
 ],[207,CW-207],y,8.6)+21
 y=block('Antes del lanzamiento institucional','Confirmar contacto y horarios; contactos de filiales; autoridades; cobertura y condiciones de servicios; reserva de alojamientos; reglamentos de espacios. Incorporar fotos reales y revisar la nomenclatura institucional. [D, p. 9]',y)
-y=block('Accesibilidad y calidad por completar','Verificar navegación completa por teclado, lectores de pantalla, foco visible, zoom 200%, reflujo a 320 px y carga sin fuentes externas. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
-note('PRIORIDAD DE MEJORA','El sitio ya incorpora skip-link, idioma es-AR, alt en imágenes informativas, estados ARIA y movimiento reducido. Aumentar los textos auxiliares más pequeños y revisar los colores funcionales antes de declarar accesibilidad. No se realizó una auditoría completa con lector de pantalla ni una certificación WCAG.',y)
+y=block('Accesibilidad y calidad por completar','Reflujo a 320px revisado en etapa 02. Falta auditoría completa de teclado, lector de pantalla, colores de foco y carga sin fuentes externas. Zoom al 200% confirmado manualmente por el usuario. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
+note('PRIORIDAD DE MEJORA','El sitio ya incorpora skip-link, idioma es-AR, alt en imágenes informativas, estados ARIA y movimiento reducido. Los textos auxiliares se ampliaron en la etapa 02. El usuario confirmó zoom al 200%. Revisar lector de pantalla y colores funcionales antes de declarar accesibilidad. No se realizó una auditoría completa con lector de pantalla ni una certificación WCAG.',y)
 
 # 22. Sources
 y=begin('referencias_21','Fuentes y trazabilidad','Documento elaborado el 13 de octubre de 2026 a partir de la base visual aceptada y de la fuente local.')

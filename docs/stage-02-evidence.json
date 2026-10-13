@@ -1,0 +1,343 @@
+{
+  "date": "2026-10-13",
+  "baseCommit": "4410368e8ebcafe5d5372b99533588186dfe3619",
+  "browser": "Codex In-app Browser",
+  "matrix": [
+    {
+      "target": [360, 800],
+      "buttonHeight": 56,
+      "client": 345,
+      "header": 84,
+      "height": 800,
+      "label": "12px",
+      "overflow": [],
+      "scroll": 345,
+      "width": 360,
+      "menu": {
+        "opened": "true",
+        "closed": true,
+        "focus": true,
+        "destination": "#filiales",
+        "focusOnTitle": true,
+        "navigationClosed": true
+      },
+      "found": {
+        "status": "1 localidad encontrada.",
+        "visible": ["Colón"]
+      },
+      "empty": "No encontramos esa localidad. Consultá con la sede central.",
+      "stay": {
+        "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+        "selected": 1,
+        "title": "Nogoyá"
+      },
+      "services": 2,
+      "inputHeight": 44
+    },
+    {
+      "target": [390, 844],
+      "buttonHeight": 56,
+      "client": 375,
+      "header": 84,
+      "height": 844,
+      "label": "12px",
+      "overflow": [],
+      "scroll": 375,
+      "width": 390,
+      "menu": {
+        "opened": "true",
+        "closed": true,
+        "focus": true,
+        "destination": "#filiales",
+        "focusOnTitle": true,
+        "navigationClosed": true
+      },
+      "found": {
+        "status": "1 localidad encontrada.",
+        "visible": ["Colón"]
+      },
+      "empty": "No encontramos esa localidad. Consultá con la sede central.",
+      "stay": {
+        "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+        "selected": 1,
+        "title": "Nogoyá"
+      },
+      "services": 2,
+      "inputHeight": 44
+    },
+    {
+      "target": [430, 932],
+      "buttonHeight": 56,
+      "client": 415,
+      "header": 84,
+      "height": 932,
+      "label": "12px",
+      "overflow": [],
+      "scroll": 415,
+      "width": 430,
+      "menu": {
+        "opened": "true",
+        "closed": true,
+        "focus": true,
+        "destination": "#filiales",
+        "focusOnTitle": true,
+        "navigationClosed": true
+      },
+      "found": {
+        "status": "1 localidad encontrada.",
+        "visible": ["Colón"]
+      },
+      "empty": "No encontramos esa localidad. Consultá con la sede central.",
+      "stay": {
+        "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+        "selected": 1,
+        "title": "Nogoyá"
+      },
+      "services": 2,
+      "inputHeight": 44
+    },
+    {
+      "target": [768, 1024],
+      "buttonHeight": 56,
+      "client": 753,
+      "header": 84,
+      "height": 1024,
+      "label": "12px",
+      "overflow": [],
+      "scroll": 753,
+      "width": 768,
+      "menu": {
+        "opened": "true",
+        "closed": true,
+        "focus": true,
+        "destination": "#filiales",
+        "focusOnTitle": true,
+        "navigationClosed": true
+      },
+      "found": {
+        "status": "1 localidad encontrada.",
+        "visible": ["Colón"]
+      },
+      "empty": "No encontramos esa localidad. Consultá con la sede central.",
+      "stay": {
+        "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+        "selected": 1,
+        "title": "Nogoyá"
+      },
+      "services": 2,
+      "inputHeight": 44
+    },
+    {
+      "target": [1024, 768],
+      "buttonHeight": 56,
+      "client": 1009,
+      "header": 101,
+      "height": 768,
+      "label": "12px",
+      "overflow": [],
+      "scroll": 1009,
+      "width": 1024,
+      "menu": null,
+      "found": {
+        "status": "1 localidad encontrada.",
+        "visible": ["Colón"]
+      },
+      "empty": "No encontramos esa localidad. Consultá con la sede central.",
+      "stay": {
+        "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+        "selected": 1,
+        "title": "Nogoyá"
+      },
+      "services": 2,
+      "inputHeight": 44
+    },
+    {
+      "target": [1440, 900],
+      "buttonHeight": 56,
+      "client": 1425,
+      "header": 101,
+      "height": 900,
+      "label": "12px",
+      "overflow": [],
+      "scroll": 1425,
+      "width": 1440,
+      "menu": null,
+      "found": {
+        "status": "1 localidad encontrada.",
+        "visible": ["Colón"]
+      },
+      "empty": "No encontramos esa localidad. Consultá con la sede central.",
+      "stay": {
+        "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+        "selected": 1,
+        "title": "Nogoyá"
+      },
+      "services": 2,
+      "inputHeight": 44
+    },
+    {
+      "target": [1920, 1080],
+      "buttonHeight": 56,
+      "client": 1905,
+      "header": 101,
+      "height": 1080,
+      "label": "12px",
+      "overflow": [],
+      "scroll": 1905,
+      "width": 1920,
+      "menu": null,
+      "found": {
+        "status": "1 localidad encontrada.",
+        "visible": ["Colón"]
+      },
+      "empty": "No encontramos esa localidad. Consultá con la sede central.",
+      "stay": {
+        "href": "mailto:retiradospoliciaentrerios@gmail.com?subject=Consulta%20de%20alojamiento%20en%20Nogoy%C3%A1",
+        "selected": 1,
+        "title": "Nogoyá"
+      },
+      "services": 2,
+      "inputHeight": 44
+    }
+  ],
+  "extra": {
+    "reflow": [
+      {
+        "client": 320,
+        "height": 800,
+        "overflow": [],
+        "scroll": 320,
+        "width": 320
+      },
+      {
+        "client": 801,
+        "height": 800,
+        "overflow": [],
+        "scroll": 801,
+        "width": 801
+      }
+    ],
+    "landscape": {
+      "bottom": 357.984375,
+      "focused": "Contacto ↗",
+      "height": 360,
+      "menuClient": 275,
+      "menuScroll": 320,
+      "menuScrollTop": 25,
+      "width": 640
+    },
+    "focus": {
+      "offset": "-5px",
+      "outline": "rgb(163, 121, 35) solid 3px",
+      "selected": "true",
+      "tag": "BUTTON",
+      "text": "María Grande →"
+    },
+    "zoom": {
+      "supported": false,
+      "before": {
+        "dpr": 1,
+        "width": 1440
+      },
+      "after": {
+        "width": 1440,
+        "dpr": 1
+      }
+    }
+  },
+  "stress": [
+    {
+      "client": 360,
+      "emailClient": 280,
+      "emailScroll": 280,
+      "scroll": 360,
+      "tabClient": 160,
+      "tabScroll": 160,
+      "titleClient": 272,
+      "titleScroll": 272,
+      "width": 360
+    },
+    {
+      "client": 1024,
+      "emailClient": 407,
+      "emailScroll": 407,
+      "scroll": 1024,
+      "tabClient": 270,
+      "tabScroll": 270,
+      "titleClient": 612,
+      "titleScroll": 612,
+      "width": 1024
+    }
+  ],
+  "hover": {
+    "selector": ".button-gold",
+    "hover": true,
+    "background": "rgb(226, 197, 133)",
+    "hash": "#inicio"
+  },
+  "zoom200": {
+    "status": "verified",
+    "date": "2026-10-13",
+    "method": "manual_by_user",
+    "responsible": "Juan Ignacio",
+    "browser": "Chrome o Edge; no precisado",
+    "confirmation": "Se lee y puedo usarla al 200 %",
+    "scope": "Lectura, menú, filtro y alojamientos sin recortes según respuesta del usuario.",
+    "automationAvailable": false
+  },
+  "email": [
+    {
+      "client": 225,
+      "href": "mailto:retiradospoliciaentrerios@gmail.com",
+      "scroll": 225,
+      "text": "retiradospoliciaentrerios@gmail.com ↗",
+      "wbr": 1,
+      "width": 320
+    },
+    {
+      "client": 265,
+      "href": "mailto:retiradospoliciaentrerios@gmail.com",
+      "scroll": 265,
+      "text": "retiradospoliciaentrerios@gmail.com ↗",
+      "wbr": 1,
+      "width": 360
+    },
+    {
+      "client": 295,
+      "href": "mailto:retiradospoliciaentrerios@gmail.com",
+      "scroll": 295,
+      "text": "retiradospoliciaentrerios@gmail.com ↗",
+      "wbr": 1,
+      "width": 390
+    }
+  ],
+  "console": {
+    "errors": 0,
+    "warnings": 0,
+    "scope": "Revisión de navegador de etapa 02"
+  },
+  "matrixMode": "Flujos y página completa en Astro dev; dimensiones con barras normales y comprobación final en Astro preview.",
+  "finalPreview": {
+    "branch": "1 localidad encontrada.",
+    "client": 375,
+    "inputHeight": 44,
+    "qaLink": false,
+    "scripts": [
+      {
+        "inline": true,
+        "src": ""
+      }
+    ],
+    "scroll": 375,
+    "selected": 1,
+    "stay": "Nogoyá",
+    "width": 390
+  },
+  "codeCommit": "cb87892497455ebf8a54fa1f4cafce054c0d9210",
+  "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/4",
+  "ci": {
+    "status": "success",
+    "url": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193",
+    "commit": "cb87892497455ebf8a54fa1f4cafce054c0d9210"
+  }
+}

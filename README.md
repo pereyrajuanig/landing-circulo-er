@@ -96,6 +96,7 @@ main recibe cambios mediante PR con quality aprobado. No se exige otra persona p
 - [Checklist detallada y paso a paso en PDF](docs/checklist-paso-a-paso.pdf)
 - [Registro de avance](docs/checklist-progress.json)
 - [Etapa 01: controles, alcance y evidencia](docs/stage-01-quality.md)
+- [Etapa 02: diseño, UX y matriz de pantallas](docs/stage-02-design-ux.md)
 - [Estado y validaciones](docs/project-status.md)
 - [Regenerar el manual](tools/docs/README.md)
 

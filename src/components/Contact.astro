@@ -5,6 +5,7 @@ interface Props {
   institution: CollectionEntry<'institution'>['data'];
 }
 const { institution } = Astro.props;
+const [emailName, emailDomain] = institution.email.split('@');
 ---
 
 <section id="contacto" class="section contact">
@@ -38,7 +39,8 @@ const { institution } = Astro.props;
       <div>
         <span>TAMBIÉN PODÉS ESCRIBIRNOS</span>
         <a class="email" href={mailTo(institution.email)}>
-          {institution.email} <span aria-hidden="true">↗</span>
+          {emailName}
+          <wbr />@{emailDomain} <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>

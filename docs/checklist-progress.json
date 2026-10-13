@@ -1,15 +1,24 @@
 {
   "version": 1,
   "updatedAt": "2026-10-13",
-  "baselineCommit": "5d87930fed3728f26ef3b36f27e24e938e8471be",
+  "baselineCommit": "4410368e8ebcafe5d5372b99533588186dfe3619",
   "stages": {
     "01": {
-      "status": "pending_integration",
+      "status": "complete",
       "branch": "codex/etapa-01-calidad",
       "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/3",
       "codeCommit": "b8fba325fa70b0963470a9b44241763791d9b9ef",
-      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100",
-      "summary": "7 tareas verificadas técnicamente; quality aprobado en PR #3. Pendiente de revisión del usuario y merge autorizado."
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38438473887",
+      "summary": "7 tareas verificadas. PR #3 fusionado con autorización; main 4410368 y quality aprobado.",
+      "mergeCommit": "4410368e8ebcafe5d5372b99533588186dfe3619"
+    },
+    "02": {
+      "status": "pending_integration",
+      "branch": "codex/etapa-02-diseno-ux",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/4",
+      "summary": "7 tareas verificadas. PR #4 con quality aprobado; zoom 200 % confirmado por el usuario. Revisión final y merge pendientes.",
+      "codeCommit": "cb87892497455ebf8a54fa1f4cafce054c0d9210",
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193"
     }
   },
   "tasks": {
@@ -72,17 +81,69 @@
       "date": "2026-10-13",
       "responsible": "Desarrollo",
       "evidence": "README, AGENTS, guías y scripts alineados. Manual v1.3 y checklist v1.1: 22 páginas cada uno; render revisado, 136 campos de checklist validados. Registro y capturas en docs/stage-01-quality.md."
+    },
+    "02.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "El usuario eligió mantener marfil, azul, dorado, escudo y composición, y pulir lectura, espacios y uso móvil el 13/10/2026. Aceptación visual final pendiente."
+    },
+    "02.02": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Valores de lectura, controles, radios y separación de secciones registrados como variables CSS. Cascada base/warmth, colores, Caslon, DM Sans y escudo preservados. Ver docs/design-system.md v1.4."
+    },
+    "02.03": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Siete viewports CSS efectivos: 360x800, 390x844, 430x932, 768x1024, 1024x768, 1440x900 y 1920x1080. Revisión completa de capturas y flujos; sin desborde horizontal. docs/stage-02-evidence.json."
+    },
+    "02.04": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Prueba local temporal con nombre de alojamiento y localidad sin espacios, descripción extensa y correo de example.invalid. Título: scroll 1300/client 612 antes, 612/612 después; selector 566/270 antes, 270/270 después. También aprobado a 360 px. Ruta eliminada antes del build."
+    },
+    "02.05": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Menú verificado a 360/390/430/768: abre, Escape cierra y devuelve foco, elegir Filiales cierra y enfoca su h2 después de navegación nativa. Menú con scroll a 640x360 permite alcanzar Contacto por teclado."
+    },
+    "02.06": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "CTA principal y controles con área mínima de 44 px; botón principal medido en 56 px. Hover dorado #E2C585 observado; foco de alojamiento con offset -5 px y selección aria-pressed comprobados. Sin cambio de datos, destinos ni colores institucionales."
+    },
+    "02.07": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Juan Ignacio / revisión manual",
+      "evidence": "El usuario confirmó la comprobación solicitada en Chrome o Edge con zoom de navegador al 200 %: “Se lee y puedo usarla al 200 %”. Lectura, menú, filtro y alojamientos sin recortes según su revisión. Navegador concreto no precisado; no fue una prueba automatizada. Reflujo 320 CSS px verificado por desarrollo."
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "01.01 a 01.07 / etapa 01",
-    "trace_status": "Verificado; integración pendiente",
-    "trace_owner": "Desarrollo",
+    "trace_id": "02.01 a 02.07 / etapa 02",
+    "trace_status": "7 verificadas; integración pendiente",
+    "trace_owner": "Desarrollo / usuario",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 5d87930 / código b8fba32 / PR #3",
-    "trace_method": "npm ci; npm run validate; revisión de diff.\nPreview: anchos efectivos 1280 y 390; menú, filtro, destinos y servicios.\nPDF: render, valores, widgets y apariencias de formularios.",
-    "trace_result": "Tipos, lint y formato aprobados; 6 pruebas aprobadas.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100\nEvidencia detallada: docs/stage-01-quality.md y docs/media/etapa01-*.jpg.",
-    "trace_limits": "PR #3 pendiente de revisión del usuario y autorización de merge.\nSin despliegue. Responsive completo, zoom, lector de pantalla y contenido\ninstitucional definitivo corresponden a etapas posteriores."
+    "trace_commit": "Base 4410368 / código cb87892 / PR #4",
+    "trace_method": "Siete viewports CSS reales y reflujo 320px; flujos y textos extensos.\nZoom de navegador al 200 %: revisión manual confirmada por Juan.\nnpm run validate; revisión de capturas y PDFs.",
+    "trace_result": "7 tareas verificadas; tipos, lint, formato, build y 6 pruebas aprobados.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38444569193\nZoom 200 % confirmado manualmente; evidencia en stage-02-design-ux.md.",
+    "trace_limits": "Revisión final del PR, autorización de merge y despliegue pendientes.\nLa confirmación de zoom es manual; no certifica conformidad WCAG.\nAuditoría integral y contenido definitivo corresponden a otras etapas.",
+    "date_01": "13/10/2026",
+    "owner_02": "Desarrollo / revisión del usuario",
+    "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
+    "responsive_01": true,
+    "responsive_02": true,
+    "responsive_03": true,
+    "responsive_04": true,
+    "responsive_05": true,
+    "responsive_06": true,
+    "responsive_07": true
   }
 }

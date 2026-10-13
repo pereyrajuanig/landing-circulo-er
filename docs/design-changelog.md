@@ -26,3 +26,7 @@ Migración solicitada por el usuario: Astro 7.3.8, TypeScript, componentes y cua
 ## 13/10/2026 · Versión 1.3 · Controles de calidad
 
 Tipos, ESLint y Prettier separados; CI actualizado y seguimiento de tareas con evidencia. El formato del código mejora su lectura y conserva comportamiento y diseño. El manual técnico y la checklist se alinean con los scripts reales.
+
+## 13/10/2026 · Versión 1.4 · Lectura y uso
+
+El usuario eligió mantener la composición. Rótulos y controles más legibles, enlaces con área mínima de 44px, foco de navegación móvil y contornos del selector sin recorte. Nombres extensos y correo se adaptan al ancho. Matriz de siete viewports y reflujo 320px revisados. Zoom de navegador al 200 % confirmado manualmente por el usuario; aceptación visual final pendiente. Etapa 01 integrada mediante PR #3 (4410368).
