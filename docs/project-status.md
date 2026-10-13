@@ -8,15 +8,16 @@ Fecha: 13 de octubre de 2026. Proyecto canónico: Desktop/Landing-CirculoER. Rep
 - PR #3 etapa 01 integrado con autorización: 4410368.
 - PR #4 etapa 02 integrado con autorización: 20181ac; siete tareas verificadas y zoom 200 % confirmado manualmente por el usuario.
 - PR #5 integrado con autorización: 480eaef8f44797fed5e62def3d56fc9de769e320; [quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38452363417) aprobado. Etapa 03 con seis tareas verificadas; lector real 03.06 pendiente por decisión del usuario.
-- Etapa 04 en codex/etapa-04-pruebas-flujos: siete tareas verificadas, código 976292f4c27d27f64319ee6549abf1b9d66cc1db, [quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742) aprobado; [PR #6](https://github.com/pereyrajuanig/landing-circulo-er/pull/6) abierto; merge pendiente.
+- PR #6 etapa 04 integrado con autorización: 9938f6d; quality de main 38461526636 aprobado.
+- Etapa 05 en codex/etapa-05-seo: dominio diferido; 404 y evaluación de Organization verificadas. SEO preparado, rastreo real pendiente. Ver [SEO](seo.md).
 
 ## Validación vigente
 
 Astro 7.3.8, TypeScript estricto, Node 24, npm y salida estática. Nueve componentes, un layout y cuatro colecciones; CSS, escudo y contenido conservados. Playwright 1.64.0 es dependencia de desarrollo.
 
-Tipos: 24 archivos sin diagnósticos. Lint sin advertencias; formato correcto; build estático; siete pruebas Node más catorce casos Chromium aprobados en Windows y Ubuntu. [Guía de pruebas](testing.md), [etapa 04](stage-04-testing.md) y [registro](checklist-progress.json). Se corrigió la pérdida de foco al ocultar Menú; fallos reales produjeron captura y traza, y se verificó la carga del artefacto de CI.
+Tipos: 24 archivos sin diagnósticos. Lint sin advertencias; formato correcto; build estático; diez pruebas Node más dieciséis casos Chromium aprobados en Windows y Ubuntu. [Guía de pruebas](testing.md), [etapa 04](stage-04-testing.md) y [registro](checklist-progress.json). Se corrigió la pérdida de foco al ocultar Menú; fallos reales produjeron captura y traza, y se verificó la carga del artefacto de CI.
 
-Manual v1.6 y checklist v1.4: 22 páginas cada uno; campos editables conservados y versiones previas archivadas. No se declara auditoría WCAG completa: lector real pendiente, Chromium emulado y fuentes de respaldo en e2e. Revisión adicional visual en navegador integrado.
+Manual v1.7 y checklist v1.5: 22 páginas cada uno; campos editables conservados y versiones previas archivadas. No se declara auditoría WCAG completa: lector real pendiente, Chromium emulado y fuentes de respaldo en e2e. Revisión adicional visual en navegador integrado.
 
 ## Pendientes de producto
 

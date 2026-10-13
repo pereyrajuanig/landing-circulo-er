@@ -35,6 +35,17 @@ jobs:
         run: npm run lint
       - name: Formato reproducible
         run: npm run format:check
+      - name: SEO de producción con dominio reservado de prueba
+        run: npm run build && npm run test:unit
+        env:
+          SITE_URL: https://example.invalid
+          SEO_INDEXABLE: 'true'
+      - name: SEO de preview con dominio configurado
+        run: npm run build && npm run test:unit
+        env:
+          SITE_URL: https://example.invalid
+          SEO_INDEXABLE: 'true'
+          VERCEL_ENV: preview
       - name: Preparar Chromium de pruebas
         run: npx playwright install --with-deps chromium
       - name: Build, integración y flujos en navegador

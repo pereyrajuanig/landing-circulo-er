@@ -6,6 +6,7 @@ import { once } from 'node:events';
 import { validateSite } from '../scripts/check-build.mjs';
 import { normalize, branchStatus } from '../src/lib/search.ts';
 import { mailTo } from '../src/lib/contact.ts';
+import { getDeployment } from '../config/seo.mjs';
 
 const load = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
 const decode = (value) =>
@@ -139,6 +140,7 @@ test('la preview del build no expone el repositorio o el dossier local', async (
   for (const path of [
     '/README.md',
     '/package.json',
+    '/config/seo.mjs',
     '/docs/design-system.pdf',
     '/docs/reference/Dossier_Circulo_Retirados_Policia_Entre_Rios_con_logo.pdf',
     '/src/content/institution.json',
@@ -171,4 +173,64 @@ test('el HTML ofrece destino de salto enfocable, estados y relaciones accesibles
   assert.equal(stays.filter((button) => button.includes('aria-pressed="true"')).length, 1);
   for (const button of stays) assert.match(button, /aria-controls="stay-detail"/);
   assert.match(html, /id="stay-detail"[^>]*aria-live="polite"/);
+});
+
+test('SEO requiere dominio aprobado y previews conservan noindex', () => {
+  assert.deepEqual(getDeployment({}), { site: undefined, indexable: false });
+  assert.throws(() => getDeployment({ SEO_INDEXABLE: 'true' }), /SITE_URL/);
+  for (const SITE_URL of [
+    'http://example.invalid',
+    'https://example.invalid/ruta',
+    'https://user:pass@example.invalid',
+    'https://example.invalid/?q=1',
+    'https://localhost',
+  ])
+    assert.throws(() => getDeployment({ SITE_URL }), /SITE_URL/);
+  const SITE_URL = 'https://example.invalid';
+  assert.equal(getDeployment({ SITE_URL }).indexable, false);
+  assert.deepEqual(getDeployment({ SITE_URL, SEO_INDEXABLE: 'true' }), {
+    site: SITE_URL + '/',
+    indexable: true,
+  });
+  assert.equal(
+    getDeployment({ SITE_URL, SEO_INDEXABLE: 'true', VERCEL_ENV: 'preview' }).indexable,
+    false,
+  );
+});
+
+test('el build SEO mantiene título, metadatos y rastreo coherentes', async () => {
+  const { html } = validateSite();
+  const deployment = getDeployment();
+  assert.match(html, /property="og:locale" content="es_AR"/);
+  assert.match(html, /property="og:title"/);
+  assert.match(html, /name="twitter:description"/);
+  const robots = await fetch(new URL('/robots.txt', origin));
+  assert.equal(robots.status, 200);
+  const policy = await robots.text();
+  assert.match(policy, /Allow: \//);
+  assert.equal(html.includes('rel="canonical"'), deployment.indexable);
+  assert.match(
+    html,
+    new RegExp(
+      'name="robots" content="' + (deployment.indexable ? 'index' : 'noindex') + ', follow"',
+    ),
+  );
+  assert.equal(policy.includes('Sitemap:'), deployment.indexable);
+  const sitemap = await fetch(new URL('/sitemap.xml', origin));
+  assert.equal(sitemap.status, deployment.indexable ? 200 : 404);
+  if (deployment.indexable)
+    assert((await sitemap.text()).includes('<loc>' + deployment.site + '</loc>'));
+  const card = await fetch(new URL('/assets/social-card.png', origin));
+  assert.equal(card.status, 200);
+  assert.match(card.headers.get('content-type'), /image\/png/);
+});
+
+test('la página inexistente ofrece regreso y conserva estado HTTP 404', async () => {
+  const response = await fetch(new URL('/direccion-que-no-existe', origin));
+  assert.equal(response.status, 404);
+  const html = await response.text();
+  assert.match(html, /Te ayudamos a encontrar el camino/);
+  assert.match(html, /href="\/"[^>]*>Volver al inicio/);
+  assert.match(html, /name="robots" content="noindex, follow"/);
+  assert(!html.includes('rel="canonical"'));
 });

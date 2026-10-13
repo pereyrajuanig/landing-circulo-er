@@ -14,7 +14,7 @@
 
 vercel.json está versionado con framework astro, installCommand npm ci, buildCommand npm run build y outputDirectory dist. Usar Node 24, raíz del repositorio y conectar pereyrajuanig/landing-circulo-er. La salida es estática; no necesita @astrojs/vercel ni funciones Node.
 
-La configuración se comprobó mediante build local. No se ha creado un proyecto de Vercel ni confirmado un despliegue real. No hay secretos ni variables requeridas en esta versión.
+La configuración se comprobó mediante build local. No se ha creado un proyecto de Vercel ni confirmado un despliegue real. Sin secretos. Para indexar producción: SITE_URL con el origen HTTPS aprobado y SEO_INDEXABLE=true, solo en entorno de producción. VERCEL_ENV=preview conserva noindex. Ver [SEO](seo.md).
 
 ## Primera publicación
 
@@ -22,7 +22,7 @@ La configuración se comprobó mediante build local. No se ha creado un proyecto
 2. Autorizar la publicación y conectar el repositorio en la cuenta de Vercel correspondiente.
 3. Elegir main como rama de producción y verificar los valores de vercel.json y Node 24.
 4. Revisar la preview antes de publicar: escritorio, móvil, enlaces y contenido confirmado.
-5. Configurar el dominio real. Agregar URL canónica, metadatos sociales y sitemap cuando se conozca ese dominio; no usar la URL privada histórica como dominio de producción.
+5. Configurar el dominio real. Configurar SITE_URL y SEO_INDEXABLE=true cuando se conozca ese dominio; verificar canonical, metadatos sociales y sitemap generados; no usar la URL privada histórica como dominio de producción.
 6. Confirmar el estado del despliegue y comprobar la URL publicada. Registrar commit, dominio y fecha.
 
 Vercel puede producir previews para ramas y PR mediante su integración Git. Una vez conectado, los cambios en la rama de producción pueden disparar despliegues automáticamente. Confirmar ese comportamiento antes de activar la integración; GitHub Actions por sí solo no publica la web.

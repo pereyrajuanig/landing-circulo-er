@@ -1,11 +1,18 @@
 ---
 import '../styles/styles.css';
 import '../styles/warmth.css';
+import { getDeployment } from '../../config/seo.mjs';
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
+const deployment = getDeployment();
+const indexable = deployment.indexable && !noindex;
+const canonical =
+  indexable && Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const socialImage = Astro.site ? new URL('/assets/social-card.png', Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -16,6 +23,36 @@ const { title, description } = Astro.props;
     <meta name="theme-color" content="#092b48" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <meta name="robots" content={indexable ? 'index, follow' : 'noindex, follow'} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta
+      property="og:site_name"
+      content="Círculo de Retirados y Pensionados · Policía de Entre Ríos"
+    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {socialImage && (
+      <>
+        <meta property="og:image" content={socialImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Escudo del Círculo y mensaje: Tu historia nos une. Seguimos a tu lado."
+        />
+        <meta name="twitter:image" content={socialImage} />
+        <meta
+          name="twitter:image:alt"
+          content="Escudo del Círculo y mensaje: Tu historia nos une. Seguimos a tu lado."
+        />
+      </>
+    )}
     <link rel="icon" href="/assets/escudo.png" type="image/png" />
   </head>
   <body>

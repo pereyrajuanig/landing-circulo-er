@@ -12,12 +12,12 @@ npm run validate
 
 En Linux, instalar también bibliotecas del sistema con npx playwright install --with-deps chromium. CI ya ejecuta esa preparación. Playwright 1.64.0 se fija en devDependencies y lockfile; no forma parte del código servido al visitante.
 
-| Comando           | Alcance                                                |
-| ----------------- | ------------------------------------------------------ |
-| npm test          | Build nuevo, siete tests Node y catorce casos Chromium |
-| npm run test:unit | Siete tests sobre un build ya generado y vigente       |
-| npm run test:e2e  | Build nuevo y catorce casos Chromium                   |
-| npm run validate  | Tipos, lint, formato y toda la suite anterior          |
+| Comando           | Alcance                                                 |
+| ----------------- | ------------------------------------------------------- |
+| npm test          | Build nuevo, diez tests Node y dieciséis casos Chromium |
+| npm run test:unit | Siete tests sobre un build ya generado y vigente        |
+| npm run test:e2e  | Build nuevo y dieciséis casos Chromium                  |
+| npm run validate  | Tipos, lint, formato y toda la suite anterior           |
 
 Astro admite un solo preview por checkout. Cerrar el preview de revisión antes de ejecutar la suite. Playwright inicia el suyo en 127.0.0.1:4175, exige que esté libre y lo cierra al terminar. El runner no reutiliza una instancia que pueda estar sirviendo otro build. El preview de los tests Node usa un puerto asignado por el sistema y también se cierra.
 

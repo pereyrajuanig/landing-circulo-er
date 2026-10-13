@@ -233,3 +233,29 @@ test('cambios de tamaño y menú bajo mantienen foco utilizable sin desborde', a
     ),
   ).toBe(true);
 });
+
+test('404 ofrece un regreso por teclado sin desborde', async ({ page }, testInfo) => {
+  const response = await page.goto('/pagina-inexistente');
+  expect(response.status()).toBe(404);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Te ayudamos a encontrar el camino.',
+  );
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      ),
+    )
+    .toBeLessThanOrEqual(0);
+  await page.screenshot({ path: testInfo.outputPath('404.png'), fullPage: true });
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('main')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('link', { name: 'Círculo: volver al inicio' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('link', { name: 'Volver al inicio', exact: true })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Tu historia nos une.');
+});

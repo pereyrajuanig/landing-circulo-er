@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-10-13",
-  "baselineCommit": "480eaef8f44797fed5e62def3d56fc9de769e320",
+  "baselineCommit": "9938f6df92ca18d8f19c224122338f304fd514ee",
   "stages": {
     "01": {
       "status": "complete",
@@ -32,12 +32,19 @@
       "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38452363417"
     },
     "04": {
-      "status": "pending_integration",
+      "status": "complete",
       "branch": "codex/etapa-04-pruebas-flujos",
       "codeCommit": "976292f4c27d27f64319ee6549abf1b9d66cc1db",
       "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742",
-      "summary": "7 tareas verificadas; 21 pruebas aprobadas. PR #6 revisable; merge pendiente.",
-      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/6"
+      "summary": "7 tareas verificadas. PR #6 fusionado con autorización; main 9938f6d y quality aprobado.",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/6",
+      "mergeCommit": "9938f6df92ca18d8f19c224122338f304fd514ee",
+      "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38461526636"
+    },
+    "05": {
+      "status": "in_progress_pending_domain",
+      "branch": "codex/etapa-05-seo",
+      "summary": "Dominio diferido por el usuario. SEO preparado; 404 y evaluación de datos estructurados verificadas; cierre público pendiente."
     }
   },
   "tasks": {
@@ -219,18 +226,55 @@
       "date": "2026-10-13",
       "responsible": "Desarrollo",
       "evidence": "quality integra Chromium y 21 pruebas. Fallo real en CI produjo captura, contexto y traza, artefacto 11840899174 inspeccionado; versión corregida aprobada. Preview se cierra al terminar. Código 976292f. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742"
+    },
+    "05.01": {
+      "status": "pending",
+      "responsible": "Desarrollo / autoridades",
+      "evidence": "Dominio diferido por el usuario; autoridades elegirán. Preferencia .com.ar; ninguna opción registrada."
+    },
+    "05.02": {
+      "status": "pending",
+      "responsible": "Desarrollo / autoridades",
+      "evidence": "Layout conserva metadatos por página. Canonical solo con SITE_URL y SEO_INDEXABLE=true; validación con dominio real pendiente."
+    },
+    "05.03": {
+      "status": "pending",
+      "responsible": "Desarrollo / autoridades",
+      "evidence": "Open Graph, es_AR y tarjeta PNG 1200x630 preparados con identidad existente. URL absoluta y validación social pública pendientes del dominio."
+    },
+    "05.04": {
+      "status": "pending",
+      "responsible": "Desarrollo / autoridades",
+      "evidence": "robots permite leer noindex en previews. Sitemap únicamente en build indexable; producción y preview se prueban con example.invalid. URL pública real pendiente."
+    },
+    "05.05": {
+      "status": "verified",
+      "responsible": "Desarrollo / autoridades",
+      "evidence": "404 propia mantiene estado HTTP 404; regreso por teclado, sin desborde, escritorio y móvil. Prueba HTTP y Chromium.",
+      "date": "2026-10-13"
+    },
+    "05.06": {
+      "status": "verified",
+      "responsible": "Desarrollo / autoridades",
+      "evidence": "Organization evaluado; JSON-LD diferido hasta confirmar vigencia de datos institucionales y dominio. No se inventan autoridades, teléfonos ni reservas.",
+      "date": "2026-10-13"
+    },
+    "05.07": {
+      "status": "pending",
+      "responsible": "Desarrollo / autoridades",
+      "evidence": "Sin despliegue autorizado ni dominio. Rastreo real, redirecciones y Search Console pendientes de publicación y cuenta institucional."
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "04.01 a 04.07 / etapa 04",
-    "trace_status": "7 verificadas; integración pendiente",
+    "trace_id": "05.01 a 05.07 / etapa 05",
+    "trace_status": "2 verificadas; dominio pendiente",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 480eaef / código 976292f / PR #6",
-    "trace_method": "Build estático: 7 tests de integración + 14 Chromium, escritorio/móvil.\nTeclado, filtro, destinos, servicios, enlaces, 404 y cambios de ancho.\nWindows local y Ubuntu en CI; fallo real con captura y traza inspeccionadas.",
-    "trace_result": "21 pruebas aprobadas; tipos, lint y formato correctos.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742\nEvidencia: stage-04-testing.md y stage-04-evidence.json.",
-    "trace_limits": "Revisión final y autorización de merge pendientes. Sin despliegue.\nLector real 03.06 pendiente por decisión del usuario.\nChromium emulado y fuentes de respaldo; no auditoría WCAG integral.",
+    "trace_commit": "Base 9938f6d / rama etapa-05-seo",
+    "trace_method": "Build: producción de prueba y preview sin dominio.\n10 pruebas Node + 16 Chromium; 404 y teclado.\nDominio reservado example.invalid solo para tests.",
+    "trace_result": "SEO preparado; dominio e indexación real pendientes.\n404 útil y evaluación de Organization verificadas.\nGuía y límites: docs/seo.md.",
+    "trace_limits": "Dominio, datos institucionales y despliegue sin confirmar.\nLector real 03.06 pendiente. PR y merge pendientes.\nSin Search Console ni garantía de indexación.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -251,6 +295,8 @@
     "task_k_05": true,
     "task_k_06": true,
     "task_k_07": true,
-    "owner_04": "Desarrollo / revisión del usuario"
+    "owner_04": "Desarrollo / revisión del usuario",
+    "date_04": "13/10/2026",
+    "owner_05": "Desarrollo / dominio: autoridades"
   }
 }
