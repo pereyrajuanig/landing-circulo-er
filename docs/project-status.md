@@ -6,13 +6,13 @@ Fecha: 13 de octubre de 2026.
 
 - Astro 7.3.8, TypeScript 6.0.3, Node 24 y npm; salida estática.
 - PR #2 fusionado con autorización del usuario el 13/10/2026. Base en main: 5d87930fed3728f26ef3b36f27e24e938e8471be.
-- Etapa 01 en codex/etapa-01-calidad: tipos, ESLint, Prettier y seguimiento documentado; integración pendiente de su PR.
+- Etapa 01 en codex/etapa-01-calidad: siete tareas verificadas; [PR #3](https://github.com/pereyrajuanig/landing-circulo-er/pull/3) con quality aprobado; integración pendiente de revisión y autorización.
 - Proyecto: Desktop/Landing-CirculoER. Repo público existente: pereyrajuanig/landing-circulo-er.
 - Nueve componentes, un layout y cuatro colecciones JSON validadas. CSS y escudo preservados.
 - Vercel preparado con vercel.json. Cuenta, proyecto, dominio y despliegue real pendientes.
 - CMS sin instalar. El plan de edición institucional está en cms-roadmap.md.
 
-## Verificación local de esta migración
+## Verificación de la base y la etapa 01
 
 | Control                             | Resultado                                                                                                                              |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,7 +23,7 @@ Fecha: 13 de octubre de 2026.
 | Preview real                        | HTTP 200 en Astro preview                                                                                                              |
 | Navegador                           | Escritorio y móvil: diseño cálido; menú / Escape / navegación, filtro con y sin resultados, selección y apertura múltiple de servicios |
 | Reflujo                             | Sin desborde horizontal en las vistas inspeccionadas                                                                                   |
-| Manual                              | Versión 1.2 verificada en la migración; actualización 1.3 en esta etapa                                                                |
+| Manual                              | Versión 1.3, 22 páginas; render completo revisado                                                                                      |
 | Vercel                              | Configuración preparada, sin despliegue real                                                                                           |
 | Sites                               | Publicación histórica privada conservada                                                                                               |
 
@@ -42,3 +42,5 @@ Durante la preparación inicial se verificaron VS Code abierto en esta carpeta, 
 CI histórico de la entrega anterior: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38296496078.
 
 El dossier original permanece local, fuera de Git y del build. Las versiones anteriores del PDF se conservan como archivo histórico. Esta migración no cambió el hosting publicado.
+
+CI de etapa 01, código b8fba32: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100. ESLint inspeccionó 21 archivos sin errores ni advertencias; Prettier aprobado. Checklist v1.1: 22 páginas, 136 campos interactivos validados; siete tareas de base verificadas. El cierre global sigue pendiente de integrar el PR #3.
