@@ -15,7 +15,7 @@ En Linux, instalar también bibliotecas del sistema con npx playwright install -
 | Comando           | Alcance                                                 |
 | ----------------- | ------------------------------------------------------- |
 | npm test          | Build nuevo, diez tests Node y dieciséis casos Chromium |
-| npm run test:unit | Siete tests sobre un build ya generado y vigente        |
+| npm run test:unit | Diez tests sobre un build ya generado y vigente         |
 | npm run test:e2e  | Build nuevo y dieciséis casos Chromium                  |
 | npm run validate  | Tipos, lint, formato y toda la suite anterior           |
 
@@ -23,9 +23,9 @@ Astro admite un solo preview por checkout. Cerrar el preview de revisión antes 
 
 ## Cobertura
 
-Los siete tests Node conservan texto/anclas, datos, búsqueda, codificación del correo, respuestas HTTP/MIME, exclusión de archivos internos y contrato accesible del HTML.
+Los siete tests Node originales conservan texto/anclas, datos, búsqueda, codificación del correo, respuestas HTTP/MIME, exclusión de archivos internos y contrato accesible del HTML.
 
-Playwright ejecuta siete flujos en dos proyectos Chromium: escritorio 1440×900 y móvil emulado 390×844. Comprueba salto, navegación, menú, Escape, foco, filtro, seis alojamientos, servicios, enlaces y 404. La prueba de cambios de ancho agrega 1024×768, 640×360 y 320×800.
+Tres tests adicionales comprueban configuración SEO, rastreo y 404. Playwright ejecuta ocho flujos en dos proyectos Chromium: escritorio 1440×900 y móvil emulado 390×844. Comprueba salto, navegación, menú, Escape, foco, filtro, seis alojamientos, servicios, enlaces y 404. La prueba de cambios de ancho agrega 1024×768, 640×360 y 320×800.
 
 Cada caso parte de un contexto aislado. Usa locators por rol/etiqueta o estructura HTML nativa; expect espera estados observables. No hay pausas fijas, retries ni selección automática de nuevos snapshots para ocultar una regresión. Antes de encadenar saltos por teclado se espera la posición del primer destino, no solamente su foco.
 

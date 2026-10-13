@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.6
+# Sistema de diseño · 1.7
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
