@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-13",
+  "baselineCommit": "5d87930fed3728f26ef3b36f27e24e938e8471be",
+  "stages": {
+    "01": {
+      "status": "pending_integration",
+      "branch": "codex/etapa-01-calidad",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/3",
+      "codeCommit": "b8fba325fa70b0963470a9b44241763791d9b9ef",
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100",
+      "summary": "7 tareas verificadas técnicamente; quality aprobado en PR #3. Pendiente de revisión del usuario y merge autorizado."
+    }
+  },
+  "tasks": {
+    "01.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Astro estático y TypeScript estricto conservados; check y build aprobados en b8fba325fa70b0963470a9b44241763791d9b9ef. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100"
+    },
+    "01.02": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Nueve componentes y cuatro colecciones preservados; regresión de texto, anclas y datos aprobada. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100"
+    },
+    "04.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "07.02": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "09.01": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+    },
+    "01.03": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "PR #2 fusionado con autorización del usuario: 5d87930fed3728f26ef3b36f27e24e938e8471be. Main local sincronizado y rama de etapa 01 actualizada sobre esa base antes de su primer push; sin reescritura compartida."
+    },
+    "01.04": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "check separado de lint. Astro: 22 archivos sin diagnósticos; ESLint: 21 archivos, cero errores y advertencias. CI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100"
+    },
+    "01.05": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "Prettier y plugin Astro configurados; formato local y CI aprobados. Regresión y preview en escritorio/móvil preservan diseño y funciones. Código: b8fba325fa70b0963470a9b44241763791d9b9ef"
+    },
+    "01.06": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "quality aprobado en push 38436052387 y PR 38436064100: npm ci, tipos, lint, formato, build y seis tests. Protección de main comprobada: quality requerido, base estricta y PR. https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100"
+    },
+    "01.07": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo",
+      "evidence": "README, AGENTS, guías y scripts alineados. Manual v1.3 y checklist v1.1: 22 páginas cada uno; render revisado, 136 campos de checklist validados. Registro y capturas en docs/stage-01-quality.md."
+    }
+  },
+  "formValues": {
+    "owner_01": "Desarrollo / revisión del usuario",
+    "trace_id": "01.01 a 01.07 / etapa 01",
+    "trace_status": "Verificado; integración pendiente",
+    "trace_owner": "Desarrollo",
+    "trace_date": "13/10/2026",
+    "trace_commit": "Base 5d87930 / código b8fba32 / PR #3",
+    "trace_method": "npm ci; npm run validate; revisión de diff.\nPreview: anchos efectivos 1280 y 390; menú, filtro, destinos y servicios.\nPDF: render, valores, widgets y apariencias de formularios.",
+    "trace_result": "Tipos, lint y formato aprobados; 6 pruebas aprobadas.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100\nEvidencia detallada: docs/stage-01-quality.md y docs/media/etapa01-*.jpg.",
+    "trace_limits": "PR #3 pendiente de revisión del usuario y autorización de merge.\nSin despliegue. Responsive completo, zoom, lector de pantalla y contenido\ninstitucional definitivo corresponden a etapas posteriores."
+  }
+}

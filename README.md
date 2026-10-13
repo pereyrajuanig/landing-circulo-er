@@ -22,18 +22,18 @@ La vista histórica requiere una cuenta con acceso en ChatGPT. La migración no 
 
 ## Stack
 
-**Astro 7.3.8**, TypeScript estricto, CSS propio y JavaScript para las interacciones. Node.js 24 y npm se usan en desarrollo, CI y build. La salida es HTML estático: no necesita un servidor Node en producción.
+**Astro 7.3.8**, TypeScript estricto, CSS propio y JavaScript para las interacciones. Node.js 24 (mínimo 24.16) y npm se usan en desarrollo, CI y build. La salida es HTML estático: no necesita un servidor Node en producción.
 
 Cuatro colecciones de contenido JSON, validadas por esquemas, separan datos de la interfaz. Esta base permite integrar un CMS en una tarea posterior; no incluye uno instalado.
 
 ## Empezar
 
-~~~powershell
+```powershell
 git clone https://github.com/pereyrajuanig/landing-circulo-er.git
 cd landing-circulo-er
 npm ci
 npm run dev
-~~~
+```
 
 Abrí http://127.0.0.1:4173/. Astro recarga los cambios durante el desarrollo. Si el puerto está ocupado: npm run dev -- --port 4174. La extensión recomendada de VS Code es Astro.
 
@@ -41,21 +41,25 @@ No hacen falta variables de entorno, claves ni base de datos. Las fuentes se car
 
 ## Comandos
 
-| Acción | Comando |
-| --- | --- |
-| Instalación reproducible | npm ci |
-| Desarrollo con recarga | npm run dev |
-| Diagnóstico Astro y TypeScript | npm run lint |
-| Build y pruebas de regresión / HTTP | npm test |
-| Actualizar referencia tras un cambio editorial revisado | npm run test:update |
-| Build y control de referencias de salida | npm run build |
-| Preview del build | npm run preview |
+| Acción                                                  | Comando              |
+| ------------------------------------------------------- | -------------------- |
+| Instalación reproducible                                | npm ci               |
+| Desarrollo con recarga                                  | npm run dev          |
+| Diagnóstico Astro y TypeScript                          | npm run check        |
+| Reglas Astro, TypeScript y JavaScript                   | npm run lint         |
+| Comprobar formato                                       | npm run format:check |
+| Aplicar formato                                         | npm run format       |
+| Validación completa (incluye build y tests)             | npm run validate     |
+| Build y pruebas de regresión / HTTP                     | npm test             |
+| Actualizar referencia tras un cambio editorial revisado | npm run test:update  |
+| Build y control de referencias de salida                | npm run build        |
+| Preview del build                                       | npm run preview      |
 
-npm test construye antes de probar. npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye antes de probar. npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
-~~~text
+```text
 src/pages/          Ruta principal
 src/layouts/        Documento HTML y estilos globales
 src/components/     Cabecera, secciones y pie
@@ -71,7 +75,7 @@ docs/               Diseño, arquitectura, flujo y manual
 tools/docs/         Generador reproducible del PDF
 vercel.json         Configuración del despliegue estático
 .openai/hosting.json  Referencia del Site histórico
-~~~
+```
 
 ## Flujo y publicación
 
@@ -89,6 +93,9 @@ main recibe cambios mediante PR con quality aprobado. No se exige otra persona p
 - [Mantenimiento de contenido](docs/content-maintenance.md)
 - [Plan para un futuro CMS](docs/cms-roadmap.md)
 - [Checklist de publicación](docs/publication-checklist.md)
+- [Checklist detallada y paso a paso en PDF](docs/checklist-paso-a-paso.pdf)
+- [Registro de avance](docs/checklist-progress.json)
+- [Etapa 01: controles, alcance y evidencia](docs/stage-01-quality.md)
 - [Estado y validaciones](docs/project-status.md)
 - [Regenerar el manual](tools/docs/README.md)
 

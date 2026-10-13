@@ -1,35 +1,65 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mailTo } from '../lib/contact';
-interface Props { institution: CollectionEntry<'institution'>['data']; stays: CollectionEntry<'stays'>[] }
+interface Props {
+  institution: CollectionEntry<'institution'>['data'];
+  stays: CollectionEntry<'stays'>[];
+}
 const { institution, stays } = Astro.props;
 const initialStay = stays[0];
 if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
 ---
+
 <section id="alojamiento" class="section accommodation">
-<div class="wrap">
-<div class="section-heading">
-<div>
-<p class="eyebrow dark">04 / ALOJAMIENTO Y TURISMO SOCIAL</p>
-<h2>Un lugar para llegar.<br>
-<em>Tiempo para compartir.</em>
-</h2>
-</div>
-<p>Ya sea por una visita a la ciudad o por unos días en familia, conocé las opciones de alojamiento. Consultanos y coordiná tu estadía con la institución.</p>
-</div>
-<div class="stay-layout" data-stays={JSON.stringify(stays.map(stay => ({ id: stay.id, ...stay.data })))} data-email={institution.email}>
-<div class="stay-selector" role="group" aria-label="Elegí un alojamiento">{stays.map((stay, index) =>
-<button class:list={['stay-tab', { active: index === 0 }]} data-stay={stay.id} aria-pressed={index === 0 ? 'true' : 'false'}>{stay.data.name} <span aria-hidden="true">→</span>
-</button>)}</div>
-<div class="stay-detail" aria-live="polite">
-<span class="stay-kicker">ALOJAMIENTO INSTITUCIONAL</span>
-<h3 id="stay-title">{initialStay.data.name}</h3>
-<p id="stay-copy">{initialStay.data.description}</p>
-<p class="stay-note">Consultá disponibilidad, condiciones y contacto de reserva antes de organizar tu estadía.</p>
-<a id="stay-link" class="button button-navy" href={mailTo(institution.email, `Consulta de alojamiento en ${initialStay.data.name}`)}>Consultar alojamiento <span aria-hidden="true">↗</span>
-</a>
-<span class="stay-watermark" aria-hidden="true">ER</span>
-</div>
-</div>
-</div>
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow dark">04 / ALOJAMIENTO Y TURISMO SOCIAL</p>
+        <h2>
+          Un lugar para llegar.
+          <br />
+          <em>Tiempo para compartir.</em>
+        </h2>
+      </div>
+      <p>
+        Ya sea por una visita a la ciudad o por unos días en familia, conocé las opciones de
+        alojamiento. Consultanos y coordiná tu estadía con la institución.
+      </p>
+    </div>
+    <div
+      class="stay-layout"
+      data-stays={JSON.stringify(stays.map((stay) => ({ id: stay.id, ...stay.data })))}
+      data-email={institution.email}
+    >
+      <div class="stay-selector" role="group" aria-label="Elegí un alojamiento">
+        {stays.map((stay, index) => (
+          <button
+            class:list={['stay-tab', { active: index === 0 }]}
+            data-stay={stay.id}
+            aria-pressed={index === 0 ? 'true' : 'false'}
+          >
+            {stay.data.name} <span aria-hidden="true">→</span>
+          </button>
+        ))}
+      </div>
+      <div class="stay-detail" aria-live="polite">
+        <span class="stay-kicker">ALOJAMIENTO INSTITUCIONAL</span>
+        <h3 id="stay-title">{initialStay.data.name}</h3>
+        <p id="stay-copy">{initialStay.data.description}</p>
+        <p class="stay-note">
+          Consultá disponibilidad, condiciones y contacto de reserva antes de organizar tu estadía.
+        </p>
+        <a
+          id="stay-link"
+          class="button button-navy"
+          href={mailTo(institution.email, `Consulta de alojamiento en ${initialStay.data.name}`)}
+        >
+          Consultar alojamiento <span aria-hidden="true">↗</span>
+        </a>
+        <span class="stay-watermark" aria-hidden="true">
+          ER
+        </span>
+      </div>
+    </div>
+  </div>
 </section>

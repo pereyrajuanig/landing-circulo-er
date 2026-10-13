@@ -4,7 +4,7 @@
 
 El 12/10/2026 el usuario solicitó migrar a Astro ante una posible necesidad futura de edición institucional. Se conserva la landing cálida; la decisión organiza el desarrollo y el contenido. No incorpora un panel de administración.
 
-Astro 7.3.8 genera HTML estático. TypeScript usa la configuración strict. Node 24 y npm ejecutan desarrollo, validación y build. No hay React, renderizado bajo demanda, API ni base de datos. Los paquetes de Astro son herramientas de construcción; no se sirven completos al visitante.
+Astro 7.3.8 genera HTML estático. TypeScript usa la configuración strict. Node 24.16 o posterior dentro de la rama 24 y npm ejecutan desarrollo, validación y build. No hay React, renderizado bajo demanda, API ni base de datos. Los paquetes de Astro son herramientas de construcción; no se sirven completos al visitante.
 
 ## Renderizado y componentes
 
@@ -16,12 +16,12 @@ src/styles/styles.css se importa antes de src/styles/warmth.css. La revisión c�
 
 src/content.config.ts usa defineCollection y el loader file de Astro. Los esquemas validan campos obligatorios, correo, URL de Maps, orden y acciones de servicios al sincronizar y construir.
 
-| Colección | Fuente | Uso |
-| --- | --- | --- |
-| institution | institution.json | Nombre, SEO, historia y contacto central |
-| services | services.json | Cinco servicios, acción y asunto de consulta |
-| branches | branches.json | 24 filiales con orden explícito |
-| stays | stays.json | Seis destinos y descripciones |
+| Colección   | Fuente           | Uso                                          |
+| ----------- | ---------------- | -------------------------------------------- |
+| institution | institution.json | Nombre, SEO, historia y contacto central     |
+| services    | services.json    | Cinco servicios, acción y asunto de consulta |
+| branches    | branches.json    | 24 filiales con orden explícito              |
+| stays       | stays.json       | Seis destinos y descripciones                |
 
 Cada entrada tiene id único. Los componentes reciben datos tipados. Alojamiento serializa su colección en data-stays para el script del navegador: botones, descripción inicial y cambios posteriores provienen de la misma fuente. Los textos se interpolan con escape de Astro; no se interpretan como HTML arbitrario.
 
@@ -39,7 +39,7 @@ Sin JavaScript, el contenido, los servicios y la consulta del primer alojamiento
 
 Astro dev reemplaza el servidor propio y ofrece recarga. Astro build genera dist/. scripts/check-build.mjs valida HTML, anclas, IDs y recursos de esa salida y comprueba que no incluya archivos internos. Astro preview permite inspeccionar el build y no se usa como servidor de producción.
 
-npm run lint ejecuta astro check; npm test construye y prueba texto y anclas preservados, datos renderizados, filtro, correo y respuestas HTTP de Astro preview. El runner usa Node 24. Los tests cierran su servidor al finalizar.
+npm run check ejecuta astro check. npm run lint aplica reglas recomendadas de ESLint, TypeScript y Astro a código, componentes y herramientas; no suprime advertencias. npm run format:check verifica formato con Prettier y su plugin oficial para Astro. npm run validate agrupa estos controles y los tests. npm test construye y prueba texto y anclas preservados, datos renderizados, filtro, correo y respuestas HTTP de Astro preview. El runner usa Node 24. Los tests cierran su servidor al finalizar.
 
 Vercel recibe solo dist/ como salida pública. vercel.json declara Astro, npm ci y npm run build. No se necesita adaptador de Vercel para esta salida estática. Dominio y conexión GitHub/Vercel son pasos externos pendientes.
 

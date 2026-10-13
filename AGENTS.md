@@ -3,7 +3,7 @@
 ## Contexto y decisiones
 
 - Landing del Círculo de Retirados y Pensionados de la Policía de Entre Ríos; público: retirados, pensionados y familias.
-- Astro 7.3.8, TypeScript estricto, CSS propio y salida estática. Node 24 y npm para desarrollo, controles y build; sin CMS ni base de datos. Migración solicitada por el usuario el 12/10/2026.
+- Astro 7.3.8, TypeScript estricto, CSS propio y salida estática. Node 24.16 o posterior dentro de la rama 24 y npm para desarrollo, controles y build; sin CMS ni base de datos. Migración solicitada por el usuario el 12/10/2026.
 - Fuente: `src/pages/`, `src/layouts/`, `src/components/` y colecciones JSON de `src/content/`. `src/styles/styles.css` es la base institucional y `src/styles/warmth.css` la revisión de calidez, importada después. Mantener el escudo, Libre Caslon Display, DM Sans, azul, dorado y fondos cálidos.
 - Datos institucionales variables requieren confirmación; no inventar teléfonos, prestaciones, tarifas, autoridades ni testimonios.
 - Documentación: [README](README.md), [diseño](docs/design-system.md), [arquitectura](docs/architecture.md), [flujo](docs/workflow.md) y [despliegue](docs/deployment.md).
@@ -20,11 +20,11 @@
 ## Implementación y controles
 
 - Preservar el stack y las funciones existentes. Evitar refactors generales y dependencias nuevas sin necesidad.
-- Usar npm y su lockfile. Comandos: `npm ci`, `npm run dev`, `npm run lint`, `npm test`, `npm run build`, `npm run preview`.
-- `lint` ejecuta astro check (Astro y TypeScript). Build valida colecciones y referencias de dist; npm test incluye build. No son una auditoría CSS o WCAG completa.
+- Usar npm y su lockfile. Comandos: `npm ci`, `npm run dev`, `npm run check`, `npm run lint`, `npm run format:check`, `npm test`, `npm run build`, `npm run preview`. `npm run validate` agrupa tipos, lint, formato y tests (incluye build).
+- `check` ejecuta astro check; `lint` ejecuta ESLint sin advertencias; `format:check` comprueba Prettier. Build valida colecciones y referencias de dist; npm test incluye build. No son una auditoría CSS o WCAG completa.
 - Revisar cambios visuales en navegador de escritorio y móvil; menú, servicios, búsqueda y alojamientos.
 - Usar Astro dev para desarrollo y Astro preview para revisar dist. No usar esos servidores como hosting de producción; solo public/ y la salida generada son públicos.
-- Mantener documentos y PDF alineados con los cambios. No presentar como verificado un control pendiente.
+- Mantener documentos y PDF alineados. Registrar progreso y evidencia en docs/checklist-progress.json; el PDF se regenera desde tools/docs/build_checklist.py y conserva campos manuales no sobrescritos por el registro. No marcar tareas o merges pendientes como verificados.
 - No guardar secretos, exports de cuentas ni archivos sensibles. No incorporar otros materiales del Escritorio.
 
 ## Despliegue y colaboración

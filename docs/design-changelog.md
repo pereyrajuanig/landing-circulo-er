@@ -22,3 +22,7 @@ Base visual aceptada: azul profundo, dorado, tipografía Libre Caslon Display y 
 ## 12/10/2026 · Versión 1.2 · Astro
 
 Migración solicitada por el usuario: Astro 7.3.8, TypeScript, componentes y cuatro colecciones JSON. Se conserva CSS y escudo. Configuración estática de Vercel preparada, sin desplegar. Manual y documentación actualizados. El CMS queda como una fase posterior con requisitos por acordar.
+
+## 13/10/2026 · Versión 1.3 · Controles de calidad
+
+Tipos, ESLint y Prettier separados; CI actualizado y seguimiento de tareas con evidencia. El formato del código mejora su lectura y conserva comportamiento y diseño. El manual técnico y la checklist se alinean con los scripts reales.

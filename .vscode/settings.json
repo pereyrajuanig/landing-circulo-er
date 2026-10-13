@@ -9,5 +9,10 @@
     "dist": true,
     "node_modules": true,
     ".astro": true
-  }
+  },
+  "eslint.validate": ["javascript", "typescript", "astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "prettier.requireConfig": true
 }
