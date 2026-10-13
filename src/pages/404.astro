@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada · Círculo Policía de Entre Ríos"
+  description="Volvé al inicio para encontrar información y contacto del Círculo."
+  noindex
+>
+  <main id="contenido" tabindex="-1" class="not-found">
+    <a href="/" aria-label="Círculo: volver al inicio">
+      <img src="/assets/escudo.png" width="96" height="96" alt="Escudo del Círculo" />
+    </a>
+    <p class="error-code">404 · Página no encontrada</p>
+    <h1>Te ayudamos a encontrar el camino.</h1>
+    <p>
+      Esta dirección no está disponible. En el inicio encontrás nuestros servicios, filiales y
+      formas de contacto.
+    </p>
+    <a class="back-home" href="/">
+      Volver al inicio
+    </a>
+    <a href="/#contacto">Consultar con el Círculo</a>
+  </main>
+</BaseLayout>
+<style>
+  .not-found {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 8vw, 6rem) 1.5rem;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .not-found img {
+    object-fit: contain;
+  }
+  .error-code {
+    color: #826329;
+  }
+  h1 {
+    font-family: 'Libre Caslon Display', Georgia, serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.15;
+  }
+  .back-home {
+    background: #092b48;
+    color: #fcfaf5;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0.5rem;
+  }
+  a:focus-visible {
+    outline: 3px solid #826329;
+    outline-offset: 4px;
+  }
+</style>

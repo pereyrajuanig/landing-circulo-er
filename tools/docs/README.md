@@ -1,6 +1,6 @@
 # Regenerar el manual visual
 
-El PDF vigente se guarda en `docs/design-system.pdf`. Las versiones anteriores 1.0, 1.1, 1.2, 1.3, 1.4 y 1.5 se conservan en docs/archive/. La versión 1.6 registra regresión de flujos, comandos de pruebas y recuperación de foco, conservando la composición. El lector real sigue pendiente por decisión del usuario.
+El PDF vigente se guarda en `docs/design-system.pdf`. Las versiones anteriores 1.0, 1.1, 1.2, 1.3, 1.4 y 1.5 se conservan en docs/archive/. La versión 1.7 registra SEO preparado, dominio pendiente, tarjeta social y 404. El lector real sigue pendiente por decisión del usuario.
 
 ## Requisitos opcionales
 
@@ -35,3 +35,5 @@ python tools/docs/build_checklist.py
 El generador usa los mismos requisitos y fuentes del manual. Verifica las 22 páginas, 136 campos y la coherencia entre valores lógicos y widgets. El registro decide los estados de tareas que contiene; los otros campos y casillas manuales existentes se conservan al regenerar. Una edición manual del PDF no modifica el JSON. Incorporar las decisiones de esa revisión al registro antes de regenerar si afectan una tarea registrada.
 
 Al cerrar un lote, registrar comando, resultado, fecha, responsable y evidencia. Mantener separado el cierre técnico de la autorización de merge o despliegue. Renderizar y revisar las páginas afectadas.
+
+La tarjeta social se regenera con build_social_card.py y Pillow usando los recursos locales.

@@ -48,3 +48,7 @@ Vercel recibe solo dist/ como salida pública. vercel.json declara Astro, npm ci
 Un CMS puede reemplazar las fuentes de las colecciones conservando el contrato de los componentes. El [plan editorial](cms-roadmap.md) define las decisiones necesarias. Con contenido estático, una edición debe disparar un nuevo build para publicarse.
 
 Referencias: [colecciones de Astro](https://docs.astro.build/en/guides/content-collections/), [scripts](https://docs.astro.build/en/guides/client-side-scripts/), [Astro en Vercel](https://docs.astro.build/en/guides/deploy/vercel/).
+
+## SEO y ruta de error
+
+BaseLayout admite metadatos por página y noindex explícito. config/seo.mjs valida SITE_URL y habilitación de indexación; astro.config.mjs genera robots y sitemap condicionado. La ruta 404.astro mantiene estado 404 y acceso al inicio. Ver [SEO y pendientes](seo.md).

@@ -38,3 +38,7 @@ Salto al contenido enfocable, menú sin foco oculto al cambiar el ancho y cierre
 ## 13/10/2026 · Versión 1.6 · Regresión de flujos
 
 Siete flujos Chromium en dos viewports se incorporan a quality, con captura y traza ante fallos. La suite detectó pérdida de foco al ampliar un viewport móvil; se recupera en el primer enlace visible. No cambian los tokens, el contenido ni la composición. PR #5 integrado técnicamente; lector real pendiente.
+
+## 1.7 · 13/10/2026
+
+SEO preparado sin dominio ficticio; previews noindex. Tarjeta social y 404 con identidad existente. Dominio diferido por el usuario, rastreo real pendiente.
