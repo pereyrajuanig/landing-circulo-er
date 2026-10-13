@@ -38,7 +38,7 @@ const [emailName, emailDomain] = institution.email.split('@');
       </div>
       <div>
         <span>TAMBIÉN PODÉS ESCRIBIRNOS</span>
-        <a class="email" href={mailTo(institution.email)}>
+        <a class="email" href={mailTo(institution.email)} aria-label={institution.email}>
           {emailName}
           <wbr />@{emailDomain} <span aria-hidden="true">↗</span>
         </a>

@@ -146,3 +146,26 @@ test('la preview del build no expone el repositorio o el dossier local', async (
     assert.equal((await fetch(new URL(path, origin))).status, 404, path);
   }
 });
+
+test('el HTML ofrece destino de salto enfocable, estados y relaciones accesibles válidas', () => {
+  const { html, ids } = validateSite();
+  assert.match(html, /<main\b[^>]*id="contenido"[^>]*tabindex="-1"/);
+  assert.match(
+    html,
+    /<p\b[^>]*role="status"[^>]*aria-live="polite"[^>]*aria-atomic="true"[^>]*id="branch-status"/,
+  );
+  for (const [, references] of html.matchAll(
+    /aria-(?:controls|labelledby|describedby)="([^"]+)"/g,
+  )) {
+    for (const id of references.split(/\s+/))
+      assert(ids.includes(id), 'Referencia ARIA inexistente: ' + id);
+  }
+  const buttons = [...html.matchAll(/<button\b([^>]*)>/g)].map((match) => match[1]);
+  assert.equal(buttons.length, 7);
+  for (const button of buttons) assert.match(button, /type="button"/);
+  const stays = buttons.filter((button) => button.includes('data-stay='));
+  assert.equal(stays.length, 6);
+  assert.equal(stays.filter((button) => button.includes('aria-pressed="true"')).length, 1);
+  for (const button of stays) assert.match(button, /aria-controls="stay-detail"/);
+  assert.match(html, /id="stay-detail"[^>]*aria-live="polite"/);
+});

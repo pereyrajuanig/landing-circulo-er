@@ -26,7 +26,7 @@ stays.sort((a, b) => a.data.order - b.data.order);
 
 <BaseLayout title={institution.title} description={institution.description}>
   <Header />
-  <main id="contenido">
+  <main id="contenido" tabindex="-1">
     <Hero />
     <Institution institution={institution} />
     <Services institution={institution} services={services} />

@@ -28,9 +28,16 @@ const { institution, branches } = Astro.props;
           type="search"
           placeholder="Escribí una localidad…"
           autocomplete="off"
+          aria-controls="branch-list"
         />
       </div>
-      <p class="search-status" aria-live="polite" id="branch-status"></p>
+      <p
+        class="search-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        id="branch-status"
+      ></p>
       <a class="text-link" href="#contacto">
         Te ayudamos a contactar tu filial <span aria-hidden="true">→</span>
       </a>
