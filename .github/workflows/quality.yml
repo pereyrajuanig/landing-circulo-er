@@ -35,7 +35,19 @@ jobs:
         run: npm run lint
       - name: Formato reproducible
         run: npm run format:check
-      - name: Build estático y tests de integración
+      - name: Preparar Chromium de pruebas
+        run: npx playwright install --with-deps chromium
+      - name: Build, integración y flujos en navegador
         run: npm test
       - name: Comprobar formato del diff
         run: git diff --check
+      - name: Evidencia si falla una prueba
+        if: ${{ failure() && !cancelled() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: pruebas-navegador-${{ github.run_id }}
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7

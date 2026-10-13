@@ -40,6 +40,14 @@ if (menuButton && navigation) {
     )
       menuButton.focus();
   });
+  menuButton.addEventListener('focusout', (event) => {
+    if (
+      event.relatedTarget === null &&
+      !mobileMenu.matches &&
+      getComputedStyle(menuButton).display === 'none'
+    )
+      navigation.querySelector<HTMLAnchorElement>('a')?.focus();
+  });
   mobileMenu.addEventListener('change', () => {
     const focused = document.activeElement;
     closeMenu();

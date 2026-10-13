@@ -142,6 +142,9 @@ test('la preview del build no expone el repositorio o el dossier local', async (
     '/docs/design-system.pdf',
     '/docs/reference/Dossier_Circulo_Retirados_Policia_Entre_Rios_con_logo.pdf',
     '/src/content/institution.json',
+    '/tests/e2e/landing.spec.mjs',
+    '/playwright.config.mjs',
+    '/playwright-report/index.html',
   ]) {
     assert.equal((await fetch(new URL(path, origin))).status, 404, path);
   }
