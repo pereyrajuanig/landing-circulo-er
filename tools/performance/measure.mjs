@@ -42,7 +42,7 @@ try {
     runs: [],
   };
   for (const scenario of ['desktop', 'mobile']) {
-    for (let run = 1; run <= (label === 'visual' ? 1 : 3); run++) {
+    for (let run = 1; run <= (['visual', 'fallback'].includes(label) ? 1 : 3); run++) {
       const mobile = scenario === 'mobile';
       const context = await browser.newContext({
         viewport: mobile ? { width: 390, height: 844 } : { width: 1440, height: 900 },
@@ -51,6 +51,7 @@ try {
         hasTouch: mobile,
       });
       const page = await context.newPage();
+      if (label === 'fallback') await page.route('**/*.woff2', (route) => route.abort());
       const session = await context.newCDPSession(page);
       await session.send('Network.enable');
       await session.send('Network.setCacheDisabled', { cacheDisabled: true });
@@ -116,6 +117,8 @@ try {
           previous = s.time;
         }
         return {
+          horizontalOverflow:
+            document.documentElement.scrollWidth - document.documentElement.clientWidth,
           lcp: window.__perf.lcp.at(-1),
           cls: max,
           fonts: [...document.fonts].map((f) => ({

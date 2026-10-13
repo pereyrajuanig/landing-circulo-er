@@ -15,7 +15,7 @@ PerformanceObserver de LCP, CLS por ventanas de sesión y Event Timing con umbra
 | Escritorio    | 3100 / 316 / 324   | 160 / 148 / 140    | 324 → 148 ms            | 0,00147 → 0         |
 | Móvil emulado | 1424 / 1356 / 1376 | 1300 / 1292 / 1340 | 1376 → 1300 ms          | 0 → 0               |
 
-El primer acceso de escritorio antes fue un valor alto, conservado en la evidencia. El LCP observado fue H1#hero-title en ambos tamaños, no el escudo. El máximo de duración de eventos muestreados fue 32ms antes y después en escritorio, y 24 → 32ms en móvil. Las muestras incluyen tareas largas durante carga/decodificación; no se afirma que toda métrica haya mejorado. Estas duraciones de eventos no son INP real ni abarcan todas las interacciones. Cero solicitudes fallidas en los lotes.
+El primer acceso de escritorio antes fue un valor alto, conservado en la evidencia. El LCP observado fue H1#hero-title en ambos tamaños, no el escudo. El máximo de duración de eventos muestreados fue 32ms antes y después en escritorio, y 24 → 32ms en móvil. Las muestras incluyen tareas largas durante la carga, sin atribuir causas con esta medición; no se afirma que toda métrica haya mejorado. Estas duraciones de eventos no son INP real ni abarcan todas las interacciones. Cero solicitudes fallidas en los lotes.
 
 ## Cambios justificados
 
@@ -41,3 +41,5 @@ Datos completos: stage-06-evidence.json. Capturas: media/etapa06-desktop.png y m
 Referencias: [LCP](https://web.dev/articles/lcp), [INP y laboratorio/campo](https://web.dev/articles/inp), [imágenes Astro](https://docs.astro.build/en/guides/images/). Consultadas el 13/10/2026.
 
 Código3927479: [quality aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674). La comprobación de CI incluye SEO de producción/preview de prueba y las 26 pruebas; no ejecuta umbrales de rendimiento local ni declara datos de campo.
+
+Fallback verificado bloqueando ambos WOFF2 en 1440x900 y 390x844: fuentes con estado error esperado, sin desborde horizontal y flujos scriptados operables. Los saltos de línea cambian con Georgia/Arial, conservando lectura y acceso a controles. Cuatro solicitudes de fuentes fallidas esperadas por muestra, por dos navegaciones. Muestras QA separadas de la comparación; [PR #8](https://github.com/pereyrajuanig/landing-circulo-er/pull/8).

@@ -57,6 +57,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preparar Chromium de pruebas                            | npm run test:install |
 | Build y control de referencias de salida                | npm run build        |
 | Preview del build                                       | npm run preview      |
+| Medición de rendimiento local                           | npm run perf         |
 
 npm test construye y ejecuta diez pruebas Node más dieciséis casos Chromium. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 

@@ -3006,11 +3006,13 @@ endobj
 endobj
 235 0 obj
 <<
-/BBox [ 0 0 507.2756 24 ] /Filter [ /FlateDecode ] /FormType 1 /Length 210 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 234 0 R>> >> 
+/BBox [ 0 0 507.2756 24 ] /Filter [ /FlateDecode ] /FormType 1 /Length 217 /Matrix [ 1 0 0 1 0 0 ] /Resources << /ProcSet [/PDF /Text] /Font <</Helv 234 0 R>> >> 
   /Subtype /Form /Type /XObject
 >>
 stream
-xœM½NC1…w?Åañµ“8NÖ[Ueé ŠÄÂÂÏmªR	x|’Š¡ƒÛGß1×RB4p-kè=‹—„¯=	&ÎÁÍª˜©UCèÃ…vÄÅ“)¸$«`?_ânCÂŽŸ®Ýö,&™íÒ$#DŽÃæDSûÅ¼]Ž¤œ0Ê$qºÜOÊaìßÓgçlšM7Ëû7*ZÇØ±óè Pr'A#Š"pFÎht5?žØÓN½Lx~ˆ9¾¼îè_ðäõíÖni½]ÑÙ„=øendstream
+xœM»Nƒ1…w?Å‘X`qí$Nœõ¯ª²T‚*”¿ˆ‹ ðø$CÛ’/Gß1W÷\]b½f)žðu À¤p(fUÌT]Õúp¦=±—d
+öTÄ*¸œ.±]“pÁOÏ]ö”L2Û¹HFˆ‡Ì‘íÓf	ú$å„&‰Óù~BPcÿŽÞ;×`[ÓÔhq=¿~£¢uœ;þ
+ž;ù0¢V9£½Ñåôpœa{-Õ±Àî>æøô|ø@ÿBI¥öÞÍ~…öB«F·´Ú,éÎY?„endstream
 endobj
 236 0 obj
 <<
@@ -3018,11 +3020,11 @@ endobj
 /N 235 0 R
 >> /BS <<
 /S /S /W .7
->> /DA (/Helv 9 Tf .078431 .188235 .286275 rg) /DV (Base 5bf1798 / c\363digo 3927479) /F 4 /FT /Tx 
+>> /DA (/Helv 9 Tf .078431 .188235 .286275 rg) /DV (Base 5bf1798 / c\363digo 3927479 / PR #8) /F 4 /FT /Tx 
   /Ff 0 /MK <<
 /BC [ .87451 .847059 .796078 ] /BG [ .988235 .980392 .960784 ]
 >> /MaxLen 180 /P 246 0 R /Rect [ 44 509.8898 551.2756 533.8898 ] /Subtype /Widget 
-  /T (trace_commit) /TU (Commit / PR / versi\363n) /Type /Annot /V (Base 5bf1798 / c\363digo 3927479)
+  /T (trace_commit) /TU (Commit / PR / versi\363n) /Type /Annot /V (Base 5bf1798 / c\363digo 3927479 / PR #8)
 >>
 endobj
 237 0 obj
@@ -3085,9 +3087,7 @@ endobj
   /Subtype /Form /Type /XObject
 >>
 stream
-xœ}Mk1†ïó+æhÁŽÉ&ÙdéM+¶P‹•…^¼¬k””ý°»j?~}'"E(ôÉeÞgž—2çe2'T–ðŸ
-ë4v;(ÐK‰5&ÆHé¤4¨v¶@Îj#‘œ¶ÂdHöœÄåYüàÉØó0"%sIQ[RÓÃ(ÿÄñ|‚ð’4Æg„&}½¯QJâþ+4ìÝf0Îaôà«f˜³NÔVì#/…—²y,"1V‘˜Ce)Å¼†ÁS±n»âÐv¡Åª-‹êŸø…õJyèBYô¸ñXõ¾Å½o6Á7ßÓæo|ÿV
-ÆåÜ·uhB;Äýq]q¬+•ª†Q•/ù€P$Ò	‹åËBInCSTœ/ŽÑïû—È:µïvþlšÃLçø¹v\endstream
+xœ}ËNAE÷ý7qƒ‰ÝÓÏ	; ‰$“¸a3-3œ||½Ýh”•‹®ÞT:·(u.‘”:.Ó$ü†[§Ðm‡æ–«uÊµÂ	¡¡:Ïž9«´ 9e¹NAö4‰åŒq²x5`OEsCúb ,ÉˆéÙ0{Çx>{e‚âÓ\‘:ïWPš’ØÿÄšàÝflœ±á­¯ŽH‘¨-ƒø	”8ÌcE !iÉ «Ùà>_·]¾o»²EÕy5ÂÝÃ¨WR‹}WyG‘×»;ßlJßì}O—È^ÂþkÁ.Û°ÁM[—MÙ^awXWa¬(WÒÈ& *_„\7ÿK\Ä«Ë>_W~„üÅ>QÁ£öÝÖÿQ¾!ÓŒ=²é|Â¾ W5suendstream
 endobj
 245 0 obj
 <<
@@ -3095,11 +3095,11 @@ endobj
 /N 244 0 R
 >> /BS <<
 /S /S /W .7
->> /DA (/Helv 9 Tf .078431 .188235 .286275 rg) /DV (Laboratorio local; INP y m\351tricas de campo pendientes.\012Dominio, publicaci\363n y lector03.06 pendientes.\012PR, revisi\363n final y autorizaci\363n de merge pendientes.) /F 4 /FT /Tx 
+>> /DA (/Helv 9 Tf .078431 .188235 .286275 rg) /DV (Laboratorio local; INP y m\351tricas de campo pendientes.\012Dominio, publicaci\363n y lector03.06 pendientes.\012PR #8 revisable; autorizaci\363n de merge pendiente.) /F 4 /FT /Tx 
   /Ff 4096 /MK <<
 /BC [ .87451 .847059 .796078 ] /BG [ .988235 .980392 .960784 ]
 >> /MaxLen 700 /P 246 0 R /Rect [ 44 244.8898 551.2756 292.8898 ] /Subtype /Widget 
-  /T (trace_limits) /TU (Pendientes, dependencias o motivo de no aplicaci\363n) /Type /Annot /V (Laboratorio local; INP y m\351tricas de campo pendientes.\012Dominio, publicaci\363n y lector03.06 pendientes.\012PR, revisi\363n final y autorizaci\363n de merge pendientes.)
+  /T (trace_limits) /TU (Pendientes, dependencias o motivo de no aplicaci\363n) /Type /Annot /V (Laboratorio local; INP y m\351tricas de campo pendientes.\012Dominio, publicaci\363n y lector03.06 pendientes.\012PR #8 revisable; autorizaci\363n de merge pendiente.)
 >>
 endobj
 246 0 obj
@@ -3329,7 +3329,7 @@ endobj
 endobj
 264 0 obj
 <<
-/Author (Proyecto Landing-CirculoER) /CreationDate (D:20261013193550-03'00') /Creator (anonymous) /Keywords () /ModDate (D:20261013193550-03'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+/Author (Proyecto Landing-CirculoER) /CreationDate (D:20261013194139-03'00') /Creator (anonymous) /Keywords () /ModDate (D:20261013194139-03'00') /Producer (ReportLab PDF Library - \(opensource\)) 
   /Subject (Plan de trabajo por etapas. Versi\363n 1.6. Corte: 13 de octubre de 2026.) /Title (Checklist y paso a paso | Landing C\355rculo Entre R\355os) /Trapped /False
 >>
 endobj
@@ -3871,86 +3871,86 @@ xref
 0000514211 00000 n 
 0000514589 00000 n 
 0000514690 00000 n 
-0000515135 00000 n 
-0000515562 00000 n 
-0000515663 00000 n 
-0000516225 00000 n 
-0000516959 00000 n 
-0000517060 00000 n 
-0000517642 00000 n 
-0000518425 00000 n 
-0000518526 00000 n 
-0000519066 00000 n 
-0000519809 00000 n 
-0000520094 00000 n 
-0000520293 00000 n 
-0000520505 00000 n 
-0000520708 00000 n 
-0000520905 00000 n 
-0000521082 00000 n 
-0000521260 00000 n 
-0000521468 00000 n 
-0000521745 00000 n 
-0000522535 00000 n 
-0000529829 00000 n 
-0000530057 00000 n 
-0000530792 00000 n 
-0000531562 00000 n 
-0000546070 00000 n 
-0000546308 00000 n 
-0000546992 00000 n 
-0000547100 00000 n 
-0000547492 00000 n 
-0000547570 00000 n 
-0000547661 00000 n 
-0000547786 00000 n 
-0000547904 00000 n 
-0000548017 00000 n 
-0000548137 00000 n 
-0000548263 00000 n 
-0000548384 00000 n 
-0000548500 00000 n 
-0000548619 00000 n 
-0000548743 00000 n 
-0000548873 00000 n 
-0000548988 00000 n 
-0000549114 00000 n 
-0000549241 00000 n 
-0000549374 00000 n 
-0000549498 00000 n 
-0000549623 00000 n 
-0000549755 00000 n 
-0000549880 00000 n 
-0000549996 00000 n 
-0000550122 00000 n 
-0000550238 00000 n 
-0000550464 00000 n 
-0000551794 00000 n 
-0000554082 00000 n 
-0000556765 00000 n 
-0000559098 00000 n 
-0000561508 00000 n 
-0000563925 00000 n 
-0000566230 00000 n 
-0000568739 00000 n 
-0000570983 00000 n 
-0000573426 00000 n 
-0000575790 00000 n 
-0000578275 00000 n 
-0000580787 00000 n 
-0000583130 00000 n 
-0000585522 00000 n 
-0000587966 00000 n 
-0000590300 00000 n 
-0000592642 00000 n 
-0000595056 00000 n 
-0000597145 00000 n 
-0000598623 00000 n 
-0000600895 00000 n 
+0000515142 00000 n 
+0000515585 00000 n 
+0000515686 00000 n 
+0000516248 00000 n 
+0000516982 00000 n 
+0000517083 00000 n 
+0000517665 00000 n 
+0000518448 00000 n 
+0000518549 00000 n 
+0000519089 00000 n 
+0000519816 00000 n 
+0000520101 00000 n 
+0000520300 00000 n 
+0000520512 00000 n 
+0000520715 00000 n 
+0000520912 00000 n 
+0000521089 00000 n 
+0000521267 00000 n 
+0000521475 00000 n 
+0000521752 00000 n 
+0000522542 00000 n 
+0000529836 00000 n 
+0000530064 00000 n 
+0000530799 00000 n 
+0000531569 00000 n 
+0000546077 00000 n 
+0000546315 00000 n 
+0000546999 00000 n 
+0000547107 00000 n 
+0000547499 00000 n 
+0000547577 00000 n 
+0000547668 00000 n 
+0000547793 00000 n 
+0000547911 00000 n 
+0000548024 00000 n 
+0000548144 00000 n 
+0000548270 00000 n 
+0000548391 00000 n 
+0000548507 00000 n 
+0000548626 00000 n 
+0000548750 00000 n 
+0000548880 00000 n 
+0000548995 00000 n 
+0000549121 00000 n 
+0000549248 00000 n 
+0000549381 00000 n 
+0000549505 00000 n 
+0000549630 00000 n 
+0000549762 00000 n 
+0000549887 00000 n 
+0000550003 00000 n 
+0000550129 00000 n 
+0000550245 00000 n 
+0000550471 00000 n 
+0000551801 00000 n 
+0000554089 00000 n 
+0000556772 00000 n 
+0000559105 00000 n 
+0000561515 00000 n 
+0000563932 00000 n 
+0000566237 00000 n 
+0000568746 00000 n 
+0000570990 00000 n 
+0000573433 00000 n 
+0000575797 00000 n 
+0000578282 00000 n 
+0000580794 00000 n 
+0000583137 00000 n 
+0000585529 00000 n 
+0000587973 00000 n 
+0000590307 00000 n 
+0000592649 00000 n 
+0000595063 00000 n 
+0000597152 00000 n 
+0000598630 00000 n 
+0000600902 00000 n 
 trailer
 <<
 /ID 
-[<700c8901b3efa949856b04db4ee81cb0><700c8901b3efa949856b04db4ee81cb0>]
+[<940fe52d7b6098c8751d86f679bc772f><940fe52d7b6098c8751d86f679bc772f>]
 % ReportLab generated PDF document -- digest (opensource)
 
 /Info 264 0 R
@@ -3958,5 +3958,5 @@ trailer
 /Size 312
 >>
 startxref
-602096
+602103
 %%EOF

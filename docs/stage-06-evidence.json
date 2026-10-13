@@ -2075,5 +2075,405 @@
         "gzip": 6065
       }
     ]
-  }
+  },
+  "fallbackQA": {
+    "label": "fallback",
+    "commit": "467d1ae34fe551077744937a1f7d29d2ce5a2c65",
+    "node": "v24.20.0",
+    "chromium": "156.0.8078.4",
+    "date": "2026-10-13T22:39:49.661Z",
+    "runs": [
+      {
+        "scenario": "desktop",
+        "run": 1,
+        "loading": {
+          "horizontalOverflow": 0,
+          "lcp": {
+            "time": 220,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "error"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "error"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 12.599999997764826
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 14.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 22.699999999254942
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 22.800000000745058
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 19.5
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 50,
+              "height": 60,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 173,
+              "height": 207,
+              "complete": true,
+              "naturalWidth": 180
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 40,
+              "height": 49,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 5945
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 5945
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 5945
+            },
+            {
+              "duration": 32,
+              "name": "keydown",
+              "interactionId": 5952
+            },
+            {
+              "duration": 24,
+              "name": "keyup",
+              "interactionId": 5952
+            },
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 5959
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 5959
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 5959
+            }
+          ],
+          "longtasks": [133]
+        },
+        "failures": [
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          }
+        ]
+      },
+      {
+        "scenario": "mobile",
+        "run": 1,
+        "loading": {
+          "horizontalOverflow": 0,
+          "lcp": {
+            "time": 1244,
+            "element": "H1",
+            "id": "hero-title",
+            "src": ""
+          },
+          "cls": 0,
+          "fonts": [
+            {
+              "family": "DM Sans",
+              "weight": "100 1000",
+              "status": "error"
+            },
+            {
+              "family": "Libre Caslon Display",
+              "weight": "400",
+              "status": "error"
+            }
+          ],
+          "resources": [
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 16.5
+            },
+            {
+              "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+              "encodedBytes": 0,
+              "transferredBytes": 0,
+              "duration": 14.300000000745058
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/style.DYBowYgJ.css",
+              "encodedBytes": 6065,
+              "transferredBytes": 6365,
+              "duration": 239.69999999925494
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "encodedBytes": 3404,
+              "transferredBytes": 3704,
+              "duration": 238.40000000223517
+            },
+            {
+              "url": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "encodedBytes": 20878,
+              "transferredBytes": 21178,
+              "duration": 333.69999999925494
+            }
+          ],
+          "images": [
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": true,
+              "naturalWidth": 50
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_1ickqd.webp",
+              "width": 139,
+              "height": 166,
+              "complete": true,
+              "naturalWidth": 140
+            },
+            {
+              "src": "http://127.0.0.1:4176/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+              "width": 37,
+              "height": 45,
+              "complete": false,
+              "naturalWidth": 50
+            }
+          ]
+        },
+        "interaction": {
+          "events": [
+            {
+              "duration": 24,
+              "name": "pointerdown",
+              "interactionId": 3326
+            },
+            {
+              "duration": 24,
+              "name": "pointerup",
+              "interactionId": 3326
+            },
+            {
+              "duration": 24,
+              "name": "click",
+              "interactionId": 3326
+            },
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 3333
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 3333
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 3333
+            },
+            {
+              "duration": 24,
+              "name": "keydown",
+              "interactionId": 3340
+            },
+            {
+              "duration": 32,
+              "name": "pointerdown",
+              "interactionId": 3347
+            },
+            {
+              "duration": 32,
+              "name": "pointerup",
+              "interactionId": 3347
+            },
+            {
+              "duration": 32,
+              "name": "click",
+              "interactionId": 3347
+            }
+          ],
+          "longtasks": []
+        },
+        "failures": [
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/dm-sans-latin.woff2",
+            "error": "net::ERR_FAILED"
+          },
+          {
+            "url": "http://127.0.0.1:4176/assets/fonts/libre-caslon-display-latin.woff2",
+            "error": "net::ERR_FAILED"
+          }
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "path": "dist/404.html",
+        "bytes": 2339,
+        "gzip": 907
+      },
+      {
+        "path": "dist/assets/escudo.png",
+        "bytes": 348751,
+        "gzip": 348879
+      },
+      {
+        "path": "dist/assets/fonts/dm-sans-latin.woff2",
+        "bytes": 70244,
+        "gzip": 70109
+      },
+      {
+        "path": "dist/assets/fonts/DMSans-OFL.txt",
+        "bytes": 4388,
+        "gzip": 1974
+      },
+      {
+        "path": "dist/assets/fonts/libre-caslon-display-latin.woff2",
+        "bytes": 29640,
+        "gzip": 29668
+      },
+      {
+        "path": "dist/assets/fonts/LibreCaslonDisplay-OFL.txt",
+        "bytes": 4402,
+        "gzip": 1984
+      },
+      {
+        "path": "dist/assets/social-card.png",
+        "bytes": 87079,
+        "gzip": 83087
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 19488,
+        "gzip": 5875
+      },
+      {
+        "path": "dist/robots.txt",
+        "bytes": 23,
+        "gzip": 43
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_1ickqd.webp",
+        "bytes": 20878,
+        "gzip": 20906
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_2mXu8w.webp",
+        "bytes": 58288,
+        "gzip": 58326
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_YQohW.webp",
+        "bytes": 7234,
+        "gzip": 7257
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z18UzsF.webp",
+        "bytes": 19806,
+        "gzip": 19834
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1d2Upl.webp",
+        "bytes": 94196,
+        "gzip": 94244
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+        "bytes": 3404,
+        "gzip": 3427
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z1sSUxB.webp",
+        "bytes": 9142,
+        "gzip": 9165
+      },
+      {
+        "path": "dist/_astro/escudo.BY5eH3yB_Z2hqbqS.png",
+        "bytes": 10985,
+        "gzip": 11008
+      },
+      {
+        "path": "dist/_astro/style.DYBowYgJ.css",
+        "bytes": 26346,
+        "gzip": 6065
+      }
+    ]
+  },
+  "fallbackNote": "Una muestra por tamaño con WOFF2 bloqueados deliberadamente; cuatro fallos de solicitudes por muestra al navegar dos veces. No se mezclan con los lotes antes/después."
 }

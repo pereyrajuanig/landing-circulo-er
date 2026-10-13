@@ -56,7 +56,8 @@
       "branch": "codex/etapa-06-rendimiento",
       "codeCommit": "3927479e3e7c84f39028cb5b3a35cd7e7f39a86d",
       "summary": "7 tareas con evidencia de laboratorio; 26 pruebas aprobadas. Integración pendiente; INP y rendimiento de campo pendientes de publicación.",
-      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674"
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/8"
     }
   },
   "tasks": {
@@ -298,7 +299,7 @@
       "status": "verified",
       "date": "2026-10-13",
       "responsible": "Desarrollo / laboratorio",
-      "evidence": "Dos WOFF2 locales, mismas familias y pesos, fallback, OFL y cobertura española verificada. Fuentes reales cargadas en los 16 casos Chromium."
+      "evidence": "Dos WOFF2 locales, mismas familias y pesos, fallback, OFL y cobertura española verificada. Fuentes reales cargadas en los 16 casos Chromium. Fallback probado con ambos WOFF2 bloqueados: lectura y flujos utilizables, sin desborde en 1440/390."
     },
     "06.05": {
       "status": "verified",
@@ -325,10 +326,10 @@
     "trace_status": "7 verificadas en laboratorio",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 5bf1798 / código 3927479",
+    "trace_commit": "Base 5bf1798 / código 3927479 / PR #8",
     "trace_method": "Chromium156, Windows; 3 muestras por tamaño y lote.\nDesktop1440x900; móvil390x844, CPU4x, RTT150ms.\nCaché fría, red1,6Mbit/s; observadores LCP/CLS/eventos.",
     "trace_result": "LCP mediano: 324 a148ms desktop; 1376 a1300ms móvil.\nCLS0 final; 26 pruebas aprobadas. Eventos no son INP.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674",
-    "trace_limits": "Laboratorio local; INP y métricas de campo pendientes.\nDominio, publicación y lector03.06 pendientes.\nPR, revisión final y autorización de merge pendientes.",
+    "trace_limits": "Laboratorio local; INP y métricas de campo pendientes.\nDominio, publicación y lector03.06 pendientes.\nPR #8 revisable; autorización de merge pendiente.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",

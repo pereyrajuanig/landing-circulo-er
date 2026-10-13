@@ -10,7 +10,7 @@ Fecha: 13 de octubre de 2026. Proyecto canónico: Desktop/Landing-CirculoER. Rep
 - PR #5 integrado con autorización: 480eaef8f44797fed5e62def3d56fc9de769e320; [quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38452363417) aprobado. Etapa 03 con seis tareas verificadas; lector real 03.06 pendiente por decisión del usuario.
 - PR #6 etapa 04 integrado con autorización: 9938f6d; quality de main 38461526636 aprobado.
 - PR #7 SEO integrado con autorización: main5bf1798, quality38465530841 aprobado; dominio y cierre público pendientes.
-- Etapa06 en codex/etapa-06-rendimiento, código3927479: siete tareas verificadas en laboratorio; [quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674) aprobado; revisión e integración pendientes. Ver [rendimiento](stage-06-performance.md).
+- Etapa06 en codex/etapa-06-rendimiento, código3927479: siete tareas verificadas en laboratorio; [quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674) aprobado; [PR #8](https://github.com/pereyrajuanig/landing-circulo-er/pull/8) revisable; integración pendiente. Ver [rendimiento](stage-06-performance.md).
 
 ## Validación vigente
 
