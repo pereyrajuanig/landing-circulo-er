@@ -8,7 +8,7 @@ Fecha: 13 de octubre de 2026. Proyecto canónico: Desktop/Landing-CirculoER. Rep
 - PR #3 etapa 01 integrado con autorización: 4410368.
 - PR #4 etapa 02 integrado con autorización: 20181ac; siete tareas verificadas y zoom 200 % confirmado manualmente por el usuario.
 - PR #5 integrado con autorización: 480eaef8f44797fed5e62def3d56fc9de769e320; [quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38452363417) aprobado. Etapa 03 con seis tareas verificadas; lector real 03.06 pendiente por decisión del usuario.
-- Etapa 04 en codex/etapa-04-pruebas-flujos: siete tareas verificadas, código 976292f4c27d27f64319ee6549abf1b9d66cc1db, [quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742) aprobado; PR y merge pendientes.
+- Etapa 04 en codex/etapa-04-pruebas-flujos: siete tareas verificadas, código 976292f4c27d27f64319ee6549abf1b9d66cc1db, [quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742) aprobado; [PR #6](https://github.com/pereyrajuanig/landing-circulo-er/pull/6) abierto; merge pendiente.
 
 ## Validación vigente
 

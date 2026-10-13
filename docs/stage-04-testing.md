@@ -2,7 +2,7 @@
 
 Fecha: 13 de octubre de 2026. Rama: codex/etapa-04-pruebas-flujos. Base: 480eaef8f44797fed5e62def3d56fc9de769e320. Código: 976292f4c27d27f64319ee6549abf1b9d66cc1db.
 
-Siete tareas verificadas. Quality del código aprobado; PR e integración pendientes. La tarea 03.06 de lector real conserva su estado pendiente por decisión del usuario.
+Siete tareas verificadas. Quality del código aprobado; [PR #6](https://github.com/pereyrajuanig/landing-circulo-er/pull/6) revisable e integración pendiente. La tarea 03.06 de lector real conserva su estado pendiente por decisión del usuario.
 
 ## Resultado
 

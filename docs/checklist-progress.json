@@ -36,7 +36,8 @@
       "branch": "codex/etapa-04-pruebas-flujos",
       "codeCommit": "976292f4c27d27f64319ee6549abf1b9d66cc1db",
       "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742",
-      "summary": "7 tareas verificadas; 7 pruebas de integración y 14 de Chromium aprobadas. PR y merge pendientes."
+      "summary": "7 tareas verificadas; 21 pruebas aprobadas. PR #6 revisable; merge pendiente.",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/6"
     }
   },
   "tasks": {
@@ -226,10 +227,10 @@
     "trace_status": "7 verificadas; integración pendiente",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 480eaef / código 976292f / etapa 04",
+    "trace_commit": "Base 480eaef / código 976292f / PR #6",
     "trace_method": "Build estático: 7 tests de integración + 14 Chromium, escritorio/móvil.\nTeclado, filtro, destinos, servicios, enlaces, 404 y cambios de ancho.\nWindows local y Ubuntu en CI; fallo real con captura y traza inspeccionadas.",
     "trace_result": "21 pruebas aprobadas; tipos, lint y formato correctos.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38455160742\nEvidencia: stage-04-testing.md y stage-04-evidence.json.",
-    "trace_limits": "PR y merge requieren revisión y autorización. Sin despliegue.\nLector real 03.06 pendiente por decisión del usuario.\nChromium emulado y fuentes de respaldo; no auditoría WCAG integral.",
+    "trace_limits": "Revisión final y autorización de merge pendientes. Sin despliegue.\nLector real 03.06 pendiente por decisión del usuario.\nChromium emulado y fuentes de respaldo; no auditoría WCAG integral.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
