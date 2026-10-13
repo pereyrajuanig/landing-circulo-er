@@ -1,6 +1,6 @@
 # Etapa 01 · Base y controles de calidad
 
-Fecha: 13 de octubre de 2026. Estado: siete tareas verificadas técnicamente; integración pendiente.
+Fecha: 13 de octubre de 2026. Estado: integrada en main mediante PR #3 con autorización del usuario.
 
 ## Alcance
 
@@ -37,6 +37,8 @@ Verificación local del 13/10/2026 con Node 24.20.0 y npm 11.19.0:
 
 [Captura de escritorio](media/etapa01-desktop.jpg) · [Captura móvil](media/etapa01-mobile.jpg).
 
-La matriz completa de dispositivos, zoom y lector de pantalla permanece en etapas posteriores. El check quality quedó aprobado en el [PR #3](https://github.com/pereyrajuanig/landing-circulo-er/pull/3), código b8fba325fa70b0963470a9b44241763791d9b9ef: [ejecución de PR](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100) y [ejecución de push](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436052387). GitHub ejecutó instalación, tipos, lint, formato, build y las seis pruebas. Main conserva PR obligatorio, quality requerido, base estricta, administradores incluidos e historial lineal. Las tareas 01.01 a 01.07 están verificadas; la etapa espera revisión del usuario y autorización de merge. El cierre en main se registra después de integrarla. La aceptación visual y editorial final corresponde al usuario y a la institución.
+La matriz completa de dispositivos, zoom y lector de pantalla permanece en etapas posteriores. El check quality quedó aprobado en el [PR #3](https://github.com/pereyrajuanig/landing-circulo-er/pull/3), código b8fba325fa70b0963470a9b44241763791d9b9ef: [ejecución de PR](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436064100) y [ejecución de push](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38436052387). GitHub ejecutó instalación, tipos, lint, formato, build y las seis pruebas. Main conserva PR obligatorio, quality requerido, base estricta, administradores incluidos e historial lineal. Las tareas 01.01 a 01.07 están verificadas. El usuario autorizó el merge; la integración quedó registrada en el cierre de este documento. La aceptación visual y editorial final corresponde al usuario y a la institución.
 
 Referencias: [ESLint para Astro](https://ota-meshi.github.io/eslint-plugin-astro/user-guide/), [TypeScript ESLint](https://typescript-eslint.io/getting-started/), [Prettier oficial para Astro](https://github.com/withastro/prettier-plugin-astro).
+
+Cierre de integración, 13/10/2026: PR #3 fusionado por squash, commit 4410368e8ebcafe5d5372b99533588186dfe3619. Main local sincronizado y limpio; [quality de main aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38438473887). Las referencias anteriores documentan la revisión previa al merge.

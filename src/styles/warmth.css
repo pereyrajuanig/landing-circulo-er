@@ -6,6 +6,15 @@
   --line: #dfd8cb;
   --gold-ink: #826329;
   --warm-panel: #eee7da;
+  --font-label: 12px;
+  --font-secondary: 14px;
+  --font-control: 16px;
+  --font-brand-detail: 10px;
+  --target-size: 44px;
+  --radius-control: 8px;
+  --radius-item: 12px;
+  --radius-panel: 16px;
+  --section-space: 87px;
 }
 
 body {
@@ -16,14 +25,14 @@ body {
   border-color: var(--line);
 }
 .brand small {
-  font-size: 10px;
+  font-size: var(--font-brand-detail);
   letter-spacing: 0.09em;
 }
 .nav-contact {
   border-radius: 7px;
 }
 .header nav {
-  font-size: 14px;
+  font-size: var(--font-control);
 }
 .hero {
   background: var(--cream);
@@ -41,7 +50,7 @@ body {
 .eyebrow,
 .eyebrow.dark {
   color: var(--gold-ink);
-  font-size: 11px;
+  font-size: var(--font-label);
   letter-spacing: 0.12em;
 }
 .eyebrow > span {
@@ -74,13 +83,13 @@ h2 em {
   flex-wrap: wrap;
 }
 .button {
-  border-radius: 8px;
+  border-radius: var(--radius-control);
   min-height: 54px;
-  font-size: 14px;
+  font-size: var(--font-control);
   padding: 16px 23px;
 }
 .text-link {
-  font-size: 14px;
+  font-size: var(--font-control);
 }
 .text-link span {
   color: var(--gold-ink);
@@ -100,7 +109,7 @@ h2 em {
   display: none;
 }
 .emblem-label {
-  font-size: 10px;
+  font-size: var(--font-label);
   letter-spacing: 0.1em;
   color: var(--gold-ink);
 }
@@ -119,14 +128,14 @@ h2 em {
   color: var(--gold-ink);
 }
 .emblem-since {
-  font-size: 12px;
+  font-size: var(--font-secondary);
   color: var(--muted);
   margin-top: 18px;
 }
 .hero-bottom {
   border-color: #dcd0ba;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--font-secondary);
   letter-spacing: 0;
 }
 .hero-bottom a span {
@@ -149,11 +158,11 @@ h2 em {
   font-size: 30px;
 }
 .strip-grid > div > span:last-child {
-  font-size: 12px;
+  font-size: var(--font-secondary);
   line-height: 1.6;
 }
 .section {
-  padding: 87px 0;
+  padding: var(--section-space) 0;
 }
 .institution-grid {
   gap: 90px;
@@ -175,11 +184,11 @@ h2 em {
   flex-wrap: wrap;
 }
 .history-note span {
-  font-size: 12px;
+  font-size: var(--font-secondary);
   color: var(--gold-ink);
 }
 .history-note p {
-  font-size: 13px;
+  font-size: var(--font-secondary);
 }
 .services {
   background: #f0ede6;
@@ -200,17 +209,17 @@ h2 em {
 }
 .service-list details[open] {
   background: #fcfaf5;
-  border-radius: 12px;
+  border-radius: var(--radius-item);
 }
 .service-number {
-  font-size: 13px;
+  font-size: var(--font-secondary);
   color: var(--gold-ink);
 }
 .service-name {
   font-size: 31px;
 }
 .service-caption {
-  font-size: 13px;
+  font-size: var(--font-secondary);
 }
 .details-icon {
   width: 32px;
@@ -226,11 +235,11 @@ h2 em {
   padding-bottom: 32px;
 }
 .service-content p {
-  font-size: 15px;
+  font-size: var(--font-control);
   line-height: 1.8;
 }
 .service-content a {
-  font-size: 14px;
+  font-size: var(--font-control);
 }
 .territory {
   background: var(--warm-panel);
@@ -250,7 +259,7 @@ h2 em {
   font-size: 16px;
 }
 .territory label {
-  font-size: 14px;
+  font-size: var(--font-control);
   margin-top: 32px;
 }
 .search-field {
@@ -265,32 +274,32 @@ h2 em {
 }
 .search-field input {
   color: var(--ink);
-  font-size: 16px;
+  font-size: var(--font-control);
 }
 .search-field input::placeholder {
   color: var(--muted);
 }
 .search-status {
-  font-size: 13px !important;
+  font-size: var(--font-secondary) !important;
   min-height: 25px;
 }
 .central-branch {
   background: var(--paper);
   border: 1px solid #d8ceb9;
-  border-radius: 12px;
+  border-radius: var(--radius-item);
   padding: 21px 25px;
   margin-bottom: 20px;
 }
 .central-branch > span {
   color: var(--gold-ink);
-  font-size: 11px;
+  font-size: var(--font-label);
 }
 .central-branch strong {
   font-size: 38px;
 }
 .central-branch small {
   color: var(--muted);
-  font-size: 14px;
+  font-size: var(--font-control);
 }
 .central-branch small span {
   right: 25px;
@@ -303,19 +312,19 @@ h2 em {
 .branches li {
   color: var(--ink);
   border-color: #d2c7b2;
-  font-size: 14px;
+  font-size: var(--font-control);
   padding: 10px 0;
   overflow-wrap: anywhere;
 }
 .stay-layout {
-  border-radius: 16px;
+  border-radius: var(--radius-panel);
   overflow: hidden;
 }
 .stay-selector {
   background: var(--cream);
 }
 .stay-tab {
-  font-size: 16px;
+  font-size: var(--font-control);
   padding: 22px 26px;
   border-color: #dcd4c5;
 }
@@ -326,7 +335,7 @@ h2 em {
   background: #fffdf9;
 }
 .stay-kicker {
-  font-size: 11px;
+  font-size: var(--font-label);
   color: var(--gold-ink);
 }
 .stay-detail > p {
@@ -334,7 +343,7 @@ h2 em {
   line-height: 1.8;
 }
 .stay-note {
-  font-size: 13px !important;
+  font-size: var(--font-secondary) !important;
 }
 .community {
   background: #e7dbc5;
@@ -359,7 +368,7 @@ h2 em {
 }
 .contact-info {
   background: var(--cream);
-  border-radius: 16px;
+  border-radius: var(--radius-panel);
   padding: 28px;
   align-self: start;
 }
@@ -373,7 +382,7 @@ h2 em {
   border-bottom: 0;
 }
 .contact-info > div > span {
-  font-size: 11px;
+  font-size: var(--font-label);
   color: var(--gold-ink);
   letter-spacing: 0.08em;
 }
@@ -381,19 +390,19 @@ h2 em {
   font-size: 15px;
 }
 .contact-info a {
-  font-size: 14px;
+  font-size: var(--font-control);
 }
 .contact-info .email {
-  font-size: 14px;
+  font-size: var(--font-control);
 }
 .footer-brand small {
-  font-size: 9px;
+  font-size: var(--font-brand-detail);
 }
 .footer-top > a:last-child {
-  font-size: 12px;
+  font-size: var(--font-control);
 }
 .footer-bottom {
-  font-size: 11px;
+  font-size: var(--font-label);
 }
 
 @media (min-width: 1500px) {
@@ -405,10 +414,10 @@ h2 em {
 @media (max-width: 1050px) {
   .header nav {
     gap: 15px;
-    font-size: 13px;
+    font-size: var(--font-control);
   }
   .brand small {
-    font-size: 8px;
+    font-size: var(--font-brand-detail);
   }
   .hero-grid {
     gap: 34px;
@@ -423,7 +432,7 @@ h2 em {
     padding-inline: 17px;
   }
   .emblem-label {
-    font-size: 8px;
+    font-size: var(--font-label);
   }
   .institution-grid,
   .territory-grid,
@@ -437,27 +446,30 @@ h2 em {
     font-size: 27px;
   }
   .strip-grid > div > span:last-child {
-    font-size: 11px;
+    font-size: var(--font-secondary);
   }
   .contact-info {
     padding: 24px;
   }
   .contact-info .email {
-    font-size: 13px;
+    font-size: var(--font-control);
   }
 }
 @media (max-width: 800px) {
+  :root {
+    --section-space: 65px;
+  }
   .header nav {
     background: var(--paper);
-    font-size: 16px;
+    font-size: var(--font-control);
   }
   .menu-toggle {
     border-radius: 7px;
     min-height: 44px;
-    font-size: 14px;
+    font-size: var(--font-control);
   }
   .brand small {
-    font-size: 8px;
+    font-size: var(--font-brand-detail);
   }
   .hero-grid {
     grid-template-columns: 1fr;
@@ -469,7 +481,7 @@ h2 em {
   }
   .eyebrow,
   .eyebrow.dark {
-    font-size: 10px;
+    font-size: var(--font-label);
   }
   .hero-description {
     font-size: 16px;
@@ -478,7 +490,7 @@ h2 em {
     font-size: 15px;
   }
   .hero-actions .text-link {
-    font-size: 14px;
+    font-size: var(--font-control);
   }
   .hero-emblem {
     max-width: 350px;
@@ -488,7 +500,7 @@ h2 em {
     padding: 31px 23px 27px;
   }
   .emblem-label {
-    font-size: 9px;
+    font-size: var(--font-label);
   }
   .emblem-frame img {
     width: 139px;
@@ -499,11 +511,11 @@ h2 em {
     font-size: 26px;
   }
   .emblem-since {
-    font-size: 11px;
+    font-size: var(--font-secondary);
     margin-top: 14px;
   }
   .hero-bottom {
-    font-size: 11px;
+    font-size: var(--font-secondary);
     gap: 18px;
   }
   .hero-bottom > span {
@@ -527,10 +539,10 @@ h2 em {
     font-size: 28px;
   }
   .strip-grid > div > span:last-child {
-    font-size: 14px;
+    font-size: var(--font-secondary);
   }
   .section {
-    padding: 65px 0;
+    padding: var(--section-space) 0;
   }
   .institution-grid,
   .territory-grid,
@@ -557,10 +569,10 @@ h2 em {
     font-size: 46px;
   }
   .branches li {
-    font-size: 14px;
+    font-size: var(--font-control);
   }
   .stay-tab {
-    font-size: 14px;
+    font-size: var(--font-control);
     padding: 18px 14px;
   }
   .stay-detail {
@@ -576,10 +588,10 @@ h2 em {
     padding: 26px;
   }
   .contact-info .email {
-    font-size: 14px;
+    font-size: var(--font-control);
   }
   .footer-brand small {
-    font-size: 8px;
+    font-size: var(--font-brand-detail);
   }
 }
 @media (max-width: 420px) {
@@ -587,10 +599,10 @@ h2 em {
     font-size: 13px;
   }
   .brand small {
-    font-size: 7px;
+    font-size: var(--font-brand-detail);
   }
   .menu-toggle {
-    font-size: 13px;
+    font-size: var(--font-control);
     padding: 8px 10px;
   }
   h1 {
@@ -607,7 +619,7 @@ h2 em {
   }
   .hero-bottom {
     align-items: center;
-    font-size: 11px;
+    font-size: var(--font-secondary);
   }
   .hero-bottom > a {
     max-width: 45%;
@@ -625,10 +637,10 @@ h2 em {
     gap: 10px;
   }
   .history-note span {
-    font-size: 12px;
+    font-size: var(--font-secondary);
   }
   .history-note p {
-    font-size: 13px;
+    font-size: var(--font-secondary);
   }
   .territory h2,
   .contact h2 {
@@ -638,7 +650,7 @@ h2 em {
     grid-template-columns: repeat(2, 1fr);
   }
   .stay-tab {
-    font-size: 14px;
+    font-size: var(--font-control);
     padding: 18px 14px;
   }
   .stay-detail {
@@ -655,5 +667,81 @@ h2 em {
   }
   .footer-brand > span {
     font-size: 12px;
+  }
+}
+
+/* Lectura, controles y contenido variable: misma composición institucional. */
+.topline,
+.topline .wrap > a {
+  font-size: var(--font-label);
+  letter-spacing: 0.02em;
+}
+.topline .wrap {
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  align-items: center;
+}
+.hero-copy,
+.section-heading > div,
+.institution-grid > div,
+.territory-grid > div,
+.contact-grid > div,
+.stay-detail {
+  min-width: 0;
+}
+.stay-tab,
+.stay-detail h3,
+.service-name,
+.service-content a,
+.button {
+  overflow-wrap: anywhere;
+}
+.button {
+  max-width: 100%;
+  line-height: 1.5;
+}
+.button > span,
+.stay-tab > span {
+  flex-shrink: 0;
+}
+.text-link,
+.service-content a,
+.contact-info a,
+.footer-top > a:last-child,
+.header nav > a {
+  min-height: var(--target-size);
+  display: inline-flex;
+  align-items: center;
+}
+.text-link:hover,
+.service-content a:hover,
+.contact-info a:hover,
+.footer-top > a:last-child:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.search-field input {
+  min-height: var(--target-size);
+}
+.contact-info .email {
+  display: block;
+  padding-block: 8px;
+}
+.stay-tab:focus-visible {
+  outline-offset: -5px;
+}
+h2[tabindex='-1']:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 6px;
+}
+@media (max-width: 800px) {
+  .header nav {
+    top: 100%;
+    max-height: calc(100dvh - 84px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .header nav > a {
+    flex-shrink: 0;
   }
 }

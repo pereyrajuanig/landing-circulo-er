@@ -12,7 +12,21 @@ if (menuButton && navigation) {
   menuButton.addEventListener('click', () =>
     menuButton.setAttribute('aria-expanded', String(navigation.classList.toggle('open'))),
   );
-  navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  navigation.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      const wasOpen = navigation.classList.contains('open');
+      closeMenu();
+      if (wasOpen) {
+        const section = document.getElementById(link.hash.slice(1));
+        const destination = section?.querySelector<HTMLElement>('h2') ?? section;
+        if (destination) {
+          destination.tabIndex = -1;
+          // Esperar la navegación nativa del ancla antes de transferir el foco.
+          requestAnimationFrame(() => destination.focus({ preventScroll: true }));
+        }
+      }
+    });
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && navigation.classList.contains('open')) {
       closeMenu();
