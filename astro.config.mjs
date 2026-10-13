@@ -1,11 +1,21 @@
 import { defineConfig } from 'astro/config';
 import { writeFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { getDeployment } from './config/seo.mjs';
 const deployment = getDeployment();
+const config = JSON.parse(readFileSync(new URL('./vercel.json', import.meta.url), 'utf8'));
+const localHeaders = Object.fromEntries(
+  config.headers[0].headers.map(({ key, value }) => [key, value]),
+);
+// Solo para pruebas locales: verificar compatibilidad en modo exigido, sin cambiar Vercel.
+if (process.env.TEST_CSP_ENFORCE === 'true') {
+  localHeaders['Content-Security-Policy'] = localHeaders['Content-Security-Policy-Report-Only'];
+  delete localHeaders['Content-Security-Policy-Report-Only'];
+}
 export default defineConfig({
   site: deployment.site,
   output: 'static',
-  server: { host: '127.0.0.1', port: 4173 },
+  server: { host: '127.0.0.1', port: 4173, headers: localHeaders },
   devToolbar: { enabled: false },
   vite: { build: { cssCodeSplit: false } },
   integrations: [

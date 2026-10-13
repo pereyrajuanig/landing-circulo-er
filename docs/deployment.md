@@ -38,3 +38,7 @@ No hay bases de datos ni migraciones. Cuando se añada un CMS, recuperar un buil
 .openai/hosting.json conserva appgprj_6ac91d0b16288191855648c8ff952d2b. No cambiar su audiencia privada ni crear otro Site. La fuente visual anterior conserva el commit de origen Sites 648e72f7daca19a45c00ae5fc82427d385cce449. La migración local no sincroniza ni despliega en Sites.
 
 Referencias: [Astro estático en Vercel](https://docs.astro.build/en/guides/deploy/vercel/), [integración Git de Vercel](https://vercel.com/docs/git), [configuración de build](https://vercel.com/docs/builds/configure-a-build).
+
+## Headers y privacidad pendientes de hosting
+
+vercel.json prepara headers y CSP Report-Only. Antes de exigir CSP, revisar preview real y scripts del proveedor; portada, recursos y404 deben servir los headers esperados. Astro preview no aplica server.headers a fallback404; no usarlo como verificación de Vercel. HTTPS/certificado/redirecciones y HSTS dependen del dominio. Revisar cookies/logs del hosting y acuerdo institucional de privacidad. Detalles: [seguridad](security-privacy.md).

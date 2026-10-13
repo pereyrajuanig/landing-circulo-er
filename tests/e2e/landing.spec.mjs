@@ -10,6 +10,16 @@ const test = base.extend({
   page: async ({ page, baseURL }, use) => {
     const origin = new URL(baseURL).origin;
     const errors = [];
+    await page.addInitScript(() => {
+      window.__securityViolations = [];
+      document.addEventListener('securitypolicyviolation', (event) =>
+        window.__securityViolations.push({
+          directive: event.effectiveDirective,
+          disposition: event.disposition,
+          blocked: event.blockedURI,
+        }),
+      );
+    });
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('requestfailed', (request) => {
       if (new URL(request.url()).origin === origin)
@@ -23,6 +33,10 @@ const test = base.extend({
       await use(page);
     } finally {
       expect(errors, 'Errores de JavaScript o recursos locales').toEqual([]);
+      expect(
+        await page.evaluate(() => window.__securityViolations),
+        'Violaciones CSP durante flujos reales',
+      ).toEqual([]);
     }
   },
 });
@@ -269,4 +283,24 @@ test('404 ofrece un regreso por teclado sin desborde', async ({ page }, testInfo
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Tu historia nos une.');
+});
+
+test('recursos locales y consultas no crean almacenamiento de aplicación', async ({
+  page,
+  context,
+}) => {
+  await page.locator('#branch-search').fill('MARIA');
+  await page.locator('[data-stay]').nth(1).click();
+  expect(await context.cookies()).toEqual([]);
+  const inventory = await page.evaluate(async () => ({
+    local: Object.keys(localStorage),
+    session: Object.keys(sessionStorage),
+    databases: await indexedDB.databases(),
+    workers: await navigator.serviceWorker.getRegistrations(),
+    remote: performance
+      .getEntriesByType('resource')
+      .filter((entry) => new URL(entry.name).origin !== location.origin)
+      .map((entry) => entry.name),
+  }));
+  expect(inventory).toEqual({ local: [], session: [], databases: [], workers: [], remote: [] });
 });

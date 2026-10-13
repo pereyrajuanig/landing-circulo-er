@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-10-13",
-  "baselineCommit": "5bf1798211f040ff9c419eb8d6fe65af304a028c",
+  "baselineCommit": "b263601931e05da994f6615dbd840e7cdd71e389",
   "stages": {
     "01": {
       "status": "complete",
@@ -52,12 +52,22 @@
       "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38465530841"
     },
     "06": {
-      "status": "pending_integration",
+      "status": "integrated_pending_field",
       "branch": "codex/etapa-06-rendimiento",
       "codeCommit": "3927479e3e7c84f39028cb5b3a35cd7e7f39a86d",
-      "summary": "7 tareas con evidencia de laboratorio; 26 pruebas aprobadas. Integración pendiente; INP y rendimiento de campo pendientes de publicación.",
+      "summary": "PR #8 integrado con autorización y quality de main aprobado. 7 tareas verificadas en laboratorio; INP/campo pendientes de publicación.",
       "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674",
-      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/8"
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/8",
+      "mergeCommit": "b263601931e05da994f6615dbd840e7cdd71e389",
+      "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38479593548"
+    },
+    "07": {
+      "status": "pending_integration_pending_hosting",
+      "branch": "codex/etapa-07-seguridad-privacidad",
+      "codeCommit": "1e9938c6723ff57103b4b6ea509b0a2041d698d1",
+      "summary": "4 tareas verificadas en local; headers/HTTPS de hosting y acuerdo institucional de privacidad pendientes. CSP de Vercel Report-Only.",
+      "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/9"
     }
   },
   "tasks": {
@@ -81,9 +91,9 @@
     },
     "07.02": {
       "status": "verified",
-      "date": "2026-10-13",
-      "responsible": "Desarrollo",
-      "evidence": "Base Astro aec7c27; CI 38301508137 y auditoría registrada."
+      "responsible": "Desarrollo / institución / hosting",
+      "evidence": "npm audit del13/10/2026:0 vulnerabilidades conocidas; CI audit-level high. Sin actualización automática ni dependencias npm nuevas.",
+      "date": "2026-10-13"
     },
     "09.01": {
       "status": "verified",
@@ -318,18 +328,51 @@
       "date": "2026-10-13",
       "responsible": "Desarrollo / laboratorio",
       "evidence": "6 muestras antes y6 después, todas conservadas, condiciones idénticas. Variación primer acceso registrada; laboratorio separado de datos de campo."
+    },
+    "07.01": {
+      "status": "verified",
+      "responsible": "Desarrollo / institución / hosting",
+      "evidence": "Git/dist revisados; dossier y .env excluidos. Patrones reconocibles en texto rastreado sin mostrar valores. No historial ni binarios.",
+      "date": "2026-10-13"
+    },
+    "07.03": {
+      "status": "verified",
+      "responsible": "Desarrollo / institución / hosting",
+      "evidence": "Recursos del mismo origen; correo/Maps enlaces. Pruebas locales:0 cookies, claves local/sessionStorage, IndexedDB, service workers y recursos remotos.",
+      "date": "2026-10-13"
+    },
+    "07.04": {
+      "status": "pending",
+      "responsible": "Desarrollo / institución / hosting",
+      "evidence": "Headers preparados en vercel.json; portada/assets verificados por HTTP. Astro preview no aplica headers a fallback404; hosting y sus respuestas pendientes."
+    },
+    "07.05": {
+      "status": "verified",
+      "responsible": "Desarrollo / institución / hosting",
+      "evidence": "Hash del script compilado; Report-Only primero y prueba exigida local.20 casos en cada modo, sin violaciones en flujos; script de prueba detectado/bloqueado. Hosting continúa Report-Only.",
+      "date": "2026-10-13"
+    },
+    "07.06": {
+      "status": "pending",
+      "responsible": "Desarrollo / institución / hosting",
+      "evidence": "Dominio no definido; certificado, redirecciones, HTTPS y decisión HSTS pendientes. Sin includeSubDomains/preload configurados."
+    },
+    "07.07": {
+      "status": "pending",
+      "responsible": "Desarrollo / institución / hosting",
+      "evidence": "Inventario técnico en privacy-review.md. Responsables, tratamiento, logs y texto institucional aún sin acuerdo. No aviso público nuevo."
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "06.01 a 06.07 / etapa 06",
-    "trace_status": "7 verificadas en laboratorio",
+    "trace_id": "07.01 a07.07 / etapa07",
+    "trace_status": "4 verificadas; hosting pendiente",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base 5bf1798 / código 3927479 / PR #8",
-    "trace_method": "Chromium156, Windows; 3 muestras por tamaño y lote.\nDesktop1440x900; móvil390x844, CPU4x, RTT150ms.\nCaché fría, red1,6Mbit/s; observadores LCP/CLS/eventos.",
-    "trace_result": "LCP mediano: 324 a148ms desktop; 1376 a1300ms móvil.\nCLS0 final; 26 pruebas aprobadas. Eventos no son INP.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38477982674",
-    "trace_limits": "Laboratorio local; INP y métricas de campo pendientes.\nDominio, publicación y lector03.06 pendientes.\nPR #8 revisable; autorización de merge pendiente.",
+    "trace_commit": "Base b263601 / código1e9938c / PR #9",
+    "trace_method": "11 Node +20 Chromium Report-Only +20 exigida local.\nHTTP portada/assets; CSP, cookies y almacenamiento.\nGit/dist y npm audit; límites de404 documentados.",
+    "trace_result": "51 comprobaciones aprobadas; audit0 conocidas.\nCSP detecta/bloquea según modo; hosting pendiente.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
+    "trace_limits": "Hosting,404 con headers, HTTPS y dominio pendientes.\nPrivacidad institucional y lector03.06 pendientes.\nPR #9 revisable; merge pendiente; sin despliegue.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -353,6 +396,8 @@
     "owner_04": "Desarrollo / revisión del usuario",
     "date_04": "13/10/2026",
     "owner_05": "Desarrollo / dominio: autoridades",
-    "owner_06": "Desarrollo / laboratorio"
+    "owner_06": "Desarrollo / laboratorio",
+    "date_06": "13/10/2026",
+    "owner_07": "Desarrollo / hosting e institución pendientes"
   }
 }

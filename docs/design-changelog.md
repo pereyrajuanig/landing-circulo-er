@@ -46,3 +46,7 @@ SEO preparado sin dominio ficticio; previews noindex. Tarjeta social y 404 con i
 ## 1.8 · 13/10/2026
 
 Escudo optimizado con Astro y fuentes locales de las mismas familias; composición conservada. Rendimiento medido antes/después; INP de campo pendiente.
+
+## 1.9 · 13/10/2026
+
+Headers y CSP Report-Only preparados; controles de hashes, exclusiones y almacenamiento. Diseño e interacciones conservados. Hosting/HTTPS y privacidad institucional pendientes.

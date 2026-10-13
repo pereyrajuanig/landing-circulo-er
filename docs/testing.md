@@ -12,12 +12,12 @@ npm run validate
 
 En Linux, instalar también bibliotecas del sistema con npx playwright install --with-deps chromium. CI ya ejecuta esa preparación. Playwright 1.64.0 se fija en devDependencies y lockfile; no forma parte del código servido al visitante.
 
-| Comando           | Alcance                                                 |
-| ----------------- | ------------------------------------------------------- |
-| npm test          | Build nuevo, diez tests Node y dieciséis casos Chromium |
-| npm run test:unit | Diez tests sobre un build ya generado y vigente         |
-| npm run test:e2e  | Build nuevo y dieciséis casos Chromium                  |
-| npm run validate  | Tipos, lint, formato y toda la suite anterior           |
+| Comando           | Alcance                                                                |
+| ----------------- | ---------------------------------------------------------------------- |
+| npm test          | Build nuevo, once tests Node y veinte casos Chromium por cada modo CSP |
+| npm run test:unit | Once tests sobre un build ya generado y vigente                        |
+| npm run test:e2e  | Build nuevo y veinte casos Chromium                                    |
+| npm run validate  | Tipos, lint, formato y toda la suite anterior                          |
 
 Astro admite un solo preview por checkout. Cerrar el preview de revisión antes de ejecutar la suite. Playwright inicia el suyo en 127.0.0.1:4175, exige que esté libre y lo cierra al terminar. El runner no reutiliza una instancia que pueda estar sirviendo otro build. El preview de los tests Node usa un puerto asignado por el sistema y también se cierra.
 
@@ -25,7 +25,7 @@ Astro admite un solo preview por checkout. Cerrar el preview de revisión antes 
 
 Los siete tests Node originales conservan texto/anclas, datos, búsqueda, codificación del correo, respuestas HTTP/MIME, exclusión de archivos internos y contrato accesible del HTML.
 
-Tres tests adicionales comprueban configuración SEO, rastreo y 404. Playwright ejecuta ocho flujos en dos proyectos Chromium: escritorio 1440×900 y móvil emulado 390×844. Comprueba salto, navegación, menú, Escape, foco, filtro, seis alojamientos, servicios, enlaces y 404. La prueba de cambios de ancho agrega 1024×768, 640×360 y 320×800.
+Tres tests adicionales comprueban configuración SEO, rastreo y 404. Un test adicional comprueba headers en portada y recursos. Playwright ejecuta diez casos por proyecto y modo CSP en dos proyectos Chromium: escritorio 1440×900 y móvil emulado 390×844. Comprueba salto, navegación, menú, Escape, foco, filtro, seis alojamientos, servicios, enlaces y 404. La prueba de cambios de ancho agrega 1024×768, 640×360 y 320×800.
 
 Cada caso parte de un contexto aislado. Usa locators por rol/etiqueta o estructura HTML nativa; expect espera estados observables. No hay pausas fijas, retries ni selección automática de nuevos snapshots para ocultar una regresión. Antes de encadenar saltos por teclado se espera la posición del primer destino, no solamente su foco.
 
@@ -49,3 +49,5 @@ Se comprobó ese circuito con un fallo real: [ejecución 38454238089](https://gi
 Estas pruebas cubren Chromium en Windows y Ubuntu, con emulación móvil; no equivalen a dispositivos físicos, Safari/Firefox, snapshots visuales, mediciones de rendimiento ni auditoría WCAG. El lector real de la tarea 03.06 sigue pendiente por decisión del usuario. Un texto editorial nuevo exige revisión del contrato; npm run test:update se utiliza solo después de aceptar ese cambio, no para hacer pasar una prueba fallida sin investigar.
 
 Medición de laboratorio: npm run perf; detalles y límites en [etapa06](stage-06-performance.md). No se impone un umbral temporal inestable en CI.
+
+Seguridad: la suite completa ejecuta 11 Node y20 casos Chromium Report-Only más20 exigidos localmente. Probe controlado comprueba detección/bloqueo; flujos normales sin violaciones. Cookies/almacenamiento vacíos en contextos nuevos. TEST_CSP_ENFORCE se usa solo en el servidor de pruebas. Guía: [seguridad y límites](security-privacy.md).
