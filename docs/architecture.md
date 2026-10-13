@@ -29,7 +29,7 @@ Los mensajes editoriales de bienvenida y los rótulos de sección continúan en 
 
 ## Interacciones
 
-src/scripts/landing.ts se procesa como un módulo por Astro. Mantiene menú con aria-expanded y cierre por enlace o Escape; filtro de filiales con normalización; selección de alojamiento con aria-pressed, aria-live y asunto de correo; año del pie.
+src/scripts/landing.ts se procesa como un módulo por Astro. Mantiene menú con aria-expanded y cierre por enlace, Escape, salida de foco de la cabecera y cambio de breakpoint; filtro de filiales con normalización; selección de alojamiento con aria-pressed, aria-controls, aria-live y asunto de correo; año del pie.
 
 Los servicios mantienen details/summary nativos, Salud abierto y múltiples categorías abiertas. La sede central permanece visible durante la búsqueda. Las reservas se coordinan con la institución. Contacto usa mailto; Maps abre en otra pestaña.
 

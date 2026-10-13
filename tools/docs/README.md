@@ -1,6 +1,6 @@
 # Regenerar el manual visual
 
-El PDF vigente se guarda en `docs/design-system.pdf`. Las versiones anteriores 1.0, 1.1, 1.2 y 1.3 se conservan en docs/archive/. La versión 1.4 añade el pulido de lectura y uso con la composición conservada.
+El PDF vigente se guarda en `docs/design-system.pdf`. Las versiones anteriores 1.0, 1.1, 1.2, 1.3 y 1.4 se conservan en docs/archive/. La versión 1.5 registra teclado, foco, borde funcional y contraste, conservando la composición. El lector real sigue pendiente por decisión del usuario.
 
 ## Requisitos opcionales
 

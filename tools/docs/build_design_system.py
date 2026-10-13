@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación de la landing | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.4. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
+c.setSubject('Versión 1.5. Identidad, componentes, contenido, implementación y mantenimiento. 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.4 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.5 · 13 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación de<br/>la landing page',M,510,CW,39,43,PAPER,'Caslon',False
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.4',M,770,10,'DM',PAPER)
+text('Versión 1.5',M,770,10,'DM',PAPER)
 right('13 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -187,7 +187,7 @@ for i,(token,hex,name,use) in enumerate(tokens):
     text(name,x,yy+46,11); right(hex.upper(),x+CW/2-12,yy+47,8,'DM',MUTED)
     text(token,x,yy+65,8,'DM','#8d6d35'); para(use,x,yy+80,CW/2-12,8.2,11.5)
 y+=436
-note('COLORES LOCALES IMPLEMENTADOS','Tokens adicionales: --gold-ink #826329 para énfasis; --warm-panel #EEE7DA para filiales. Valores locales: servicios #F0EDE6; comunidad #E7DBC5; panel de alojamiento #FFFDF9; arco del escudo #FAF6EE.',y)
+note('COLORES LOCALES IMPLEMENTADOS','Borde funcional: --control-border #826E48. Tokens adicionales: --gold-ink #826329 para énfasis; --warm-panel #EEE7DA para filiales. Valores locales: servicios #F0EDE6; comunidad #E7DBC5; panel de alojamiento #FFFDF9; arco del escudo #FAF6EE.',y)
 
 # 07. Contrast
 y=begin('fundamentos_06','Estados y combinaciones','Contrastes calculados sobre los colores CSS sólidos; no constituyen una auditoría completa de accesibilidad.')
@@ -197,11 +197,11 @@ def luminance(hex):
     return sum(v*w for v,w in zip(rgb,[.2126,.7152,.0722]))
 def ratio(a,b):
     aa,bb=sorted([luminance(a),luminance(b)]); return (bb+.05)/(aa+.05)
-pairs=[(INK,PAPER,'Texto principal','Apto para texto normal'),(MUTED,PAPER,'Párrafo secundario','Apto para texto normal'),(GOLD,NAVY,'Acento sobre azul','Apto para texto normal'),(DEEP,GOLD,'Botón dorado','Apto para texto normal'),('#826329',PAPER,'Énfasis sobre claro','Apto para texto normal'),(GOLD,PAPER,'Dorado sobre claro','Evitar como texto informativo')]
+pairs=[(INK,PAPER,'Texto principal','Texto normal'),(MUTED,'#eee7da','Texto secundario','Texto normal'),('#826329','#eee7da','Rótulo de filiales','Texto normal'),(PAPER,NAVY,'Selección','Texto normal'),(DEEP,GOLD,'Botón dorado','Texto normal'),('#826e48','#eee7da','Borde funcional','Información gráfica'),('#a37923',NAVY,'Foco interior','Información gráfica'),(GOLD,PAPER,'Dorado decorativo','Evitar texto informativo')]
 y=table(['Primer plano / fondo','Contraste','Uso'],[[f'{a.upper()} / {b.upper()}',f'{ratio(a,b):.2f}:1',f'{use}. {status}.'] for a,b,use,status in pairs],[181,65,CW-246],y,8.2)+23
 y=block('Estados presentes en la interfaz','Hover: botón dorado #E2C585; botón azul #164465; enlace de cabecera #8B641D. Foco visible: #A37923, 3px; separación 5px en controles, -5px interior en selector, 6px en títulos enfocados al navegar. Botón de alojamiento seleccionado: azul institucional con texto claro.',y)
 y=block('Criterio de contraste','WCAG 2.2 AA establece 4,5:1 para texto normal y 3:1 para texto grande (24 px regular o aproximadamente 18,7 px en negrita). El dorado principal sobre blanco cálido da 1,97:1; reservar esa combinación para decoración. [W1]',y)
-note('PENDIENTE DE VALIDAR','Comprobar foco, bordes funcionales, estados y colores sobre fondos con degradados. Verificar también el color de foco actual sobre todas las superficies de la revisión cálida. No declarar conformidad WCAG sin revisar la página completa.',y)
+note('REVISIÓN Y LÍMITES','Etapa 03: borde funcional 4,71:1 sobre papel y 4,00:1 sobre filiales; foco interior azul 3,66:1. Hover y cota del gradiente registrados en stage-03-accessibility.md. Lector real pendiente por decisión del usuario; no certifica WCAG.',y)
 
 # 08. Typography
 y=begin('fundamentos_07','Tradición y legibilidad','Libre Caslon Display para el carácter institucional. DM Sans para leer y navegar.')
@@ -273,7 +273,7 @@ text('POLICÍA DE ENTRE RÍOS',M+54,y+48,6,'DM',MUTED)
 text('Institución   Servicios   Filiales',M+251,y+32,7); rect(M+424,y+20,65,32,CREAM,'#c9b48b',.8); text('Contacto',M+436,y+32,7)
 y+=95
 y=block('Cabecera de escritorio','Franja superior con origen e identificación de la sede. Header sticky en top: 0, z-index: 20 y fondo claro casi opaco. Altura mínima: 100 px. Navegación por anclas y contacto enmarcado.',y)
-y=block('Menú móvil','A partir de 800 px, el header mide al menos 83 px. El botón "Menú" controla #navigation mediante aria-expanded y aria-controls. Las opciones se despliegan bajo el header. Al elegir una sección se cierra y enfoca su título después de navegar. Escape cierra y vuelve al botón. En pantallas bajas tiene scroll interno.',y)
+y=block('Menú móvil','A partir de 800 px, el header mide al menos 83 px. El botón "Menú" controla #navigation mediante aria-expanded y aria-controls. Las opciones se despliegan bajo el header. Al elegir una sección se cierra y enfoca su título después de navegar. Escape cierra y vuelve al botón; Tab fuera de la cabecera cierra. Cambiar el ancho mantiene un control de foco visible. En pantallas bajas tiene scroll interno.',y)
 y=block('Pie de página','Fondo azul profundo, escudo, nombre institucional, frase de cierre y enlace de regreso al inicio. El año se actualiza con JavaScript. Detalle de marca 10px; pie auxiliar 12px. En pantallas pequeñas los elementos se redistribuyen y se oculta la frase lateral.',y)
 note('VERIFICACIÓN RECOMENDADA','Probar la cabecera con nombres completos, zoom de 200%, navegación por teclado y rotación del dispositivo. El menú actual no implementa cierre por clic fuera ni bloqueo de scroll; no documentar esas funciones como disponibles.',y)
 
@@ -321,7 +321,7 @@ text('colon',M+18,y+43,12,'DM',INK); line(M+18,y+63,M+232,y+63,'#64798b',.8)
 text('1 localidad encontrada.',M+18,y+78,7.5,'DM',MUTED)
 text('Colón',M+295,y+46,19,'Caslon',INK)
 y+=131
-y=block('Comportamiento implementado','La búsqueda filtra solo las 24 localidades del listado. Normaliza mayúsculas, espacios extremos y tildes: "colon" encuentra "Colón". La sede central de Paraná permanece visible y se enlaza a contacto. El conteo se anuncia en una región aria-live="polite".',y)
+y=block('Comportamiento implementado','La búsqueda filtra solo las 24 localidades del listado. Normaliza mayúsculas, espacios extremos y tildes: "colon" encuentra "Colón". La sede central de Paraná permanece visible y se enlaza a contacto. El conteo se escribe en role="status", aria-live="polite" y aria-atomic="true". Su lectura real sigue pendiente.',y)
 y=block('Estado sin resultados','"No encontramos esa localidad. Consultá con la sede central." Al borrar la búsqueda se restaura la lista completa y desaparece el mensaje de conteo.',y)
 label('LOCALIDADES PUBLICADAS EN EL DOSSIER [D, PP. 4-5]',M,y); y+=24
 places=['Concordia','Colón','Diamante','Federación','Federal','Feliciano','Gualeguay','Gualeguaychú','Concepción del Uruguay','Hasenkamp','Cerrito','Chajarí','Crespo','La Paz','María Grande','Nogoyá','Rosario del Tala','General Ramírez','San Salvador','Santa Elena','Urdinarrain','Viale','Victoria','Villaguay']
@@ -339,7 +339,7 @@ label('ALOJAMIENTO INSTITUCIONAL',M+152,y+16); text('Paraná',M+152,y+42,30,'Cas
 para('Habitaciones y espacios comunes para integrantes y familiares.',M+152,y+83,CW-175,9,13)
 y+=170
 y=block('Destinos y estado','Paraná, María Grande, Victoria, Nogoyá, La Paz y Santa Elena. Paraná se entrega seleccionado. El conjunto utiliza role="group"; cada botón expone aria-pressed. No es un tablist ARIA ni implementa navegación por flechas.',y)
-y=block('Actualización de contenido','Al elegir un destino, JavaScript modifica el título, la descripción y el asunto del enlace mailto. El panel anuncia los cambios mediante aria-live="polite". Nombres extensos ajustan su línea; el contorno de foco del selector se dibuja dentro del botón. Las descripciones y botones provienen de la colección stays, validada por Astro. El script recibe esos mismos datos desde el HTML.',y)
+y=block('Actualización de contenido','Al elegir un destino, JavaScript modifica el título, la descripción y el asunto del enlace mailto. El panel declara aria-live="polite" y recibe aria-controls de los botones. La lectura de voz real sigue pendiente. Nombres extensos ajustan su línea; el contorno de foco del selector se dibuja dentro del botón. Las descripciones y botones provienen de la colección stays, validada por Astro. El script recibe esos mismos datos desde el HTML.',y)
 y=block('Adaptación y finalidad','Escritorio: selector vertical de 270 px y panel flexible. Hasta 800 px: tres columnas; hasta 420 px: dos columnas, sobre el detalle. "Consultar alojamiento" abre el correo del visitante con el destino en el asunto.',y)
 note('CONDICIONES POR CONFIRMAR','Disponibilidad, tarifas, capacidad, equipamiento, requisitos y contacto de reserva de cada destino. El componente no consulta una base de reservas, no bloquea cupos y no confirma estadías. [D, pp. 6-7 y 9]',y)
 
@@ -409,7 +409,7 @@ y=table(['Necesidad','Archivo / lugar','Verificación'],[
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
 y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Ejecutar npm run validate (tipos, lint, formato, build y tests); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.4. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.5. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
@@ -420,8 +420,8 @@ y=table(['Verificado en la propuesta inicial','Alcance de la comprobación'],[
  ['Publicación','Sites confirmó despliegue privado exitoso de la primera versión.']
 ],[207,CW-207],y,8.6)+21
 y=block('Antes del lanzamiento institucional','Confirmar contacto y horarios; contactos de filiales; autoridades; cobertura y condiciones de servicios; reserva de alojamientos; reglamentos de espacios. Incorporar fotos reales y revisar la nomenclatura institucional. [D, p. 9]',y)
-y=block('Accesibilidad y calidad por completar','Reflujo a 320px revisado en etapa 02. Falta auditoría completa de teclado, lector de pantalla, colores de foco y carga sin fuentes externas. Zoom al 200% confirmado manualmente por el usuario. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
-note('PRIORIDAD DE MEJORA','El sitio ya incorpora skip-link, idioma es-AR, alt en imágenes informativas, estados ARIA y movimiento reducido. Los textos auxiliares se ampliaron en la etapa 02. El usuario confirmó zoom al 200%. Revisar lector de pantalla y colores funcionales antes de declarar accesibilidad. No se realizó una auditoría completa con lector de pantalla ni una certificación WCAG.',y)
+y=block('Accesibilidad y calidad por completar','Etapa 03: teclado, foco, reflujo y contrastes revisados; lector real diferido por el usuario. Carga sin fuentes externas y auditoría integral pendientes. Zoom al 200% confirmado manualmente por el usuario. WCAG 2.2 AA contempla objetivos táctiles de 24 × 24 px o alternativas/excepciones de separación; para este público se recomienda apuntar a 44 × 44 px en acciones principales. [W2, W3]',y)
+note('PRIORIDAD DE MEJORA','El sitio ya incorpora skip-link, idioma es-AR, alt en imágenes informativas, estados ARIA y movimiento reducido. Los textos auxiliares se ampliaron en la etapa 02. El usuario confirmó zoom al 200%. Colores funcionales revisados en etapa 03; falta la prueba de lector de pantalla. No se realizó una auditoría completa con lector de pantalla ni una certificación WCAG.',y)
 
 # 22. Sources
 y=begin('referencias_21','Fuentes y trazabilidad','Documento elaborado el 13 de octubre de 2026 a partir de la base visual aceptada y de la fuente local.')
@@ -430,7 +430,7 @@ y=block('[C] Implementación y proyecto de portfolio','Fuente actual: pages, lay
 y=para(SHA,M,y,CW,8.5,13,INK)+16
 label('ENLACE DE LA PROPUESTA',M,y); y+=17
 y=para(f'<link href="{SITE}" color="{NAVY}">{SITE}</link>',M,y,CW,8.7,13,INK)+21
-y=block('[W] Referencias técnicas de accesibilidad','W3C, documentos Understanding WCAG 2.2, consultados el 9/10/2026. Se usan para criterios y recomendaciones; no prueban conformidad de esta landing.',y)
+y=block('[W] Referencias técnicas de accesibilidad','W3C, Understanding WCAG 2.2: consultas del 9 y 13/10/2026. Criterios y evidencia ampliados en docs/stage-03-accessibility.md. Se usan para criterios y recomendaciones; no prueban conformidad de esta landing.',y)
 sources=[('W1 · Contraste de texto','https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html'),('W2 · Tamaño mínimo de objetivos','https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html'),('W3 · Foco visible','https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html')]
 for name,url in sources:
     text(name,M,y,9); y=para(f'<link href="{url}" color="{MUTED}">{url}</link>',M,y+16,CW,7.7,11,MUTED)+15

@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.4
+# Sistema de diseño · 1.5
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
@@ -8,18 +8,19 @@ Tradición, pertenencia y utilidad, con una bienvenida centrada en la persona. P
 
 ## Colores vigentes
 
-| Token          | Valor     | Uso                            |
-| -------------- | --------- | ------------------------------ |
-| `--navy`       | `#092B48` | Identidad, botones y selección |
-| `--navy-deep`  | `#062139` | Franja superior y pie          |
-| `--gold`       | `#D2B16A` | Accentos y botón principal     |
-| `--cream`      | `#F3EEE4` | Portada y superficies cálidas  |
-| `--paper`      | `#FCFAF5` | Fondo base                     |
-| `--ink`        | `#143049` | Texto principal                |
-| `--muted`      | `#56656C` | Texto secundario               |
-| `--line`       | `#DFD8CB` | Separadores                    |
-| `--gold-ink`   | `#826329` | Énfasis legible sobre claros   |
-| `--warm-panel` | `#EEE7DA` | Filiales                       |
+| Token              | Valor     | Uso                            |
+| ------------------ | --------- | ------------------------------ |
+| `--navy`           | `#092B48` | Identidad, botones y selección |
+| `--navy-deep`      | `#062139` | Franja superior y pie          |
+| `--gold`           | `#D2B16A` | Accentos y botón principal     |
+| `--cream`          | `#F3EEE4` | Portada y superficies cálidas  |
+| `--paper`          | `#FCFAF5` | Fondo base                     |
+| `--ink`            | `#143049` | Texto principal                |
+| `--muted`          | `#56656C` | Texto secundario               |
+| `--line`           | `#DFD8CB` | Separadores                    |
+| `--gold-ink`       | `#826329` | Énfasis legible sobre claros   |
+| `--control-border` | `#826E48` | Borde de buscador y Menú       |
+| `--warm-panel`     | `#EEE7DA` | Filiales                       |
 
 Valores efectivos: `src/styles/warmth.css` redefine parte de `:root` de `src/styles/styles.css`. Servicios usa `#F0EDE6`, comunidad `#E7DBC5`, panel de alojamiento `#FFFDF9` y escudo `#FAF6EE`.
 
@@ -41,7 +42,7 @@ Consultar el [manual visual](design-system.pdf) para medidas y muestras. Se pres
 
 ## Accesibilidad y contenido
 
-Texto alternativo, idioma `es-AR`, skip-link, foco visible, regiones ARIA y movimiento reducido. No se declara conformidad WCAG completa. Revisar teclado, lector de pantalla, zoom, reflujo, tamaños táctiles y combinaciones de colores.
+Texto alternativo, idioma `es-AR`, skip-link, foco visible, regiones ARIA y movimiento reducido. No se declara conformidad WCAG completa. Teclado, foco, reflujo y contrastes revisados en etapa 03. Lector de pantalla real pendiente por decisión del usuario; zoom 200 % confirmado manualmente en etapa 02.
 
 Usar voseo respetuoso y lenguaje concreto. No presentar frases editoriales como citas del estatuto. Las imágenes futuras deben ser reales, autorizadas y no confundirse con registros institucionales si son ilustrativas.
 
@@ -50,3 +51,5 @@ La versión 1.3 alinea los controles técnicos con la etapa 01: tipos, lint, for
 La versión 1.4 conserva la composición por decisión del usuario y mejora lectura, áreas de interacción, contenido extenso y foco de navegación. Variables: --font-label (12px), --font-secondary (14px), --font-control (16px), --font-brand-detail (10px), --target-size (44px), --radius-control (8px), --radius-item (12px), --radius-panel (16px), --section-space (87px; 65px hasta 800px) y --focus (#A37923).
 
 El foco del selector usa separación interior de -5px; los títulos enfocados al navegar usan 6px exterior. Menú con scroll en pantallas bajas. Correo con oportunidad de salto antes de @. Se verificaron siete tamaños, 320px de reflujo y textos extensos; zoom de navegador al 200 % confirmado manualmente por el usuario. La aceptación visual final sigue pendiente. Ver [etapa 02](stage-02-design-ux.md).
+
+La versión 1.5 incorpora --control-border (#826E48), salto con foco en main, cierre del menú al salir por Tab y gestión de foco al cambiar el ancho. Estado del filtro explícito y relaciones del selector con su panel; nombre íntegro del correo. Composición, escudo y contenido conservados. Ver [etapa 03 y límites](stage-03-accessibility.md).

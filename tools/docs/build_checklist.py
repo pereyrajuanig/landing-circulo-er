@@ -34,13 +34,13 @@ DATE = '13 de octubre de 2026'
 SHA = PROGRESS.get('baselineCommit', 'aec7c2759948f893330e4afe36d224bba26f11b3')
 REPO = 'https://github.com/pereyrajuanig/landing-circulo-er'
 PR = REPO + '/pull/2'
-CI = PROGRESS.get('stages', {}).get('02', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('01', {}).get('ciRunUrl', REPO + '/actions/runs/38301508137')
+CI = PROGRESS.get('stages', {}).get('03', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('02', {}).get('ciRunUrl') or PROGRESS.get('stages', {}).get('01', {}).get('ciRunUrl', REPO + '/actions/runs/38301508137')
 ESCUDO = ROOT / 'public/assets/escudo.png'
 OUT.parent.mkdir(parents=True, exist_ok=True)
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Checklist y paso a paso | Landing Círculo Entre Ríos')
 c.setAuthor('Proyecto Landing-CirculoER')
-c.setSubject('Plan de trabajo por etapas. Versión 1.2. Corte: 13 de octubre de 2026.')
+c.setSubject('Plan de trabajo por etapas. Versión 1.3. Corte: 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 FIELDS = {}
@@ -127,7 +127,7 @@ def begin(key, title, subtitle, label='PLAN DE TRABAJO'):
     c.bookmarkPage(key)
     c.addOutlineEntry(title.replace('<br/>', ' '), key, 0, False)
     text('CÍRCULO / CHECKLIST DE PRODUCCIÓN', M, 28, 7.2, ink=MUTED)
-    right('V1.2 / 13 OCT 2026', W-M, 28, 7.2)
+    right('V1.3 / 13 OCT 2026', W-M, 28, 7.2)
     line(M, 47, W-M, 47)
     text(label, M, 65, 8, ink=GOLDINK)
     y = para(title, M, 86, CW, 29, 33, INK, 'Caslon')
@@ -216,7 +216,7 @@ para('Tareas por etapa para construir, verificar,<br/>publicar y mantener la lan
 line(M, 520, M+95, 520, GOLDINK, 2)
 box('Una guía para trabajar juntos', 'Once etapas con tareas ordenadas, dependencias, controles y criterios de cierre. Casillas y campos editables para registrar el avance. La institución y el usuario participan en contenido y diseño.', 551, PAPER)
 text('Astro + TypeScript / Hosting previsto: Vercel', M, 669, 10, ink=NAVY)
-text('Versión 1.2 / '+DATE, M, 718, 9, ink=MUTED)
+text('Versión 1.3 / '+DATE, M, 718, 9, ink=MUTED)
 para('Documento de trabajo del proyecto. La preparación de este PDF no realiza merges ni despliegues. El alcance de cada tarea se acuerda antes de implementarla.', M, 749, CW, 8.5, 12, MUTED)
 
 # 02 / How to use
@@ -234,15 +234,15 @@ y = box('Edición y evidencia', 'Las casillas y campos son editables en un lecto
 # 03 / Snapshot
 y = begin('estado_inicial', 'El punto de partida', 'Base y seguimiento al 13/10/2026. Separar lo verificado de las tareas que esperan autorización o integración.')
 y = table(['Área', 'Evidencia y estado'], [
-    ['Fuente auditada', 'Base main '+SHA[:7]+'. Código verificado: '+(PROGRESS.get('stages', {}).get('02', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('01', {}).get('codeCommit', SHA))[:7]+'. Registro en checklist-progress.json.'],
+    ['Fuente auditada', 'Base main '+SHA[:7]+'. Código verificado: '+(PROGRESS.get('stages', {}).get('03', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('02', {}).get('codeCommit') or PROGRESS.get('stages', {}).get('01', {}).get('codeCommit', SHA))[:7]+'. Registro en checklist-progress.json.'],
     ['Migración', f'PR #2 fusionado con autorización el 13/10/2026. Base main: 5d87930; quality aprobado. <link href="{PR}" color="{NAVY}">Ver Pull Request</link>.'],
     ['Arquitectura', 'Astro 7.3.8, TypeScript estricto, Node 24; nueve componentes, un layout y cuatro colecciones JSON.'],
-    ['Controles', f'Tipos, lint, formato, build y seis tests aprobados en CI. <link href="{CI}" color="{NAVY}">Ver ejecución</link>.'],
-    ['Diseño', 'Composición conservada por decisión del usuario. Siete tamaños y reflujo 320px verificados; zoom 200% confirmado manualmente por el usuario. Auditoría de accesibilidad pendiente.'],
-    ['Dependencias', 'npm audit reportó 0 vulnerabilidades conocidas el 13/10/2026. Es un dato puntual; no certifica toda la seguridad del sitio.'],
+    ['Controles', f'Tipos, lint, formato, build y siete tests aprobados en CI. <link href="{CI}" color="{NAVY}">Ver ejecución</link>.'],
+    ['Diseño', 'Composición conservada por decisión del usuario. Siete tamaños y reflujo 320px verificados; zoom 200% confirmado manualmente por el usuario. Teclado, foco y contraste revisados; lector real pendiente.'],
+    ['Etapa 03', escape(PROGRESS.get('stages', {}).get('03', {}).get('summary', 'Pendiente de registro.'))],
     ['Vercel', 'vercel.json preparado. Cuenta, proyecto, dominio y despliegue real pendientes.'],
     ['CMS', 'No instalado. Su incorporación depende de requisitos de edición acordados con la institución.'],
-    ['Documentación', 'Manual visual v1.4; registro de tareas en checklist-progress.json. Consultar stage-02-design-ux.md para evidencia actual.'],
+    ['Documentación', 'Manual visual v1.5; registro de tareas en checklist-progress.json. Consultar stage-03-accessibility.md para evidencia actual.'],
     ['Etapa 01', escape(PROGRESS.get('stages', {}).get('01', {}).get('summary', 'Pendiente de registro.'))],
     ['Etapa 02', escape(PROGRESS.get('stages', {}).get('02', {}).get('summary', 'Pendiente de registro.'))],
 ], [119, CW-119], y, 8.6)+21
@@ -330,7 +330,7 @@ y = box('Revisión complementaria', 'Probar lector de pantalla, movimiento reduc
 field('keyboard_notes', 'Herramienta / resultado / evidencia', M, y, CW, 32, True)
 
 stage(4, 'Pruebas de los flujos', 'Proteger el comportamiento que puede romper navegación, consultas o publicación.', 'Desarrollo', 'Controles de base y flujos acordados.', [
-    ('Conservar las pruebas existentes', 'Seis pruebas de contenido, anclas, datos, búsqueda, mailto, recursos y exclusión de archivos internos están aprobadas.', True),
+    ('Conservar las pruebas existentes', 'Siete pruebas de contenido, datos, búsqueda, mailto, recursos, archivos internos y contrato accesible del HTML aprobadas.', True),
     ('Definir la herramienta de pruebas de navegador', 'Elegir una configuración proporcional. Probar el build real y mantener los tests fuera del producto publicado.'),
     ('Automatizar menú y navegación', 'Verificar apertura, cierre por enlace, Escape, destino y estado accesible en viewport móvil.'),
     ('Automatizar búsqueda de filiales', 'Cubrir tildes, mayúsculas, consulta vacía y sin resultados; comprobar que la sede central permanezca visible.'),

@@ -30,3 +30,7 @@ Tipos, ESLint y Prettier separados; CI actualizado y seguimiento de tareas con e
 ## 13/10/2026 · Versión 1.4 · Lectura y uso
 
 El usuario eligió mantener la composición. Rótulos y controles más legibles, enlaces con área mínima de 44px, foco de navegación móvil y contornos del selector sin recorte. Nombres extensos y correo se adaptan al ancho. Matriz de siete viewports y reflujo 320px revisados. Zoom de navegador al 200 % confirmado manualmente por el usuario; aceptación visual final pendiente. Etapa 01 integrada mediante PR #3 (4410368).
+
+## 13/10/2026 · Versión 1.5 · Accesibilidad
+
+Salto al contenido enfocable, menú sin foco oculto al cambiar el ancho y cierre al salir por Tab. Borde funcional #826E48, filtro con estado explícito y relación de alojamientos con su panel. Teclado, contraste y reflujo revisados; prueba de lector real diferida por decisión del usuario. Etapa 02 integrada por PR #4 (20181ac).
