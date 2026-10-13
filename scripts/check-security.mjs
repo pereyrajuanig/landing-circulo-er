@@ -35,6 +35,9 @@ export function validateSecurity() {
     assert(!src.startsWith('http://'), 'Recurso o enlace HTTP inseguro.');
   for (const blocked of ['.env', '.git', 'docs', 'tools', 'config', 'package.json'])
     assert(!existsSync(resolve(root, 'dist', blocked)), blocked);
+  return { headers, inlineScriptHashes: scriptHashes().length };
+}
+export function validateRepository() {
   // Detección acotada: textos versionados y patrones reconocibles. No es una auditoría del historial ni de binarios.
   const files = execFileSync('git', ['ls-files', '-z'], { cwd: root })
     .toString()
@@ -50,7 +53,7 @@ export function validateSecurity() {
   for (const file of files) {
     assert(!file.startsWith('docs/reference/'), 'Dossier no debe estar versionado.');
     assert(
-      !/^\.env(?:\.|$)/.test(file) || file === '.env.example',
+      !/(?:^|\/)\.env(?:\.|$)/.test(file) || file.split('/').at(-1) === '.env.example',
       'Archivo de entorno versionado.',
     );
     if (!/\.(?:astro|ts|js|mjs|json|md|ya?ml|css|txt)$/.test(file)) continue;
@@ -58,18 +61,25 @@ export function validateSecurity() {
     for (const [name, pattern] of ruleset)
       assert(!pattern.test(text), `Posible ${name} en ${file}; no se muestra el valor.`);
   }
-  return { headers, inlineScriptHashes: scriptHashes().length, trackedFiles: files.length };
+  return { trackedFiles: files.length };
 }
 if (
   process.argv[1] &&
   resolve(process.argv[1]) === resolve(import.meta.dirname, 'check-security.mjs')
 ) {
-  const result = validateSecurity();
-  console.log(
-    'Seguridad de build verificada: headers preparados, ' +
-      result.inlineScriptHashes +
-      ' hash(es) inline, exclusiones y patrones en ' +
-      result.trackedFiles +
-      ' archivos. Hosting real pendiente.',
-  );
+  if (process.argv.includes('--repository')) {
+    const result = validateRepository();
+    console.log(
+      'Repositorio: exclusiones y patrones verificados en ' +
+        result.trackedFiles +
+        ' archivos rastreados; valores no mostrados.',
+    );
+  } else {
+    const result = validateSecurity();
+    console.log(
+      'Seguridad de build verificada: headers preparados, ' +
+        result.inlineScriptHashes +
+        ' hash(es) inline y exclusiones. Hosting real pendiente.',
+    );
+  }
 }
