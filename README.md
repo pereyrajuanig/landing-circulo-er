@@ -18,7 +18,7 @@ La propuesta se desarrolló con participación del usuario: base institucional y
 
 [Vista privada histórica en Sites](https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site/) · [Design system](docs/design-system.md) · [Manual en PDF](docs/design-system.pdf)
 
-La vista histórica requiere una cuenta con acceso en ChatGPT. La migración no se ha desplegado allí ni en Vercel. No hay área de socios, turnos, reservas en línea ni panel editorial.
+La vista histórica requiere una cuenta con acceso en ChatGPT. [Versión para revisión en Vercel](https://landing-circulo-er.vercel.app/): publicada el 13/10/2026, accesible sin cuenta y con noindex; contenido, secciones y dominio pendientes. Ver [registro del despliegue](docs/vercel-preview.md). No hay área de socios, turnos, reservas en línea ni panel editorial.
 
 ## Stack
 
@@ -86,7 +86,7 @@ vercel.json         Configuración del despliegue estático
 
 Tarea → rama codex/* → implementación → controles → commit → push → PR → revisión → merge autorizado → despliegue autorizado → verificación.
 
-main recibe cambios mediante PR con quality aprobado. No se exige otra persona para aprobar este proyecto individual. GitHub Actions comprueba el código. La integración con Vercel aún debe conectarse a la cuenta y al repositorio; ver [despliegue](docs/deployment.md).
+main recibe cambios mediante PR con quality aprobado. No se exige otra persona para aprobar este proyecto individual. GitHub Actions comprueba el código. Vercel está conectado: main actualiza la URL estable y las ramas generan previews protegidas; ver [despliegue](docs/deployment.md).
 
 ## Documentación
 

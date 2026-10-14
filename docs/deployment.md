@@ -2,19 +2,19 @@
 
 ## Entornos
 
-| Entorno         | Uso                               | Estado                                                  |
-| --------------- | --------------------------------- | ------------------------------------------------------- |
-| npm run dev     | Astro local con recarga           | Disponible                                              |
-| npm run preview | Salida estática local             | Requiere build                                          |
-| GitHub          | Fuente, documentación y controles | Repositorio de portfolio existente                      |
-| Vercel          | Hosting previsto de producción    | Configuración preparada; cuenta y proyecto sin conectar |
-| Sites histórico | Referencia privada de diseño      | Conserva su publicación anterior                        |
+| Entorno         | Uso                               | Estado                                              |
+| --------------- | --------------------------------- | --------------------------------------------------- |
+| npm run dev     | Astro local con recarga           | Disponible                                          |
+| npm run preview | Salida estática local             | Requiere build                                      |
+| GitHub          | Fuente, documentación y controles | Repositorio de portfolio existente                  |
+| Vercel          | Hosting previsto de producción    | Revisión publicada en vercel.app; dominio pendiente |
+| Sites histórico | Referencia privada de diseño      | Conserva su publicación anterior                    |
 
 ## Configuración de Vercel
 
 vercel.json está versionado con framework astro, installCommand npm ci, buildCommand npm run build y outputDirectory dist. Usar Node 24, raíz del repositorio y conectar pereyrajuanig/landing-circulo-er. La salida es estática; no necesita @astrojs/vercel ni funciones Node.
 
-La configuración se comprobó mediante build local. No se ha creado un proyecto de Vercel ni confirmado un despliegue real. Sin secretos. Para indexar producción: SITE_URL con el origen HTTPS aprobado y SEO_INDEXABLE=true, solo en entorno de producción. VERCEL_ENV=preview conserva noindex. Ver [SEO](seo.md).
+Despliegue autorizado y comprobado el 13/10/2026: [URL de revisión](https://landing-circulo-er.vercel.app/), Production de main con noindex. Proyecto conectado y build aprobado en Node24.x. [Registro y recuperación](vercel-preview.md). Contenido/secciones y dominio institucional pendientes. Sin secretos. Para indexar producción: SITE_URL con el origen HTTPS aprobado y SEO_INDEXABLE=true, solo en entorno de producción. VERCEL_ENV=preview conserva noindex. Ver [SEO](seo.md).
 
 ## Primera publicación
 

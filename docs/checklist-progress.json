@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-10-13",
-  "baselineCommit": "b263601931e05da994f6615dbd840e7cdd71e389",
+  "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
       "status": "complete",
@@ -62,12 +62,26 @@
       "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38479593548"
     },
     "07": {
-      "status": "pending_integration_pending_hosting",
+      "status": "integrated_pending_institutional_domain_privacy",
       "branch": "codex/etapa-07-seguridad-privacidad",
       "codeCommit": "1e9938c6723ff57103b4b6ea509b0a2041d698d1",
-      "summary": "4 tareas verificadas en local; headers/HTTPS de hosting y acuerdo institucional de privacidad pendientes. CSP de Vercel Report-Only.",
+      "summary": "PR #9 fusionado y quality aprobado. 5 tareas verificadas: headers de portada/assets/404 confirmados en Vercel; dominio institucional y privacidad pendientes.",
       "ciRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
-      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/9"
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/9",
+      "mergeCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
+      "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38485087460"
+    },
+    "08": {
+      "status": "deferred_by_user",
+      "summary": "El usuario reunirá y organizará contenido y definirá secciones con la institución. No se marca ninguna tarea editorial como terminada."
+    },
+    "09": {
+      "status": "review_deployed_pending_launch",
+      "summary": "Publicación de revisión autorizada: vercel.app, Production de main, noindex. Git conectado; Node24/build y flujos revisados. Lanzamiento/dominio/contenido y recuperación anterior pendientes.",
+      "deploymentUrl": "https://landing-circulo-er.vercel.app/",
+      "deploymentId": "dpl_2zr9ExH7aj79CDNWKQw658fNBAVL",
+      "codeCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
+      "evidence": "docs/vercel-preview.md"
     }
   },
   "tasks": {
@@ -342,9 +356,10 @@
       "date": "2026-10-13"
     },
     "07.04": {
-      "status": "pending",
-      "responsible": "Desarrollo / institución / hosting",
-      "evidence": "Headers preparados en vercel.json; portada/assets verificados por HTTP. Astro preview no aplica headers a fallback404; hosting y sus respuestas pendientes."
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Headers esperados en portada, CSS, fuentes, imágenes y404 del hosting real. CSP Report-Only. vercel-preview-evidence.json."
     },
     "07.05": {
       "status": "verified",
@@ -354,25 +369,62 @@
     },
     "07.06": {
       "status": "pending",
-      "responsible": "Desarrollo / institución / hosting",
-      "evidence": "Dominio no definido; certificado, redirecciones, HTTPS y decisión HSTS pendientes. Sin includeSubDomains/preload configurados."
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "HTTPS validado y HTTP redirige en vercel.app. HSTS del proveedor observado; futuro dominio y su política aún pendientes."
     },
     "07.07": {
       "status": "pending",
       "responsible": "Desarrollo / institución / hosting",
       "evidence": "Inventario técnico en privacy-review.md. Responsables, tratamiento, logs y texto institucional aún sin acuerdo. No aviso público nuevo."
+    },
+    "09.03": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Vercel conectado a GitHub; Astro raíz ./, Node24.x, comandos y build Ready. URL y commit en vercel-preview.md."
+    },
+    "09.04": {
+      "status": "verified",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "main despliega automáticamente en Production; ramas generan previews con Standard Protection. Flujo PR y merge autorizado conservado."
+    },
+    "09.02": {
+      "status": "pending",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Publicación de revisión comprobada; dominio institucional, revisión/aceptación completa del contenido y lanzamiento definitivo pendientes. No hay deployment anterior para rollback."
+    },
+    "09.05": {
+      "status": "pending",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Publicación de revisión comprobada; dominio institucional, revisión/aceptación completa del contenido y lanzamiento definitivo pendientes. No hay deployment anterior para rollback."
+    },
+    "09.06": {
+      "status": "pending",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Publicación de revisión comprobada; dominio institucional, revisión/aceptación completa del contenido y lanzamiento definitivo pendientes. No hay deployment anterior para rollback."
+    },
+    "09.07": {
+      "status": "pending",
+      "date": "2026-10-13",
+      "responsible": "Desarrollo / usuario",
+      "evidence": "Publicación de revisión comprobada; dominio institucional, revisión/aceptación completa del contenido y lanzamiento definitivo pendientes. No hay deployment anterior para rollback."
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "07.01 a07.07 / etapa07",
-    "trace_status": "4 verificadas; hosting pendiente",
+    "trace_id": "09 / revisión en Vercel",
+    "trace_status": "Revisión publicada; lanzamiento pendiente",
     "trace_owner": "Desarrollo",
     "trace_date": "13/10/2026",
-    "trace_commit": "Base b263601 / código1e9938c / PR #9",
-    "trace_method": "11 Node +20 Chromium Report-Only +20 exigida local.\nHTTP portada/assets; CSP, cookies y almacenamiento.\nGit/dist y npm audit; límites de404 documentados.",
-    "trace_result": "51 comprobaciones aprobadas; audit0 conocidas.\nCSP detecta/bloquea según modo; hosting pendiente.\nCI: https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426",
-    "trace_limits": "Hosting,404 con headers, HTTPS y dominio pendientes.\nPrivacidad institucional y lector03.06 pendientes.\nPR #9 revisable; merge pendiente; sin despliegue.",
+    "trace_commit": "main e1e830b / dpl_2zr9ExH7aj79CDNWKQw658fNBAVL",
+    "trace_method": "Build aprobado y Vercel Ready con Node24.\nHTTP sin sesión, TLS validado y navegador móvil.\nFiltro, alojamiento y menú; headers portada/assets/404.",
+    "trace_result": "https://landing-circulo-er.vercel.app/\nPública para revisión, noindex y sin canonical/sitemap.\nRegistro: docs/vercel-preview.md y evidencia JSON.",
+    "trace_limits": "Contenido y secciones: diferidos por el usuario.\nDominio, privacidad, lector real e INP de campo pendientes.\nProduction de main; no lanzamiento institucional definitivo.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -398,6 +450,7 @@
     "owner_05": "Desarrollo / dominio: autoridades",
     "owner_06": "Desarrollo / laboratorio",
     "date_06": "13/10/2026",
-    "owner_07": "Desarrollo / hosting e institución pendientes"
+    "owner_07": "Desarrollo / dominio e institución pendientes",
+    "owner_09": "Usuario / desarrollo; revisión institucional"
   }
 }

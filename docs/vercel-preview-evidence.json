@@ -1,0 +1,204 @@
+{
+  "date": "2026-10-13",
+  "timezone": "America/Buenos_Aires",
+  "commit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
+  "mainCi": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38485087460",
+  "deploymentId": "dpl_2zr9ExH7aj79CDNWKQw658fNBAVL",
+  "project": "https://vercel.com/juan-ignacio-pereyra/landing-circulo-er",
+  "url": "https://landing-circulo-er.vercel.app/",
+  "environment": "production",
+  "purpose": "Revisión institucional; contenido/secciones y dominio pendientes",
+  "node": "24.x",
+  "framework": "astro",
+  "commands": {
+    "install": "npm ci",
+    "build": "npm run build",
+    "output": "dist"
+  },
+  "git": {
+    "repository": "pereyrajuanig/landing-circulo-er",
+    "productionBranch": "main",
+    "automaticDeployments": true
+  },
+  "responses": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 19488,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      },
+      "robotsMeta": ["<meta name=\"robots\" content=\"noindex, follow\">"],
+      "canonical": []
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "bytes": 23,
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 404,
+      "bytes": 2339,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/revision-ruta-inexistente",
+      "status": 404,
+      "bytes": 2339,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/docs/reference/Dossier_Circulo_Retirados_Policia_Entre_Rios_con_logo.pdf",
+      "status": 404,
+      "bytes": 2339,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/_astro/escudo.BY5eH3yB_Z1d2Upl.webp",
+      "status": 200,
+      "bytes": 94196,
+      "headers": {
+        "content-type": "image/webp",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/_astro/escudo.BY5eH3yB_Z1kt7pq.webp",
+      "status": 200,
+      "bytes": 3404,
+      "headers": {
+        "content-type": "image/webp",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/_astro/escudo.BY5eH3yB_Z2hqbqS.png",
+      "status": 200,
+      "bytes": 10985,
+      "headers": {
+        "content-type": "image/png",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/_astro/style.DYBowYgJ.css",
+      "status": 200,
+      "bytes": 26346,
+      "headers": {
+        "content-type": "text/css; charset=utf-8",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/assets/fonts/dm-sans-latin.woff2",
+      "status": 200,
+      "bytes": 70244,
+      "headers": {
+        "content-type": "font/woff2",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "path": "/assets/fonts/libre-caslon-display-latin.woff2",
+      "status": 200,
+      "bytes": 29640,
+      "headers": {
+        "content-type": "font/woff2",
+        "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'sha256-87rJaSgDb/unywJHFMuhQ0dgwpIg8eSSfDM6mDt1igk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "x-frame-options": "DENY",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+      }
+    }
+  ],
+  "httpRedirectFinal": "https://landing-circulo-er.vercel.app/",
+  "tls": {
+    "validated": true,
+    "protocol": "TLSv1.3",
+    "notAfter": "Nov 27 19:48:08 2026 GMT",
+    "dnsNames": ["*.vercel.app"]
+  },
+  "browser": {
+    "desktop": true,
+    "mobileViewport": "390x844",
+    "filter": "MARIA -> 1 localidad",
+    "accommodation": "María Grande y mailto correspondiente",
+    "menu": "Abre y cierra al navegar a Servicios",
+    "consoleWarningsErrors": []
+  },
+  "limits": [
+    "La URL estable es pública y noindex no restringe el acceso.",
+    "No se aprobó el lanzamiento institucional definitivo.",
+    "No se cambió Deployment Protection: Standard Protection.",
+    "Dominio institucional, contenido/secciones, privacidad, lector e INP de campo pendientes.",
+    "HSTS observado es del proveedor en vercel.app; no define política de dominio institucional.",
+    "No se activaron Analytics ni Speed Insights."
+  ]
+}

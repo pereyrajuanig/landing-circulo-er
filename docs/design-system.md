@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.9
+# Sistema de diseño · 1.10
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
@@ -61,3 +61,5 @@ La versión 1.7 registra la tarjeta social de 1200 × 630 con escudo, marfil, az
 La versión 1.8 conserva identidad y composición: escudo WebP por tamaño, favicon reducido, dos fuentes WOFF2 locales con preload y swap. Comparación y límites: [rendimiento](stage-06-performance.md).
 
 La versión1.9 documenta seguridad preparada,51 comprobaciones y límites de hosting. No cambia composición ni tokens; CSP Report-Only en Vercel, exigida solo en pruebas locales. Ver [seguridad](security-privacy.md).
+
+Versión1.10: publicación para revisión autorizada en https://landing-circulo-er.vercel.app/, con noindex. Contenido y secciones diferidos por el usuario; dominio pendiente. Registro: vercel-preview.md.
