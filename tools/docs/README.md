@@ -41,3 +41,5 @@ La tarjeta social se regenera con build_social_card.py y Pillow usando los recur
 La versión 1.8 registra escudo optimizado, fuentes locales y rendimiento; checklist v1.6 con evidencia de etapa06. Fuentes WOFF2: tools/performance/build_fonts.py con dependencias opcionales separadas.
 
 Manual vigente1.9 y checklist1.7 registran seguridad preparada y pendientes de hosting/privacidad institucional. No cambian la composición de la landing.
+
+Publicación de revisión autorizada el13/10/2026: manual1.10 y checklist1.8, contenido/secciones y dominio pendientes. Registro: docs/vercel-preview.md.

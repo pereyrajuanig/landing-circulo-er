@@ -64,4 +64,4 @@ El chequeo de textos rastreados requiere Git y se ejecuta en validate/CI por sep
 
 Código1e9938c: [quality aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426). Revisión del repositorio en validate/CI; control de build sin Git probado con PATH vacío en proceso hijo. Hosting sigue pendiente.
 
-[PR #9 de preparación](https://github.com/pereyrajuanig/landing-circulo-er/pull/9). Fusión pendiente de autorización; no despliegue ni cierre de comprobaciones de hosting.
+PR #9 fusionado con autorización (e1e830b), quality38485087460 aprobado. Actualización posterior: publicación de revisión autorizada en Vercel; headers de portada, recursos y404 comprobados. HTTPS/redirección validados en vercel.app; HSTS observado del proveedor. Futuro dominio y privacidad pendientes. Ver [evidencia del hosting](vercel-preview.md). El resto del informe conserva el corte previo de laboratorio.

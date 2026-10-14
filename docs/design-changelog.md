@@ -50,3 +50,5 @@ Escudo optimizado con Astro y fuentes locales de las mismas familias; composici�
 ## 1.9 · 13/10/2026
 
 Headers y CSP Report-Only preparados; controles de hashes, exclusiones y almacenamiento. Diseño e interacciones conservados. Hosting/HTTPS y privacidad institucional pendientes.
+
+Publicación de revisión autorizada el13/10/2026: manual1.10 y checklist1.8, contenido/secciones y dominio pendientes. Registro: docs/vercel-preview.md.

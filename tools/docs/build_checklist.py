@@ -40,7 +40,7 @@ OUT.parent.mkdir(parents=True, exist_ok=True)
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Checklist y paso a paso | Landing Círculo Entre Ríos')
 c.setAuthor('Proyecto Landing-CirculoER')
-c.setSubject('Plan de trabajo por etapas. Versión 1.7. Corte: 13 de octubre de 2026.')
+c.setSubject('Plan de trabajo por etapas. Versión 1.8. Corte: 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 FIELDS = {}
@@ -127,7 +127,7 @@ def begin(key, title, subtitle, label='PLAN DE TRABAJO'):
     c.bookmarkPage(key)
     c.addOutlineEntry(title.replace('<br/>', ' '), key, 0, False)
     text('CÍRCULO / CHECKLIST DE PRODUCCIÓN', M, 28, 7.2, ink=MUTED)
-    right('V1.7 / 13 OCT 2026', W-M, 28, 7.2)
+    right('V1.8 / 13 OCT 2026', W-M, 28, 7.2)
     line(M, 47, W-M, 47)
     text(label, M, 65, 8, ink=GOLDINK)
     y = para(title, M, 86, CW, 29, 33, INK, 'Caslon')
@@ -215,8 +215,8 @@ para('Checklist<br/>y paso a paso', M, 292, CW, 54, 57, INK, 'Caslon')
 para('Tareas por etapa para construir, verificar,<br/>publicar y mantener la landing institucional.', M, 440, CW, 14, 21, MUTED)
 line(M, 520, M+95, 520, GOLDINK, 2)
 box('Una guía para trabajar juntos', 'Once etapas con tareas ordenadas, dependencias, controles y criterios de cierre. Casillas y campos editables para registrar el avance. La institución y el usuario participan en contenido y diseño.', 551, PAPER)
-text('Astro + TypeScript / Hosting previsto: Vercel', M, 669, 10, ink=NAVY)
-text('Versión 1.7 / '+DATE, M, 718, 9, ink=MUTED)
+text('Astro + TypeScript / Revisión publicada en Vercel', M, 669, 10, ink=NAVY)
+text('Versión 1.8 / '+DATE, M, 718, 9, ink=MUTED)
 para('Documento de trabajo del proyecto. La preparación de este PDF no realiza merges ni despliegues. El alcance de cada tarea se acuerda antes de implementarla.', M, 749, CW, 8.5, 12, MUTED)
 
 # 02 / How to use
@@ -241,13 +241,13 @@ y = table(['Área', 'Evidencia y estado'], [
     ['Diseño', 'Composición conservada por decisión del usuario. Siete tamaños y reflujo 320px verificados; zoom 200% confirmado manualmente por el usuario. Teclado, foco y contraste revisados; lector real pendiente.'],
     ['Etapa 07', escape(PROGRESS.get('stages', {}).get('07', {}).get('summary', 'Pendiente de registro.'))],
     ['Etapa 06', escape(PROGRESS.get('stages', {}).get('06', {}).get('summary', 'Pendiente de registro.'))],
-    ['Vercel', 'vercel.json preparado. Cuenta, proyecto, dominio y despliegue real pendientes.'],
+    ['Vercel', 'Revisión publicada: landing-circulo-er.vercel.app. Production de main con noindex; contenido y dominio pendientes.'],
     ['CMS', 'No instalado. Su incorporación depende de requisitos de edición acordados con la institución.'],
-    ['Documentación', 'Manual visual v1.9; registro de tareas en checklist-progress.json. Consultar security-privacy.md para avance y límites.'],
+    ['Documentación', 'Manual visual v1.10; registro de tareas en checklist-progress.json. Consultar security-privacy.md para avance y límites.'],
     ['Etapa 01', escape(PROGRESS.get('stages', {}).get('01', {}).get('summary', 'Pendiente de registro.'))],
     ['Etapa 02', escape(PROGRESS.get('stages', {}).get('02', {}).get('summary', 'Pendiente de registro.'))],
 ], [119, CW-119], y, 8.6)+21
-box('Qué representa la URL actual', 'El Site de ChatGPT conserva una publicación histórica privada. La versión Astro del repositorio aún no se ha publicado en Vercel. Este documento usa el repositorio como fuente para las tareas técnicas.', y)
+box('Qué representa la URL actual', 'El Site histórico sigue privado. Astro está publicado en Vercel para revisión: landing-circulo-er.vercel.app, con noindex. No es aceptación institucional definitiva. Etapa08 diferida por el usuario; dominio pendiente.', y)
 
 # 04 / Master route
 y = begin('mapa', 'Mapa de etapas', 'La numeración organiza el trabajo. El contenido institucional debe validarse desde el comienzo, en paralelo.')

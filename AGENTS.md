@@ -30,11 +30,11 @@
 ## Despliegue y colaboración
 
 - Sites conserva el proyecto existente de `.openai/hosting.json`, con acceso privado. No crear otro Site ni desplegar mediante GitHub Pages por defecto.
-- Vercel es el hosting previsto, con vercel.json preparado. La integración de cuenta/GitHub aún no está conectada. GitHub es fuente y portfolio; CI comprueba el proyecto, no publica por sí solo. Conservar el Site histórico.
+- Vercel es el hosting previsto, con vercel.json preparado. Vercel conectado a JuanIgnacioPereyra / landing-circulo-er; URL de revisión https://landing-circulo-er.vercel.app/ con noindex. main dispara publicación automática; ramas generan previews con Standard Protection. GitHub es fuente y portfolio; CI comprueba el proyecto, no publica por sí solo. Contenido, secciones y dominio quedan pendientes por decisión del usuario; ver docs/vercel-preview.md. Conservar el Site histórico.
 - No hay base de datos ni migraciones. Las consultas usan mailto y no escriben datos desde la web.
 - Delegar solo cuando el usuario o instrucciones aplicables lo pidan.
 - Informar resultado, comprobaciones, limitaciones y pasos externos pendientes.
 
 ## Seguridad preparada
 
-CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 11 Node y20 Chromium por cada modo CSP. Hosting, HTTPS y404 con headers requieren verificación real; privacidad institucional aún por acordar.
+CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 11 Node y20 Chromium por cada modo CSP. Headers de portada/assets/404 y HTTPS comprobados en vercel.app; futuro dominio y privacidad institucional aún por acordar.
