@@ -65,3 +65,7 @@ El chequeo de textos rastreados requiere Git y se ejecuta en validate/CI por sep
 Código1e9938c: [quality aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426). Revisión del repositorio en validate/CI; control de build sin Git probado con PATH vacío en proceso hijo. Hosting sigue pendiente.
 
 PR #9 fusionado con autorización (e1e830b), quality38485087460 aprobado. Actualización posterior: publicación de revisión autorizada en Vercel; headers de portada, recursos y404 comprobados. HTTPS/redirección validados en vercel.app; HSTS observado del proveedor. Futuro dominio y privacidad pendientes. Ver [evidencia del hosting](vercel-preview.md). El resto del informe conserva el corte previo de laboratorio.
+
+## Propuesta multipágina del 29/10/2026
+
+Astro externaliza el módulo compartido al usarlo en varias páginas. El build de esta propuesta no contiene scripts inline ejecutables: CSP mantiene script-src del propio origen y elimina el hash que dejó de corresponder. No se agregan unsafe-inline/eval ni permisos de red nuevos. Los validadores revisan enlaces de todas las páginas. CMS y Facebook siguen sin conexión; su futura activación requiere revisar credenciales, terceros, política y permisos específicos.

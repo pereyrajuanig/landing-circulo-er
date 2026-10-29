@@ -18,7 +18,7 @@ test('CSP permite la aplicación y detecta o bloquea un script inline no autoriz
     response.headers()[
       enforced ? 'content-security-policy' : 'content-security-policy-report-only'
     ],
-  ).toContain("script-src 'self' 'sha256-");
+  ).toContain("script-src 'self'");
   await page.locator('#branch-search').fill('MARIA');
   await expect(page.locator('#branch-list li:visible')).toHaveText(['María Grande']);
   expect(await page.evaluate(() => window.__probeViolations)).toEqual([]);

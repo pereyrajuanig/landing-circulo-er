@@ -29,9 +29,9 @@ ESCUDO = ROOT / 'public/assets/escudo.png'
 SITE = 'https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site'
 SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
-c.setTitle('Design system y documentación de la landing | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
+c.setTitle('Design system y documentación del sitio | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.11. Identidad, componentes, contenido, implementación y mantenimiento. 29 de octubre de 2026.')
+c.setSubject('Versión 1.12. Identidad, componentes, contenido, implementación y mantenimiento. 29 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.11 · 29 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.12 · 29 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -109,12 +109,12 @@ image(W-M-96,115,85,112)
 label('IDENTIDAD · EXPERIENCIA · IMPLEMENTACIÓN',M,285,GOLD)
 text('Design',M,330,76,'Caslon',PAPER)
 text('system',M,406,76,'Caslon',GOLD)
-para('Documentación de<br/>la landing page',M,510,CW,39,43,PAPER,'Caslon',False)
+para('Documentación del<br/>sitio institucional',M,510,CW,39,43,PAPER,'Caslon',False)
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.11',M,770,10,'DM',PAPER)
-right('13 de octubre de 2026',W-M,770,10,'DM',PAPER)
+text('Versión 1.12',M,770,10,'DM',PAPER)
+right('29 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
 y=begin('guia_01','Cómo usar este documento','Una referencia común para la institución, diseño, desarrollo y futuras actualizaciones.')
@@ -409,7 +409,7 @@ y=table(['Necesidad','Archivo / lugar','Verificación'],[
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
 y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Preparar Chromium con npm run test:install; cerrar preview de revisión. Ejecutar npm run validate (51 comprobaciones); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.11. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.12. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
@@ -446,6 +446,16 @@ y=block('Consultas y límites','Se reutilizan los servicios y destinos existente
 y=block('Implementación y revisión','Events.astro y jerarquía de index.astro; estilos en warmth.css; copy en Hero, Services y Contact; navegación en Header. Contrato editorial actualizado y prueba de acceso a salones. Las capturas y el estado de verificación están en docs/design-benefits-spaces.md.',y)
 note('ACEPTACIÓN PENDIENTE','La versión pública de main conserva la revisión anterior hasta autorizar el merge. Este lote sigue el flujo de rama, controles y PR. Dominio, validación institucional de datos y lector real continúan pendientes.',y)
 
+
+# 24. Evolución del alcance a sitio institucional.
+y=begin('sitio_24','De landing a sitio institucional','Ampliación solicitada el 29/10/2026. Actualiza la navegación de las muestras anteriores; propuesta en revisión en PR #11.')
+y=block('Mapa y jerarquía','Inicio, beneficios, alojamientos, salones, novedades, institución y contacto. Cinco fichas de beneficios y seis destinos. El inicio conserva sus anclas; los accesos y el menú llevan ahora a páginas propias.',y)
+y=block('Patrones de páginas interiores','SitePage comparte identidad y pie. Ubicación con Inicio y sección; un h1, introducción y contenido por página. Listas editoriales y destinos con enlaces claros, panel de consulta y FAQ nativas. Menú con aria-current y pie con directorio.',y)
+y=block('Noticias y logros','Colección local vacía, listado y artículos preparados. Se filtran borradores y fechas futuras en build. No se publican noticias inventadas. Los filtros de texto y categoría funcionan cuando hay entradas; fecha y enlace original opcional acompañan cada artículo.',y)
+y=block('Diseño y contenido','Se mantienen azul, dorado, marfil, fuentes y escudo. Las fichas reutilizan información confirmada y agregan guías de consulta. Fotos reales, condiciones, tarifas y capacidades deben llegar de la institución antes de ampliar los datos.',y)
+y=block('Panel editorial y Facebook','El personal institucional cargará contenido. El usuario difirió la activación del panel; Sanity separado es la propuesta, sin instalación todavía. Facebook será origen de publicaciones; falta el enlace y verificar acceso y permisos. No hay sincronización ni llamadas nuevas a terceros.',y)
+note('PRÓXIMO CIERRE','Revisar navegación y diseño; completar fichas con datos reales; activar CMS cuando exista cuenta y luego comprobar Facebook. Dominio, privacidad y lector real siguen pendientes. Estado y evidencias: docs/site-evolution.md y PR #11.',y)
+
 bad=[b for b in BOUNDS if b[2]>780]
 if bad:
     print('OVERFLOW',bad)
@@ -453,7 +463,7 @@ if bad:
 c.save()
 (ROOT/'tmp').mkdir(exist_ok=True)
 reader=PdfReader(str(OUT))
-assert len(reader.pages)==23, len(reader.pages)
+assert len(reader.pages)==24, len(reader.pages)
 for i,p in enumerate(reader.pages):
     t=p.extract_text()
     assert len(t)>100, f'Empty page {i+1}'

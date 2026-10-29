@@ -32,7 +32,7 @@ La checklist detallada se guarda en docs/checklist-paso-a-paso.pdf. Su estado t�
 python tools/docs/build_checklist.py
 ```
 
-El generador usa los mismos requisitos y fuentes del manual. Verifica las 22 páginas, 136 campos y la coherencia entre valores lógicos y widgets. El registro decide los estados de tareas que contiene; los otros campos y casillas manuales existentes se conservan al regenerar. Una edición manual del PDF no modifica el JSON. Incorporar las decisiones de esa revisión al registro antes de regenerar si afectan una tarea registrada.
+El generador usa los mismos requisitos y fuentes del manual. Verifica las 23 páginas, 145 campos y la coherencia entre valores lógicos y widgets. El registro decide los estados de tareas que contiene; los otros campos y casillas manuales existentes se conservan al regenerar. Una edición manual del PDF no modifica el JSON. Incorporar las decisiones de esa revisión al registro antes de regenerar si afectan una tarea registrada.
 
 Al cerrar un lote, registrar comando, resultado, fecha, responsable y evidencia. Mantener separado el cierre técnico de la autorización de merge o despliegue. Renderizar y revisar las páginas afectadas.
 
@@ -45,3 +45,5 @@ Manual vigente1.9 y checklist1.7 registran seguridad preparada y pendientes de h
 Publicación de revisión autorizada el13/10/2026: manual1.10 y checklist1.8, contenido/secciones y dominio pendientes. Registro: docs/vercel-preview.md.
 
 Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y salones como prioridades. Aceptación visual y merge pendientes. Detalles en docs/design-benefits-spaces.md; manual1.11 y checklist1.9 actualizados.
+
+Evolución multipágina: manual1.12 (24 páginas), checklist1.10 (23 páginas). Esta última añade9 tareas al final y conserva los136 campos históricos; ahora145 campos. Fuentes y contenido del sitio: docs/site-evolution.md. CMS/Facebook no se marcan conectados.

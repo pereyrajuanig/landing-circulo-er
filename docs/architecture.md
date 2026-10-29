@@ -1,3 +1,23 @@
+# Arquitectura actual de la propuesta multipágina
+
+Corte: 29/10/2026. Esta sección actualiza la descripción histórica que sigue más abajo. Propuesta en PR #11; main sigue sin recibir este lote.
+
+Astro7.3.8 y TypeScript estricto generan 18 páginas públicas y la404 desde cinco colecciones JSON. Los artículos publicados añaden rutas. No hay SSR, API, CMS operativo, autenticación, React, base de datos ni escrituras del visitante.
+
+SitePage.astro reutiliza BaseLayout, Header y Footer para las páginas interiores. Define h1, título, descripción y ubicación. Los índices de beneficios/alojamientos enlazan a rutas dinámicas pregeneradas con getStaticPaths; se reutilizan servicios/destinos existentes. La portada conserva sus anclas. site.css se carga después de los estilos cálidos.
+
+NewsList/NewsTeaser reciben publicaciones filtradas por estado y fecha en build. news.ts comparte normalización y criterios; el script de noticias filtra texto/categoría sin servidor. Los párrafos se escapan; no se renderiza HTML arbitrario. Sin contenido aprobado, el listado comunica su estado vacío.
+
+El selector de alojamientos conserva su consulta y agrega enlace a la ficha elegida. Las FAQ usan details/summary. Header navega entre páginas y expone aria-current; Footer permite llegar a institución/filiales. Cada documento carga solo los módulos que utiliza; Astro externaliza el script compartido, por lo que la CSP actual permite scripts del propio origen y ya no necesita el hash inline anterior.
+
+check-build recorre todos los documentos: idioma, h1, metadatos, IDs, referencias ARIA y enlaces/recursos entre páginas. check-security revisa enlaces de todo el HTML. El sitemap de producción reúne los index.html generados; previews siguen con noindex.
+
+CMS y Facebook son próximos pasos explícitamente diferidos, no implementaciones verificadas. Sanity separado es la propuesta; Facebook será origen, con enlace/acceso pendientes. No hay llamadas externas nuevas ni credenciales en el frontend. Ver site-evolution.md y cms-roadmap.md.
+
+---
+
+## Referencia histórica de la landing, anterior a la ampliación
+
 # Arquitectura · Astro
 
 ## Decisión

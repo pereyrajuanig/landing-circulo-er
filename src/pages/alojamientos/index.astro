@@ -1,0 +1,41 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import SitePage from '../../layouts/SitePage.astro';
+import Accommodation from '../../components/Accommodation.astro';
+const entry = await getEntry('institution', 'circulo');
+if (!entry) throw new Error('Falta el contenido institucional.');
+const stays = (await getCollection('stays')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<SitePage
+  title="Un lugar para tu próxima estadía"
+  eyebrow="Alojamientos del Círculo"
+  description="Explorá los destinos de la red institucional y consultá las opciones para organizar tu visita."
+>
+  <Accommodation institution={entry.data} stays={stays} />
+  <section class="wrap page-section" aria-labelledby="destinations-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow dark">Elegí tu destino</p>
+        <h2 id="destinations-title">Conocé cada alojamiento.</h2>
+      </div>
+      <p>La disponibilidad y las condiciones se coordinan directamente con la institución.</p>
+    </div>
+    <div class="destination-grid">
+      {stays.map(({ id, data }, i) => (
+        <article class="destination-entry">
+          <span class="path-number">ENTRE RÍOS / {String(i + 1).padStart(2, '0')}</span>
+          <h3>
+            <a href={'/alojamientos/' + id + '/'}>
+              {data.name} <span aria-hidden="true">↗</span>
+            </a>
+          </h3>
+          <p>{data.description}</p>
+          <a class="text-link" href={'/alojamientos/' + id + '/'}>
+            Ver alojamiento →
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</SitePage>

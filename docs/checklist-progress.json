@@ -413,18 +413,72 @@
       "date": "2026-10-13",
       "responsible": "Desarrollo / usuario",
       "evidence": "Publicación de revisión comprobada; dominio institucional, revisión/aceptación completa del contenido y lanzamiento definitivo pendientes. No hay deployment anterior para rollback."
+    },
+    "12.01": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.02": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.03": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.04": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.05": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.06": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.07": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.08": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.09": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "Diseño / beneficios y espacios",
+    "trace_id": "Sitio institucional / base editorial",
     "trace_status": "Propuesta en revisión",
     "trace_owner": "Desarrollo",
     "trace_date": "29/10/2026",
-    "trace_commit": "Base b3003dc / rama diseno-beneficios-espacios",
-    "trace_method": "Contrato editorial y flujos de menú/filiales/alojamiento.\nNuevo acceso a salones y consulta por correo.\nRevisión de escritorio y móvil.",
-    "trace_result": "Propuesta: beneficios, alojamientos y salones primero.\nDestinatarios: retirados y pensionados de la Policía.\nVer docs/design-benefits-spaces.md.",
-    "trace_limits": "Aceptación visual y merge pendientes.\nContenido, dominio y lector real pendientes.\nNo se confirman capacidades, tarifas ni disponibilidad.",
+    "trace_commit": "PR #11 / rama diseno-beneficios-espacios",
+    "trace_method": "Rutas, fichas, FAQ y navegación entre páginas.\nControl del HTML completo y publicación filtrada.\nVer resultado final en PR #11.",
+    "trace_result": "18 páginas y 404; noticias sin entradas reales.\nCMS y Facebook no conectados.\nVer docs/site-evolution.md.",
+    "trace_limits": "Contenido/fotos, aceptación y merge pendientes.\nActivación del CMS diferida por usuario.\nFacebook sin enlace ni acceso; dominio/lector pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -458,6 +512,11 @@
       "status": "pending_visual_acceptance",
       "branch": "codex/diseno-beneficios-espacios",
       "summary": "Jerarquía beneficios/alojamientos/salones; destinatarios aclarados por usuario. Sin nuevos descuentos, capacidades ni condiciones de acceso inventadas."
+    },
+    "website_evolution": {
+      "status": "in_review",
+      "branch": "codex/diseno-beneficios-espacios",
+      "summary": "Sitio multipágina con fichas y base editorial; CMS diferido por usuario; Facebook como origen con enlace/acceso pendientes."
     }
   }
 }

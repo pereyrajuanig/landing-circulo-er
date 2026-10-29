@@ -10,6 +10,7 @@ import Accommodation from '../components/Accommodation.astro';
 import Events from '../components/Events.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import NewsTeaser from '../components/NewsTeaser.astro';
 
 const [entry, services, branches, stays] = await Promise.all([
   getEntry('institution', 'circulo'),
@@ -31,6 +32,7 @@ stays.sort((a, b) => a.data.order - b.data.order);
     <Services institution={institution} services={services} />
     <Accommodation institution={institution} stays={stays} />
     <Events institution={institution} />
+    <NewsTeaser />
     <Institution institution={institution} />
     <Branches institution={institution} branches={branches} />
     <Contact institution={institution} />

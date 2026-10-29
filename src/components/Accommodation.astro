@@ -58,6 +58,13 @@ if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
         >
           Consultar alojamiento <span aria-hidden="true">↗</span>
         </a>
+        <a
+          id="stay-detail-link"
+          class="text-link stay-info-link"
+          href={'/alojamientos/' + initialStay.id + '/'}
+        >
+          Conocer este alojamiento →
+        </a>
         <span class="stay-watermark" aria-hidden="true">
           ER
         </span>

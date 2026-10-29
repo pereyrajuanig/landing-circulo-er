@@ -1,19 +1,31 @@
 ---
 import { Image } from 'astro:assets';
 import crest from '../../public/assets/escudo.png';
+const home = Astro.url.pathname === '/' ? '' : '/';
+const links = [
+  { href: '/beneficios/', label: 'Beneficios' },
+  { href: '/alojamientos/', label: 'Alojamientos' },
+  { href: '/salones/', label: 'Salones' },
+  { href: '/novedades/', label: 'Novedades' },
+  { href: '/contacto/', label: 'Contacto' },
+];
 ---
 
 <div class="topline">
   <div class="wrap">
     <span>Desde 1975 · Entre Ríos, Argentina</span>
-    <a href="#contacto">
+    <a href="/contacto/">
       Sede Central · Paraná <span aria-hidden="true">↗</span>
     </a>
   </div>
 </div>
 <header class="header">
   <div class="wrap header-inner">
-    <a class="brand" href="#inicio" aria-label="Círculo de Retirados y Pensionados, inicio">
+    <a
+      class="brand"
+      href={home + '#inicio'}
+      aria-label="Círculo de Retirados y Pensionados, inicio"
+    >
       <Image
         src={crest}
         format="webp"
@@ -34,13 +46,15 @@ import crest from '../../public/assets/escudo.png';
       Menú <span aria-hidden="true">☰</span>
     </button>
     <nav id="navigation" aria-label="Navegación principal">
-      <a href="#servicios">Beneficios</a>
-      <a href="#alojamiento">Alojamientos</a>
-      <a href="#salones">Salones</a>
-      <a href="#filiales">Filiales</a>
-      <a class="nav-contact" href="#contacto">
-        Contacto <span aria-hidden="true">↗</span>
-      </a>
+      {links.map(({ href, label }) => (
+        <a
+          href={href}
+          class:list={[label === 'Contacto' && 'nav-contact']}
+          aria-current={Astro.url.pathname.startsWith(href) ? 'page' : undefined}
+        >
+          {label} {label === 'Contacto' && <span aria-hidden="true">↗</span>}
+        </a>
+      ))}
     </nav>
   </div>
 </header>

@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import SitePage from '../../layouts/SitePage.astro';
+import { publishedNews } from '../../lib/news';
+export async function getStaticPaths() {
+  return publishedNews(await getCollection('news')).map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+interface Props {
+  item: CollectionEntry<'news'>;
+}
+const { item } = Astro.props;
+---
+
+<SitePage
+  title={item.data.title}
+  eyebrow={item.data.category === 'logro' ? 'Logros de gestión' : 'Noticias'}
+  description={item.data.summary}
+  parent={{ label: 'Novedades', href: '/novedades/' }}
+>
+  <article class="wrap page-section article-body">
+    <p class="path-number">
+      <time datetime={item.data.publishedAt}>
+        {new Date(item.data.publishedAt).toLocaleDateString('es-AR', {
+          timeZone: 'America/Argentina/Buenos_Aires',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })}
+      </time>
+    </p>
+    {item.data.body.map((paragraph) => (
+      <p>{paragraph}</p>
+    ))}
+    {item.data.facebookUrl && (
+      <a class="text-link" href={item.data.facebookUrl} target="_blank" rel="noopener noreferrer">
+        Ver publicación original en Facebook ↗
+      </a>
+    )}
+    <div class="page-back">
+      <a class="text-link" href="/novedades/">
+        ← Volver a novedades
+      </a>
+    </div>
+  </article>
+</SitePage>

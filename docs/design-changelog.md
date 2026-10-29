@@ -54,3 +54,7 @@ Headers y CSP Report-Only preparados; controles de hashes, exclusiones y almacen
 Publicación de revisión autorizada el13/10/2026: manual1.10 y checklist1.8, contenido/secciones y dominio pendientes. Registro: docs/vercel-preview.md.
 
 Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y salones como prioridades. Aceptación visual y merge pendientes. Detalles en docs/design-benefits-spaces.md; manual1.11 y checklist1.9 actualizados.
+
+## 1.12 · 29/10/2026 · sitio institucional en revisión
+
+La propuesta pasa a 18 páginas y 404, con fichas de beneficios y destinos, navegación compartida, preguntas frecuentes y colección de noticias/logros sin entradas reales. Mantiene anclas históricas del inicio. Panel institucional solicitado y diferido; Facebook será fuente, conexión pendiente. Sin nuevos paquetes; no hay merge autorizado de este lote.

@@ -45,4 +45,27 @@ const stays = defineCollection({
   loader: file('src/content/stays.json'),
   schema: z.object({ order, name: text, description: text }),
 });
-export const collections = { institution, services, branches, stays };
+const news = defineCollection({
+  loader: file('src/content/news.json'),
+  schema: z.object({
+    title: text,
+    summary: text,
+    category: z.enum(['noticia', 'logro']),
+    status: z.enum(['draft', 'published']),
+    publishedAt: z.iso.datetime({ offset: true }),
+    body: z.array(text).min(1),
+    facebookUrl: z
+      .url()
+      .refine((value) => {
+        const url = new URL(value);
+        return (
+          url.protocol === 'https:' &&
+          !url.username &&
+          !url.password &&
+          ['facebook.com', 'www.facebook.com', 'm.facebook.com'].includes(url.hostname)
+        );
+      }, 'Se requiere un enlace HTTPS de Facebook.')
+      .optional(),
+  }),
+});
+export const collections = { institution, services, branches, stays, news };

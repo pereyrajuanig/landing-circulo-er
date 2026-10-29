@@ -1,0 +1,15 @@
+---
+import { getEntry } from 'astro:content';
+import SitePage from '../layouts/SitePage.astro';
+import Contact from '../components/Contact.astro';
+const entry = await getEntry('institution', 'circulo');
+if (!entry) throw new Error('Falta el contenido institucional.');
+---
+
+<SitePage
+  title="Estamos para acompañarte"
+  eyebrow="Contacto y orientación"
+  description="Acercanos tu consulta sobre beneficios, alojamientos o espacios del Círculo."
+>
+  <Contact institution={entry.data} />
+</SitePage>

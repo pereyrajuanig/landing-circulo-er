@@ -24,7 +24,7 @@ export function scriptHashes(root = resolve(import.meta.dirname, '../dist')) {
 export function reportPolicy(hashes = scriptHashes()) {
   return [
     "default-src 'self'",
-    "script-src 'self' " + hashes.join(' '),
+    ['script-src', "'self'", ...hashes].join(' '),
     "style-src 'self'",
     "img-src 'self'",
     "font-src 'self'",

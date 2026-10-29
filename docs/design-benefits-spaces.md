@@ -21,3 +21,7 @@ Cobertura de este lote: 11 Node +22 Chromium Report-Only +22 Chromium con CSP ex
 Validación local final: check32 archivos sin diagnósticos, lint/formato correctos,55 ejecuciones aprobadas. Seis anchos320/390/768/1024/1440/1920 sin desborde; capturas revisadas. PDF:23/22 páginas,136 campos preservados; solo se actualizó la ficha del lote.
 
 CI detectó avisos publicados después de la auditoría anterior. Ajuste acotado del lockfile: fast-uri3.1.8→3.1.9 y undici8.11.2→8.12.3, dentro de sus rangos existentes; package.json y dependencias directas sin cambios. Se repite npm ci/validate y audit antes de dar el lote por validado.
+
+## Ampliación posterior del mismo lote
+
+El usuario pidió evolucionar la propuesta a sitio institucional. docs/site-evolution.md describe rutas, alcance y pendientes; manual1.12 y checklist1.10 actualizan la referencia1.11/1.9. Las55 ejecuciones anteriores corresponden al diseño de landing; la ampliación tiene su propia validación final registrada en el PR.

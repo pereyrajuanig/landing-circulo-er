@@ -39,3 +39,11 @@ Usar fotos propias o autorizadas de sede y actividades. Mantener voseo respetuos
 El dossier original se conserva únicamente en docs/reference/, excluido de Git y del build. Las guías y el manual generado forman parte de la documentación del proyecto.
 
 El [futuro CMS](cms-roadmap.md) requiere definir editor, permisos y publicación. No hay panel editorial ni cuentas de usuarios implementadas en esta migración.
+
+## Publicaciones y fichas en la propuesta multipágina
+
+Las fichas de servicios y destinos reutilizan sus colecciones. src/content/news.json queda vacío hasta recibir publicaciones aprobadas. Cada noticia requiere id con minúsculas/números/guiones, title, summary, category (noticia/logro), status (draft/published), publishedAt ISO con zona horaria y body como lista de párrafos. facebookUrl es opcional y solo admite HTTPS de Facebook sin credenciales.
+
+Solo published con fecha no futura genera artículos y aparece en los listados. El corte ocurre en build: una fecha futura no publica automáticamente sin nueva construcción. No pegar HTML ni tokens. El texto se escapa al renderizar. El modelo actual admite párrafos; galerías y texto enriquecido requieren una extensión revisada.
+
+Editar JSON sigue siendo el mecanismo actual. El panel y la importación de Facebook aún no están conectados; ver cms-roadmap.md y site-evolution.md.

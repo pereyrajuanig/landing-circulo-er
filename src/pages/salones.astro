@@ -1,0 +1,32 @@
+---
+import { getEntry } from 'astro:content';
+import SitePage from '../layouts/SitePage.astro';
+import Events from '../components/Events.astro';
+const entry = await getEntry('institution', 'circulo');
+if (!entry) throw new Error('Falta el contenido institucional.');
+---
+
+<SitePage
+  title="Salones para encontrarnos"
+  eyebrow="Momentos en comunidad"
+  description="Conocé los espacios de encuentro del Círculo en Paraná y acercanos tu consulta para organizar un evento."
+>
+  <Events institution={entry.data} />
+  <section class="wrap page-section faq-section" aria-labelledby="events-faq">
+    <h2 id="events-faq">Empecemos por tu encuentro.</h2>
+    <details>
+      <summary>¿Qué información incluyo en mi consulta?</summary>
+      <p>
+        Podés indicar la fecha estimada, el tipo de encuentro, la cantidad aproximada de personas y
+        las necesidades de accesibilidad. Eso ayuda a orientar la consulta.
+      </p>
+    </details>
+    <details>
+      <summary>¿Dónde se confirman equipamiento, tarifas y disponibilidad?</summary>
+      <p>
+        La institución informa los espacios y las condiciones vigentes. La consulta desde la web no
+        confirma fechas ni una reserva.
+      </p>
+    </details>
+  </section>
+</SitePage>

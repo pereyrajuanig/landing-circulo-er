@@ -2,7 +2,7 @@
 
 [![Calidad](https://github.com/pereyrajuanig/landing-circulo-er/actions/workflows/quality.yml/badge.svg)](https://github.com/pereyrajuanig/landing-circulo-er/actions/workflows/quality.yml)
 
-Landing institucional para el Círculo de Retirados y Pensionados de la Policía de Entre Ríos. Combina historia, servicios y contacto con una experiencia centrada en la cercanía y el acompañamiento.
+Sitio institucional en evolución para el Círculo de Retirados y Pensionados de la Policía de Entre Ríos. Combina historia, servicios y contacto con una experiencia centrada en la cercanía y el acompañamiento.
 
 ![Portada de la versión cálida](docs/media/landing-desktop.jpg)
 
@@ -24,7 +24,7 @@ La vista histórica requiere una cuenta con acceso en ChatGPT. [Versión para re
 
 **Astro 7.3.8**, TypeScript estricto, CSS propio y JavaScript para las interacciones. Node.js 24 (mínimo 24.16) y npm se usan en desarrollo, CI y build. La salida es HTML estático: no necesita un servidor Node en producción.
 
-Cuatro colecciones de contenido JSON, validadas por esquemas, separan datos de la interfaz. Esta base permite integrar un CMS en una tarea posterior; no incluye uno instalado.
+Cinco colecciones de contenido JSON, validadas por esquemas, separan datos de la interfaz. Esta base permite integrar un CMS en una tarea posterior; no incluye uno instalado.
 
 ## Empezar
 
@@ -59,12 +59,12 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preview del build                                       | npm run preview      |
 | Medición de rendimiento local                           | npm run perf         |
 
-npm test construye y ejecuta once pruebas Node y veintidós Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta trece pruebas Node y veinticuatro Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
 ```text
-src/pages/          Ruta principal
+src/pages/          Inicio, índices y fichas del sitio
 src/layouts/        Documento HTML y estilos globales
 src/components/     Cabecera, secciones y pie
 src/content/        Institución, servicios, filiales y alojamientos
@@ -119,3 +119,11 @@ Las versiones anteriores del manual se conservan en docs/archive/. El vigente es
 Seguridad: headers y CSP Report-Only preparados para Vercel, probados localmente. npm run test:csp verifica el modo exigido local; npm run security:update actualiza el hash después de cambios revisados. No acredita headers/HTTPS del hosting real. Ver docs/security-privacy.md.
 
 Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y salones como prioridades. Aceptación visual y merge pendientes. Detalles en docs/design-benefits-spaces.md; manual1.11 y checklist1.9 actualizados.
+
+## Sitio institucional · propuesta del 29/10/2026
+
+La rama de revisión amplía el diseño a 18 páginas públicas y 404: cinco fichas de beneficios, seis alojamientos, salones, institución/filiales, contacto y novedades. Noticias y logros tienen modelo local y rutas preparadas, sin publicaciones reales cargadas.
+
+El personal institucional usará un panel sencillo; Sanity es la propuesta y su activación quedó diferida por el usuario. Facebook será origen de las novedades, pero el enlace/acceso todavía no está disponible y no hay sincronización activa. Ver [alcance, etapas y bloqueos](docs/site-evolution.md) y [panel editorial](docs/cms-roadmap.md). No hay nuevas dependencias.
+
+Manual1.12 y checklist1.10 incorporan esta evolución; las páginas anteriores conservan la referencia histórica. La navegación de la rama cambia a páginas propias; main conserva su versión hasta un merge autorizado.
