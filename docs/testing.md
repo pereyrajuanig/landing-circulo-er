@@ -51,3 +51,11 @@ Estas pruebas cubren Chromium en Windows y Ubuntu, con emulación móvil; no equ
 Medición de laboratorio: npm run perf; detalles y límites en [etapa06](stage-06-performance.md). No se impone un umbral temporal inestable en CI.
 
 Seguridad: la suite completa ejecuta 11 Node y20 casos Chromium Report-Only más20 exigidos localmente. Probe controlado comprueba detección/bloqueo; flujos normales sin violaciones. Cookies/almacenamiento vacíos en contextos nuevos. TEST_CSP_ENFORCE se usa solo en el servidor de pruebas. Guía: [seguridad y límites](security-privacy.md).
+
+## Ampliación a sitio institucional
+
+La suite vigente añade cobertura de publicación (borradores y fechas), navegación entre páginas, fichas, FAQ y enlace al alojamiento elegido. Son 13 Node +24 Chromium Report-Only +24 Chromium con CSP exigida local (61 ejecuciones). El validador recorre todo el HTML generado: h1, idioma, metadatos, referencias ARIA y recursos/anclas entre páginas.
+
+La colección news vacía produce advertencias informativas de Astro; no se añaden noticias ficticias para eliminarlas. El CMS y la sincronización real con Facebook no se validan hasta conectarlos. Revisar fichas y listados con contenido real antes del lanzamiento.
+
+La suite también ejecuta npm run test:editorial: construye una copia aislada en una carpeta temporal, con caché propia y contenido sintético; prueba artículos, categorías, búsqueda, escape de HTML, borradores y fechas futuras bajo CSP exigida. Cierra su navegador/preview y elimina solo la carpeta temporal verificada. No modifica news.json del proyecto ni publica ese contenido. La evidencia responsive de la propuesta recorre18 rutas ×6 anchos (108 verificaciones); ver site-evolution-evidence.json.

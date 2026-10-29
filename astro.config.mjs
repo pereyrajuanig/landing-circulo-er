@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import { writeFile } from 'node:fs/promises';
+import { writeFile, readdir } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
 import { getDeployment } from './config/seo.mjs';
 const deployment = getDeployment();
@@ -30,10 +30,27 @@ export default defineConfig({
               (deployment.indexable ? `Sitemap: ${deployment.site}sitemap.xml\n` : ''),
           );
           if (deployment.indexable) {
-            const site = deployment.site.replaceAll('&', '&amp;');
+            const walk = async (directory, prefix = '') => {
+              const entries = await readdir(directory, { withFileTypes: true });
+              const nested = await Promise.all(
+                entries.map((entry) =>
+                  entry.isDirectory()
+                    ? walk(new URL(entry.name + '/', directory), prefix + entry.name + '/')
+                    : [prefix + entry.name],
+                ),
+              );
+              return nested.flat();
+            };
+            const paths = (await walk(dir)).filter((file) => file.endsWith('index.html')).sort();
+            const urls = paths.map((file) =>
+              new URL(file.replace(/index\.html$/, ''), deployment.site).href.replaceAll(
+                '&',
+                '&amp;',
+              ),
+            );
             await writeFile(
               new URL('sitemap.xml', dir),
-              `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${site}</loc></url></urlset>`,
+              `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => '<url><loc>' + url + '</loc></url>').join('')}</urlset>`,
             );
           }
         },

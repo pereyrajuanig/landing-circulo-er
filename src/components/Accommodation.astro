@@ -14,11 +14,11 @@ if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
   <div class="wrap">
     <div class="section-heading">
       <div>
-        <p class="eyebrow dark">04 / ALOJAMIENTO Y TURISMO SOCIAL</p>
+        <p class="eyebrow dark">02 / ALOJAMIENTOS DEL CÍRCULO</p>
         <h2>
-          Un lugar para llegar.
+          Tu próxima estadía,
           <br />
-          <em>Tiempo para compartir.</em>
+          <em>más cerca.</em>
         </h2>
       </div>
       <p>
@@ -57,6 +57,13 @@ if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
           href={mailTo(institution.email, `Consulta de alojamiento en ${initialStay.data.name}`)}
         >
           Consultar alojamiento <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          id="stay-detail-link"
+          class="text-link stay-info-link"
+          href={'/alojamientos/' + initialStay.id + '/'}
+        >
+          Conocer este alojamiento →
         </a>
         <span class="stay-watermark" aria-hidden="true">
           ER

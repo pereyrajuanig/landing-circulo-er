@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { reportPolicy, scriptHashes } from './security-policy.mjs';
@@ -24,7 +24,14 @@ export function validateSecurity() {
     headers['Permissions-Policy'],
     'camera=(), microphone=(), geolocation=(), payment=()',
   );
-  const html = readFileSync(resolve(root, 'dist/index.html'), 'utf8');
+  const walk = (directory) =>
+    readdirSync(directory, { withFileTypes: true }).flatMap((entry) =>
+      entry.isDirectory() ? walk(resolve(directory, entry.name)) : [resolve(directory, entry.name)],
+    );
+  const html = walk(resolve(root, 'dist'))
+    .filter((file) => file.endsWith('.html'))
+    .map((file) => readFileSync(file, 'utf8'))
+    .join('\n');
   for (const [, attrs] of html.matchAll(/<a\b([^>]*)>/gi)) {
     if (/target="_blank"/.test(attrs)) {
       assert(/rel="[^"]*noopener/.test(attrs));

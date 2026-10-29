@@ -30,7 +30,7 @@ CW = W - 2 * M
 NAVY, DEEP, GOLD = '#092b48', '#062139', '#d2b16a'
 PAPER, CREAM, INK, MUTED, LINE = '#fcfaf5', '#f3eee4', '#143049', '#56656c', '#dfd8cb'
 GOLDINK, GREEN = '#826329', '#34664a'
-DATE = '13 de octubre de 2026'
+DATE = '29 de octubre de 2026'
 SHA = PROGRESS.get('baselineCommit', 'aec7c2759948f893330e4afe36d224bba26f11b3')
 REPO = 'https://github.com/pereyrajuanig/landing-circulo-er'
 PR = REPO + '/pull/2'
@@ -40,7 +40,7 @@ OUT.parent.mkdir(parents=True, exist_ok=True)
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Checklist y paso a paso | Landing Círculo Entre Ríos')
 c.setAuthor('Proyecto Landing-CirculoER')
-c.setSubject('Plan de trabajo por etapas. Versión 1.8. Corte: 13 de octubre de 2026.')
+c.setSubject('Plan de trabajo por etapas. Versión 1.10. Corte: 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 FIELDS = {}
@@ -127,7 +127,7 @@ def begin(key, title, subtitle, label='PLAN DE TRABAJO'):
     c.bookmarkPage(key)
     c.addOutlineEntry(title.replace('<br/>', ' '), key, 0, False)
     text('CÍRCULO / CHECKLIST DE PRODUCCIÓN', M, 28, 7.2, ink=MUTED)
-    right('V1.8 / 13 OCT 2026', W-M, 28, 7.2)
+    right('V1.10 / 29 OCT 2026', W-M, 28, 7.2)
     line(M, 47, W-M, 47)
     text(label, M, 65, 8, ink=GOLDINK)
     y = para(title, M, 86, CW, 29, 33, INK, 'Caslon')
@@ -212,11 +212,11 @@ line(M, 73, W-M, 73)
 c.drawImage(str(ESCUDO), W-M-99, H-202, width=85, height=102, preserveAspectRatio=True, mask='auto')
 text('DEL DISEÑO AL LANZAMIENTO', M, 247, 9, ink=GOLDINK)
 para('Checklist<br/>y paso a paso', M, 292, CW, 54, 57, INK, 'Caslon')
-para('Tareas por etapa para construir, verificar,<br/>publicar y mantener la landing institucional.', M, 440, CW, 14, 21, MUTED)
+para('Tareas por etapa para construir, verificar,<br/>publicar y mantener el sitio institucional.', M, 440, CW, 14, 21, MUTED)
 line(M, 520, M+95, 520, GOLDINK, 2)
-box('Una guía para trabajar juntos', 'Once etapas con tareas ordenadas, dependencias, controles y criterios de cierre. Casillas y campos editables para registrar el avance. La institución y el usuario participan en contenido y diseño.', 551, PAPER)
+box('Una guía para trabajar juntos', 'Doce etapas con tareas ordenadas, dependencias, controles y criterios de cierre. Casillas y campos editables para registrar el avance. La institución y el usuario participan en contenido y diseño.', 551, PAPER)
 text('Astro + TypeScript / Revisión publicada en Vercel', M, 669, 10, ink=NAVY)
-text('Versión 1.8 / '+DATE, M, 718, 9, ink=MUTED)
+text('Versión 1.10 / '+DATE, M, 718, 9, ink=MUTED)
 para('Documento de trabajo del proyecto. La preparación de este PDF no realiza merges ni despliegues. El alcance de cada tarea se acuerda antes de implementarla.', M, 749, CW, 8.5, 12, MUTED)
 
 # 02 / How to use
@@ -243,7 +243,7 @@ y = table(['Área', 'Evidencia y estado'], [
     ['Etapa 06', escape(PROGRESS.get('stages', {}).get('06', {}).get('summary', 'Pendiente de registro.'))],
     ['Vercel', 'Revisión publicada: landing-circulo-er.vercel.app. Production de main con noindex; contenido y dominio pendientes.'],
     ['CMS', 'No instalado. Su incorporación depende de requisitos de edición acordados con la institución.'],
-    ['Documentación', 'Manual visual v1.10; registro de tareas en checklist-progress.json. Consultar security-privacy.md para avance y límites.'],
+    ['Documentación', 'Manual visual v1.11; registro de tareas en checklist-progress.json. Consultar security-privacy.md para avance y límites.'],
     ['Etapa 01', escape(PROGRESS.get('stages', {}).get('01', {}).get('summary', 'Pendiente de registro.'))],
     ['Etapa 02', escape(PROGRESS.get('stages', {}).get('02', {}).get('summary', 'Pendiente de registro.'))],
 ], [119, CW-119], y, 8.6)+21
@@ -495,13 +495,31 @@ for label, url in references:
 y = box('Mantener este documento', 'Regenerar desde tools/docs/build_checklist.py con ReportLab y pypdf. Actualizar checklist-progress.json con fecha y evidencia; regenerar y revisar campos. Los otros campos manuales existentes se conservan. Conservar la guía base y una copia de seguimiento; actualizar documentación cuando se alteren funciones o decisiones.', y+3)+17
 para('El manual visual docs/design-system.pdf describe la identidad y componentes. Esta checklist organiza la ejecución y no sustituye ese documento ni la aprobación institucional.', M, y, CW, 9, 13)
 
+
+# 23 / Nuevo alcance: sitio institucional.
+y = begin('sitio_institucional', '12. Sitio y publicación editorial', 'Ampliación del 29/10/2026. Separar la base implementada de la aceptación institucional y las integraciones todavía pendientes.')
+new_tasks = [
+ ('12.01', 'Aprobar mapa y navegación', 'Revisar inicio, índices y fichas en escritorio y móvil; registrar aceptación del usuario.'),
+ ('12.02', 'Completar beneficios', 'Recibir alcance, requisitos y condiciones de cada servicio con aprobación institucional.'),
+ ('12.03', 'Completar alojamientos', 'Incorporar fotos reales, ubicación, equipamiento y condiciones verificadas de los seis destinos.'),
+ ('12.04', 'Completar salones', 'Confirmar espacios, capacidad, equipamiento y condiciones antes de publicarlos.'),
+ ('12.05', 'Activar panel editorial', 'Crear cuenta institucional, esquema y permisos; activación diferida por el usuario.'),
+ ('12.06', 'Probar publicación desde el panel', 'Comprobar borrador, revisión, publicación, build y recuperación en preview.'),
+ ('12.07', 'Verificar acceso a Facebook', 'Recibir enlace y acceso administrativo; comprobar API, permisos y método viable.'),
+ ('12.08', 'Probar Facebook hacia el sitio', 'Publicar, editar y retirar una entrada real; evitar duplicados y ensayar fallo de conexión.'),
+ ('12.09', 'Revalidar antes del lanzamiento', 'Contenido aprobado, accesibilidad, rendimiento, SEO, privacidad y dominio real.'),
+]
+for code, title, detail in new_tasks:
+    y = task(code, title, detail, y)
+box('Estado del lote', 'Base de rutas y fichas preparada en la propuesta. Noticias sin entradas reales. CMS y Facebook no conectados. Las tareas requieren los criterios anteriores para cerrarse; ver docs/site-evolution.md.', y+4)
+
 bad = [entry for entry in BOUNDS if entry[2] > 781]
 if bad:
     print('OVERFLOW', bad)
     raise RuntimeError('Contenido fuera del área segura')
 c.save()
 reader = PdfReader(str(OUT))
-assert len(reader.pages) == 22, len(reader.pages)
+assert len(reader.pages) == 23, len(reader.pages)
 for i, page in enumerate(reader.pages, 1):
     body = page.extract_text()
     assert len(body) > 100, i

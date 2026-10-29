@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import SitePage from '../../layouts/SitePage.astro';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<SitePage
+  title="Beneficios para acompañarte"
+  eyebrow="Tu bienestar, cada día"
+  description="Salud, orientación y espacios para compartir. Conocé los servicios del Círculo y prepará tu consulta."
+>
+  <section class="wrap page-section" aria-labelledby="benefits-access">
+    <div class="audience-note">
+      <h2 id="benefits-access">Un vínculo con la comunidad policial.</h2>
+      <p>
+        Los beneficios se dirigen a quienes se retiraron de la Policía y a quienes perciben una
+        pensión vinculada a ella. Consultá con el Círculo las condiciones de acceso de cada
+        prestación.
+      </p>
+    </div>
+    <div class="editorial-list">
+      {services.map(({ id, data }, i) => (
+        <article>
+          <span class="path-number">
+            {String(i + 1).padStart(2, '0')} / {data.caption}
+          </span>
+          <div>
+            <h2>
+              <a href={'/beneficios/' + id + '/'}>
+                {data.name} <span aria-hidden="true">↗</span>
+              </a>
+            </h2>
+            <p>{data.description}</p>
+            <a class="text-link" href={'/beneficios/' + id + '/'}>
+              Conocer este beneficio <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</SitePage>

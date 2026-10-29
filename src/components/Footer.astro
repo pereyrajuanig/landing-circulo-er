@@ -6,11 +6,12 @@ interface Props {
   institution: CollectionEntry<'institution'>['data'];
 }
 const { institution } = Astro.props;
+const home = Astro.url.pathname === '/' ? '' : '/';
 ---
 
 <footer>
   <div class="wrap footer-top">
-    <a class="brand footer-brand" href="#inicio">
+    <a class="brand footer-brand" href={home + '#inicio'}>
       <Image
         src={crest}
         format="webp"
@@ -27,10 +28,18 @@ const { institution } = Astro.props;
       </span>
     </a>
     <p>Historia. Compromiso. Comunidad.</p>
-    <a href="#inicio">
+    <a href={home + '#inicio'}>
       Volver al inicio <span aria-hidden="true">↑</span>
     </a>
   </div>
+  <nav class="wrap site-directory" aria-label="Explorar el sitio">
+    <a href="/beneficios/">Beneficios</a>
+    <a href="/alojamientos/">Alojamientos</a>
+    <a href="/salones/">Salones</a>
+    <a href="/novedades/">Noticias y logros</a>
+    <a href="/institucion/">Institución y filiales</a>
+    <a href="/contacto/">Contacto</a>
+  </nav>
   <div class="wrap footer-bottom">
     <span>
       © <span id="year">{new Date().getFullYear()}</span> {institution.name}

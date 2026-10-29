@@ -83,51 +83,43 @@ test('salto de teclado y CTA llevan al contenido y a contacto', async ({ page })
   await expect(page.locator('#contacto h2')).toBeInViewport();
 });
 
-test('menú y navegación conservan estado, destino y retorno de foco', async ({
+test('menú y navegación llevan a las páginas del sitio y conservan retorno de foco', async ({
   page,
   isMobile,
 }) => {
   const menu = page.getByRole('button', { name: 'Menú', exact: true });
-  const navigation = page.getByRole('navigation', { name: 'Navegación principal' });
-  if (!isMobile) {
+  let navigation = page.getByRole('navigation', {
+    name: 'Navegación principal',
+    includeHidden: true,
+  });
+  if (isMobile) {
+    await menu.focus();
+    await menu.press('Enter');
+    await expect(menu).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Tab');
+    await expect(navigation.getByRole('link', { name: 'Beneficios', exact: true })).toBeFocused();
+    await page.keyboard.press('Escape');
+    await expect(menu).toBeFocused();
+    await expect(navigation).toBeHidden();
+    await menu.click();
+  } else {
     await expect(menu).toBeHidden();
-    await expect(navigation).toBeVisible();
-    await navigation.getByRole('link', { name: 'Filiales', exact: true }).click();
-    await expect(page).toHaveURL(/#filiales$/);
-    await expect(page.locator('#filiales h2')).toBeInViewport();
-    return;
   }
-  for (let step = 0; step < 4; step++) await page.keyboard.press('Tab');
-  await expect(menu).toBeFocused();
-  await expect(menu).toHaveAttribute('aria-expanded', 'false');
-  await page.keyboard.press('Enter');
-  await expect(menu).toHaveAttribute('aria-expanded', 'true');
-  await expect(navigation).toBeVisible();
-  await page.keyboard.press('Tab');
-  await expect(navigation.getByRole('link', { name: 'Institución', exact: true })).toBeFocused();
-  await page.keyboard.press('Escape');
-  await expect(menu).toBeFocused();
-  await expect(navigation).toBeHidden();
-  await menu.click();
-  await navigation.getByRole('link', { name: 'Filiales', exact: true }).click();
-  await expect(page).toHaveURL(/#filiales$/);
-  await expect(menu).toHaveAttribute('aria-expanded', 'false');
-  const heading = page.locator('#filiales h2');
-  await expect(heading).toBeFocused();
-  await expect
-    .poll(async () => {
-      const title = await heading.boundingBox();
-      const header = await page.locator('header').boundingBox();
-      return title.y >= header.y + header.height;
-    })
-    .toBe(true);
-  await page.keyboard.press('Tab');
-  await expect(page.getByLabel('Encontrá tu localidad', { exact: true })).toBeFocused();
-  await menu.click();
-  for (let step = 0; step < 6; step++) await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Hablemos', exact: true })).toBeFocused();
-  await expect(navigation).toBeHidden();
-  await expect(menu).toHaveAttribute('aria-expanded', 'false');
+  await navigation.getByRole('link', { name: 'Novedades', exact: true }).click();
+  await expect(page).toHaveURL(/\/novedades\/$/);
+  await page.waitForLoadState('load');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Noticias y logros de gestión');
+  navigation = page.getByRole('navigation', { name: 'Navegación principal', includeHidden: true });
+  await expect(
+    navigation.getByRole('link', { name: 'Novedades', exact: true, includeHidden: true }),
+  ).toHaveAttribute('aria-current', 'page');
+  if (isMobile) {
+    await expect(menu).toHaveAttribute('aria-expanded', 'false');
+    await menu.click();
+  }
+  await navigation.getByRole('link', { name: 'Beneficios', exact: true }).click();
+  await expect(page).toHaveURL(/\/beneficios\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Beneficios para acompañarte');
 });
 
 test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede', async ({
@@ -163,6 +155,10 @@ test('seis alojamientos cambian selección única, contenido y asunto del correo
     await expect(button).toHaveAttribute('aria-pressed', 'true');
     await expect(selector.locator('button[aria-pressed="true"]')).toHaveCount(1);
     await expect(page.locator('#stay-title')).toHaveText(stay.name);
+    await expect(page.locator('#stay-detail-link')).toHaveAttribute(
+      'href',
+      '/alojamientos/' + stay.id + '/',
+    );
     await expect(page.locator('#stay-copy')).toHaveText(stay.description);
     const url = new URL(
       await page
@@ -223,13 +219,16 @@ test('anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos', as
 
 test('cambios de tamaño y menú bajo mantienen foco utilizable sin desborde', async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
-  const navigation = page.getByRole('navigation', { name: 'Navegación principal' });
-  await navigation.getByRole('link', { name: 'Servicios', exact: true }).focus();
+  const navigation = page.getByRole('navigation', {
+    name: 'Navegación principal',
+    includeHidden: true,
+  });
+  await navigation.getByRole('link', { name: 'Beneficios', exact: true }).focus();
   await page.setViewportSize({ width: 390, height: 844 });
   const menu = page.getByRole('button', { name: 'Menú', exact: true });
   await expect(menu).toBeFocused();
   await page.setViewportSize({ width: 1024, height: 768 });
-  await expect(navigation.getByRole('link', { name: 'Institución', exact: true })).toBeFocused();
+  await expect(navigation.getByRole('link', { name: 'Beneficios', exact: true })).toBeFocused();
   await page.setViewportSize({ width: 640, height: 360 });
   await menu.press('Enter');
   for (let step = 0; step < 5; step++) await page.keyboard.press('Tab');
@@ -303,4 +302,63 @@ test('recursos locales y consultas no crean almacenamiento de aplicación', asyn
       .map((entry) => entry.name),
   }));
   expect(inventory).toEqual({ local: [], session: [], databases: [], workers: [], remote: [] });
+});
+
+test('beneficios estadías y salones tienen acceso directo y consulta específica', async ({
+  page,
+}) => {
+  const paths = page.getByRole('navigation', { name: 'Conocé tus beneficios' });
+  await expect(paths.locator('a')).toHaveCount(3);
+  await expect(page.locator('.hero-welcome')).toContainText('una pensión vinculada a ella');
+  await paths.getByRole('link', { name: /Salones para eventos/ }).click();
+  await expect(page).toHaveURL(/\/salones\/$/);
+  await expect(page.locator('#events-title')).toBeInViewport();
+  const href = await page
+    .getByRole('link', { name: 'Consultar por un salón', exact: true })
+    .getAttribute('href');
+  const url = new URL(href);
+  expect(url.protocol).toBe('mailto:');
+  expect(url.pathname).toBe(institution.email);
+  expect(url.searchParams.get('subject')).toBe('Consulta sobre salones para eventos');
+  await page.goto('/contacto/');
+  expect(await page.locator('#contacto').innerText()).not.toContain('cómo formar parte');
+});
+
+test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar', async ({
+  page,
+}) => {
+  await page
+    .getByRole('navigation', { name: 'Conocé tus beneficios' })
+    .getByRole('link', { name: /Alojamientos/ })
+    .click();
+  await expect(page).toHaveURL(/\/alojamientos\/$/);
+  await page.getByRole('link', { name: 'Nogoyá', exact: true }).click();
+  await expect(page).toHaveURL(/\/alojamientos\/nogoya\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Alojamiento en Nogoyá');
+  await page.getByText('¿Puedo reservar desde esta página?', { exact: true }).press('Enter');
+  await expect(
+    page.getByText('La web ofrece información y prepara una consulta por correo.', {
+      exact: false,
+    }),
+  ).toBeVisible();
+  const url = new URL(
+    await page
+      .getByRole('link', { name: 'Consultar alojamiento', exact: true })
+      .getAttribute('href'),
+  );
+  expect(url.searchParams.get('subject')).toBe('Consulta de alojamiento en Nogoyá');
+  const navigation = page.getByRole('navigation', { name: 'Explorar el sitio' });
+  await navigation.getByRole('link', { name: 'Beneficios', exact: true }).click();
+  await page
+    .getByRole('heading', { level: 2 })
+    .filter({ hasText: 'Farmacia y beneficios' })
+    .getByRole('link')
+    .click();
+  await expect(page).toHaveURL(/\/beneficios\/farmacia\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Farmacia y beneficios');
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
+    ),
+  ).toBe(true);
 });

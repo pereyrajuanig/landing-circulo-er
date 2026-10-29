@@ -94,6 +94,8 @@ if (stayLayout?.dataset.stays && stayLayout.dataset.email && stayTitle && stayCo
         tab.classList.toggle('active', active);
         tab.setAttribute('aria-pressed', String(active));
       });
+      const detailLink = document.querySelector<HTMLAnchorElement>('#stay-detail-link');
+      if (detailLink) detailLink.href = '/alojamientos/' + stay.id + '/';
       stayTitle.textContent = stay.name;
       stayCopy.textContent = stay.description;
       stayLink.href = mailTo(email, 'Consulta de alojamiento en ' + stay.name);

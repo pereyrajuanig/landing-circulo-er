@@ -6,6 +6,7 @@ import { once } from 'node:events';
 import { validateSite } from '../scripts/check-build.mjs';
 import { normalize, branchStatus } from '../src/lib/search.ts';
 import { mailTo } from '../src/lib/contact.ts';
+import { publishedNews, matchesNews } from '../src/lib/news.ts';
 import { getDeployment } from '../config/seo.mjs';
 import { validateSecurity } from '../scripts/check-security.mjs';
 
@@ -136,7 +137,9 @@ test('Astro preview sirve HTML, CSS, JavaScript y escudo con sus MIME correctos'
           ? /font\/woff2/
           : path.endsWith('.webp')
             ? /image\/webp/
-            : /image\/png/;
+            : /\.(?:png)(?:[?#]|$)/.test(path)
+              ? /image\/png/
+              : /text\/html/;
     assert.match(asset.headers.get('content-type'), type, path);
     assert((await asset.arrayBuffer()).byteLength > 0, path);
   }
@@ -223,8 +226,18 @@ test('el build SEO mantiene título, metadatos y rastreo coherentes', async () =
   assert.equal(policy.includes('Sitemap:'), deployment.indexable);
   const sitemap = await fetch(new URL('/sitemap.xml', origin));
   assert.equal(sitemap.status, deployment.indexable ? 200 : 404);
-  if (deployment.indexable)
-    assert((await sitemap.text()).includes('<loc>' + deployment.site + '</loc>'));
+  if (deployment.indexable) {
+    const xml = await sitemap.text();
+    for (const path of [
+      '',
+      'beneficios/salud/',
+      'alojamientos/nogoya/',
+      'novedades/',
+      'institucion/',
+    ])
+      assert(xml.includes('<loc>' + deployment.site + path + '</loc>'), path);
+    assert(!xml.includes('404.html'));
+  }
   const card = await fetch(new URL('/assets/social-card.png', origin));
   assert.equal(card.status, 200);
   assert.match(card.headers.get('content-type'), /image\/png/);
@@ -249,4 +262,57 @@ test('preview sirve los headers preparados en portada y recursos', async () => {
     assert.equal(response.headers.get('content-security-policy'), null);
     assert.equal(response.headers.get('strict-transport-security'), null);
   }
+});
+
+test('las publicaciones excluyen borradores y fechas futuras y ordenan las noticias', () => {
+  const sample = (id, status, publishedAt, category = 'noticia') => ({
+    id,
+    data: {
+      title: 'Gestión en María Grande',
+      summary: 'Encuentro institucional',
+      category,
+      status,
+      publishedAt,
+    },
+  });
+  const items = [
+    sample('futura', 'published', '2026-11-10T12:00:00Z'),
+    sample('borrador', 'draft', '2026-10-01T12:00:00Z'),
+    sample('anterior', 'published', '2026-10-02T12:00:00Z'),
+    sample('reciente', 'published', '2026-10-20T12:00:00Z', 'logro'),
+  ];
+  assert.deepEqual(
+    publishedNews(items, new Date('2026-10-29T12:00:00Z')).map((item) => item.id),
+    ['reciente', 'anterior'],
+  );
+  assert(matchesNews(items[3].data.title, items[3].data.summary, 'logro', '  MARIA  ', 'logro'));
+  assert(!matchesNews('Gestión', 'Encuentro', 'logro', '', 'noticia'));
+  assert(!matchesNews('Gestión', 'Encuentro', 'logro', 'inexistente', 'all'));
+  assert.throws(
+    () => publishedNews([sample('../escape', 'published', '2026-10-01T12:00:00Z')]),
+    /Identificador/,
+  );
+});
+test('el sitio genera las fichas de servicios y destinos y todas sus rutas son navegables', async () => {
+  const paths = [
+    '/beneficios/',
+    '/alojamientos/',
+    '/salones/',
+    '/institucion/',
+    '/contacto/',
+    '/novedades/',
+    ...load('../src/content/services.json').map((entry) => '/beneficios/' + entry.id + '/'),
+    ...load('../src/content/stays.json').map((entry) => '/alojamientos/' + entry.id + '/'),
+  ];
+  for (const path of paths) {
+    const response = await fetch(new URL(path, origin));
+    assert.equal(response.status, 200, path);
+    const html = await response.text();
+    assert.equal([...html.matchAll(/<h1\b/g)].length, 1, path);
+    assert(!html.includes('href="#inicio"'), 'Enlace de inicio sin destino: ' + path);
+    assert.match(html, /aria-label="Ubicación"/, path);
+  }
+  const newsroom = await (await fetch(new URL('/novedades/', origin))).text();
+  assert.match(newsroom, /Todavía no hay publicaciones para mostrar/);
+  assert.equal((await fetch(new URL('/novedades/noticia-no-publicada/', origin))).status, 404);
 });

@@ -1,0 +1,82 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import SitePage from '../../layouts/SitePage.astro';
+import { mailTo } from '../../lib/contact';
+export async function getStaticPaths() {
+  return (await getCollection('stays')).map((stay) => ({
+    params: { id: stay.id },
+    props: { stay },
+  }));
+}
+interface Props {
+  stay: CollectionEntry<'stays'>;
+}
+const { stay } = Astro.props;
+const entry = await getEntry('institution', 'circulo');
+if (!entry) throw new Error('Falta el contacto institucional.');
+---
+
+<SitePage
+  title={'Alojamiento en ' + stay.data.name}
+  eyebrow="Tu estadía en Entre Ríos"
+  description={stay.data.description}
+  parent={{ label: 'Alojamientos', href: '/alojamientos/' }}
+>
+  <section class="wrap page-section detail-grid" aria-labelledby="stay-planning">
+    <div>
+      <p class="eyebrow dark">Planificá tu visita</p>
+      <h2 id="stay-planning">Tu próxima pausa empieza con una consulta.</h2>
+      <p>
+        Indicá el destino, las fechas que tenés en mente y cuántas personas viajarían. El Círculo
+        podrá orientarte sobre las opciones actuales.
+      </p>
+      <a
+        class="button button-navy"
+        href={mailTo(entry.data.email, 'Consulta de alojamiento en ' + stay.data.name)}
+      >
+        Consultar alojamiento <span aria-hidden="true">↗</span>
+      </a>
+      <p class="small-note">
+        La consulta por correo no confirma una reserva. La institución informa disponibilidad y
+        condiciones.
+      </p>
+    </div>
+    <aside class="consultation-panel" aria-labelledby="stay-check">
+      <p class="eyebrow dark">Antes de viajar</p>
+      <h2 id="stay-check">Conversá sobre los detalles.</h2>
+      <ul>
+        <li>Disponibilidad para tus fechas</li>
+        <li>Capacidad, habitaciones y equipamiento</li>
+        <li>Tarifas vigentes y forma de reserva</li>
+        <li>Ubicación exacta, ingreso y condiciones de uso</li>
+        <li>Condiciones de accesibilidad que necesitás</li>
+      </ul>
+      <p class="small-note">
+        Estos son puntos para consultar. No se publican condiciones todavía no confirmadas.
+      </p>
+    </aside>
+  </section>
+  <section class="wrap page-section faq-section" aria-labelledby="stay-faq">
+    <h2 id="stay-faq">Para organizarte mejor.</h2>
+    <details>
+      <summary>¿Puedo reservar desde esta página?</summary>
+      <p>
+        La web ofrece información y prepara una consulta por correo. Las reservas se coordinan
+        directamente con la institución, según disponibilidad.
+      </p>
+    </details>
+    <details>
+      <summary>¿Dónde consulto por familiares y acompañantes?</summary>
+      <p>
+        Incluí esa información en tu consulta para que la institución confirme las condiciones
+        aplicables a tu visita.
+      </p>
+    </details>
+  </section>
+  <div class="wrap page-back">
+    <a class="text-link" href="/alojamientos/">
+      ← Explorar otros destinos
+    </a>
+  </div>
+</SitePage>

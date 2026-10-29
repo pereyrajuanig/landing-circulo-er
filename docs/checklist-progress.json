@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-13",
+  "updatedAt": "2026-10-29",
   "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
@@ -413,18 +413,72 @@
       "date": "2026-10-13",
       "responsible": "Desarrollo / usuario",
       "evidence": "Publicación de revisión comprobada; dominio institucional, revisión/aceptación completa del contenido y lanzamiento definitivo pendientes. No hay deployment anterior para rollback."
+    },
+    "12.01": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.02": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.03": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.04": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.05": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.06": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.07": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.08": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+    },
+    "12.09": {
+      "status": "pending",
+      "date": "2026-10-29",
+      "responsible": "Desarrollo / institución",
+      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
     }
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "09 / revisión en Vercel",
-    "trace_status": "Revisión publicada; lanzamiento pendiente",
+    "trace_id": "Sitio institucional / base editorial",
+    "trace_status": "Propuesta en revisión",
     "trace_owner": "Desarrollo",
-    "trace_date": "13/10/2026",
-    "trace_commit": "main e1e830b / dpl_2zr9ExH7aj79CDNWKQw658fNBAVL",
-    "trace_method": "Build aprobado y Vercel Ready con Node24.\nHTTP sin sesión, TLS validado y navegador móvil.\nFiltro, alojamiento y menú; headers portada/assets/404.",
-    "trace_result": "https://landing-circulo-er.vercel.app/\nPública para revisión, noindex y sin canonical/sitemap.\nRegistro: docs/vercel-preview.md y evidencia JSON.",
-    "trace_limits": "Contenido y secciones: diferidos por el usuario.\nDominio, privacidad, lector real e INP de campo pendientes.\nProduction de main; no lanzamiento institucional definitivo.",
+    "trace_date": "29/10/2026",
+    "trace_commit": "PR #11 / rama diseno-beneficios-espacios",
+    "trace_method": "Rutas, fichas, FAQ y navegación entre páginas.\nControl del HTML completo y publicación filtrada.\nVer resultado final en PR #11.",
+    "trace_result": "18 páginas y 404; noticias sin entradas reales.\nCMS y Facebook no conectados.\nVer docs/site-evolution.md.",
+    "trace_limits": "Contenido/fotos, aceptación y merge pendientes.\nActivación del CMS diferida por usuario.\nFacebook sin enlace ni acceso; dominio/lector pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -452,5 +506,17 @@
     "date_06": "13/10/2026",
     "owner_07": "Desarrollo / dominio e institución pendientes",
     "owner_09": "Usuario / desarrollo; revisión institucional"
+  },
+  "revisions": {
+    "benefits_spaces": {
+      "status": "pending_visual_acceptance",
+      "branch": "codex/diseno-beneficios-espacios",
+      "summary": "Jerarquía beneficios/alojamientos/salones; destinatarios aclarados por usuario. Sin nuevos descuentos, capacidades ni condiciones de acceso inventadas."
+    },
+    "website_evolution": {
+      "status": "in_review",
+      "branch": "codex/diseno-beneficios-espacios",
+      "summary": "Sitio multipágina con fichas y base editorial; CMS diferido por usuario; Facebook como origen con enlace/acceso pendientes."
+    }
   }
 }

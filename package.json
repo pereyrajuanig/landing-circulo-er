@@ -2,7 +2,7 @@
   "name": "landing-circulo-er",
   "version": "1.2.0",
   "private": true,
-  "description": "Landing institucional del Círculo de Retirados y Pensionados de la Policía de Entre Ríos",
+  "description": "Sitio institucional del Círculo de Retirados y Pensionados de la Policía de Entre Ríos",
   "type": "module",
   "engines": {
     "node": ">=24.16.0 <25"
@@ -13,7 +13,7 @@
     "lint": "eslint . --max-warnings=0",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "test": "npm run build && npm run test:unit && playwright test && npm run test:csp",
+    "test": "npm run build && npm run test:unit && npm run test:editorial && playwright test && npm run test:csp",
     "build": "astro build && node scripts/check-build.mjs && node scripts/check-security.mjs",
     "preview": "astro preview",
     "test:update": "npm run build && node scripts/update-content-contract.mjs",
@@ -24,7 +24,8 @@
     "perf": "npm run build && node tools/performance/measure.mjs",
     "security:update": "astro build && node scripts/update-security-policy.mjs",
     "test:csp": "playwright test --config playwright.csp.config.mjs",
-    "security:repo": "node scripts/check-security.mjs --repository"
+    "security:repo": "node scripts/check-security.mjs --repository",
+    "test:editorial": "node tools/testing/editorial-fixture.mjs"
   },
   "repository": {
     "type": "git",
