@@ -104,7 +104,7 @@ test('menú y navegación conservan estado, destino y retorno de foco', async ({
   await expect(menu).toHaveAttribute('aria-expanded', 'true');
   await expect(navigation).toBeVisible();
   await page.keyboard.press('Tab');
-  await expect(navigation.getByRole('link', { name: 'Institución', exact: true })).toBeFocused();
+  await expect(navigation.getByRole('link', { name: 'Beneficios', exact: true })).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(menu).toBeFocused();
   await expect(navigation).toBeHidden();
@@ -224,12 +224,12 @@ test('anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos', as
 test('cambios de tamaño y menú bajo mantienen foco utilizable sin desborde', async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   const navigation = page.getByRole('navigation', { name: 'Navegación principal' });
-  await navigation.getByRole('link', { name: 'Servicios', exact: true }).focus();
+  await navigation.getByRole('link', { name: 'Beneficios', exact: true }).focus();
   await page.setViewportSize({ width: 390, height: 844 });
   const menu = page.getByRole('button', { name: 'Menú', exact: true });
   await expect(menu).toBeFocused();
   await page.setViewportSize({ width: 1024, height: 768 });
-  await expect(navigation.getByRole('link', { name: 'Institución', exact: true })).toBeFocused();
+  await expect(navigation.getByRole('link', { name: 'Beneficios', exact: true })).toBeFocused();
   await page.setViewportSize({ width: 640, height: 360 });
   await menu.press('Enter');
   for (let step = 0; step < 5; step++) await page.keyboard.press('Tab');
@@ -303,4 +303,23 @@ test('recursos locales y consultas no crean almacenamiento de aplicación', asyn
       .map((entry) => entry.name),
   }));
   expect(inventory).toEqual({ local: [], session: [], databases: [], workers: [], remote: [] });
+});
+
+test('beneficios estadías y salones tienen acceso directo y consulta específica', async ({
+  page,
+}) => {
+  const paths = page.getByRole('navigation', { name: 'Conocé tus beneficios' });
+  await expect(paths.locator('a')).toHaveCount(3);
+  await expect(page.locator('.hero-welcome')).toContainText('una pensión vinculada a ella');
+  await paths.getByRole('link', { name: /Salones para eventos/ }).click();
+  await expect(page).toHaveURL(/#salones$/);
+  await expect(page.locator('#events-title')).toBeInViewport();
+  const href = await page
+    .getByRole('link', { name: 'Consultar por un salón', exact: true })
+    .getAttribute('href');
+  const url = new URL(href);
+  expect(url.protocol).toBe('mailto:');
+  expect(url.pathname).toBe(institution.email);
+  expect(url.searchParams.get('subject')).toBe('Consulta sobre salones para eventos');
+  expect(await page.locator('#contacto').innerText()).not.toContain('cómo formar parte');
 });

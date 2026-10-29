@@ -59,7 +59,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preview del build                                       | npm run preview      |
 | Medición de rendimiento local                           | npm run perf         |
 
-npm test construye y ejecuta once pruebas Node y veinte Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta once pruebas Node y veintidós Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
@@ -117,3 +117,5 @@ Quedan pendientes fotos reales, autoridades, horarios, contactos de filiales y c
 Las versiones anteriores del manual se conservan en docs/archive/. El vigente es docs/design-system.pdf.
 
 Seguridad: headers y CSP Report-Only preparados para Vercel, probados localmente. npm run test:csp verifica el modo exigido local; npm run security:update actualiza el hash después de cambios revisados. No acredita headers/HTTPS del hosting real. Ver docs/security-privacy.md.
+
+Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y salones como prioridades. Aceptación visual y merge pendientes. Detalles en docs/design-benefits-spaces.md; manual1.11 y checklist1.9 actualizados.

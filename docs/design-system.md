@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.10
+# Sistema de diseño · 1.11
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
@@ -63,3 +63,5 @@ La versión 1.8 conserva identidad y composición: escudo WebP por tamaño, favi
 La versión1.9 documenta seguridad preparada,51 comprobaciones y límites de hosting. No cambia composición ni tokens; CSP Report-Only en Vercel, exigida solo en pruebas locales. Ver [seguridad](security-privacy.md).
 
 Versión1.10: publicación para revisión autorizada en https://landing-circulo-er.vercel.app/, con noindex. Contenido y secciones diferidos por el usuario; dominio pendiente. Registro: vercel-preview.md.
+
+Revisión29/10/2026: beneficios, alojamientos y salones ganan prioridad; destinatarios aclarados por el usuario. Propuesta pendiente de aceptación visual. Ver design-benefits-spaces.md y addendum del manual PDF página23.

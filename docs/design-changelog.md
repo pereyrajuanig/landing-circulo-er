@@ -52,3 +52,5 @@ Escudo optimizado con Astro y fuentes locales de las mismas familias; composici�
 Headers y CSP Report-Only preparados; controles de hashes, exclusiones y almacenamiento. Diseño e interacciones conservados. Hosting/HTTPS y privacidad institucional pendientes.
 
 Publicación de revisión autorizada el13/10/2026: manual1.10 y checklist1.8, contenido/secciones y dominio pendientes. Registro: docs/vercel-preview.md.
+
+Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y salones como prioridades. Aceptación visual y merge pendientes. Detalles en docs/design-benefits-spaces.md; manual1.11 y checklist1.9 actualizados.

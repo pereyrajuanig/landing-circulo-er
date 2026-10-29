@@ -35,3 +35,5 @@ Main exige PR y quality, base actualizada, historial lineal, conversaciones resu
 Origen visual Sites: 648e72f7daca19a45c00ae5fc82427d385cce449. Dossier original local, fuera de Git y del build. Pruebas, reportes, documentos y archivos de desarrollo no se sirven como contenido público de la landing.
 
 Código1e9938c: [quality aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38483690426). Revisión del repositorio en validate/CI; control de build sin Git probado con PATH vacío en proceso hijo. Headers y HTTPS comprobados en vercel.app; dominio institucional y privacidad pendientes.
+
+Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y salones como prioridades. Aceptación visual y merge pendientes. Detalles en docs/design-benefits-spaces.md; manual1.11 y checklist1.9 actualizados.

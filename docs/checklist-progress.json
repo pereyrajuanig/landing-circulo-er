@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-13",
+  "updatedAt": "2026-10-29",
   "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
@@ -417,14 +417,14 @@
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "09 / revisión en Vercel",
-    "trace_status": "Revisión publicada; lanzamiento pendiente",
+    "trace_id": "Diseño / beneficios y espacios",
+    "trace_status": "Propuesta en revisión",
     "trace_owner": "Desarrollo",
-    "trace_date": "13/10/2026",
-    "trace_commit": "main e1e830b / dpl_2zr9ExH7aj79CDNWKQw658fNBAVL",
-    "trace_method": "Build aprobado y Vercel Ready con Node24.\nHTTP sin sesión, TLS validado y navegador móvil.\nFiltro, alojamiento y menú; headers portada/assets/404.",
-    "trace_result": "https://landing-circulo-er.vercel.app/\nPública para revisión, noindex y sin canonical/sitemap.\nRegistro: docs/vercel-preview.md y evidencia JSON.",
-    "trace_limits": "Contenido y secciones: diferidos por el usuario.\nDominio, privacidad, lector real e INP de campo pendientes.\nProduction de main; no lanzamiento institucional definitivo.",
+    "trace_date": "29/10/2026",
+    "trace_commit": "Base b3003dc / rama diseno-beneficios-espacios",
+    "trace_method": "Contrato editorial y flujos de menú/filiales/alojamiento.\nNuevo acceso a salones y consulta por correo.\nRevisión de escritorio y móvil.",
+    "trace_result": "Propuesta: beneficios, alojamientos y salones primero.\nDestinatarios: retirados y pensionados de la Policía.\nVer docs/design-benefits-spaces.md.",
+    "trace_limits": "Aceptación visual y merge pendientes.\nContenido, dominio y lector real pendientes.\nNo se confirman capacidades, tarifas ni disponibilidad.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -452,5 +452,12 @@
     "date_06": "13/10/2026",
     "owner_07": "Desarrollo / dominio e institución pendientes",
     "owner_09": "Usuario / desarrollo; revisión institucional"
+  },
+  "revisions": {
+    "benefits_spaces": {
+      "status": "pending_visual_acceptance",
+      "branch": "codex/diseno-beneficios-espacios",
+      "summary": "Jerarquía beneficios/alojamientos/salones; destinatarios aclarados por usuario. Sin nuevos descuentos, capacidades ni condiciones de acceso inventadas."
+    }
   }
 }

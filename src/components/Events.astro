@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { mailTo } from '../lib/contact';
+interface Props {
+  institution: CollectionEntry<'institution'>['data'];
+}
+const { institution } = Astro.props;
+---
+
+<section id="salones" class="section event-spaces" aria-labelledby="events-title">
+  <div class="wrap events-grid">
+    <div class="events-intro">
+      <p class="eyebrow dark">03 / SALONES Y ENCUENTROS</p>
+      <h2 id="events-title">
+        Hay momentos
+        <br />
+        <em>para compartir.</em>
+      </h2>
+      <p>
+        Los salones y espacios de encuentro del Círculo en Paraná también son parte de nuestra vida
+        en comunidad.
+      </p>
+      <p>
+        Si estás pensando en un evento, acercanos tu consulta. Te orientamos sobre los espacios y
+        las condiciones para organizarnos.
+      </p>
+      <a
+        class="button button-navy"
+        href={mailTo(institution.email, 'Consulta sobre salones para eventos')}
+      >
+        Consultar por un salón <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <div class="events-panel">
+      <span class="path-number">ANTES DE ORGANIZAR TU ENCUENTRO</span>
+      <p class="events-statement">
+        Un espacio.
+        <br />
+        <em>
+          Muchos motivos
+          <br />
+          para encontrarnos.
+        </em>
+      </p>
+      <ul aria-label="Qué consultar sobre los salones">
+        <li>
+          <span>01</span> Ubicación y espacios disponibles
+        </li>
+        <li>
+          <span>02</span> Capacidad y equipamiento
+        </li>
+        <li>
+          <span>03</span> Fechas y condiciones de uso
+        </li>
+      </ul>
+      <p class="events-note">
+        La disponibilidad y las condiciones se coordinan con la institución.
+      </p>
+    </div>
+  </div>
+</section>
