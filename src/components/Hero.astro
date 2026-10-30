@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import crest from '../../public/assets/escudo.png';
-import DemoPhoto from './DemoPhoto.astro';
+import ReferencePhoto from './ReferencePhoto.astro';
 ---
 
 <section id="inicio" class="hero" aria-labelledby="hero-title">
@@ -34,7 +34,7 @@ import DemoPhoto from './DemoPhoto.astro';
     </div>
     <div class="hero-emblem">
       <div class="hero-photo-panel">
-        <DemoPhoto kind="comunidad" variant="compact" loading="eager" />
+        <ReferencePhoto kind="comunidad" variant="compact" loading="eager" />
         <div class="hero-photo-signature">
           <Image
             src={crest}

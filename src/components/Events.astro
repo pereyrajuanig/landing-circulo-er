@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mailTo } from '../lib/contact';
-import DemoPhoto from './DemoPhoto.astro';
+import ReferencePhoto from './ReferencePhoto.astro';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
 }
@@ -59,7 +59,7 @@ const { institution } = Astro.props;
       </p>
     </div>
     <div class="events-visual">
-      <DemoPhoto kind="salon" />
+      <ReferencePhoto kind="salon" />
     </div>
   </div>
 </section>

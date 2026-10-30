@@ -1,38 +1,38 @@
-.demo-photo {
+.reference-photo {
   margin: 0;
   min-width: 0;
   position: relative;
   z-index: 1;
 }
-.demo-photo-frame {
+.reference-photo-frame {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   background: var(--cream);
 }
-.demo-photo img {
+.reference-photo img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
 }
-.demo-photo--wide .demo-photo-frame {
+.reference-photo--wide .reference-photo-frame {
   aspect-ratio: 2.2;
 }
-.demo-photo--compact .demo-photo-frame {
+.reference-photo--compact .reference-photo-frame {
   aspect-ratio: 1.8;
 }
-.demo-photo--card .demo-photo-frame {
+.reference-photo--card .reference-photo-frame {
   aspect-ratio: 1.6;
 }
-.demo-photo figcaption,
+.reference-photo figcaption,
 .photo-gallery figcaption {
   font-size: 12px;
   line-height: 1.5;
   color: var(--muted);
   margin-top: 10px;
 }
-.demo-photo-badge {
+.reference-photo-badge {
   position: absolute;
   bottom: 14px;
   left: 14px;
@@ -43,13 +43,13 @@
   font-size: 10px;
   letter-spacing: 0.08em;
 }
-.stay-detail .demo-photo {
+.stay-detail .reference-photo {
   margin: 24px 0;
 }
-.destination-entry .demo-photo {
+.destination-entry .reference-photo {
   margin-bottom: 24px;
 }
-.destination-entry .demo-photo figcaption {
+.destination-entry .reference-photo figcaption {
   font-size: 11px;
 }
 .events-visual {
@@ -166,7 +166,7 @@
   margin-bottom: 0;
 }
 @media (max-width: 800px) {
-  .demo-photo--wide .demo-photo-frame {
+  .reference-photo--wide .reference-photo-frame {
     aspect-ratio: 1.4;
   }
   .gallery-heading {
@@ -218,11 +218,11 @@
   border-radius: 100px 14px 14px 14px;
   overflow: hidden;
 }
-.hero-photo-panel .demo-photo-frame {
+.hero-photo-panel .reference-photo-frame {
   aspect-ratio: 1.5;
   border-radius: 100px 12px 0 0;
 }
-.hero-photo-panel .demo-photo figcaption {
+.hero-photo-panel .reference-photo figcaption {
   padding: 0 18px;
 }
 .hero-photo-signature {
@@ -256,4 +256,53 @@
   .hero-photo-signature p {
     font-size: 25px;
   }
+}
+
+.photo-credit {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.photo-credit a,
+a.photo-credit {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.page-photo {
+  padding-top: 40px;
+}
+.benefit-preview {
+  min-width: 0;
+}
+.benefit-preview > .path-number {
+  display: block;
+  margin-top: 16px;
+}
+.service-content .reference-photo {
+  margin: 8px 0 24px;
+  max-width: 680px;
+}
+.service-content .photo-credit a {
+  font-size: 11px;
+  min-height: 24px;
+}
+.institution-grid > div > .reference-photo {
+  margin-top: 28px;
+}
+.contact-info .reference-photo {
+  margin-bottom: 28px;
+}
+@media (max-width: 800px) {
+  .page-photo {
+    padding-top: 28px;
+  }
+}
+
+.service-content > .reference-photo {
+  margin: 0;
+}
+.service-copy > a {
+  margin-top: 18px;
 }

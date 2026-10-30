@@ -128,6 +128,6 @@ El personal institucional usará un panel sencillo; Sanity es la propuesta y su 
 
 Manual1.12 y checklist1.10 incorporan esta evolución; las páginas anteriores conservan la referencia histórica. La navegación de la rama cambia a páginas propias; main conserva su versión hasta un merge autorizado.
 
-## Propuesta con fotos de muestra
+## Fotografías de referencia de internet
 
-Por pedido del usuario, la rama codex/fotos-ilustrativas incorpora cuatro imágenes ficticias con avisos visibles: comunidad, habitación, patio y salón. Mantiene el escudo y agrega galería ampliable en las fichas. Imágenes locales optimizadas por Astro; sin paquetes nuevos. [Alcance y reemplazo](docs/photo-preview.md), [fuentes y prompts](docs/demo-photo-prompts.json). Manual1.13 y checklist1.11 actualizados; fotos reales todavía pendientes.
+La rama codex/fotos-ilustrativas incorpora 12 fotos de Pexels en las18 páginas públicas y 404, con aviso y crédito visible. Son referencias y no registros institucionales. Galería ampliable en las fichas; archivos locales optimizados por Astro, sin paquetes nuevos. [Alcance y reemplazo](docs/photo-preview.md), [fuentes verificadas](docs/photo-sources.json) y [política de uso](docs/photo-sources.md). Manual1.14 (26 páginas) y checklist1.12 actualizados; fotografías reales pendientes. PR #12 en revisión; main continúa con el PR #11 hasta autorizar el merge.

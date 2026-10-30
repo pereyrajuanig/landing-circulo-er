@@ -2,7 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
-import DemoGallery from '../../components/DemoGallery.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
 import { mailTo } from '../../lib/contact';
 export async function getStaticPaths() {
   return (await getCollection('stays')).map((stay) => ({
@@ -24,7 +24,7 @@ if (!entry) throw new Error('Falta el contacto institucional.');
   description={stay.data.description}
   parent={{ label: 'Alojamientos', href: '/alojamientos/' }}
 >
-  <DemoGallery />
+  <PhotoGallery stayId={stay.id} />
   <section class="wrap page-section detail-grid" aria-labelledby="stay-planning">
     <div>
       <p class="eyebrow dark">Planificá tu visita</p>

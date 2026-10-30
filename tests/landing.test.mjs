@@ -311,6 +311,8 @@ test('el sitio genera las fichas de servicios y destinos y todas sus rutas son n
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1, path);
     assert(!html.includes('href="#inicio"'), 'Enlace de inicio sin destino: ' + path);
     assert.match(html, /aria-label="Ubicación"/, path);
+    assert(html.includes('data-reference-photo'), 'Falta una fotografía de referencia: ' + path);
+    assert(!html.includes('generada con IA'), 'Queda un aviso de imagen generada: ' + path);
   }
   const newsroom = await (await fetch(new URL('/novedades/', origin))).text();
   assert.match(newsroom, /Todavía no hay publicaciones para mostrar/);

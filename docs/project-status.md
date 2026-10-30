@@ -47,3 +47,7 @@ El personal institucional editará con un panel. El usuario solicitó preparar l
 ## 29/10/2026 · propuesta fotográfica
 
 PR #11 fusionado con autorización en eb1f66d y desplegado en Vercel. Nuevo lote codex/fotos-ilustrativas: el usuario pidió imágenes ficticias para revisar composición. Cuatro muestras con avisos y galería; no certifican instalaciones ni completan la recopilación real. Ver photo-preview.md. No hay autorización de merge de este nuevo lote.
+
+## Revisión fotográfica vigente · 29/10/2026
+
+Pedido corregido por el usuario: fotos de internet, sin generación, en todas las páginas. PR #12 en codex/fotos-ilustrativas sustituye las muestras anteriores por12 referencias Pexels con créditos y fuentes. Matriz 19 rutas por 6 anchos sin desbordes ni errores de JavaScript; docs/reference-photo-evidence.json. La aceptación visual y el merge siguen pendientes. main permanece en eb1f66d (PR #11); CMS/Facebook, dominio, contenido final, lector y fotografías reales pendientes. Resultado de la suite y CI en el PR.

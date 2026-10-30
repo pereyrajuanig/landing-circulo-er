@@ -3,6 +3,8 @@ import { getCollection, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
 import { mailTo } from '../../lib/contact';
+import ReferencePhoto from '../../components/ReferencePhoto.astro';
+import { servicePhotoKeys } from '../../lib/reference-photos';
 export async function getStaticPaths() {
   return (await getCollection('services')).map((service) => ({
     params: { id: service.id },
@@ -52,6 +54,9 @@ const questions: Record<string, string[]> = {
   description={data.description}
   parent={{ label: 'Beneficios', href: '/beneficios/' }}
 >
+  <div class="wrap page-photo">
+    <ReferencePhoto kind={servicePhotoKeys[service.id] ?? 'salud'} />
+  </div>
   <section class="wrap page-section detail-grid" aria-labelledby="service-consult">
     <div>
       <h2 id="service-consult">Encontrá orientación para tu consulta.</h2>

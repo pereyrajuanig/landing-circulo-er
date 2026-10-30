@@ -471,14 +471,14 @@
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "Diseño / fotografías ilustrativas",
+    "trace_id": "Diseño / fotografías de internet",
     "trace_status": "Propuesta en revisión",
     "trace_owner": "Desarrollo",
     "trace_date": "29/10/2026",
     "trace_commit": "Base eb1f66d / rama fotos-ilustrativas",
-    "trace_method": "Portada, alojamientos y salones con muestras.\nGalería: ampliar, navegar y recuperar el foco.\nEvidencia y resultado final en el PR del lote.",
-    "trace_result": "Cuatro imágenes ficticias con avisos y alt.\n18 rutas y seis anchos sin desbordes.\nVer docs/photo-preview.md.",
-    "trace_limits": "Aceptación visual y merge del lote pendientes.\nLas muestras no son instalaciones ni personas reales.\nFotos reales, contenido, dominio y lector pendientes.",
+    "trace_method": "12 fotos de Pexels; fuentes y licencia registradas.\nGalería, teclado y carga local adaptable.\n19 rutas por 6 anchos; resultado final en PR #12.",
+    "trace_result": "114 comprobaciones sin desbordes ni errores JS.\nFuentes: docs/photo-sources.json.\nEvidencia: reference-photo-evidence.json.",
+    "trace_limits": "Aceptación visual y merge pendientes.\nFotos de referencia, no registros del Círculo.\nMaterial real, dominio, contenido y lector pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -523,9 +523,15 @@
       "mergePullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/11"
     },
     "illustrative_photos": {
-      "status": "pending_visual_acceptance",
+      "status": "superseded",
       "branch": "codex/fotos-ilustrativas",
       "summary": "Cuatro muestras generadas a pedido del usuario; avisos visibles, galería ampliable y fotos reales todavía pendientes."
+    },
+    "reference_photos": {
+      "status": "pending_visual_acceptance",
+      "branch": "codex/fotos-ilustrativas",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/12",
+      "summary": "12 referencias de Pexels en 18 páginas y 404, con avisos y créditos. Sustituyen las imágenes generadas. Fotos institucionales reales todavía pendientes."
     }
   }
 }

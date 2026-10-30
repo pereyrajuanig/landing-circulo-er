@@ -43,6 +43,6 @@ CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba
 
 El usuario pidió ampliar a sitio con fichas de beneficios/alojamientos, salones y noticias/logros. La propuesta usa SitePage.astro y cinco colecciones; news está vacía a propósito. Conservar borradores fuera del build público. No presentar el panel ni Facebook como conectados: el usuario difirió la activación del CMS y no tiene todavía el enlace de Facebook. Fuente prevista: Facebook → sitio. Alcance y tareas en docs/site-evolution.md.
 
-## Fotografías de muestra
+## Fotografías de referencia
 
-El usuario autorizó imágenes ficticias para revisar diseño. En la rama fotos-ilustrativas se usan cuatro imágenes generadas, con avisos visibles y alt explícitos. No retirar esos avisos ni asociar las muestras genéricas a instalaciones reales. Los prompts y rutas están en docs/demo-photo-prompts.json; reemplazo y límites en docs/photo-preview.md. Las tareas de fotografías reales siguen pendientes.
+El pedido vigente es buscar fotos en internet y cubrir todas las páginas. Se usan 12 fotografías de Pexels con fuente y autor en docs/photo-sources.json y créditos visibles en ReferencePhoto/PhotoGallery. No generar imágenes sin una nueva instrucción explícita del usuario. No presentar referencias como instalaciones, integrantes, actividades o servicios reales del Círculo. Mantener los avisos hasta sustituirlas por material institucional verificado. Las tareas de fotos reales siguen pendientes. Ver docs/photo-preview.md.

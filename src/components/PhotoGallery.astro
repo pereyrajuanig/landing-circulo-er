@@ -1,11 +1,17 @@
 ---
 import { Image, getImage } from 'astro:assets';
-import { demoPhotos } from '../lib/demo-photos';
+import { referencePhotos, stayPhotoKeys } from '../lib/reference-photos';
+interface Props {
+  stayId: string;
+}
+const { stayId } = Astro.props;
 const photos = await Promise.all(
-  [demoPhotos.habitacion, demoPhotos.patio].map(async (photo) => ({
-    ...photo,
-    full: await getImage({ src: photo.src, width: 1440, format: 'webp', quality: 82 }),
-  })),
+  [referencePhotos[stayPhotoKeys[stayId] ?? 'habitacion'], referencePhotos.entorno].map(
+    async (photo) => ({
+      ...photo,
+      full: await getImage({ src: photo.src, width: 1440, format: 'webp', quality: 82 }),
+    }),
+  ),
 );
 const first = photos[0];
 ---
@@ -17,13 +23,13 @@ const first = photos[0];
       <h2 id="gallery-title">Una mirada a los espacios.</h2>
     </div>
     <p>
-      Imágenes ficticias generadas con IA para visualizar el diseño. No corresponden al alojamiento
-      real.
+      Fotografías de referencia obtenidas de Pexels para visualizar el diseño. No corresponden al
+      alojamiento real.
     </p>
   </div>
   <div class="photo-gallery-grid">
     {photos.map((photo) => (
-      <figure>
+      <figure data-reference-photo>
         <a
           href={photo.full.src}
           target="_blank"
@@ -31,7 +37,11 @@ const first = photos[0];
           data-gallery-open
           data-title={photo.title}
           data-alt={photo.alt}
-          aria-label={'Ampliar: ' + photo.title + ' (imagen ficticia)'}
+          data-width={photo.full.attributes.width}
+          data-height={photo.full.attributes.height}
+          data-source={photo.source}
+          data-author={photo.author}
+          aria-label={'Ampliar: ' + photo.title + ' (fotografía de referencia)'}
           aria-haspopup="dialog"
           aria-controls="photo-dialog"
         >
@@ -49,7 +59,14 @@ const first = photos[0];
             Ampliar ↗
           </span>
         </a>
-        <figcaption>{photo.title} · Imagen ilustrativa</figcaption>
+        <figcaption>
+          {photo.title} · Foto de referencia
+          <span class="photo-credit">
+            <a href={photo.source} target="_blank" rel="noopener noreferrer">
+              Foto: {photo.author} / Pexels ↗
+            </a>
+          </span>
+        </figcaption>
       </figure>
     ))}
   </div>
@@ -81,8 +98,17 @@ const first = photos[0];
         </button>
       </div>
       <p class="photo-dialog-note">
-        Imágenes ficticias generadas con IA. No corresponden al alojamiento real.
+        Fotografías de referencia. No corresponden al alojamiento real.
       </p>
+      <a
+        class="photo-credit"
+        data-gallery-credit
+        href={first.source}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Foto: {first.author} / Pexels ↗
+      </a>
     </div>
   </dialog>
 </section>

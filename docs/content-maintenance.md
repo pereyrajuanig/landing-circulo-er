@@ -48,6 +48,6 @@ Solo published con fecha no futura genera artículos y aparece en los listados. 
 
 Editar JSON sigue siendo el mecanismo actual. El panel y la importación de Facebook aún no están conectados; ver cms-roadmap.md y site-evolution.md.
 
-## Imágenes ilustrativas
+## Fotografías de referencia
 
-src/assets/demo contiene cuatro muestras generadas por solicitud del usuario. No son fotografías de ninguna sede; se reutilizan explícitamente como muestras. No quitar los avisos de DemoPhoto/DemoGallery mientras se mantengan. Para fotos reales, confirmar destino y contexto, sustituirlas, actualizar alt/epígrafes y retirar avisos únicamente de las verificadas. Prompts: demo-photo-prompts.json. Las tareas12.03 y12.04 siguen abiertas.
+src/assets/reference contiene12 fotos descargadas de Pexels. No documentan instalaciones ni integrantes del Círculo. Mantener avisos y créditos de ReferencePhoto/PhotoGallery; fuentes y licencia en photo-sources.json y photo-sources.md. Antes de incorporar material real, confirmar derechos, destino y contexto; actualizar alt/epígrafes y retirar avisos solo de las imágenes verificadas. Las tareas 12.03 y 12.04 continúan abiertas. No generar imágenes: el usuario pidió buscarlas en internet.

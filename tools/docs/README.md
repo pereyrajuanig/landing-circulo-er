@@ -48,4 +48,6 @@ Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y sal
 
 Evolución multipágina: manual1.12 (24 páginas), checklist1.10 (23 páginas). Esta última añade9 tareas al final y conserva los136 campos históricos; ahora145 campos. Fuentes y contenido del sitio: docs/site-evolution.md. CMS/Facebook no se marcan conectados.
 
-Manual1.13:25 páginas, con addendum de fotografías ilustrativas. Checklist1.11:23 páginas y145 campos; conserva estados históricos y registra el nuevo lote en la ficha de evidencia. Las fotos de muestra no cierran tareas de fotos institucionales reales.
+Manual1.13:25 páginas, con addendum de fotografías ilustrativas. Checklist1.11:23 páginas y 145 campos; conserva estados históricos y registra el nuevo lote en la ficha de evidencia. Las fotos de muestra no cierran tareas de fotos institucionales reales.
+
+Manual vigente1.14: 26 páginas; página 25 conservada como antecedente sustituido y página 26 con 12 referencias de internet. Checklist1.12: 23 páginas y 145 campos; conserva estados y campos manuales históricos. Evidencia vigente: docs/reference-photo-evidence.json y docs/photo-sources.json.

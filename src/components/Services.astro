@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mailTo } from '../lib/contact';
+import ReferencePhoto from './ReferencePhoto.astro';
+import { servicePhotoKeys } from '../lib/reference-photos';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
   services: CollectionEntry<'services'>[];
@@ -36,17 +38,20 @@ const { institution, services } = Astro.props;
             </span>
           </summary>
           <div class="service-content">
-            <p>{service.data.description}</p>
-            <a
-              href={
-                service.data.target === 'email'
-                  ? mailTo(institution.email, service.data.subject)
-                  : '#alojamiento'
-              }
-            >
-              {service.data.action}{' '}
-              <span aria-hidden="true">{service.data.target === 'email' ? '↗' : '→'}</span>
-            </a>
+            <div class="service-copy">
+              <p>{service.data.description}</p>
+              <a
+                href={
+                  service.data.target === 'email'
+                    ? mailTo(institution.email, service.data.subject)
+                    : '#alojamiento'
+                }
+              >
+                {service.data.action}{' '}
+                <span aria-hidden="true">{service.data.target === 'email' ? '↗' : '→'}</span>
+              </a>
+            </div>
+            <ReferencePhoto kind={servicePhotoKeys[service.id] ?? 'salud'} variant="compact" />
           </div>
         </details>
       ))}

@@ -20,6 +20,13 @@ document.querySelectorAll<HTMLElement>('[data-photo-gallery]').forEach((gallery)
     const link = links[selected];
     image.src = link.href;
     image.alt = link.dataset.alt ?? '';
+    image.width = Number(link.dataset.width) || image.width;
+    image.height = Number(link.dataset.height) || image.height;
+    const credit = gallery.querySelector<HTMLAnchorElement>('[data-gallery-credit]');
+    if (credit) {
+      credit.href = link.dataset.source ?? '';
+      credit.textContent = 'Foto: ' + (link.dataset.author ?? '') + ' / Pexels ↗';
+    }
     status.textContent = selected + 1 + ' / ' + links.length + ' · ' + (link.dataset.title ?? '');
   };
   links.forEach((link, index) =>

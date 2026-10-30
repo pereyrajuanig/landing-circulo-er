@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ReferencePhoto from './ReferencePhoto.astro';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
 }
@@ -19,6 +20,7 @@ const { institution } = Astro.props;
         Hay experiencias que nos unen.
         <br />Y vínculos que seguimos construyendo.
       </p>
+      <ReferencePhoto kind="institucion" variant="compact" />
     </div>
     <div class="institution-body">
       {institution.history.map((paragraph) => (

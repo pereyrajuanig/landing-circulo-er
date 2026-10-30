@@ -62,3 +62,7 @@ La propuesta pasa a 18 páginas y 404, con fichas de beneficios y destinos, nave
 ## 1.13 · 29/10/2026 · fotografías ilustrativas
 
 Cuatro muestras generadas por solicitud del usuario; visibles en portada, alojamientos y salones, con galería en las seis fichas. Avisos y alt evitan presentarlas como evidencia real. Recursos propios, WebP responsive y carga diferida inferior. Datos y prestaciones sin cambios. Propuesta en rama; fotos reales siguen pendientes.
+
+## 1.14 · 29/10/2026 · fotografías de internet
+
+Se sustituyen las cuatro imágenes generadas por12 fotos de Pexels con registro de autor, fuente y licencia. Cobertura de18 páginas públicas más404; beneficios con fotografía propia por categoría; habitaciones alternadas y paisaje en galería, con crédito dinámico. Se mantienen avisos de referencia y se conservan pendientes las fotografías institucionales reales. Manual26 páginas; checklist1.12 conserva23 páginas y 145 campos.

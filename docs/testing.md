@@ -63,3 +63,7 @@ La suite también ejecuta npm run test:editorial: construye una copia aislada en
 ## Galería de muestras
 
 La propuesta fotográfica suma un caso de ampliación, anterior/siguiente, flechas, Escape y retorno de foco, ejecutado en escritorio/móvil y ambos modos CSP. Total configurado:13 Node +26 Chromium por modo,65 ejecuciones más el flujo editorial aislado. El contrato editorial se actualiza por los rótulos de muestra y la composición de portada. La CSP incorpora el hash del script generado de galería, sin ampliar dominios.
+
+## Fotografías de referencia · revisión vigente
+
+El caso de galería usa alt y títulos de referencia y comprueba navegación, Escape y retorno del foco. Las pruebas Node verifican fotografías en las rutas interiores. Se mantienen 13 Node +26 Chromium Report-Only +26 Chromium exigida (65 ejecuciones), más el flujo editorial aislado. Matriz visual19 rutas ×6 anchos,114 comprobaciones sin desbordes ni errores JavaScript: reference-photo-evidence.json. Las capturas fuerzan decodificación de las imágenes antes de guardarse. Ver photo-preview.md.

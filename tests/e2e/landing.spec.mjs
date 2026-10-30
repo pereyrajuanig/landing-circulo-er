@@ -363,7 +363,9 @@ test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar'
   ).toBe(true);
 });
 
-test('galería ilustrativa permite ampliar cambiar imagen y devolver el foco', async ({ page }) => {
+test('galería de referencia permite ampliar cambiar imagen y devolver el foco', async ({
+  page,
+}) => {
   await page.goto('/alojamientos/parana/');
   const gallery = page.locator('[data-photo-gallery]');
   await expect(gallery).toContainText('No corresponden al alojamiento real.');
@@ -377,15 +379,18 @@ test('galería ilustrativa permite ampliar cambiar imagen y devolver el foco', a
   await expect(
     dialog.getByRole('button', { name: 'Cerrar imagen ampliada', exact: true }),
   ).toBeFocused();
-  await expect(dialog.locator('[data-gallery-image]')).toHaveAttribute('alt', /Imagen ficticia/);
+  await expect(dialog.locator('[data-gallery-image]')).toHaveAttribute(
+    'alt',
+    /Fotografía de referencia/,
+  );
   await dialog.getByRole('button', { name: 'Imagen siguiente', exact: true }).click();
-  await expect(dialog.getByRole('status')).toHaveText('2 / 2 · Patio de muestra');
+  await expect(dialog.getByRole('status')).toHaveText('2 / 2 · Paisaje de referencia');
   await expect(dialog.locator('[data-gallery-image]')).toHaveAttribute(
     'src',
     await openers.nth(1).evaluate((element) => element.href),
   );
   await page.keyboard.press('ArrowLeft');
-  await expect(dialog.getByRole('status')).toHaveText('1 / 2 · Habitación de muestra');
+  await expect(dialog.getByRole('status')).toHaveText('1 / 2 · Habitación de referencia');
   await page.keyboard.press('Escape');
   await expect(dialog).not.toBeVisible();
   await expect(opener).toBeFocused();
