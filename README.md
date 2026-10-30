@@ -59,7 +59,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preview del build                                       | npm run preview      |
 | Medición de rendimiento local                           | npm run perf         |
 
-npm test construye y ejecuta trece pruebas Node y veinticuatro Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta trece pruebas Node y veintiséis Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
@@ -127,3 +127,7 @@ La rama de revisión amplía el diseño a 18 páginas públicas y 404: cinco fic
 El personal institucional usará un panel sencillo; Sanity es la propuesta y su activación quedó diferida por el usuario. Facebook será origen de las novedades, pero el enlace/acceso todavía no está disponible y no hay sincronización activa. Ver [alcance, etapas y bloqueos](docs/site-evolution.md) y [panel editorial](docs/cms-roadmap.md). No hay nuevas dependencias.
 
 Manual1.12 y checklist1.10 incorporan esta evolución; las páginas anteriores conservan la referencia histórica. La navegación de la rama cambia a páginas propias; main conserva su versión hasta un merge autorizado.
+
+## Propuesta con fotos de muestra
+
+Por pedido del usuario, la rama codex/fotos-ilustrativas incorpora cuatro imágenes ficticias con avisos visibles: comunidad, habitación, patio y salón. Mantiene el escudo y agrega galería ampliable en las fichas. Imágenes locales optimizadas por Astro; sin paquetes nuevos. [Alcance y reemplazo](docs/photo-preview.md), [fuentes y prompts](docs/demo-photo-prompts.json). Manual1.13 y checklist1.11 actualizados; fotos reales todavía pendientes.

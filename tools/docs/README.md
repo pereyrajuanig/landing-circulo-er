@@ -47,3 +47,5 @@ Publicación de revisión autorizada el13/10/2026: manual1.10 y checklist1.8, co
 Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y salones como prioridades. Aceptación visual y merge pendientes. Detalles en docs/design-benefits-spaces.md; manual1.11 y checklist1.9 actualizados.
 
 Evolución multipágina: manual1.12 (24 páginas), checklist1.10 (23 páginas). Esta última añade9 tareas al final y conserva los136 campos históricos; ahora145 campos. Fuentes y contenido del sitio: docs/site-evolution.md. CMS/Facebook no se marcan conectados.
+
+Manual1.13:25 páginas, con addendum de fotografías ilustrativas. Checklist1.11:23 páginas y145 campos; conserva estados históricos y registra el nuevo lote en la ficha de evidencia. Las fotos de muestra no cierran tareas de fotos institucionales reales.

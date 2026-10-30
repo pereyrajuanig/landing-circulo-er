@@ -58,3 +58,7 @@ Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y sal
 ## 1.12 · 29/10/2026 · sitio institucional en revisión
 
 La propuesta pasa a 18 páginas y 404, con fichas de beneficios y destinos, navegación compartida, preguntas frecuentes y colección de noticias/logros sin entradas reales. Mantiene anclas históricas del inicio. Panel institucional solicitado y diferido; Facebook será fuente, conexión pendiente. Sin nuevos paquetes; no hay merge autorizado de este lote.
+
+## 1.13 · 29/10/2026 · fotografías ilustrativas
+
+Cuatro muestras generadas por solicitud del usuario; visibles en portada, alojamientos y salones, con galería en las seis fichas. Avisos y alt evitan presentarlas como evidencia real. Recursos propios, WebP responsive y carga diferida inferior. Datos y prestaciones sin cambios. Propuesta en rama; fotos reales siguen pendientes.

@@ -47,3 +47,7 @@ Las fichas de servicios y destinos reutilizan sus colecciones. src/content/news.
 Solo published con fecha no futura genera artículos y aparece en los listados. El corte ocurre en build: una fecha futura no publica automáticamente sin nueva construcción. No pegar HTML ni tokens. El texto se escapa al renderizar. El modelo actual admite párrafos; galerías y texto enriquecido requieren una extensión revisada.
 
 Editar JSON sigue siendo el mecanismo actual. El panel y la importación de Facebook aún no están conectados; ver cms-roadmap.md y site-evolution.md.
+
+## Imágenes ilustrativas
+
+src/assets/demo contiene cuatro muestras generadas por solicitud del usuario. No son fotografías de ninguna sede; se reutilizan explícitamente como muestras. No quitar los avisos de DemoPhoto/DemoGallery mientras se mantengan. Para fotos reales, confirmar destino y contexto, sustituirlas, actualizar alt/epígrafes y retirar avisos únicamente de las verificadas. Prompts: demo-photo-prompts.json. Las tareas12.03 y12.04 siguen abiertas.

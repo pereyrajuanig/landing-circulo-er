@@ -59,3 +59,7 @@ La suite vigente añade cobertura de publicación (borradores y fechas), navegac
 La colección news vacía produce advertencias informativas de Astro; no se añaden noticias ficticias para eliminarlas. El CMS y la sincronización real con Facebook no se validan hasta conectarlos. Revisar fichas y listados con contenido real antes del lanzamiento.
 
 La suite también ejecuta npm run test:editorial: construye una copia aislada en una carpeta temporal, con caché propia y contenido sintético; prueba artículos, categorías, búsqueda, escape de HTML, borradores y fechas futuras bajo CSP exigida. Cierra su navegador/preview y elimina solo la carpeta temporal verificada. No modifica news.json del proyecto ni publica ese contenido. La evidencia responsive de la propuesta recorre18 rutas ×6 anchos (108 verificaciones); ver site-evolution-evidence.json.
+
+## Galería de muestras
+
+La propuesta fotográfica suma un caso de ampliación, anterior/siguiente, flechas, Escape y retorno de foco, ejecutado en escritorio/móvil y ambos modos CSP. Total configurado:13 Node +26 Chromium por modo,65 ejecuciones más el flujo editorial aislado. El contrato editorial se actualiza por los rótulos de muestra y la composición de portada. La CSP incorpora el hash del script generado de galería, sin ampliar dominios.

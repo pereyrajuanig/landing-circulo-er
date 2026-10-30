@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mailTo } from '../lib/contact';
+import DemoPhoto from './DemoPhoto.astro';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
   stays: CollectionEntry<'stays'>[];
@@ -48,6 +49,7 @@ if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
         <span class="stay-kicker">ALOJAMIENTO INSTITUCIONAL</span>
         <h3 id="stay-title">{initialStay.data.name}</h3>
         <p id="stay-copy">{initialStay.data.description}</p>
+        <DemoPhoto kind="habitacion" variant="compact" />
         <p class="stay-note">
           Consultá disponibilidad, condiciones y contacto de reserva antes de organizar tu estadía.
         </p>

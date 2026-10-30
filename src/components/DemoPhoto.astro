@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import { demoPhotos } from '../lib/demo-photos';
+import type { DemoPhotoKind } from '../lib/demo-photos';
+interface Props {
+  kind: DemoPhotoKind;
+  variant?: 'wide' | 'compact' | 'card';
+  loading?: 'eager' | 'lazy';
+}
+const { kind, variant = 'wide', loading = 'lazy' } = Astro.props;
+const photo = demoPhotos[kind];
+const sizes =
+  variant === 'wide'
+    ? '(max-width: 800px) calc(100vw - 44px), 1240px'
+    : '(max-width: 800px) calc(100vw - 44px), 600px';
+---
+
+<figure class:list={['demo-photo', 'demo-photo--' + variant]} data-demo-photo>
+  <div class="demo-photo-frame">
+    <Image
+      src={photo.src}
+      alt={photo.alt}
+      format="webp"
+      quality={78}
+      width={1440}
+      widths={[480, 960, 1440]}
+      sizes={sizes}
+      loading={loading}
+      fetchpriority={loading === 'eager' ? 'high' : undefined}
+    />
+    <span class="demo-photo-badge">IMAGEN ILUSTRATIVA</span>
+  </div>
+  <figcaption>{photo.note}</figcaption>
+</figure>

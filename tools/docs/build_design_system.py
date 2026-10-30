@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación del sitio | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.12. Identidad, componentes, contenido, implementación y mantenimiento. 29 de octubre de 2026.')
+c.setSubject('Versión 1.13. Identidad, componentes, contenido, implementación y mantenimiento. 29 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.12 · 29 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.13 · 29 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación del<br/>sitio institucional',M,510,CW,39,43,PAPER,'Caslon',
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.12',M,770,10,'DM',PAPER)
+text('Versión 1.13',M,770,10,'DM',PAPER)
 right('29 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -409,7 +409,7 @@ y=table(['Necesidad','Archivo / lugar','Verificación'],[
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
 y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Preparar Chromium con npm run test:install; cerrar preview de revisión. Ejecutar npm run validate (51 comprobaciones); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.12. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.13. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
@@ -456,6 +456,16 @@ y=block('Diseño y contenido','Se mantienen azul, dorado, marfil, fuentes y escu
 y=block('Panel editorial y Facebook','El personal institucional cargará contenido. El usuario difirió la activación del panel; Sanity separado es la propuesta, sin instalación todavía. Facebook será origen de publicaciones; falta el enlace y verificar acceso y permisos. No hay sincronización ni llamadas nuevas a terceros.',y)
 note('PRÓXIMO CIERRE','Revisar navegación y diseño; completar fichas con datos reales; activar CMS cuando exista cuenta y luego comprobar Facebook. Dominio, privacidad y lector real siguen pendientes. Estado y evidencias: docs/site-evolution.md y PR #11.',y)
 
+
+# 25. Fotografías ilustrativas solicitadas por el usuario.
+y=begin('fotos_25','Una propuesta con fotografías','29/10/2026. El usuario pidió imágenes ficticias para revisar cómo podría quedar el sitio; esta ampliación actualiza las referencias previas sin fotografías de muestra.')
+y=block('Cuatro escenas de muestra','Comunidad, habitación, patio y salón, generadas con image_gen integrado. Originales seleccionados en src/assets/demo; prompts y rutas en docs/demo-photo-prompts.json. No muestran integrantes ni instalaciones reales del Círculo.',y)
+y=block('Composición','La portada combina la escena de comunidad con firma y escudo. Alojamiento agrega una imagen en el selector y en el índice. Las fichas incluyen galería de habitación y patio. Salones incorpora una escena amplia de encuentro. Se conservan colores, fuentes y textos institucionales.',y)
+y=block('Avisos y significado','Cada muestra tiene rótulo o epígrafe visible y alt explícito. Las mismas imágenes genéricas se reutilizan entre destinos y no certifican su equipamiento, capacidad ni condiciones. No retirar los avisos hasta reemplazarlas por fotos verificadas.',y)
+y=block('Galería y carga','Ampliación en dialog nativo con cierre, anterior/siguiente, flechas, Escape y retorno de foco. Sin JavaScript se conserva el enlace a la imagen. WebP locales de varios tamaños; portada eager y carga diferida en imágenes inferiores. Sin dependencias nuevas.',y)
+y=block('Control y reemplazo','Capturas y matriz en docs/media/fotos-*.png y demo-photo-evidence.json; prueba de galería en ambos modos CSP. La CSP autoriza por hash su script generado. Resultado final en el PR. Ver docs/photo-preview.md antes de incorporar material real.',y)
+note('FOTOS REALES PENDIENTES','Esta propuesta sirve para revisar diseño. No cierra las tareas12.03 y12.04 ni constituye validación institucional de instalaciones o personas. Revisión visual, merge del lote y contenido definitivo siguen pendientes.',y)
+
 bad=[b for b in BOUNDS if b[2]>780]
 if bad:
     print('OVERFLOW',bad)
@@ -463,7 +473,7 @@ if bad:
 c.save()
 (ROOT/'tmp').mkdir(exist_ok=True)
 reader=PdfReader(str(OUT))
-assert len(reader.pages)==24, len(reader.pages)
+assert len(reader.pages)==25, len(reader.pages)
 for i,p in enumerate(reader.pages):
     t=p.extract_text()
     assert len(t)>100, f'Empty page {i+1}'

@@ -43,3 +43,7 @@ Revisión del29/10/2026: propuesta de diseño con beneficios, alojamientos y sal
 El alcance evolucionó a varias páginas. Implementación propuesta en PR #11, no fusionada: 18 páginas y 404; noticias/logros como colección vacía con publicación filtrada. Fichas reutilizan información existente. Contenido completo/fotos y aceptación pendientes.
 
 El personal institucional editará con un panel. El usuario solicitó preparar la base y activarlo después. Facebook → sitio confirmado; enlace y acceso no disponibles. No hay CMS instalado ni sincronización activa. Detalle en site-evolution.md. La verificación del diseño anterior (dfdbe7c) no certifica por sí sola esta nueva ampliación; revisar el commit y los controles finales del PR.
+
+## 29/10/2026 · propuesta fotográfica
+
+PR #11 fusionado con autorización en eb1f66d y desplegado en Vercel. Nuevo lote codex/fotos-ilustrativas: el usuario pidió imágenes ficticias para revisar composición. Cuatro muestras con avisos y galería; no certifican instalaciones ni completan la recopilación real. Ver photo-preview.md. No hay autorización de merge de este nuevo lote.
