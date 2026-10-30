@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import crest from '../../public/assets/escudo.png';
+import ReferencePhoto from './ReferencePhoto.astro';
 ---
 
 <section id="inicio" class="hero" aria-labelledby="hero-title">
@@ -32,27 +33,30 @@ import crest from '../../public/assets/escudo.png';
       </div>
     </div>
     <div class="hero-emblem">
-      <div class="emblem-frame">
-        <span class="emblem-label">NUESTRA HISTORIA, NUESTRO VÍNCULO</span>
-        <Image
-          src={crest}
-          format="webp"
-          quality={100}
-          width={494}
-          widths={[180, 360, 494]}
-          sizes="(max-width: 800px) 140px, 180px"
-          loading="eager"
-          height="590"
-          alt="Escudo institucional: sol, laureles y manos unidas"
-        />
-        <div class="emblem-caption">
-          <p>
-            Una comunidad
-            <br />
-            <strong>de la que sos parte.</strong>
-          </p>
+      <div class="hero-photo-panel">
+        <ReferencePhoto kind="comunidad" variant="compact" loading="eager" />
+        <div class="hero-photo-signature">
+          <Image
+            src={crest}
+            format="webp"
+            quality={100}
+            width={56}
+            widths={[56, 112]}
+            sizes="56px"
+            loading="eager"
+            height={67}
+            alt="Escudo del Círculo"
+          />
+          <div>
+            <span class="emblem-label">NUESTRA HISTORIA, NUESTRO VÍNCULO</span>
+            <p>
+              Una comunidad
+              <br />
+              <em>de la que sos parte.</em>
+            </p>
+            <span class="emblem-since">Acompañándonos desde 1975</span>
+          </div>
         </div>
-        <span class="emblem-since">Acompañándonos desde 1975</span>
       </div>
     </div>
   </div>

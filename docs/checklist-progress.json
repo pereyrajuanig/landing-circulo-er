@@ -471,14 +471,14 @@
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "Sitio institucional / base editorial",
+    "trace_id": "Diseño / fotografías de internet",
     "trace_status": "Propuesta en revisión",
     "trace_owner": "Desarrollo",
     "trace_date": "29/10/2026",
-    "trace_commit": "PR #11 / rama diseno-beneficios-espacios",
-    "trace_method": "Rutas, fichas, FAQ y navegación entre páginas.\nControl del HTML completo y publicación filtrada.\nVer resultado final en PR #11.",
-    "trace_result": "18 páginas y 404; noticias sin entradas reales.\nCMS y Facebook no conectados.\nVer docs/site-evolution.md.",
-    "trace_limits": "Contenido/fotos, aceptación y merge pendientes.\nActivación del CMS diferida por usuario.\nFacebook sin enlace ni acceso; dominio/lector pendientes.",
+    "trace_commit": "Base eb1f66d / rama fotos-ilustrativas",
+    "trace_method": "12 fotos de Pexels; fuentes y licencia registradas.\nGalería, teclado y carga local adaptable.\n19 rutas por 6 anchos; resultado final en PR #12.",
+    "trace_result": "114 comprobaciones sin desbordes ni errores JS.\nFuentes: docs/photo-sources.json.\nEvidencia: reference-photo-evidence.json.",
+    "trace_limits": "Aceptación visual y merge pendientes.\nFotos de referencia, no registros del Círculo.\nMaterial real, dominio, contenido y lector pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -509,14 +509,29 @@
   },
   "revisions": {
     "benefits_spaces": {
-      "status": "pending_visual_acceptance",
+      "status": "merged",
       "branch": "codex/diseno-beneficios-espacios",
-      "summary": "Jerarquía beneficios/alojamientos/salones; destinatarios aclarados por usuario. Sin nuevos descuentos, capacidades ni condiciones de acceso inventadas."
+      "summary": "Jerarquía beneficios/alojamientos/salones; destinatarios aclarados por usuario. Sin nuevos descuentos, capacidades ni condiciones de acceso inventadas.",
+      "mergeCommit": "eb1f66d6c98b516eb16acef562ed3e9aaaec922a",
+      "mergePullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/11"
     },
     "website_evolution": {
-      "status": "in_review",
+      "status": "merged",
       "branch": "codex/diseno-beneficios-espacios",
-      "summary": "Sitio multipágina con fichas y base editorial; CMS diferido por usuario; Facebook como origen con enlace/acceso pendientes."
+      "summary": "Sitio multipágina con fichas y base editorial; CMS diferido por usuario; Facebook como origen con enlace/acceso pendientes.",
+      "mergeCommit": "eb1f66d6c98b516eb16acef562ed3e9aaaec922a",
+      "mergePullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/11"
+    },
+    "illustrative_photos": {
+      "status": "superseded",
+      "branch": "codex/fotos-ilustrativas",
+      "summary": "Cuatro muestras generadas a pedido del usuario; avisos visibles, galería ampliable y fotos reales todavía pendientes."
+    },
+    "reference_photos": {
+      "status": "pending_visual_acceptance",
+      "branch": "codex/fotos-ilustrativas",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/12",
+      "summary": "12 referencias de Pexels en 18 páginas y 404, con avisos y créditos. Sustituyen las imágenes generadas. Fotos institucionales reales todavía pendientes."
     }
   }
 }

@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.12
+# Sistema de diseño · 1.14
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
@@ -69,3 +69,11 @@ Revisión29/10/2026: beneficios, alojamientos y salones ganan prioridad; destina
 ## Versión1.12 · sitio institucional
 
 Addendum en página24 del manual: layout interior, ubicación, navegación entre páginas, fichas de beneficios y alojamientos, FAQ y sección de noticias/logros. Actualiza el recorrido de las referencias anteriores. Mantiene escudo, tipografías, paleta y tono. Base editorial preparada; CMS y Facebook pendientes. Ver [evolución y mapa](site-evolution.md).
+
+## Versión1.13 · antecedente sustituido
+
+Página25 del manual: propuesta con cuatro imágenes ficticias solicitadas por el usuario. Portada fotográfica, imágenes en alojamientos y salones y galería ampliable, manteniendo escudo y paleta. Avisos visibles y alt que explicitan su carácter ilustrativo. Esta revisión actualiza las referencias anteriores que indicaban ausencia de imágenes de muestra. Ver photo-preview.md.
+
+## Versión1.14 · fotografías de internet
+
+Página26 del manual sustituye la propuesta de página 25:12 fotos de Pexels distribuidas por 18 páginas públicas y 404, avisos y créditos. ReferencePhoto y PhotoGallery comparten epígrafes y fuentes; la galería cambia también el crédito. Fuentes locales WebP; paleta, tipografías y escudo conservados. Ver [propuesta vigente](photo-preview.md) y [registro de fuentes](photo-sources.json).

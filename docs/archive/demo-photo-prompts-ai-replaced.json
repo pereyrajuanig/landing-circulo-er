@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-29",
+  "mode": "Built-in image_gen",
+  "purpose": "Imágenes ficticias solicitadas por el usuario para revisar diseño. No representan personas ni instalaciones reales del Círculo.",
+  "assets": [
+    {
+      "id": "comunidad",
+      "path": "src/assets/demo/comunidad.png",
+      "prompt": "Use case: photorealistic-natural. Create a single landscape editorial photograph for an explicitly fictional website design sample for an Argentine retirees association. Four fictional older adults, men and women around 60–75, casually chatting and sharing mate around a wooden table in a light-filled modest community courtyard in Entre Ríos, Argentina. Civilian clothing, warm understated navy, cream, muted green. Natural candid expressions, belonging and companionship, unposed documentary feeling, believable ages and ordinary appearances, no luxury aesthetic. Medium-wide horizontal composition, people close enough together to allow different responsive crops, hands and faces anatomically credible. Warm soft morning daylight, natural skin texture and subtle film grain. No text, no logos, no uniforms, no real identifiable institution or location, no banners, no collage. This is a fictional illustrative photo, not evidence of any real event. Output one photographic landscape asset."
+    },
+    {
+      "id": "habitacion",
+      "path": "src/assets/demo/habitacion.png",
+      "prompt": "Use case: photorealistic-natural. Create one landscape editorial architectural photograph as an explicitly fictional lodging image for a website layout sample. A modest, clean, welcoming guest room in a small Argentine community guesthouse: two simple single beds, ivory bedding, light wood bedside table, soft sand-colored walls, a window with linen curtains, daylight and a touch of greenery outside. Practical and cared for, accessible-looking uncluttered circulation without claiming any certified accessibility. Eye-level medium-wide composition, straight vertical lines, realistic room proportions, warm natural color, subtle texture. Avoid luxury hotel styling, swimming pools, spectacular views, branding, signs, text, real identifiable locations, collages or over-saturated HDR. No people. Fictional sample only, not a photograph of the actual institution. One horizontal photograph."
+    },
+    {
+      "id": "patio",
+      "path": "src/assets/demo/patio.png",
+      "prompt": "Use case: photorealistic-natural. One landscape architectural/editorial photograph for a fictional design sample of a modest Argentine guesthouse courtyard. Quiet sunlit patio with a small wooden table, simple woven chairs, potted plants, pale plaster walls, terracotta floor tiles, a little shade from a tree. Warm cream and soft green palette, honest everyday setting, no luxury resort cues. Welcoming, peaceful, lived-in but tidy. Wide horizontal composition with realistic perspective and natural late-afternoon lighting, no heavy HDR. No people, text, logos, real recognizable buildings, institutional claims or collage. This must be an invented illustration of atmosphere, not a real location."
+    },
+    {
+      "id": "salon",
+      "path": "src/assets/demo/salon.png",
+      "prompt": "Use case: photorealistic-natural. A single landscape editorial architectural photograph of an entirely fictional modest community event hall in Argentina, intended as a clearly labeled website design placeholder. Spacious but ordinary welcoming hall, natural daylight through windows, cream walls, a simple timber or tiled floor, a few tables set for a small social gathering with understated neutral tablecloths, simple chairs, very modest greenery. Warm institutional dignity and community, not a luxury wedding venue. Eye-level wide horizontal shot with true architectural proportions and straight verticals, calm natural lighting, navy and ivory accents. No people, text, signs, logos, flags, real recognizable institution, capacity claims or collages. Photograph-like realistic texture."
+    }
+  ]
+}

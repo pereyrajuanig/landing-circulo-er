@@ -2,6 +2,8 @@
 import { getCollection, getEntry } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
 import Accommodation from '../../components/Accommodation.astro';
+import ReferencePhoto from '../../components/ReferencePhoto.astro';
+import { stayPhotoKeys } from '../../lib/reference-photos';
 const entry = await getEntry('institution', 'circulo');
 if (!entry) throw new Error('Falta el contenido institucional.');
 const stays = (await getCollection('stays')).sort((a, b) => a.data.order - b.data.order);
@@ -24,6 +26,7 @@ const stays = (await getCollection('stays')).sort((a, b) => a.data.order - b.dat
     <div class="destination-grid">
       {stays.map(({ id, data }, i) => (
         <article class="destination-entry">
+          <ReferencePhoto kind={stayPhotoKeys[id] ?? 'habitacion'} variant="card" />
           <span class="path-number">ENTRE RÍOS / {String(i + 1).padStart(2, '0')}</span>
           <h3>
             <a href={'/alojamientos/' + id + '/'}>

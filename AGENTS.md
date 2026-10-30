@@ -21,7 +21,7 @@
 
 - Preservar el stack y las funciones existentes. Evitar refactors generales y dependencias nuevas sin necesidad.
 - Usar npm y su lockfile. Comandos: `npm ci`, `npm run dev`, `npm run check`, `npm run lint`, `npm run format:check`, `npm test`, `npm run build`, `npm run preview`. `npm run validate` agrupa tipos, lint, formato y tests (incluye build).
-- `check` ejecuta astro check; `lint` ejecuta ESLint sin advertencias; `format:check` comprueba Prettier. Build valida colecciones y referencias de dist; npm test incluye build, trece tests Node y veinticuatro casos Chromium por cada modo CSP. Preparar el navegador con npm run test:install; Linux/CI usa npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout; el runner abre y cierra su preview en 4175. Guía: docs/testing.md. No son una auditoría CSS o WCAG completa.
+- `check` ejecuta astro check; `lint` ejecuta ESLint sin advertencias; `format:check` comprueba Prettier. Build valida colecciones y referencias de dist; npm test incluye build, trece tests Node y veintiséis casos Chromium por cada modo CSP. Preparar el navegador con npm run test:install; Linux/CI usa npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout; el runner abre y cierra su preview en 4175. Guía: docs/testing.md. No son una auditoría CSS o WCAG completa.
 - Revisar cambios visuales en navegador de escritorio y móvil; menú, servicios, búsqueda y alojamientos.
 - Usar Astro dev para desarrollo y Astro preview para revisar dist. No usar esos servidores como hosting de producción; solo public/ y la salida generada son públicos.
 - Mantener documentos y PDF alineados. Registrar progreso y evidencia en docs/checklist-progress.json; el PDF se regenera desde tools/docs/build_checklist.py y conserva campos manuales no sobrescritos por el registro. No marcar tareas o merges pendientes como verificados.
@@ -37,8 +37,12 @@
 
 ## Seguridad preparada
 
-CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 13 Node y24 Chromium por cada modo CSP. Headers de portada/assets/404 y HTTPS comprobados en vercel.app; futuro dominio y privacidad institucional aún por acordar.
+CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 13 Node y26 Chromium por cada modo CSP. Headers de portada/assets/404 y HTTPS comprobados en vercel.app; futuro dominio y privacidad institucional aún por acordar.
 
 ## Evolución multipágina en revisión
 
 El usuario pidió ampliar a sitio con fichas de beneficios/alojamientos, salones y noticias/logros. La propuesta usa SitePage.astro y cinco colecciones; news está vacía a propósito. Conservar borradores fuera del build público. No presentar el panel ni Facebook como conectados: el usuario difirió la activación del CMS y no tiene todavía el enlace de Facebook. Fuente prevista: Facebook → sitio. Alcance y tareas en docs/site-evolution.md.
+
+## Fotografías de referencia
+
+El pedido vigente es buscar fotos en internet y cubrir todas las páginas. Se usan 12 fotografías de Pexels con fuente y autor en docs/photo-sources.json y créditos visibles en ReferencePhoto/PhotoGallery. No generar imágenes sin una nueva instrucción explícita del usuario. No presentar referencias como instalaciones, integrantes, actividades o servicios reales del Círculo. Mantener los avisos hasta sustituirlas por material institucional verificado. Las tareas de fotos reales siguen pendientes. Ver docs/photo-preview.md.

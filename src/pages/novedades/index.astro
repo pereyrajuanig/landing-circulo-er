@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
 import NewsList from '../../components/NewsList.astro';
+import ReferencePhoto from '../../components/ReferencePhoto.astro';
 import { publishedNews } from '../../lib/news';
 const items = publishedNews(await getCollection('news'));
 ---
@@ -11,6 +12,9 @@ const items = publishedNews(await getCollection('news'));
   eyebrow="La vida del Círculo"
   description="Un lugar para conocer las novedades de la institución, sus actividades y los avances de la gestión."
 >
+  <div class="wrap page-photo">
+    <ReferencePhoto kind="gestion" />
+  </div>
   <section class="wrap page-section" aria-label="Publicaciones institucionales">
     <NewsList items={items} />
   </section>

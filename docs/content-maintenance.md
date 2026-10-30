@@ -47,3 +47,7 @@ Las fichas de servicios y destinos reutilizan sus colecciones. src/content/news.
 Solo published con fecha no futura genera artículos y aparece en los listados. El corte ocurre en build: una fecha futura no publica automáticamente sin nueva construcción. No pegar HTML ni tokens. El texto se escapa al renderizar. El modelo actual admite párrafos; galerías y texto enriquecido requieren una extensión revisada.
 
 Editar JSON sigue siendo el mecanismo actual. El panel y la importación de Facebook aún no están conectados; ver cms-roadmap.md y site-evolution.md.
+
+## Fotografías de referencia
+
+src/assets/reference contiene12 fotos descargadas de Pexels. No documentan instalaciones ni integrantes del Círculo. Mantener avisos y créditos de ReferencePhoto/PhotoGallery; fuentes y licencia en photo-sources.json y photo-sources.md. Antes de incorporar material real, confirmar derechos, destino y contexto; actualizar alt/epígrafes y retirar avisos solo de las imágenes verificadas. Las tareas 12.03 y 12.04 continúan abiertas. No generar imágenes: el usuario pidió buscarlas en internet.

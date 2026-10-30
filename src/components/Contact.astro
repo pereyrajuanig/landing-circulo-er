@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ReferencePhoto from './ReferencePhoto.astro';
 import { mailTo } from '../lib/contact';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
@@ -26,6 +27,7 @@ const [emailName, emailDomain] = institution.email.split('@');
       </a>
     </div>
     <div class="contact-info">
+      <ReferencePhoto kind="tramites" variant="compact" />
       <div>
         <span>TE ESPERAMOS EN LA SEDE CENTRAL</span>
         <h3>{institution.address}</h3>
