@@ -144,7 +144,7 @@ test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la se
   await expect(status).toBeEmpty();
 });
 
-test('seis alojamientos cambian selección única, contenido y asunto del correo', async ({
+test('los alojamientos cambian selección única, contenido y asunto del correo', async ({
   page,
 }) => {
   const selector = page.getByRole('group', { name: 'Elegí un alojamiento' });
@@ -160,6 +160,11 @@ test('seis alojamientos cambian selección única, contenido y asunto del correo
       '/alojamientos/' + stay.id + '/',
     );
     await expect(page.locator('#stay-copy')).toHaveText(stay.description);
+    await expect(page.locator('[data-stay-photo]:visible')).toHaveCount(1);
+    await expect(page.locator('[data-stay-photo]:visible')).toHaveAttribute(
+      'data-stay-photo',
+      stay.id,
+    );
     const url = new URL(
       await page
         .getByRole('link', { name: 'Consultar alojamiento', exact: true })
@@ -363,38 +368,84 @@ test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar'
   ).toBe(true);
 });
 
-test('galería de referencia permite ampliar cambiar imagen y devolver el foco', async ({
+test('galería institucional permite ampliar cambiar imagen y devolver el foco', async ({
   page,
 }) => {
-  await page.goto('/alojamientos/parana/');
+  await page.goto('/alojamientos/maria-grande/');
   const gallery = page.locator('[data-photo-gallery]');
-  await expect(gallery).toContainText('No corresponden al alojamiento real.');
+  await expect(gallery).toContainText('Imágenes del alojamiento identificado');
   const openers = gallery.locator('[data-gallery-open]');
   await expect(openers).toHaveCount(2);
   const opener = openers.first();
   await opener.focus();
   await page.keyboard.press('Enter');
-  const dialog = page.getByRole('dialog', { name: 'Fotografías de muestra', exact: true });
+  const dialog = page.getByRole('dialog', { name: 'Galería de alojamiento', exact: true });
   await expect(dialog).toBeVisible();
   await expect(
     dialog.getByRole('button', { name: 'Cerrar imagen ampliada', exact: true }),
   ).toBeFocused();
   await expect(dialog.locator('[data-gallery-image]')).toHaveAttribute(
     'alt',
-    /Fotografía de referencia/,
+    /alojamiento de María Grande/,
   );
   await dialog.getByRole('button', { name: 'Imagen siguiente', exact: true }).click();
-  await expect(dialog.getByRole('status')).toHaveText('2 / 2 · Paisaje de referencia');
+  await expect(dialog.getByRole('status')).toHaveText('2 / 2 · María Grande · comedor');
   await expect(dialog.locator('[data-gallery-image]')).toHaveAttribute(
     'src',
     await openers.nth(1).evaluate((element) => element.href),
   );
+  await expect(dialog.locator('[data-gallery-local]')).toContainText('Archivo del Círculo');
+  await expect(dialog.locator('[data-gallery-source]')).toBeHidden();
   await page.keyboard.press('ArrowLeft');
-  await expect(dialog.getByRole('status')).toHaveText('1 / 2 · Habitación de referencia');
+  await expect(dialog.getByRole('status')).toHaveText('1 / 2 · María Grande · habitación');
   await page.keyboard.press('Escape');
   await expect(dialog).not.toBeVisible();
   await expect(opener).toBeFocused();
   await openers.nth(1).click();
   await dialog.getByRole('button', { name: 'Cerrar imagen ampliada', exact: true }).click();
   await expect(openers.nth(1)).toBeFocused();
+});
+
+test('galería de una imagen conserva cierre y referencias pendientes siguen avisadas', async ({
+  page,
+}) => {
+  await page.goto('/alojamientos/parana/');
+  await page.locator('[data-gallery-open]').click();
+  const dialog = page.getByRole('dialog', { name: 'Galería de alojamiento', exact: true });
+  await expect(dialog.getByRole('button', { name: 'Imagen siguiente', exact: true })).toHaveCount(
+    0,
+  );
+  await expect(dialog.getByRole('status')).toHaveText('1 / 1 · Paraná · habitación');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('[data-gallery-open]')).toBeFocused();
+  await page.goto('/alojamientos/nogoya/');
+  await expect(page.locator('[data-photo-gallery]')).toContainText(
+    'No corresponden al alojamiento real',
+  );
+});
+
+test('novedades permite consultar memorias del archivo y salones distinguen capacidades', async ({
+  page,
+}) => {
+  await page.goto('/novedades/');
+  const items = page.locator('[data-news-item]:visible');
+  await expect(items).toHaveCount(4);
+  await page.getByLabel('Buscá una publicación', { exact: true }).fill('FEDERACION');
+  await expect(items).toHaveCount(1);
+  await items.getByRole('link', { name: 'Leer publicación', exact: false }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Federación: mejoras, alojamiento y talleres',
+  );
+  await expect(page.locator('.source-context')).toContainText(
+    'sin fecha de grabación identificada',
+  );
+  await expect(page.locator('.article-gallery [data-photo-kind="institutional"]')).toHaveCount(1);
+  await page.goto('/novedades/');
+  await page.getByRole('button', { name: 'Noticias', exact: true }).click();
+  await expect(items).toHaveCount(0);
+  await expect(page.locator('#news-empty')).toBeVisible();
+  await page.goto('/salones/');
+  await expect(page.locator('#los-laureles')).toContainText('30 y 50 personas');
+  await expect(page.locator('#las-rosas')).toContainText('170 personas');
+  await expect(page.locator('#diamante [data-site-photo]')).toHaveCount(0);
 });

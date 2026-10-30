@@ -1,0 +1,62 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import SitePhoto from './SitePhoto.astro';
+import { mailTo } from '../lib/contact';
+const spaces = (await getCollection('spaces')).sort((a, b) => a.data.order - b.data.order);
+const institution = await getEntry('institution', 'circulo');
+if (!institution) throw new Error('Falta contacto institucional.');
+---
+
+<section class="wrap page-section" aria-labelledby="spaces-catalog-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow dark">Elegí el espacio para tu encuentro</p>
+      <h2 id="spaces-catalog-title">Lugares con historia compartida.</h2>
+    </div>
+    <p>
+      El recorrido institucional permite conocer estos espacios. Consultá fechas, equipamiento y
+      condiciones directamente con el Círculo.
+    </p>
+  </div>
+  <div class="space-catalog">
+    {spaces.map(({ id, data }) => (
+      <article class="space-entry" id={id}>
+        <div class="space-entry-heading">
+          <p class="path-number">{data.locality}</p>
+          <h3>{data.name}</h3>
+          <p>{data.description}</p>
+        </div>
+        {data.photoKeys.length > 0 && (
+          <div class="space-photos">
+            {data.photoKeys.map((key) => (
+              <SitePhoto kind={key} variant="card" />
+            ))}
+          </div>
+        )}
+        <div class="space-entry-details">
+          <div>
+            <h4>Para conocerlo mejor</h4>
+            <ul>
+              {data.details.map((detail) => (
+                <li>{detail}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            {data.capacityNote && <p class="capacity-note">{data.capacityNote}</p>}
+            <p class="small-note">{data.sourceNote}</p>
+            <a
+              class="text-link"
+              href={mailTo(
+                institution.data.email,
+                'Consulta sobre ' + data.name + ' en ' + data.locality,
+              )}
+            >
+              Consultar por este espacio ↗
+            </a>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

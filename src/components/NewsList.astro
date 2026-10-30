@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import SitePhoto from './SitePhoto.astro';
 interface Props {
   items: CollectionEntry<'news'>[];
 }
@@ -40,8 +41,9 @@ const { items } = Astro.props;
           data-category={data.category}
         >
           <article>
+            {data.cover && <SitePhoto kind={data.cover} variant="compact" />}
             <p class="path-number">
-              {data.category === 'logro' ? 'LOGROS DE GESTIÓN' : 'NOTICIAS'} ·{' '}
+              {data.category === 'logro' ? 'LOGROS DE GESTIÓN' : 'NOTICIAS'} · PUBLICADO EL{' '}
               <time datetime={data.publishedAt}>
                 {new Date(data.publishedAt).toLocaleDateString('es-AR', {
                   timeZone: 'America/Argentina/Buenos_Aires',

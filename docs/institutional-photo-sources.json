@@ -1,0 +1,255 @@
+{
+  "date": "2026-10-30",
+  "source": "VideoCirculo_EXT.mp4",
+  "videoSha256": "ba1afc14e6c589a0b09139aae77dbd74bcb6d07662f87fe1a7b78a1b3d38526c",
+  "sourceDate": null,
+  "providedBy": "Usuario; uso solicitado para la web institucional",
+  "method": "Recortes recibidos, copiados sin reconstrucción ni generación de imágenes. WebP derivados por Astro para servirlos.",
+  "limitations": "Fecha de grabación no identificada; resolución de fotogramas; no acredita vigencia de prestaciones o convenios.",
+  "excluded": [
+    {
+      "file": "recortes-fotograficos/01-00m09s-parana-oficina.jpg",
+      "reason": "Documentos y pantalla visibles; se utiliza la oficina de Chajarí sin esos documentos en primer plano."
+    },
+    {
+      "file": "capturas-completas/02m56s-federacion-salud-lentes-talleres.jpg",
+      "reason": "Comprobante con datos personales; se utiliza exclusivamente el recorte del taller."
+    },
+    {
+      "file": "capturas-completas/04m08s-cierre-campana.jpg",
+      "reason": "Cierre de campaña; no corresponde a la presentación institucional de servicios."
+    }
+  ],
+  "photos": [
+    {
+      "key": "inst02",
+      "id": "parana-consultorio",
+      "asset": "src/assets/institutional/parana-consultorio-02.jpg",
+      "title": "Paraná · consultorio",
+      "time": "00:14",
+      "dimensions": [705, 455],
+      "original": "recortes-fotograficos/02-00m14s-parana-consultorio.jpg",
+      "sha256": "c5a8ad6e15af044ad4ba36565f0f47d4486f2551c3020aa4c6d5fb93a3b2baf9"
+    },
+    {
+      "key": "inst03",
+      "id": "parana-podologia",
+      "asset": "src/assets/institutional/parana-podologia-03.jpg",
+      "title": "Paraná · podología",
+      "time": "00:19",
+      "dimensions": [705, 450],
+      "original": "recortes-fotograficos/03-00m19s-parana-podologia.jpg",
+      "sha256": "b8ad56ce2948f1b7c56c9813fb25ea9fc1ee3ff2d78d998c798540d8a42de462"
+    },
+    {
+      "key": "inst04",
+      "id": "parana-habitacion-doble",
+      "asset": "src/assets/institutional/parana-habitacion-doble-04.jpg",
+      "title": "Paraná · habitación",
+      "time": "00:34",
+      "dimensions": [705, 455],
+      "original": "recortes-fotograficos/04-00m34s-parana-habitacion-doble.jpg",
+      "sha256": "15f042ca41624e8711b4c9d2acdc13c83b83f5cb21d2aa460037b2fc26479acc"
+    },
+    {
+      "key": "inst05",
+      "id": "parana-los-laureles-30-personas",
+      "asset": "src/assets/institutional/parana-los-laureles-30-personas-05.jpg",
+      "title": "Los Laureles · cocina",
+      "time": "00:47",
+      "dimensions": [440, 265],
+      "original": "recortes-fotograficos/05-00m47s-parana-los-laureles-30-personas.jpg",
+      "sha256": "66ae647a81e364c6400b593450bcb0c0543ab4008032f09f66f945d70544df66"
+    },
+    {
+      "key": "inst06",
+      "id": "parana-los-laureles-50-personas",
+      "asset": "src/assets/institutional/parana-los-laureles-50-personas-06.jpg",
+      "title": "Los Laureles · salón",
+      "time": "00:57",
+      "dimensions": [440, 265],
+      "original": "recortes-fotograficos/06-00m57s-parana-los-laureles-50-personas.jpg",
+      "sha256": "7647003d784b367ecd3d83c5928b54c9ce02f5bdae3c9ce4fb6830232ea01152"
+    },
+    {
+      "key": "inst07",
+      "id": "parana-las-rosas-exterior",
+      "asset": "src/assets/institutional/parana-las-rosas-exterior-07.jpg",
+      "title": "Las Rosas · asador",
+      "time": "01:07",
+      "dimensions": [440, 265],
+      "original": "recortes-fotograficos/07-01m07s-parana-las-rosas-exterior.jpg",
+      "sha256": "8d1fcc909994ca701fb9b48671bdb16b388412e20d5da50c61b9dea6d1d86cdb"
+    },
+    {
+      "key": "inst08",
+      "id": "parana-las-rosas-parrillas",
+      "asset": "src/assets/institutional/parana-las-rosas-parrillas-08.jpg",
+      "title": "Las Rosas · parrilla",
+      "time": "01:22",
+      "dimensions": [425, 275],
+      "original": "recortes-fotograficos/08-01m22s-parana-las-rosas-parrillas.jpg",
+      "sha256": "98d2fac278c56449b8c4654fe882c90fcae702b934f39f315b82527a8afc6680"
+    },
+    {
+      "key": "inst09",
+      "id": "concepcion-del-uruguay-alojamiento",
+      "asset": "src/assets/institutional/concepcion-del-uruguay-alojamiento-09.jpg",
+      "title": "C. del Uruguay · habitación",
+      "time": "01:37",
+      "dimensions": [435, 265],
+      "original": "recortes-fotograficos/09-01m37s-concepcion-del-uruguay-alojamiento.jpg",
+      "sha256": "1b4d8a126bea451bd931e79e8e8270a0ff78a8c765db5b699488969b0df999ea"
+    },
+    {
+      "key": "inst10",
+      "id": "concordia-inauguracion",
+      "asset": "src/assets/institutional/concordia-inauguracion-10.jpg",
+      "title": "Concordia · inauguración",
+      "time": "01:54",
+      "dimensions": [435, 260],
+      "original": "recortes-fotograficos/10-01m54s-concordia-inauguracion.jpg",
+      "sha256": "1ef0c1511ed26a2089df1d6cbae9b368dacf6e5f7f9b20ccf2b745a698c468e3"
+    },
+    {
+      "key": "inst11",
+      "id": "concordia-encuentro-social",
+      "asset": "src/assets/institutional/concordia-encuentro-social-11.jpg",
+      "title": "Concordia · encuentro",
+      "time": "02:19",
+      "dimensions": [435, 260],
+      "original": "recortes-fotograficos/11-02m19s-concordia-encuentro-social.jpg",
+      "sha256": "1f619c3e996a978aa668d0034f8600c4921af02fb59ff98f9f3f4923ad5faad8"
+    },
+    {
+      "key": "inst12",
+      "id": "rosario-del-tala-actividades",
+      "asset": "src/assets/institutional/rosario-del-tala-actividades-12.jpg",
+      "title": "Rosario del Tala · salón",
+      "time": "02:34",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/12-02m34s-rosario-del-tala-actividades.jpg",
+      "sha256": "0c077bf67bcdb35e3fe03db19b84d8a6a8755562763424e974d4637d210f6a38"
+    },
+    {
+      "key": "inst13",
+      "id": "federacion-complejo-habitacional",
+      "asset": "src/assets/institutional/federacion-complejo-habitacional-13.jpg",
+      "title": "Federación · alojamiento",
+      "time": "02:49",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/13-02m49s-federacion-complejo-habitacional.jpg",
+      "sha256": "63e0773ed3ea4831a277ee6655cfa44dfa2bcd7c386ffd7d6a0891c454aadabf"
+    },
+    {
+      "key": "inst14",
+      "id": "federacion-salud-lentes-talleres",
+      "asset": "src/assets/institutional/federacion-salud-lentes-talleres-14.jpg",
+      "title": "Federación · taller",
+      "time": "02:56",
+      "dimensions": [335, 180],
+      "original": "recortes-fotograficos/14-02m56s-federacion-salud-lentes-talleres.jpg",
+      "sha256": "d56769f549a2cea96ad8de086b99cccbe376ef63d71bf5221199e20c08f7b70a"
+    },
+    {
+      "key": "inst15",
+      "id": "federal-nueva-sede",
+      "asset": "src/assets/institutional/federal-nueva-sede-15.jpg",
+      "title": "Federal · sede",
+      "time": "03:04",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/15-03m04s-federal-nueva-sede.jpg",
+      "sha256": "ce05778513bb677c89b26a9135f11ff6d192ecb9f3bc80ff423a46dc58947898"
+    },
+    {
+      "key": "inst16",
+      "id": "federal-actividades",
+      "asset": "src/assets/institutional/federal-actividades-16.jpg",
+      "title": "Federal · viaje",
+      "time": "03:11",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/16-03m11s-federal-actividades.jpg",
+      "sha256": "ebedf2d6a5c06e877f7233f2ce617f305fe3fba667984f8e882974e6fb17a50f"
+    },
+    {
+      "key": "inst17",
+      "id": "feliciano-sede-salud-terreno",
+      "asset": "src/assets/institutional/feliciano-sede-salud-terreno-17.jpg",
+      "title": "Feliciano · atención",
+      "time": "03:19",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/17-03m19s-feliciano-sede-salud-terreno.jpg",
+      "sha256": "e537ab0c883f97dc4a8390300ae30d22ace30bb25b98dddb869ec2484d7db0b5"
+    },
+    {
+      "key": "inst18",
+      "id": "diamante-rehabilitacion-obras",
+      "asset": "src/assets/institutional/diamante-rehabilitacion-obras-18.jpg",
+      "title": "Diamante · rehabilitación",
+      "time": "03:34",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/18-03m34s-diamante-rehabilitacion-obras.jpg",
+      "sha256": "3886d7c3d33d5d3f9dc28fe7adca1dc1d044e47d14cc740dbb2a327db9b9abd9"
+    },
+    {
+      "key": "inst19",
+      "id": "crespo-salon-80-personas",
+      "asset": "src/assets/institutional/crespo-salon-80-personas-19.jpg",
+      "title": "Crespo · salón",
+      "time": "03:41",
+      "dimensions": [300, 275],
+      "original": "recortes-fotograficos/19-03m41s-crespo-salon-80-personas.jpg",
+      "sha256": "97be8f48d5e1f9140576cbf1ec8170b3374996eef0ba4cc40ee8db2bc9fc6041"
+    },
+    {
+      "key": "inst20",
+      "id": "maria-grande-alojamiento",
+      "asset": "src/assets/institutional/maria-grande-alojamiento-20.jpg",
+      "title": "María Grande · habitación",
+      "time": "03:47",
+      "dimensions": [335, 180],
+      "original": "recortes-fotograficos/20-03m47s-maria-grande-alojamiento.jpg",
+      "sha256": "2dd34a1807ae271351ad2e4983c6849a404326ca087a30eefa741b92e63f7d97"
+    },
+    {
+      "key": "inst21",
+      "id": "maria-grande-comedor",
+      "asset": "src/assets/institutional/maria-grande-comedor-21.jpg",
+      "title": "María Grande · comedor",
+      "time": "03:49",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/21-03m49s-maria-grande-comedor.jpg",
+      "sha256": "8bff66167f61d9ff09ae57f8a256158b643470852cf61a6ad6a5c47448199784"
+    },
+    {
+      "key": "inst22",
+      "id": "hasenkamp-sede-salon",
+      "asset": "src/assets/institutional/hasenkamp-sede-salon-22.jpg",
+      "title": "Hasenkamp · salón",
+      "time": "03:56",
+      "dimensions": [300, 275],
+      "original": "recortes-fotograficos/22-03m56s-hasenkamp-sede-salon.jpg",
+      "sha256": "e4edb9fd894951ca71eec0adcfec7818e51a9e3d5c5f747b1ff4d72a246b2333"
+    },
+    {
+      "key": "inst23",
+      "id": "hasenkamp-sede-salon",
+      "asset": "src/assets/institutional/hasenkamp-sede-salon-23.jpg",
+      "title": "Hasenkamp · cocina",
+      "time": "03:56",
+      "dimensions": [440, 260],
+      "original": "recortes-fotograficos/23-03m56s-hasenkamp-sede-salon.jpg",
+      "sha256": "55d522b96efbff337185b60fa82de813fe02abc1aefb475ac7ccad2b1e7f632f"
+    },
+    {
+      "key": "inst24",
+      "id": "chajari-asesoramiento",
+      "asset": "src/assets/institutional/chajari-asesoramiento-24.jpg",
+      "title": "Chajarí · oficina",
+      "time": "04:02",
+      "dimensions": [435, 265],
+      "original": "recortes-fotograficos/24-04m02s-chajari-asesoramiento.jpg",
+      "sha256": "5bc37c7fcb50df3d43262627b3f28639bb72e6827990996cf5b1da024add3be3"
+    }
+  ]
+}

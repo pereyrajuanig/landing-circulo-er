@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mailTo } from '../lib/contact';
-import ReferencePhoto from './ReferencePhoto.astro';
+import SitePhoto from './SitePhoto.astro';
+import { stayPhotoKeys } from '../lib/photos';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
   stays: CollectionEntry<'stays'>[];
@@ -49,7 +50,13 @@ if (!initialStay) throw new Error('Debe existir al menos un alojamiento.');
         <span class="stay-kicker">ALOJAMIENTO INSTITUCIONAL</span>
         <h3 id="stay-title">{initialStay.data.name}</h3>
         <p id="stay-copy">{initialStay.data.description}</p>
-        <ReferencePhoto kind="habitacion" variant="compact" />
+        <div class="stay-photos">
+          {stays.map((stay, index) => (
+            <div data-stay-photo={stay.id} hidden={index !== 0}>
+              <SitePhoto kind={stayPhotoKeys[stay.id]} variant="compact" />
+            </div>
+          ))}
+        </div>
         <p class="stay-note">
           Consultá disponibilidad, condiciones y contacto de reserva antes de organizar tu estadía.
         </p>

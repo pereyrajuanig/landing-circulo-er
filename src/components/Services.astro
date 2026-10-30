@@ -1,8 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mailTo } from '../lib/contact';
-import ReferencePhoto from './ReferencePhoto.astro';
-import { servicePhotoKeys } from '../lib/reference-photos';
+import SitePhoto from './SitePhoto.astro';
+import { servicePhotoKeys } from '../lib/photos';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
   services: CollectionEntry<'services'>[];
@@ -51,7 +51,7 @@ const { institution, services } = Astro.props;
                 <span aria-hidden="true">{service.data.target === 'email' ? '↗' : '→'}</span>
               </a>
             </div>
-            <ReferencePhoto kind={servicePhotoKeys[service.id] ?? 'salud'} variant="compact" />
+            <SitePhoto kind={servicePhotoKeys[service.id] ?? 'salud'} variant="compact" />
           </div>
         </details>
       ))}

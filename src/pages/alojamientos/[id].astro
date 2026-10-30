@@ -25,6 +25,21 @@ if (!entry) throw new Error('Falta el contacto institucional.');
   parent={{ label: 'Alojamientos', href: '/alojamientos/' }}
 >
   <PhotoGallery stayId={stay.id} />
+  <section class="wrap page-section stay-information" aria-labelledby="stay-information-title">
+    <p class="eyebrow dark">El alojamiento</p>
+    <h2 id="stay-information-title">Información para planificar tu visita.</h2>
+    {stay.data.location && (
+      <p>
+        <strong>Ubicación:</strong> {stay.data.location}
+      </p>
+    )}
+    <ul>
+      {stay.data.details.map((detail) => (
+        <li>{detail}</li>
+      ))}
+    </ul>
+    {stay.data.sourceNote && <p class="small-note">{stay.data.sourceNote}</p>}
+  </section>
   <section class="wrap page-section detail-grid" aria-labelledby="stay-planning">
     <div>
       <p class="eyebrow dark">Planificá tu visita</p>

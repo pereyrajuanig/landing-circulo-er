@@ -96,6 +96,9 @@ if (stayLayout?.dataset.stays && stayLayout.dataset.email && stayTitle && stayCo
       });
       const detailLink = document.querySelector<HTMLAnchorElement>('#stay-detail-link');
       if (detailLink) detailLink.href = '/alojamientos/' + stay.id + '/';
+      document.querySelectorAll<HTMLElement>('[data-stay-photo]').forEach((photo) => {
+        photo.hidden = photo.dataset.stayPhoto !== stay.id;
+      });
       stayTitle.textContent = stay.name;
       stayCopy.textContent = stay.description;
       stayLink.href = mailTo(email, 'Consulta de alojamiento en ' + stay.name);

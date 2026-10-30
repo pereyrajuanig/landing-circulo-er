@@ -1,0 +1,73 @@
+[
+  {
+    "id": "los-laureles",
+    "order": 0,
+    "name": "Los Laureles",
+    "locality": "Paraná",
+    "description": "Un espacio para reuniones y encuentros con cocina y entorno parquizado, presentado en el recorrido institucional.",
+    "details": [
+      "Cocina y horno a gas; heladeras y freezer mencionados en el material.",
+      "Mesas, sillas y aire acondicionado.",
+      "Churrasquera, espacios verdes y sanitarios."
+    ],
+    "photoKeys": ["parana-los-laureles-50-personas-06", "parana-los-laureles-30-personas-05"],
+    "capacityNote": "El video menciona 30 y 50 personas en escenas distintas. Consultá qué sector corresponde a tu encuentro.",
+    "sourceNote": "Características presentadas en el video; confirmar equipamiento y condiciones actuales."
+  },
+  {
+    "id": "las-rosas",
+    "order": 1,
+    "name": "Las Rosas",
+    "locality": "Paraná",
+    "description": "Un lugar para compartir celebraciones y reuniones, con espacios de cocina y asadores techados.",
+    "details": [
+      "Mesas redondas, sillas plegables y un salón extra mencionados en el recorrido.",
+      "Churrasquera, parrilla y asador criollo techado.",
+      "Cocina con horno grande, heladeras y freezers; entrada independiente."
+    ],
+    "photoKeys": ["parana-las-rosas-exterior-07", "parana-las-rosas-parrillas-08"],
+    "capacityNote": "Referencia anunciada en el video: 170 personas. La capacidad habilitada para cada evento se confirma con la institución.",
+    "sourceNote": "No se equipara esta capacidad con la de otros salones o del camping; consultar el espacio específico."
+  },
+  {
+    "id": "diamante",
+    "order": 2,
+    "name": "Salón de la filial Diamante",
+    "locality": "Diamante",
+    "description": "Un espacio social presentado junto a las mejoras y los servicios de la filial.",
+    "details": [
+      "Salón para encuentros de la comunidad.",
+      "La filial también presenta un gimnasio de rehabilitación y kinesiología; se consulta por separado."
+    ],
+    "photoKeys": [],
+    "capacityNote": "El material anuncia capacidad para 200 personas; confirmar habilitación, modalidad y disponibilidad para tu encuentro.",
+    "sourceNote": "No se recibió un recorte independiente del salón. No se utiliza la foto del gimnasio como si fuera el salón."
+  },
+  {
+    "id": "crespo",
+    "order": 3,
+    "name": "Salón de la filial Crespo",
+    "locality": "Crespo",
+    "description": "Un espacio de encuentro presentado en el material de la filial, acompañado por sus servicios de asesoramiento.",
+    "details": [
+      "El archivo muestra un sector del salón preparado para actividades.",
+      "Consultá tipo de evento, equipamiento, fechas y condiciones de uso."
+    ],
+    "photoKeys": ["crespo-salon-80-personas-19"],
+    "capacityNote": "Referencia del video: 80 personas. La filial confirma la capacidad y condiciones actuales.",
+    "sourceNote": "La imagen recibida muestra un sector del espacio, no su distribución completa."
+  },
+  {
+    "id": "hasenkamp",
+    "order": 4,
+    "name": "Espacio de la filial Hasenkamp",
+    "locality": "Hasenkamp",
+    "description": "La sede aparece en el recorrido con salón y cocina, junto a su función de asesoramiento y acompañamiento.",
+    "details": [
+      "Salón y cocina visibles en el registro institucional.",
+      "Consultá si el espacio está disponible para la actividad que querés organizar."
+    ],
+    "photoKeys": ["hasenkamp-sede-salon-22", "hasenkamp-sede-salon-23"],
+    "sourceNote": "El material no detalla capacidad ni condiciones de uso para eventos."
+  }
+]

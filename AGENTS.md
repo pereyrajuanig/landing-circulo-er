@@ -21,7 +21,7 @@
 
 - Preservar el stack y las funciones existentes. Evitar refactors generales y dependencias nuevas sin necesidad.
 - Usar npm y su lockfile. Comandos: `npm ci`, `npm run dev`, `npm run check`, `npm run lint`, `npm run format:check`, `npm test`, `npm run build`, `npm run preview`. `npm run validate` agrupa tipos, lint, formato y tests (incluye build).
-- `check` ejecuta astro check; `lint` ejecuta ESLint sin advertencias; `format:check` comprueba Prettier. Build valida colecciones y referencias de dist; npm test incluye build, trece tests Node y veintiséis casos Chromium por cada modo CSP. Preparar el navegador con npm run test:install; Linux/CI usa npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout; el runner abre y cierra su preview en 4175. Guía: docs/testing.md. No son una auditoría CSS o WCAG completa.
+- `check` ejecuta astro check; `lint` ejecuta ESLint sin advertencias; `format:check` comprueba Prettier. Build valida colecciones y referencias de dist; npm test incluye build, catorce tests Node y treinta casos Chromium por cada modo CSP. Preparar el navegador con npm run test:install; Linux/CI usa npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout; el runner abre y cierra su preview en 4175. Guía: docs/testing.md. No son una auditoría CSS o WCAG completa.
 - Revisar cambios visuales en navegador de escritorio y móvil; menú, servicios, búsqueda y alojamientos.
 - Usar Astro dev para desarrollo y Astro preview para revisar dist. No usar esos servidores como hosting de producción; solo public/ y la salida generada son públicos.
 - Mantener documentos y PDF alineados. Registrar progreso y evidencia en docs/checklist-progress.json; el PDF se regenera desde tools/docs/build_checklist.py y conserva campos manuales no sobrescritos por el registro. No marcar tareas o merges pendientes como verificados.
@@ -37,12 +37,14 @@
 
 ## Seguridad preparada
 
-CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 13 Node y26 Chromium por cada modo CSP. Headers de portada/assets/404 y HTTPS comprobados en vercel.app; futuro dominio y privacidad institucional aún por acordar.
+CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 14 Node y30 Chromium por cada modo CSP. Headers de portada/assets/404 y HTTPS comprobados en vercel.app; futuro dominio y privacidad institucional aún por acordar.
 
 ## Evolución multipágina en revisión
 
-El usuario pidió ampliar a sitio con fichas de beneficios/alojamientos, salones y noticias/logros. La propuesta usa SitePage.astro y cinco colecciones; news está vacía a propósito. Conservar borradores fuera del build público. No presentar el panel ni Facebook como conectados: el usuario difirió la activación del CMS y no tiene todavía el enlace de Facebook. Fuente prevista: Facebook → sitio. Alcance y tareas en docs/site-evolution.md.
+El usuario pidió ampliar a sitio con fichas de beneficios/alojamientos, salones y noticias/logros. La implementación usa SitePage.astro y seis colecciones; news contiene cuatro reseñas del archivo institucional recibido el 30/10/2026. Conservar borradores fuera del build público. No presentar el panel ni Facebook como conectados: el usuario difirió la activación del CMS y no tiene todavía el enlace de Facebook. Fuente prevista: Facebook → sitio. Alcance y tareas en docs/site-evolution.md.
 
-## Fotografías de referencia
+## Material institucional y fotografías
 
-El pedido vigente es buscar fotos en internet y cubrir todas las páginas. Se usan 12 fotografías de Pexels con fuente y autor en docs/photo-sources.json y créditos visibles en ReferencePhoto/PhotoGallery. No generar imágenes sin una nueva instrucción explícita del usuario. No presentar referencias como instalaciones, integrantes, actividades o servicios reales del Círculo. Mantener los avisos hasta sustituirlas por material institucional verificado. Las tareas de fotos reales siguen pendientes. Ver docs/photo-preview.md.
+El usuario entregó VideoCirculo-material-recopilado el 30/10/2026. Fuente y limitaciones en docs/institutional-content.md e institutional-photo-sources.json. Se usan 23 recortes seleccionados; no publicar originales completos con datos personales ni cierre de campaña. No inventar fechas de hechos ni vigencia de convenios a partir de un video sin fecha. Las reseñas explican que su fecha corresponde a la publicación del texto.
+
+SitePhoto y src/lib/photos.ts distinguen imágenes institucionales de referencias. Mantener avisos y créditos de Pexels en farmacia,404 y cuatro alojamientos sin fotos propias. No utilizar una imagen de otra localidad como si correspondiera al destino. Las imágenes del selector deben cambiar con su destino. No generar imágenes sin una nueva instrucción explícita del usuario. No marcar contenido, capacidad, equipamiento, fotos reales completas o aceptación institucional como verificados sin cumplir sus criterios.

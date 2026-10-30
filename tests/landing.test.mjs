@@ -155,6 +155,8 @@ test('la preview del build no expone el repositorio o el dossier local', async (
     '/tests/e2e/landing.spec.mjs',
     '/playwright.config.mjs',
     '/playwright-report/index.html',
+    '/VideoCirculo-material-recopilado/informacion-e-inventario.json',
+    '/VideoCirculo-material-recopilado/capturas-completas/02m56s-federacion-salud-lentes-talleres.jpg',
   ]) {
     assert.equal((await fetch(new URL(path, origin))).status, 404, path);
   }
@@ -174,10 +176,10 @@ test('el HTML ofrece destino de salto enfocable, estados y relaciones accesibles
       assert(ids.includes(id), 'Referencia ARIA inexistente: ' + id);
   }
   const buttons = [...html.matchAll(/<button\b([^>]*)>/g)].map((match) => match[1]);
-  assert.equal(buttons.length, 7);
+  assert.equal(buttons.length, load('../src/content/stays.json').length + 1);
   for (const button of buttons) assert.match(button, /type="button"/);
   const stays = buttons.filter((button) => button.includes('data-stay='));
-  assert.equal(stays.length, 6);
+  assert.equal(stays.length, load('../src/content/stays.json').length);
   assert.equal(stays.filter((button) => button.includes('aria-pressed="true"')).length, 1);
   for (const button of stays) assert.match(button, /aria-controls="stay-detail"/);
   assert.match(html, /id="stay-detail"[^>]*aria-live="polite"/);
@@ -311,10 +313,49 @@ test('el sitio genera las fichas de servicios y destinos y todas sus rutas son n
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1, path);
     assert(!html.includes('href="#inicio"'), 'Enlace de inicio sin destino: ' + path);
     assert.match(html, /aria-label="Ubicación"/, path);
-    assert(html.includes('data-reference-photo'), 'Falta una fotografía de referencia: ' + path);
+    assert(html.includes('data-site-photo'), 'Falta fotografía: ' + path);
     assert(!html.includes('generada con IA'), 'Queda un aviso de imagen generada: ' + path);
   }
   const newsroom = await (await fetch(new URL('/novedades/', origin))).text();
-  assert.match(newsroom, /Todavía no hay publicaciones para mostrar/);
+  assert(!newsroom.includes('Todavía no hay publicaciones para mostrar'));
+  for (const article of load('../src/content/news.json').filter(
+    (item) => item.status === 'published',
+  )) {
+    assert(newsroom.includes(article.title), article.id);
+    const response = await fetch(new URL('/novedades/' + article.id + '/', origin));
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert(html.includes('La fecha de publicación corresponde a esta reseña'));
+  }
   assert.equal((await fetch(new URL('/novedades/noticia-no-publicada/', origin))).status, 404);
+});
+
+test('las fotografías propias conservan su localidad y las referencias siguen identificadas', async () => {
+  const files = load('../docs/institutional-photo-sources.json').photos;
+  assert.equal(files.length, 23);
+  const paths = [
+    '/',
+    '/beneficios/salud/',
+    '/salones/',
+    '/institucion/',
+    ...load('../src/content/news.json').map((item) => '/novedades/' + item.id + '/'),
+    ...load('../src/content/stays.json').map((item) => '/alojamientos/' + item.id + '/'),
+  ];
+  const html = (
+    await Promise.all(paths.map(async (path) => (await fetch(new URL(path, origin))).text()))
+  ).join('\n');
+  for (const file of files)
+    assert(html.includes('data-photo-key="' + file.id + '-' + file.key.slice(4) + '"'), file.asset);
+  for (const id of ['parana', 'maria-grande', 'concepcion-del-uruguay', 'federacion']) {
+    const doc = await (await fetch(new URL('/alojamientos/' + id + '/', origin))).text();
+    assert(doc.includes('data-photo-kind="institutional"'), id);
+    assert(!doc.includes('FOTO DE REFERENCIA'), id);
+    assert(!doc.includes('No corresponden al alojamiento real'), id);
+  }
+  for (const id of ['victoria', 'nogoya', 'la-paz', 'santa-elena']) {
+    const doc = await (await fetch(new URL('/alojamientos/' + id + '/', origin))).text();
+    assert(doc.includes('No corresponden al alojamiento real'), id);
+    assert(doc.includes('Foto:'), id);
+    assert(!doc.includes('data-photo-kind="institutional"'), id);
+  }
 });

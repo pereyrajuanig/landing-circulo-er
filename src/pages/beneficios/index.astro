@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
-import ReferencePhoto from '../../components/ReferencePhoto.astro';
-import { servicePhotoKeys } from '../../lib/reference-photos';
+import SitePhoto from '../../components/SitePhoto.astro';
+import { servicePhotoKeys } from '../../lib/photos';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
@@ -24,7 +24,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       {services.map(({ id, data }, i) => (
         <article>
           <div class="benefit-preview">
-            <ReferencePhoto kind={servicePhotoKeys[id] ?? 'salud'} variant="card" />
+            <SitePhoto kind={servicePhotoKeys[id] ?? 'salud'} variant="card" />
             <span class="path-number">
               {String(i + 1).padStart(2, '0')} / {data.caption}
             </span>

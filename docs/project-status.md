@@ -9,7 +9,7 @@ Fecha: 13 de octubre de 2026. Proyecto canónico: Desktop/Landing-CirculoER. Rep
 - PR #4 etapa 02 integrado con autorización: 20181ac; siete tareas verificadas y zoom 200 % confirmado manualmente por el usuario.
 - PR #5 integrado con autorización: 480eaef8f44797fed5e62def3d56fc9de769e320; [quality de main](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38452363417) aprobado. Etapa 03 con seis tareas verificadas; lector real 03.06 pendiente por decisión del usuario.
 - PR #6 etapa 04 integrado con autorización: 9938f6d; quality de main 38461526636 aprobado.
-- PR #7 SEO integrado con autorización: main5bf1798, quality38465530841 aprobado; dominio y cierre público pendientes.
+- PR #7 SEO integrado con autorización: main 5bf1798, quality38465530841 aprobado; dominio y cierre público pendientes.
 - PR #8 integrado con autorización: main b263601, quality38479593548 aprobado. Laboratorio verificado; métricas de campo pendientes.
 - PR #9 fusionado con autorización: main e1e830b; [quality](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38485087460) aprobado. Headers de hosting/404 comprobados en Vercel; privacidad y futuro dominio pendientes.
 - [Publicación para revisión](vercel-preview.md) autorizada el 13/10/2026. Etapa08 diferida por el usuario hasta reunir contenido y definir secciones; etapa09 parcial.
@@ -51,3 +51,9 @@ PR #11 fusionado con autorización en eb1f66d y desplegado en Vercel. Nuevo lote
 ## Revisión fotográfica vigente · 29/10/2026
 
 Pedido corregido por el usuario: fotos de internet, sin generación, en todas las páginas. PR #12 en codex/fotos-ilustrativas sustituye las muestras anteriores por12 referencias Pexels con créditos y fuentes. Matriz 19 rutas por 6 anchos sin desbordes ni errores de JavaScript; docs/reference-photo-evidence.json. La aceptación visual y el merge siguen pendientes. main permanece en eb1f66d (PR #11); CMS/Facebook, dominio, contenido final, lector y fotografías reales pendientes. Resultado de la suite y CI en el PR.
+
+## Contenido institucional en revisión · 30/10/2026
+
+PR #12 fusionado con autorización: main 5aeee25, quality y Vercel aprobados. Nuevo lote en codex/contenido-institucional con material identificado por el usuario:23 recortes, ocho destinos, cinco espacios, nueve filiales con contenido y cuatro reseñas del archivo.25 páginas generadas contando404.
+
+Aceptación del contenido y nuevo merge pendientes; capacidades y vigencia se atribuyen al archivo, sin inventar fechas. No se activan CMS/Facebook. Documentación: institutional-content.md. Resultado de las comprobaciones finales en el PR.

@@ -1,0 +1,774 @@
+{
+  "date": "2026-10-30",
+  "method": "Astro preview y Chromium:25 rutas (24 públicas y404),6 anchos,150 comprobaciones; fotografías decodificadas en capturas. No es certificación WCAG ni prueba con lector.",
+  "matrix": [
+    {
+      "path": "/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/salones/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/salones/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/salones/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/salones/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/salones/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/salones/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/institucion/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/institucion/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/institucion/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/institucion/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/institucion/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/institucion/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/contacto/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/contacto/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/contacto/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/contacto/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/contacto/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/contacto/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/salud/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/salud/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/salud/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/salud/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/salud/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/salud/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/tramites/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/tramites/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/tramites/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/tramites/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/tramites/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/tramites/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/farmacia/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/farmacia/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/farmacia/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/farmacia/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/farmacia/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/farmacia/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/turismo/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/turismo/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/turismo/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/turismo/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/turismo/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/turismo/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/recreacion/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/recreacion/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/recreacion/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/recreacion/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/recreacion/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/beneficios/recreacion/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/parana/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/parana/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/parana/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/parana/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/parana/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/parana/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/maria-grande/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/maria-grande/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/maria-grande/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/maria-grande/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/maria-grande/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/maria-grande/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/victoria/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/victoria/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/victoria/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/victoria/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/victoria/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/victoria/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/nogoya/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/nogoya/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/nogoya/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/nogoya/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/nogoya/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/nogoya/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/la-paz/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/la-paz/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/la-paz/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/la-paz/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/la-paz/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/la-paz/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/santa-elena/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/santa-elena/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/santa-elena/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/santa-elena/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/santa-elena/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/santa-elena/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/concepcion-del-uruguay/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/concepcion-del-uruguay/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/concepcion-del-uruguay/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/concepcion-del-uruguay/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/concepcion-del-uruguay/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/concepcion-del-uruguay/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/federacion/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/federacion/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/federacion/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/federacion/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/federacion/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/alojamientos/federacion/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/concordia-espacio-y-encuentros/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/concordia-espacio-y-encuentros/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/concordia-espacio-y-encuentros/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/concordia-espacio-y-encuentros/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/concordia-espacio-y-encuentros/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/concordia-espacio-y-encuentros/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federacion-mejoras-y-talleres/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federacion-mejoras-y-talleres/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federacion-mejoras-y-talleres/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federacion-mejoras-y-talleres/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federacion-mejoras-y-talleres/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federacion-mejoras-y-talleres/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federal-sede-y-comunidad/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federal-sede-y-comunidad/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federal-sede-y-comunidad/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federal-sede-y-comunidad/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federal-sede-y-comunidad/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/federal-sede-y-comunidad/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/filiales-acompanamiento-y-salud/",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/filiales-acompanamiento-y-salud/",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/filiales-acompanamiento-y-salud/",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/filiales-acompanamiento-y-salud/",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/filiales-acompanamiento-y-salud/",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/novedades/filiales-acompanamiento-y-salud/",
+      "width": 1920,
+      "overflow": 0
+    },
+    {
+      "path": "/ruta-inexistente",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "path": "/ruta-inexistente",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "path": "/ruta-inexistente",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "path": "/ruta-inexistente",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "path": "/ruta-inexistente",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "path": "/ruta-inexistente",
+      "width": 1920,
+      "overflow": 0
+    }
+  ],
+  "jsErrors": [],
+  "validation": {
+    "command": "npm run validate",
+    "result": "passed",
+    "nodeTests": 14,
+    "chromiumReportOnly": 30,
+    "chromiumEnforced": 30,
+    "total": 74,
+    "editorialFixture": "passed; borradores, fechas, categorías, búsqueda y escape de HTML en entorno aislado",
+    "checks": [
+      "seguridad del repositorio",
+      "tipos Astro/TypeScript",
+      "ESLint",
+      "Prettier",
+      "build estático",
+      "CSP"
+    ]
+  }
+}

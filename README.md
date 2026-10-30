@@ -12,7 +12,7 @@ La propuesta se desarrolló con participación del usuario: base institucional y
 
 - Servicios desplegables con HTML nativo.
 - Búsqueda de 24 filiales que reconoce mayúsculas y tildes.
-- Selección informativa de seis destinos de alojamiento.
+- Selección informativa de ocho destinos de alojamiento.
 - Contacto por correo y ubicación de la sede.
 - Diseño adaptable, menú móvil, foco visible y movimiento reducido.
 
@@ -24,7 +24,7 @@ La vista histórica requiere una cuenta con acceso en ChatGPT. [Versión para re
 
 **Astro 7.3.8**, TypeScript estricto, CSS propio y JavaScript para las interacciones. Node.js 24 (mínimo 24.16) y npm se usan en desarrollo, CI y build. La salida es HTML estático: no necesita un servidor Node en producción.
 
-Cinco colecciones de contenido JSON, validadas por esquemas, separan datos de la interfaz. Esta base permite integrar un CMS en una tarea posterior; no incluye uno instalado.
+Seis colecciones de contenido JSON, validadas por esquemas, separan datos de la interfaz. Esta base permite integrar un CMS en una tarea posterior; no incluye uno instalado.
 
 ## Empezar
 
@@ -59,7 +59,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preview del build                                       | npm run preview      |
 | Medición de rendimiento local                           | npm run perf         |
 
-npm test construye y ejecuta trece pruebas Node y veintiséis Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta catorce pruebas Node y treinta Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
@@ -128,6 +128,6 @@ El personal institucional usará un panel sencillo; Sanity es la propuesta y su 
 
 Manual1.12 y checklist1.10 incorporan esta evolución; las páginas anteriores conservan la referencia histórica. La navegación de la rama cambia a páginas propias; main conserva su versión hasta un merge autorizado.
 
-## Fotografías de referencia de internet
+## Fotografías de referencia de internet · antecedente integrado
 
-La rama codex/fotos-ilustrativas incorpora 12 fotos de Pexels en las18 páginas públicas y 404, con aviso y crédito visible. Son referencias y no registros institucionales. Galería ampliable en las fichas; archivos locales optimizados por Astro, sin paquetes nuevos. [Alcance y reemplazo](docs/photo-preview.md), [fuentes verificadas](docs/photo-sources.json) y [política de uso](docs/photo-sources.md). Manual1.14 (26 páginas) y checklist1.12 actualizados; fotografías reales pendientes. PR #12 en revisión; main continúa con el PR #11 hasta autorizar el merge.
+La rama codex/fotos-ilustrativas incorpora 12 fotos de Pexels en las18 páginas públicas y 404, con aviso y crédito visible. Son referencias y no registros institucionales. Galería ampliable en las fichas; archivos locales optimizados por Astro, sin paquetes nuevos. [Alcance y reemplazo](docs/photo-preview.md), [fuentes verificadas](docs/photo-sources.json) y [política de uso](docs/photo-sources.md). Manual1.14 (26 páginas) y checklist1.12 actualizados; fotografías reales pendientes. PR #12 fusionado con autorización en main 5aeee25; el siguiente lote amplía el contenido con material institucional.

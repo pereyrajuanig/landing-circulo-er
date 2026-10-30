@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
@@ -72,8 +72,8 @@
       "mainCiRunUrl": "https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38485087460"
     },
     "08": {
-      "status": "deferred_by_user",
-      "summary": "El usuario reunirá y organizará contenido y definirá secciones con la institución. No se marca ninguna tarea editorial como terminada."
+      "status": "in_progress",
+      "summary": "El usuario entregó dossier/inventario e imágenes el30/10/2026 y pidió completar el sitio. Material incorporado en rama; aceptación institucional y datos variables pendientes."
     },
     "09": {
       "status": "review_deployed_pending_launch",
@@ -471,14 +471,14 @@
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "Diseño / fotografías de internet",
+    "trace_id": "Contenido / archivo institucional",
     "trace_status": "Propuesta en revisión",
     "trace_owner": "Desarrollo",
-    "trace_date": "29/10/2026",
-    "trace_commit": "Base eb1f66d / rama fotos-ilustrativas",
-    "trace_method": "12 fotos de Pexels; fuentes y licencia registradas.\nGalería, teclado y carga local adaptable.\n19 rutas por 6 anchos; resultado final en PR #12.",
-    "trace_result": "114 comprobaciones sin desbordes ni errores JS.\nFuentes: docs/photo-sources.json.\nEvidencia: reference-photo-evidence.json.",
-    "trace_limits": "Aceptación visual y merge pendientes.\nFotos de referencia, no registros del Círculo.\nMaterial real, dominio, contenido y lector pendientes.",
+    "trace_date": "30/10/2026",
+    "trace_commit": "Base 5aeee25 / rama contenido-institucional",
+    "trace_method": "Dossier/inventario del usuario y 23 recortes.\n25 rutas por 6 anchos; galerías y consultas.\nResultado final de pruebas y CI en el PR.",
+    "trace_result": "8 destinos, 5 espacios y 4 reseñas de archivo.\nOrigen y localidad en cada imagen propia.\nVer docs/institutional-content.md.",
+    "trace_limits": "Aceptación y merge del nuevo lote pendientes.\nVigencia, tarifas y capacidad por confirmar.\n4 destinos y farmacia sin fotos propias.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -528,10 +528,17 @@
       "summary": "Cuatro muestras generadas a pedido del usuario; avisos visibles, galería ampliable y fotos reales todavía pendientes."
     },
     "reference_photos": {
-      "status": "pending_visual_acceptance",
+      "status": "merged",
       "branch": "codex/fotos-ilustrativas",
       "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/12",
-      "summary": "12 referencias de Pexels en 18 páginas y 404, con avisos y créditos. Sustituyen las imágenes generadas. Fotos institucionales reales todavía pendientes."
+      "summary": "12 referencias de Pexels en 18 páginas y 404, con avisos y créditos. Sustituyen las imágenes generadas. Fotos institucionales reales todavía pendientes.",
+      "mergeCommit": "5aeee25bcedc8c45cae1aea968c0cf9927cf008e",
+      "mergePullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/12"
+    },
+    "institutional_content": {
+      "status": "pending_content_acceptance",
+      "branch": "codex/contenido-institucional",
+      "summary": "23 recortes del material recibido, beneficios,8 destinos,5 espacios,9 filiales y4 reseñas de archivo; vigencia y cierre institucional pendientes."
     }
   }
 }

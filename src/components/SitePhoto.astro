@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import { photos } from '../lib/photos';
+interface Props {
+  kind: string;
+  variant?: 'wide' | 'compact' | 'card';
+  loading?: 'eager' | 'lazy';
+}
+const { kind, variant = 'wide', loading = 'lazy' } = Astro.props;
+const photo = photos[kind];
+if (!photo) throw new Error('Fotografía no registrada: ' + kind);
+const width = Math.min(1440, photo.src.width);
+const widths = [...new Set([480, 960, width].filter((value) => value <= width))];
+const sizes =
+  variant === 'wide'
+    ? '(max-width: 800px) calc(100vw - 44px), 1240px'
+    : '(max-width: 800px) calc(100vw - 44px), 600px';
+---
+
+<figure
+  class:list={['reference-photo', 'reference-photo--' + variant]}
+  data-site-photo
+  data-photo-kind={photo.kind}
+  data-photo-key={kind}
+>
+  <div class="reference-photo-frame">
+    <Image
+      src={photo.src}
+      alt={photo.alt}
+      format="webp"
+      quality={78}
+      width={width}
+      widths={widths}
+      sizes={sizes}
+      loading={loading}
+      fetchpriority={loading === 'eager' ? 'high' : undefined}
+    />
+    {photo.kind === 'reference' && <span class="reference-photo-badge">FOTO DE REFERENCIA</span>}
+  </div>
+  <figcaption>
+    {photo.note}
+    <span class="photo-credit">
+      {photo.source ? (
+        <a href={photo.source} target="_blank" rel="noopener noreferrer">
+          {photo.credit}
+        </a>
+      ) : (
+        photo.credit
+      )}
+    </span>
+  </figcaption>
+</figure>

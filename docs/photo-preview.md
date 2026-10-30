@@ -41,3 +41,7 @@ Aceptación visual y merge pendientes. No certifica WCAG ni sustituye la prueba 
 2. Confirmar personas, contexto y derechos antes de publicarlo.
 3. Reemplazar la referencia, ajustar alt/epígrafe y retirar su aviso únicamente cuando esté verificada.
 4. Revisar tamaño, recorte, carga, galería y teclado; actualizar fuentes, manual y checklist.
+
+## Actualización30/10/2026 · material institucional
+
+El antecedente Pexels fue integrado mediante PR #12 en main 5aeee25. El usuario entregó luego el material de VideoCirculo-material-recopilado. La rama codex/contenido-institucional sustituye referencias por 23 recortes propios donde existe contexto verificable. Ver institutional-content.md para cobertura, limitaciones y referencias aún vigentes. El componente actual se llama SitePhoto y el registro src/lib/photos.ts.

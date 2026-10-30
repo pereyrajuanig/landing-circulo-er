@@ -67,3 +67,9 @@ La propuesta fotográfica suma un caso de ampliación, anterior/siguiente, flech
 ## Fotografías de referencia · revisión vigente
 
 El caso de galería usa alt y títulos de referencia y comprueba navegación, Escape y retorno del foco. Las pruebas Node verifican fotografías en las rutas interiores. Se mantienen 13 Node +26 Chromium Report-Only +26 Chromium exigida (65 ejecuciones), más el flujo editorial aislado. Matriz visual19 rutas ×6 anchos,114 comprobaciones sin desbordes ni errores JavaScript: reference-photo-evidence.json. Las capturas fuerzan decodificación de las imágenes antes de guardarse. Ver photo-preview.md.
+
+## Material institucional · cobertura vigente
+
+14 pruebas Node y30 Chromium por modo CSP:74 ejecuciones, más el flujo editorial aislado. Se verifican selector con fotografía por destino, galería institucional de dos imágenes y crédito, galería de una imagen, avisos de referencias pendientes, reseñas del archivo, búsqueda/filtros y capacidad ambigua de Los Laureles. Node comprueba las23 fotos seleccionadas en HTML y la separación de fotos propias/de banco por destino. También se verifica que inventario y capturas privadas no se sirven desde la web.
+
+Matriz 25 rutas por 6 anchos y capturas en institutional-content-evidence.json. No sustituye lector real ni certificación WCAG. Ver institutional-content.md.

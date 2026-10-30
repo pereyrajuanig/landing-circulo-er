@@ -2,7 +2,9 @@
   {
     "id": "concordia",
     "order": 0,
-    "name": "Concordia"
+    "name": "Concordia",
+    "overview": "Espacio institucional, inauguración, obras y encuentros sociales registrados en el archivo.",
+    "photoKey": "concordia-inauguracion-10"
   },
   {
     "id": "colon",
@@ -12,22 +14,30 @@
   {
     "id": "diamante",
     "order": 2,
-    "name": "Diamante"
+    "name": "Diamante",
+    "overview": "Gimnasio de rehabilitación, espacio social y obras descriptas en el material recibido.",
+    "photoKey": "diamante-rehabilitacion-obras-18"
   },
   {
     "id": "federacion",
     "order": 3,
-    "name": "Federación"
+    "name": "Federación",
+    "overview": "Complejo habitacional, mejoras en espacios y talleres creativos presentados en el recorrido.",
+    "photoKey": "federacion-salud-lentes-talleres-14"
   },
   {
     "id": "federal",
     "order": 4,
-    "name": "Federal"
+    "name": "Federal",
+    "overview": "Ampliación de sede y área de salud, actividades y viajes socioculturales registrados en el archivo.",
+    "photoKey": "federal-actividades-16"
   },
   {
     "id": "feliciano",
     "order": 5,
-    "name": "Feliciano"
+    "name": "Feliciano",
+    "overview": "Atención a integrantes, jornadas de salud y proyectos territoriales presentados en el video.",
+    "photoKey": "feliciano-sede-salud-terreno-17"
   },
   {
     "id": "gualeguay",
@@ -47,7 +57,9 @@
   {
     "id": "hasenkamp",
     "order": 9,
-    "name": "Hasenkamp"
+    "name": "Hasenkamp",
+    "overview": "Espacio de atención, salón y cocina mostrados en el recorrido de la filial.",
+    "photoKey": "hasenkamp-sede-salon-22"
   },
   {
     "id": "cerrito",
@@ -57,12 +69,16 @@
   {
     "id": "chajari",
     "order": 11,
-    "name": "Chajarí"
+    "name": "Chajarí",
+    "overview": "Oficina y acompañamiento para consultas, trámites y subsidios, según el material institucional.",
+    "photoKey": "chajari-asesoramiento-24"
   },
   {
     "id": "crespo",
     "order": 12,
-    "name": "Crespo"
+    "name": "Crespo",
+    "overview": "Asesoramiento, acompañamiento y salón de encuentro presentado para la filial.",
+    "photoKey": "crespo-salon-80-personas-19"
   },
   {
     "id": "la-paz",
@@ -82,7 +98,9 @@
   {
     "id": "rosario-del-tala",
     "order": 16,
-    "name": "Rosario del Tala"
+    "name": "Rosario del Tala",
+    "overview": "Talleres creativos, jornadas de salud y actividades compartidas presentadas en el material.",
+    "photoKey": "rosario-del-tala-actividades-12"
   },
   {
     "id": "general-ramirez",

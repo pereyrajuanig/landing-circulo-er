@@ -3,36 +3,90 @@
     "id": "parana",
     "order": 0,
     "name": "Paraná",
-    "description": "La sede central cuenta con habitaciones y espacios comunes para el hospedaje de integrantes y familiares. Una base de encuentro en la capital entrerriana."
+    "description": "La sede central de Urquiza 669 ofrece habitaciones y espacios comunes para acompañar tu visita a Paraná. El material institucional permite conocer una de sus habitaciones.",
+    "details": [
+      "El registro recibido muestra una habitación con dos camas individuales, televisor y armario.",
+      "El dossier de la sede menciona cocina, patio, sanitarios y espacios comunes. Confirmá qué habitación y servicios corresponden a tu estadía."
+    ],
+    "sourceNote": "Coordiná disponibilidad y condiciones actuales con la institución.",
+    "location": "Urquiza 669, Paraná"
   },
   {
     "id": "maria-grande",
     "order": 1,
     "name": "María Grande",
-    "description": "El Círculo publica una opción de alojamiento en María Grande. Consultá con la institución el contacto responsable y las condiciones actuales para organizar tu visita."
+    "description": "Alojamiento presentado para integrantes del Círculo cerca de las termas de María Grande. El material recibido muestra habitación, comedor y cocina.",
+    "details": [
+      "El archivo muestra un dormitorio y un espacio de comedor y cocina.",
+      "Consultá capacidad, elementos incluidos, ubicación de ingreso y condiciones para acompañantes."
+    ],
+    "sourceNote": "Coordiná disponibilidad y condiciones actuales con la institución.",
+    "location": "Referencia publicada: Av. Argentina y 1.º de Mayo, Comisaría María Grande. Confirmar el ingreso antes de viajar."
   },
   {
     "id": "victoria",
     "order": 2,
     "name": "Victoria",
-    "description": "Una de las localidades de la red de alojamiento institucional. Consultá con el Círculo las opciones disponibles para tu estadía en Victoria."
+    "description": "Una de las localidades de la red de alojamiento institucional. Consultá con el Círculo las opciones disponibles para tu estadía en Victoria.",
+    "details": [
+      "Destino incluido en la información institucional publicada. Todavía no se recibió material fotográfico propio de este alojamiento.",
+      "Consultá habitaciones, equipamiento, ubicación de ingreso y contacto de reserva para organizar tu visita."
+    ],
+    "sourceNote": "Coordiná disponibilidad y condiciones actuales con la institución."
   },
   {
     "id": "nogoya",
     "order": 3,
     "name": "Nogoyá",
-    "description": "La red institucional incluye alojamiento en Nogoyá. Comunicate para conocer la disponibilidad, el equipamiento y las condiciones de reserva."
+    "description": "La red institucional incluye alojamiento en Nogoyá. Comunicate para conocer la disponibilidad, el equipamiento y las condiciones de reserva.",
+    "details": [
+      "Destino incluido en la información institucional publicada. Todavía no se recibió material fotográfico propio de este alojamiento.",
+      "Consultá habitaciones, equipamiento, ubicación de ingreso y contacto de reserva para organizar tu visita."
+    ],
+    "sourceNote": "Coordiná disponibilidad y condiciones actuales con la institución."
   },
   {
     "id": "la-paz",
     "order": 4,
     "name": "La Paz",
-    "description": "El Círculo cuenta con una opción de alojamiento publicada en La Paz. Consultá las condiciones y coordiná tu estadía con la institución."
+    "description": "El Círculo cuenta con una opción de alojamiento publicada en La Paz. Consultá las condiciones y coordiná tu estadía con la institución.",
+    "details": [
+      "Destino incluido en la información institucional publicada. Todavía no se recibió material fotográfico propio de este alojamiento.",
+      "Consultá habitaciones, equipamiento, ubicación de ingreso y contacto de reserva para organizar tu visita."
+    ],
+    "sourceNote": "Coordiná disponibilidad y condiciones actuales con la institución."
   },
   {
     "id": "santa-elena",
     "order": 5,
     "name": "Santa Elena",
-    "description": "Santa Elena forma parte de las localidades con alojamiento institucional publicado. Consultá disponibilidad y contacto de reserva para planificar tu visita."
+    "description": "Santa Elena forma parte de las localidades con alojamiento institucional publicado. Consultá disponibilidad y contacto de reserva para planificar tu visita.",
+    "details": [
+      "Destino incluido en la información institucional publicada. Todavía no se recibió material fotográfico propio de este alojamiento.",
+      "Consultá habitaciones, equipamiento, ubicación de ingreso y contacto de reserva para organizar tu visita."
+    ],
+    "sourceNote": "Coordiná disponibilidad y condiciones actuales con la institución."
+  },
+  {
+    "id": "concepcion-del-uruguay",
+    "order": 6,
+    "name": "Concepción del Uruguay",
+    "description": "El material institucional presenta alojamiento en Concepción del Uruguay, con habitaciones y espacios de cocina y comedor. Conocé el registro recibido y consultá las condiciones actuales de tu estadía.",
+    "details": [
+      "El recorrido audiovisual muestra un dormitorio con dos camas individuales y espacios de uso común.",
+      "Consultá la ubicación de ingreso, las habitaciones disponibles y el equipamiento para tus fechas."
+    ],
+    "sourceNote": "Destino presentado en el archivo audiovisual, sin fecha de grabación identificada. Confirmar modalidad y disponibilidad actuales."
+  },
+  {
+    "id": "federacion",
+    "order": 7,
+    "name": "Federación",
+    "description": "El recorrido institucional incluye un complejo habitacional en Federación. Una opción para consultar al organizar tu visita a la ciudad y sus actividades turísticas.",
+    "details": [
+      "El material recibido muestra el exterior del complejo habitacional identificado para Federación.",
+      "Coordiná con la institución el contacto responsable, el tipo de unidad y las condiciones actuales."
+    ],
+    "sourceNote": "Destino presentado en el archivo audiovisual, sin fecha de grabación identificada. Confirmar modalidad y disponibilidad actuales."
   }
 ]

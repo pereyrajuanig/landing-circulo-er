@@ -51,3 +51,9 @@ Editar JSON sigue siendo el mecanismo actual. El panel y la importación de Face
 ## Fotografías de referencia
 
 src/assets/reference contiene12 fotos descargadas de Pexels. No documentan instalaciones ni integrantes del Círculo. Mantener avisos y créditos de ReferencePhoto/PhotoGallery; fuentes y licencia en photo-sources.json y photo-sources.md. Antes de incorporar material real, confirmar derechos, destino y contexto; actualizar alt/epígrafes y retirar avisos solo de las imágenes verificadas. Las tareas 12.03 y 12.04 continúan abiertas. No generar imágenes: el usuario pidió buscarlas en internet.
+
+## Lote institucional · fuente vigente
+
+Ver institutional-content.md e institutional-photo-sources.json. Fotografías propias en src/assets/institutional; SitePhoto y src/lib/photos.ts reemplazan ReferencePhoto/reference-photos. No quitar avisos de referencias que todavía esperan fotos reales. spaces.json mantiene los cinco espacios y sus notas de capacidad. services.details y stays.details amplían fichas sin duplicar textos en los componentes.
+
+Las reseñas publicadas usan fecha de publicación del texto y sourceContext; no asignar esa fecha a los hechos del video. Noticias no está vacía desde este lote. El panel y Facebook continúan pendientes. Confirmar derechos, vigencia, capacidades y condiciones institucionales antes del cierre final.

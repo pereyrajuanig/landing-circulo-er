@@ -2,6 +2,7 @@
 import { getEntry } from 'astro:content';
 import SitePage from '../layouts/SitePage.astro';
 import Events from '../components/Events.astro';
+import SpaceCatalog from '../components/SpaceCatalog.astro';
 const entry = await getEntry('institution', 'circulo');
 if (!entry) throw new Error('Falta el contenido institucional.');
 ---
@@ -9,9 +10,10 @@ if (!entry) throw new Error('Falta el contenido institucional.');
 <SitePage
   title="Salones para encontrarnos"
   eyebrow="Momentos en comunidad"
-  description="Conocé los espacios de encuentro del Círculo en Paraná y acercanos tu consulta para organizar un evento."
+  description="Conocé Los Laureles, Las Rosas y los espacios presentados por las filiales. Acercanos tu consulta para organizar un encuentro."
 >
   <Events institution={entry.data} />
+  <SpaceCatalog />
   <section class="wrap page-section faq-section" aria-labelledby="events-faq">
     <h2 id="events-faq">Empecemos por tu encuentro.</h2>
     <details>
