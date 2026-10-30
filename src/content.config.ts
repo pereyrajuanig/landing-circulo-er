@@ -29,6 +29,7 @@ const services = defineCollection({
       description: text,
       action: text,
       initiallyOpen: z.boolean(),
+      details: z.array(z.object({ title: text, body: text })).default([]),
     })
     .and(
       z.discriminatedUnion('target', [
@@ -39,11 +40,18 @@ const services = defineCollection({
 });
 const branches = defineCollection({
   loader: file('src/content/branches.json'),
-  schema: z.object({ order, name: text }),
+  schema: z.object({ order, name: text, overview: text.optional(), photoKey: text.optional() }),
 });
 const stays = defineCollection({
   loader: file('src/content/stays.json'),
-  schema: z.object({ order, name: text, description: text }),
+  schema: z.object({
+    order,
+    name: text,
+    description: text,
+    details: z.array(text).default([]),
+    location: text.optional(),
+    sourceNote: text.optional(),
+  }),
 });
 const news = defineCollection({
   loader: file('src/content/news.json'),
@@ -54,6 +62,9 @@ const news = defineCollection({
     status: z.enum(['draft', 'published']),
     publishedAt: z.iso.datetime({ offset: true }),
     body: z.array(text).min(1),
+    cover: text.optional(),
+    gallery: z.array(text).default([]),
+    sourceContext: text.optional(),
     facebookUrl: z
       .url()
       .refine((value) => {
@@ -68,4 +79,17 @@ const news = defineCollection({
       .optional(),
   }),
 });
-export const collections = { institution, services, branches, stays, news };
+const spaces = defineCollection({
+  loader: file('src/content/spaces.json'),
+  schema: z.object({
+    order,
+    name: text,
+    locality: text,
+    description: text,
+    details: z.array(text).min(1),
+    photoKeys: z.array(text),
+    capacityNote: text.optional(),
+    sourceNote: text,
+  }),
+});
+export const collections = { institution, services, branches, stays, news, spaces };

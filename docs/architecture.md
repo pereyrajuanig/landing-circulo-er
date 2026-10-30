@@ -72,3 +72,9 @@ Referencias: [colecciones de Astro](https://docs.astro.build/en/guides/content-c
 ## SEO y ruta de error
 
 BaseLayout admite metadatos por página y noindex explícito. config/seo.mjs valida SITE_URL y habilitación de indexación; astro.config.mjs genera robots y sitemap condicionado. La ruta 404.astro mantiene estado 404 y acceso al inicio. Ver [SEO y pendientes](seo.md).
+
+## Contenido institucional recibido · 30/10/2026
+
+Seis colecciones: institution, services, branches, stays, news y spaces. Esta última mantiene datos de cinco espacios fuera de la UI. Servicios incorpora detalles; stays ubicación, detalles y nota de fuente; branches resumen/foto opcionales; news cover, gallery y sourceContext opcionales.
+
+src/lib/photos.ts centraliza metadatos de banco y23 recortes propios. SitePhoto muestra créditos según origen y genera WebP hasta el tamaño nativo. PhotoGallery admite una o varias imágenes y actualiza dimensiones/crédito. Accommodation cambia la figura por destino en landing.ts. SpaceCatalog y BranchHighlights consultan las colecciones y reutilizan SitePhoto. No hay base de datos, endpoints, CMS o Facebook nuevos.

@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mailTo } from '../lib/contact';
-import ReferencePhoto from './ReferencePhoto.astro';
+import SitePhoto from './SitePhoto.astro';
 interface Props {
   institution: CollectionEntry<'institution'>['data'];
 }
@@ -18,8 +18,8 @@ const { institution } = Astro.props;
         <em>para compartir.</em>
       </h2>
       <p>
-        Los salones y espacios de encuentro del Círculo en Paraná también son parte de nuestra vida
-        en comunidad.
+        Los Laureles, Las Rosas y los espacios de las filiales también son parte de nuestra vida en
+        comunidad.
       </p>
       <p>
         Si estás pensando en un evento, acercanos tu consulta. Te orientamos sobre los espacios y
@@ -59,7 +59,7 @@ const { institution } = Astro.props;
       </p>
     </div>
     <div class="events-visual">
-      <ReferencePhoto kind="salon" />
+      <SitePhoto kind="parana-las-rosas-exterior-07" />
     </div>
   </div>
 </section>

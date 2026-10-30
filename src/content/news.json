@@ -1,1 +1,67 @@
-[]
+[
+  {
+    "id": "concordia-espacio-y-encuentros",
+    "title": "Concordia: espacios que fortalecen el encuentro",
+    "summary": "Un recorrido por el espacio institucional, su inauguración y los encuentros sociales presentes en el archivo de Concordia.",
+    "cover": "concordia-inauguracion-10",
+    "gallery": ["concordia-encuentro-social-11"],
+    "body": [
+      "El material audiovisual recibido registra la obtención de un espacio institucional mediante convenio y su inauguración en Concordia. También reúne imágenes de obras y encuentros sociales de la filial.",
+      "Estos registros muestran la importancia de contar con lugares para acompañar a los integrantes y compartir la vida institucional.",
+      "El video también menciona un convenio de ambulancia. Su vigencia, alcance y condiciones requieren consulta con la filial; esta publicación no anuncia una cobertura actual."
+    ],
+    "category": "logro",
+    "status": "published",
+    "publishedAt": "2026-10-30T12:00:00Z",
+    "sourceContext": "Memoria del archivo audiovisual institucional, sin fecha de grabación identificada. La fecha de publicación corresponde a esta reseña, no a los hechos registrados."
+  },
+  {
+    "id": "federacion-mejoras-y-talleres",
+    "title": "Federación: mejoras, alojamiento y talleres",
+    "summary": "El archivo reúne la renovación de espacios, el complejo habitacional y actividades creativas de la filial.",
+    "cover": "federacion-complejo-habitacional-13",
+    "gallery": ["federacion-salud-lentes-talleres-14"],
+    "body": [
+      "El recorrido de Federación presenta la renovación del salón multieventos: piso de porcelanato, placas antihumedad, reparación de sanitarios y mejoras del área de servicios, según los textos del material.",
+      "También muestra el complejo habitacional, talleres creativos y jornadas de salud. Es una mirada a los espacios y actividades que forman parte del acompañamiento institucional.",
+      "Los beneficios para lentes mencionados en el archivo no incluyen condiciones detalladas. Consultá los requisitos actuales y, para alojamiento, el contacto responsable y la disponibilidad."
+    ],
+    "category": "logro",
+    "status": "published",
+    "publishedAt": "2026-10-30T12:00:00Z",
+    "sourceContext": "Memoria del archivo audiovisual institucional, sin fecha de grabación identificada. La fecha de publicación corresponde a esta reseña, no a los hechos registrados."
+  },
+  {
+    "id": "federal-sede-y-comunidad",
+    "title": "Federal: sede y comunidad en movimiento",
+    "summary": "El material presenta la ampliación de la sede y el área de salud, junto con actividades y viajes socioculturales.",
+    "cover": "federal-nueva-sede-15",
+    "gallery": ["federal-actividades-16"],
+    "body": [
+      "La sección dedicada a Federal presenta una obra de ampliación de la sede y del área de salud. El archivo no identifica la fecha de ejecución ni permite afirmar su estado actual.",
+      "Las fotografías también reúnen jornadas de salud, viajes socioculturales y reconocimientos a integrantes destacados en sus actividades.",
+      "Este recorrido conserva la memoria del trabajo compartido. Para conocer servicios, actividades o espacios disponibles hoy, comunicate con la institución."
+    ],
+    "category": "logro",
+    "status": "published",
+    "publishedAt": "2026-10-30T12:00:00Z",
+    "sourceContext": "Memoria del archivo audiovisual institucional, sin fecha de grabación identificada. La fecha de publicación corresponde a esta reseña, no a los hechos registrados."
+  },
+  {
+    "id": "filiales-acompanamiento-y-salud",
+    "title": "Acompañar desde cada localidad",
+    "summary": "Salud, orientación y espacios de encuentro en Diamante, Feliciano y Rosario del Tala, según el material institucional recibido.",
+    "cover": "diamante-rehabilitacion-obras-18",
+    "gallery": ["feliciano-sede-salud-terreno-17", "rosario-del-tala-actividades-12"],
+    "body": [
+      "En Diamante, el recorrido muestra el gimnasio de rehabilitación y kinesiología, el salón social y una construcción de seis ambientes presentada como obra en curso. No se informa fecha de finalización.",
+      "En Feliciano se registran atención a integrantes, una jornada de salud y convenios con fines turísticos. El video también menciona la incorporación de una hectárea; ese registro no permite determinar su uso actual.",
+      "Rosario del Tala aparece con talleres creativos, jornadas de salud, campañas antigripales y mejoras en espacios compartidos.",
+      "Cada localidad tiene su propio recorrido. Las actividades del archivo se presentan como memoria institucional, sin una agenda o prestación vigente implícita."
+    ],
+    "category": "logro",
+    "status": "published",
+    "publishedAt": "2026-10-30T12:00:00Z",
+    "sourceContext": "Memoria del archivo audiovisual institucional, sin fecha de grabación identificada. La fecha de publicación corresponde a esta reseña, no a los hechos registrados."
+  }
+]

@@ -22,10 +22,16 @@ document.querySelectorAll<HTMLElement>('[data-photo-gallery]').forEach((gallery)
     image.alt = link.dataset.alt ?? '';
     image.width = Number(link.dataset.width) || image.width;
     image.height = Number(link.dataset.height) || image.height;
-    const credit = gallery.querySelector<HTMLAnchorElement>('[data-gallery-credit]');
-    if (credit) {
-      credit.href = link.dataset.source ?? '';
-      credit.textContent = 'Foto: ' + (link.dataset.author ?? '') + ' / Pexels ↗';
+    const source = gallery.querySelector<HTMLAnchorElement>('[data-gallery-source]');
+    const local = gallery.querySelector<HTMLElement>('[data-gallery-local]');
+    if (source && local) {
+      const href = link.dataset.source;
+      source.hidden = !href;
+      local.hidden = Boolean(href);
+      if (href) source.href = href;
+      else source.removeAttribute('href');
+      source.textContent = link.dataset.credit ?? '';
+      local.textContent = link.dataset.credit ?? '';
     }
     status.textContent = selected + 1 + ' / ' + links.length + ' · ' + (link.dataset.title ?? '');
   };

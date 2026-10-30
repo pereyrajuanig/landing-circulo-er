@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SitePhoto from './SitePhoto.astro';
+interface Props {
+  branches: CollectionEntry<'branches'>[];
+}
+const { branches } = Astro.props;
+const featured = branches.filter((branch) => branch.data.photoKey && branch.data.overview);
+---
+
+<section class="wrap page-section branch-highlights" aria-labelledby="branch-life-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow dark">Una red que acompaña</p>
+      <h2 id="branch-life-title">La vida de nuestras filiales.</h2>
+    </div>
+    <p>
+      Espacios y actividades del archivo institucional recibido. Para conocer atención, agenda y
+      condiciones actuales, comunicate con la sede central o tu filial.
+    </p>
+  </div>
+  <div class="destination-grid">
+    {featured.map(({ data }) => (
+      <article class="destination-entry">
+        <SitePhoto kind={data.photoKey!} variant="card" />
+        <h3>{data.name}</h3>
+        <p>{data.overview}</p>
+      </article>
+    ))}
+  </div>
+</section>

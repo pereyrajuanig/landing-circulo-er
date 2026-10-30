@@ -3,6 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import SitePage from '../layouts/SitePage.astro';
 import Institution from '../components/Institution.astro';
 import Branches from '../components/Branches.astro';
+import BranchHighlights from '../components/BranchHighlights.astro';
 const entry = await getEntry('institution', 'circulo');
 if (!entry) throw new Error('Falta el contenido institucional.');
 const branches = (await getCollection('branches')).sort((a, b) => a.data.order - b.data.order);
@@ -15,4 +16,5 @@ const branches = (await getCollection('branches')).sort((a, b) => a.data.order -
 >
   <Institution institution={entry.data} />
   <Branches institution={entry.data} branches={branches} />
+  <BranchHighlights branches={branches} />
 </SitePage>

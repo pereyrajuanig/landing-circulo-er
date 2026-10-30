@@ -24,3 +24,6 @@ docs/reference/
 # Evidencia temporal de Playwright
 playwright-report/
 test-results/
+
+# Material fuente recibido; solo los recortes seleccionados van en src/assets.
+VideoCirculo-material-recopilado/

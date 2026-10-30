@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import SitePhoto from './SitePhoto.astro';
 import { publishedNews } from '../lib/news';
 const items = publishedNews(await getCollection('news')).slice(0, 3);
 ---
@@ -22,6 +23,7 @@ const items = publishedNews(await getCollection('news')).slice(0, 3);
       <div class="destination-grid">
         {items.map(({ id, data }) => (
           <article class="destination-entry">
+            {data.cover && <SitePhoto kind={data.cover} variant="card" />}
             <p class="path-number">
               {data.category === 'logro' ? 'LOGROS DE GESTIÓN' : 'NOTICIAS'}
             </p>

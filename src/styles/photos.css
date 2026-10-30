@@ -306,3 +306,111 @@ a.photo-credit {
 .service-copy > a {
   margin-top: 18px;
 }
+
+/* El archivo institucional conserva sus encuadres y no se amplía al generar recursos. */
+[data-photo-kind='institutional'] .reference-photo-frame {
+  aspect-ratio: 1.6;
+}
+[data-photo-kind='institutional'] .reference-photo-frame img {
+  object-fit: contain;
+}
+.hero-photo-panel [data-photo-kind='institutional'] .reference-photo-frame {
+  aspect-ratio: 1.6;
+}
+.photo-gallery-single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
+}
+.photo-gallery-grid [data-photo-kind='institutional'] img {
+  object-fit: contain;
+  background: var(--cream);
+}
+[data-stay-photo][hidden],
+[data-gallery-source][hidden],
+[data-gallery-local][hidden] {
+  display: none;
+}
+.space-catalog {
+  display: grid;
+  gap: 48px;
+}
+.space-entry {
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.space-entry-heading {
+  max-width: 800px;
+}
+.space-entry h3 {
+  font: 38px/1.15 var(--serif);
+  margin: 16px 0;
+}
+.space-photos,
+.space-entry-details,
+.service-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+.space-photos {
+  margin-block: 24px;
+}
+.space-entry-details {
+  margin-top: 24px;
+}
+.space-entry h4,
+.service-facts h3 {
+  font-size: 21px;
+  line-height: 1.4;
+}
+.space-entry ul,
+.stay-information ul {
+  padding-left: 22px;
+}
+.space-entry li,
+.stay-information li {
+  margin-block: 12px;
+  line-height: 1.7;
+}
+.capacity-note,
+.source-context {
+  background: var(--cream);
+  padding: 20px;
+  border-left: 3px solid var(--gold-ink);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.service-facts-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.service-facts p {
+  color: var(--muted);
+}
+.service-photo-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  margin-top: 32px;
+}
+.article-gallery {
+  display: grid;
+  gap: 32px;
+  margin-block: 32px;
+}
+.news-list .reference-photo {
+  margin-bottom: 24px;
+  max-width: 680px;
+}
+@media (max-width: 800px) {
+  .space-photos,
+  .space-entry-details,
+  .service-facts-grid,
+  .service-photo-detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .space-entry h3 {
+    font-size: 32px;
+  }
+}

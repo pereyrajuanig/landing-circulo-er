@@ -66,3 +66,7 @@ Cuatro muestras generadas por solicitud del usuario; visibles en portada, alojam
 ## 1.14 · 29/10/2026 · fotografías de internet
 
 Se sustituyen las cuatro imágenes generadas por12 fotos de Pexels con registro de autor, fuente y licencia. Cobertura de18 páginas públicas más404; beneficios con fotografía propia por categoría; habitaciones alternadas y paisaje en galería, con crédito dinámico. Se mantienen avisos de referencia y se conservan pendientes las fotografías institucionales reales. Manual26 páginas; checklist1.12 conserva23 páginas y 145 campos.
+
+## 1.15 · 30/10/2026 · contenido y fotografía institucional
+
+23 recortes recibidos reemplazan referencias donde existe correspondencia por localidad. Beneficios con información detallada; ocho destinos, catálogo de cinco espacios, filiales y cuatro memorias del archivo. Se conservan paleta, tipografías, escudo y tono. Galerías variables sin ampliar originales; selector con figura por destino. Referencias de Pexels aún identificadas. Manual1.15 (27 páginas) y checklist1.13 (23 páginas,145 campos) preservan estados históricos.

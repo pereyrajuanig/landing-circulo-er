@@ -3,8 +3,8 @@ import { getCollection, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
 import { mailTo } from '../../lib/contact';
-import ReferencePhoto from '../../components/ReferencePhoto.astro';
-import { servicePhotoKeys } from '../../lib/reference-photos';
+import SitePhoto from '../../components/SitePhoto.astro';
+import { servicePhotoKeys } from '../../lib/photos';
 export async function getStaticPaths() {
   return (await getCollection('services')).map((service) => ({
     params: { id: service.id },
@@ -55,8 +55,34 @@ const questions: Record<string, string[]> = {
   parent={{ label: 'Beneficios', href: '/beneficios/' }}
 >
   <div class="wrap page-photo">
-    <ReferencePhoto kind={servicePhotoKeys[service.id] ?? 'salud'} />
+    <SitePhoto kind={servicePhotoKeys[service.id] ?? 'salud'} />
   </div>
+  <section class="wrap page-section service-facts" aria-labelledby="service-facts-title">
+    <p class="eyebrow dark">Conocé el beneficio</p>
+    <h2 id="service-facts-title">Acompañamiento para lo cotidiano.</h2>
+    <div class="service-facts-grid">
+      {data.details.map((detail) => (
+        <article>
+          <h3>{detail.title}</h3>
+          <p>{detail.body}</p>
+        </article>
+      ))}
+    </div>
+    {service.id === 'salud' && (
+      <div class="service-photo-detail">
+        <SitePhoto kind="parana-podologia-03" variant="compact" />
+        <p>
+          El espacio de podología de Paraná, en el registro institucional. Consultá turnos y
+          atención actual con la sede.
+        </p>
+      </div>
+    )}
+    {service.id === 'recreacion' && (
+      <a class="text-link" href="/salones/">
+        Conocer salones y espacios →
+      </a>
+    )}
+  </section>
   <section class="wrap page-section detail-grid" aria-labelledby="service-consult">
     <div>
       <h2 id="service-consult">Encontrá orientación para tu consulta.</h2>

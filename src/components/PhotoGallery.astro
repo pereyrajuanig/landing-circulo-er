@@ -1,35 +1,50 @@
 ---
 import { Image, getImage } from 'astro:assets';
-import { referencePhotos, stayPhotoKeys } from '../lib/reference-photos';
+import { photos as registry, stayGalleryKeys } from '../lib/photos';
 interface Props {
   stayId: string;
 }
 const { stayId } = Astro.props;
+const keys = stayGalleryKeys[stayId];
+if (!keys?.length) throw new Error('Falta galería para ' + stayId);
 const photos = await Promise.all(
-  [referencePhotos[stayPhotoKeys[stayId] ?? 'habitacion'], referencePhotos.entorno].map(
-    async (photo) => ({
+  keys.map(async (key) => {
+    const photo = registry[key];
+    if (!photo) throw new Error('Fotografía no registrada: ' + key);
+    return {
       ...photo,
-      full: await getImage({ src: photo.src, width: 1440, format: 'webp', quality: 82 }),
-    }),
-  ),
+      key,
+      full: await getImage({
+        src: photo.src,
+        width: Math.min(1440, photo.src.width),
+        format: 'webp',
+        quality: 82,
+      }),
+    };
+  }),
 );
 const first = photos[0];
+const institutional = photos.every((photo) => photo.kind === 'institutional');
+const note = institutional
+  ? 'Imágenes del alojamiento identificado en el material institucional recibido. Consultá disponibilidad, equipamiento y condiciones actuales antes de viajar.'
+  : 'Fotografías de referencia. No corresponden al alojamiento real. Todavía no recibimos imágenes propias de este destino.';
 ---
 
 <section class="wrap page-section photo-gallery" aria-labelledby="gallery-title" data-photo-gallery>
   <div class="gallery-heading">
     <div>
-      <p class="eyebrow dark">Propuesta fotográfica</p>
-      <h2 id="gallery-title">Una mirada a los espacios.</h2>
+      <p class="eyebrow dark">{institutional ? 'Conocé los espacios' : 'Referencia visual'}</p>
+      <h2 id="gallery-title">
+        {institutional
+          ? 'Un vistazo a tu próxima estadía.'
+          : 'Una propuesta para visualizar el diseño.'}
+      </h2>
     </div>
-    <p>
-      Fotografías de referencia obtenidas de Pexels para visualizar el diseño. No corresponden al
-      alojamiento real.
-    </p>
+    <p>{note}</p>
   </div>
-  <div class="photo-gallery-grid">
+  <div class:list={['photo-gallery-grid', { 'photo-gallery-single': photos.length === 1 }]}>
     {photos.map((photo) => (
-      <figure data-reference-photo>
+      <figure data-site-photo data-photo-kind={photo.kind} data-photo-key={photo.key}>
         <a
           href={photo.full.src}
           target="_blank"
@@ -40,8 +55,8 @@ const first = photos[0];
           data-width={photo.full.attributes.width}
           data-height={photo.full.attributes.height}
           data-source={photo.source}
-          data-author={photo.author}
-          aria-label={'Ampliar: ' + photo.title + ' (fotografía de referencia)'}
+          data-credit={photo.credit}
+          aria-label={'Ampliar: ' + photo.title}
           aria-haspopup="dialog"
           aria-controls="photo-dialog"
         >
@@ -50,8 +65,14 @@ const first = photos[0];
             alt={photo.alt}
             format="webp"
             quality={78}
-            width={1440}
-            widths={[480, 960, 1440]}
+            width={Math.min(1440, photo.src.width)}
+            widths={[
+              ...new Set(
+                [480, 960, Math.min(1440, photo.src.width)].filter(
+                  (value) => value <= photo.src.width,
+                ),
+              ),
+            ]}
             sizes="(max-width: 800px) calc(100vw - 44px), 760px"
             loading="lazy"
           />
@@ -60,11 +81,15 @@ const first = photos[0];
           </span>
         </a>
         <figcaption>
-          {photo.title} · Foto de referencia
+          {photo.note}
           <span class="photo-credit">
-            <a href={photo.source} target="_blank" rel="noopener noreferrer">
-              Foto: {photo.author} / Pexels ↗
-            </a>
+            {photo.source ? (
+              <a href={photo.source} target="_blank" rel="noopener noreferrer">
+                {photo.credit}
+              </a>
+            ) : (
+              photo.credit
+            )}
           </span>
         </figcaption>
       </figure>
@@ -73,7 +98,7 @@ const first = photos[0];
   <dialog id="photo-dialog" class="photo-dialog" aria-labelledby="photo-dialog-title">
     <div class="photo-dialog-panel">
       <div class="photo-dialog-top">
-        <p id="photo-dialog-title">Fotografías de muestra</p>
+        <p id="photo-dialog-title">Galería de alojamiento</p>
         <button type="button" data-gallery-close aria-label="Cerrar imagen ampliada">
           Cerrar ×
         </button>
@@ -87,28 +112,35 @@ const first = photos[0];
         loading="lazy"
       />
       <div class="photo-dialog-controls">
-        <button type="button" data-gallery-prev aria-label="Imagen anterior">
-          ← Anterior
-        </button>
+        {photos.length > 1 && (
+          <button type="button" data-gallery-prev aria-label="Imagen anterior">
+            ← Anterior
+          </button>
+        )}
         <p role="status" aria-live="polite" aria-atomic="true" data-gallery-status>
-          1 / 2 · {first.title}
+          1 / {photos.length} · {first.title}
         </p>
-        <button type="button" data-gallery-next aria-label="Imagen siguiente">
-          Siguiente →
-        </button>
+        {photos.length > 1 && (
+          <button type="button" data-gallery-next aria-label="Imagen siguiente">
+            Siguiente →
+          </button>
+        )}
       </div>
-      <p class="photo-dialog-note">
-        Fotografías de referencia. No corresponden al alojamiento real.
-      </p>
-      <a
-        class="photo-credit"
-        data-gallery-credit
-        href={first.source}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Foto: {first.author} / Pexels ↗
-      </a>
+      <p class="photo-dialog-note">{note}</p>
+      <span class="photo-credit" data-gallery-credit>
+        <a
+          data-gallery-source
+          href={first.source}
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden={!first.source}
+        >
+          {first.credit}
+        </a>
+        <span data-gallery-local hidden={Boolean(first.source)}>
+          {first.credit}
+        </span>
+      </span>
     </div>
   </dialog>
 </section>
