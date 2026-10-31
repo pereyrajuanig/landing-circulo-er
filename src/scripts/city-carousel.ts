@@ -43,7 +43,9 @@ document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
     window.clearTimeout(timer);
     const running = requested && !hovered && visible && !document.hidden;
     carousel.dataset.rotationState = running ? 'playing' : 'paused';
-    rotation.textContent = requested ? 'Pausar recorrido' : 'Iniciar recorrido';
+    // Conservar la etiqueta durante el gesto evita mover el botón antes de soltarlo.
+    const labelPlaying = pointerAction ? pointerAction === 'stop' : requested;
+    rotation.textContent = labelPlaying ? 'Pausar recorrido' : 'Iniciar recorrido';
     if (running)
       timer = window.setTimeout(() => {
         render(selected + 1, false);
@@ -68,11 +70,18 @@ document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
   rotation.addEventListener('pointerdown', () => {
     pointerAction = requested ? 'stop' : 'start';
   });
-  rotation.addEventListener('pointercancel', () => {
+  const cancelPointer = () => {
     pointerAction = undefined;
+    refresh();
+  };
+  rotation.addEventListener('pointercancel', cancelPointer);
+  document.addEventListener('pointerup', (event) => {
+    if (pointerAction && event.target instanceof Node && !rotation.contains(event.target))
+      cancelPointer();
   });
-  rotation.addEventListener('click', () => {
-    requested = pointerAction ? pointerAction === 'start' : !requested;
+  rotation.addEventListener('click', (event) => {
+    // Teclado y tecnologías de apoyo no heredan una intención de puntero anterior.
+    requested = event.detail > 0 && pointerAction ? pointerAction === 'start' : !requested;
     pointerAction = undefined;
     if (requested) hovered = false;
     refresh();

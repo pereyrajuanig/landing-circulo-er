@@ -42,4 +42,6 @@ La suite añade tres casos de carrusel por dispositivo y por modo CSP. Configura
 
 Revisión visual de tres ciudades por seis anchos (320/390/768/1024/1440/1920): resultados en city-carousel-evidence.json; capturas en docs/media/carrusel-*.png. Resultado final de la suite y CI en el PR.
 
+El control conserva su etiqueta durante un gesto de puntero para evitar desplazamientos antes de soltarlo. Un gesto cancelado se descarta y la activación por teclado no hereda acciones de puntero. La prueba verifica ambos casos y la secuencia pausa/inicio/pausa.
+
 Manual 1.16 y checklist 1.14 actualizados; campos y tareas históricas preservados. La solicitud autoriza implementación, no un merge adicional: integración en main pendiente de autorización. CMS, Facebook, dominio, privacidad institucional, lector y validación de contenido variable siguen pendientes.

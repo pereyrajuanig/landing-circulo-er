@@ -488,41 +488,18 @@ test('carrusel avanza automáticamente y sincroniza foto ciudad y grabado', asyn
 });
 
 test('carrusel permite pausar elegir ciudad y reanudar de forma explícita', async ({ page }) => {
-  await page.evaluate(() => {
-    window.__carouselEvents = [];
-    [
-      'pointerdown',
-      'pointerup',
-      'click',
-      'keydown',
-      'keyup',
-      'focusin',
-      'focusout',
-      'mouseenter',
-      'mouseleave',
-    ].forEach((type) => {
-      document.addEventListener(
-        type,
-        (event) => {
-          const root = document.querySelector('[data-city-carousel]');
-          if (root?.contains(event.target))
-            window.__carouselEvents.push({
-              type,
-              target: event.target.textContent.trim().slice(0, 45),
-              detail: event.detail,
-              key: event.key,
-              state: root.dataset.rotationState,
-              button: root.querySelector('[data-city-rotation]').textContent.trim(),
-            });
-        },
-        true,
-      );
-    });
-  });
   const carousel = page.locator('[data-city-carousel]');
   const rotation = page.locator('[data-city-rotation]');
   await carousel.scrollIntoViewIfNeeded();
   await page.mouse.move(0, 0);
+  await rotation.hover();
+  await page.mouse.down();
+  await expect(rotation).toHaveText('Pausar recorrido');
+  await page.mouse.up();
+  await expect(rotation).toHaveText('Iniciar recorrido');
+  await rotation.click();
+  await page.mouse.move(0, 0);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   await rotation.click();
   await expect(rotation).toHaveText('Iniciar recorrido');
   await page.clock.fastForward(24000);
@@ -534,18 +511,16 @@ test('carrusel permite pausar elegir ciudad y reanudar de forma explícita', asy
     'federacion',
   );
   await expect(page.locator('[data-city-status]')).toHaveText('Federación, 2 de 3');
+  // Un gesto cancelado no puede contaminar el siguiente clic de teclado.
+  await rotation.hover();
+  await page.mouse.down();
+  await page.mouse.move(0, 0);
+  await page.mouse.up();
+  await expect(rotation).toHaveText('Iniciar recorrido');
   await rotation.focus();
   await rotation.press('Enter');
   await page.mouse.move(0, 0);
-  try {
-    await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
-  } catch (error) {
-    console.log(
-      'CAROUSEL_EVENTS',
-      JSON.stringify(await page.evaluate(() => window.__carouselEvents)),
-    );
-    throw error;
-  }
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   await page.clock.fastForward(8100);
   await expect(carousel).toHaveAttribute('data-active-city', 'federal');
   const next = page.locator('[data-city-next]');
