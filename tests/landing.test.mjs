@@ -176,8 +176,8 @@ test('el HTML ofrece destino de salto enfocable, estados y relaciones accesibles
       assert(ids.includes(id), 'Referencia ARIA inexistente: ' + id);
   }
   const buttons = [...html.matchAll(/<button\b([^>]*)>/g)].map((match) => match[1]);
-  assert.equal(buttons.length, load('../src/content/stays.json').length + 7);
-  assert.equal(buttons.filter((button) => button.includes('data-city-')).length, 6);
+  assert.equal(buttons.length, load('../src/content/stays.json').length + 2);
+  assert.equal(buttons.filter((button) => button.includes('data-city-')).length, 1);
   for (const button of buttons) assert.match(button, /type="button"/);
   const stays = buttons.filter((button) => button.includes('data-stay='));
   assert.equal(stays.length, load('../src/content/stays.json').length);

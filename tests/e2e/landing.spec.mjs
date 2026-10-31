@@ -10,6 +10,7 @@ const test = base.extend({
   page: async ({ page, baseURL }, use) => {
     const origin = new URL(baseURL).origin;
     const errors = [];
+    const cancelledImages = new Set();
     await page.addInitScript(() => {
       window.__securityViolations = [];
       document.addEventListener('securitypolicyviolation', (event) =>
@@ -22,8 +23,12 @@ const test = base.extend({
     });
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('requestfailed', (request) => {
-      if (new URL(request.url()).origin === origin)
-        errors.push(request.url() + ': ' + request.failure()?.errorText);
+      if (new URL(request.url()).origin !== origin) return;
+      const failure = request.failure()?.errorText;
+      // Chromium puede cancelar un candidato responsive o una imagen al navegar.
+      if (failure === 'net::ERR_ABORTED' && request.resourceType() === 'image')
+        cancelledImages.add(request.url());
+      else errors.push(request.url() + ': ' + failure);
     });
     // Solo se visita la preview local; las fuentes remotas no condicionan los flujos.
     await page.route('**/*', (route) =>
@@ -33,6 +38,12 @@ const test = base.extend({
       await use(page);
     } finally {
       expect(errors, 'Errores de JavaScript o recursos locales').toEqual([]);
+      // No ignorar el recurso cancelado: comprobar que existe y se sirve como imagen.
+      for (const url of cancelledImages) {
+        const response = await page.request.get(url);
+        expect(response.status(), 'Imagen cancelada disponible: ' + url).toBe(200);
+        expect(response.headers()['content-type']).toMatch(/^image\//);
+      }
       expect(
         await page.evaluate(() => window.__securityViolations),
         'Violaciones CSP durante flujos reales',
@@ -480,7 +491,11 @@ test('carrusel avanza automáticamente y sincroniza foto ciudad y grabado', asyn
       city,
     );
   }
-  await expect(page.locator('[data-city-status]')).toBeEmpty();
+  await expect(carousel.locator('button')).toHaveCount(1);
+  await expect(
+    carousel.locator('[data-city-prev], [data-city-next], [data-city-select], [data-city-count]'),
+  ).toHaveCount(0);
+  await expect(page.locator('[data-city-rotation]')).toHaveCSS('clip-path', 'inset(50%)');
   if (!isMobile) {
     await carousel.hover();
     await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
@@ -495,51 +510,32 @@ test('carrusel avanza automáticamente y sincroniza foto ciudad y grabado', asyn
   await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
 });
 
-test('carrusel permite pausar elegir ciudad y reanudar de forma explícita', async ({ page }) => {
+test('carrusel ofrece pausa accesible por teclado sin controles en la composición', async ({
+  page,
+}) => {
   const carousel = page.locator('[data-city-carousel]');
   const rotation = page.locator('[data-city-rotation]');
   await carousel.scrollIntoViewIfNeeded();
   await page.mouse.move(0, 0);
-  await rotation.hover();
-  await page.mouse.down();
-  await expect(rotation).toHaveText('Pausar recorrido');
-  await page.mouse.up();
+  await expect(rotation).toHaveCSS('clip-path', 'inset(50%)');
+  await rotation.focus();
+  await expect(rotation).toBeFocused();
   await expect(rotation).toHaveText('Iniciar recorrido');
-  await rotation.click();
-  await page.mouse.move(0, 0);
-  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
-  await rotation.click();
-  await expect(rotation).toHaveText('Iniciar recorrido');
+  await expect(rotation).toHaveCSS('clip-path', 'none');
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
   await page.clock.fastForward(24000);
   await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
-  await carousel.getByRole('button', { name: 'Federación', exact: true }).click();
-  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
-  await expect(page.locator('[data-city-illustration]:visible')).toHaveAttribute(
-    'data-city-illustration',
-    'federacion',
-  );
-  await expect(page.locator('[data-city-status]')).toHaveText('Federación, 2 de 3');
-  // Un gesto cancelado no puede contaminar el siguiente clic de teclado.
-  await rotation.hover();
-  await page.mouse.down();
-  await page.mouse.move(0, 0);
-  await page.mouse.up();
-  await expect(rotation).toHaveText('Iniciar recorrido');
-  await rotation.focus();
   await rotation.press('Enter');
   await page.mouse.move(0, 0);
   await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   await page.clock.fastForward(8100);
-  await expect(carousel).toHaveAttribute('data-active-city', 'federal');
-  const next = page.locator('[data-city-next]');
-  await next.focus();
+  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  await rotation.press('Enter');
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
-  await page.mouse.move(0, 0);
+  await page.getByRole('link', { name: 'Hablemos', exact: true }).focus();
+  await expect(rotation).toHaveCSS('clip-path', 'inset(50%)');
   await page.clock.fastForward(16000);
-  await expect(carousel).toHaveAttribute('data-active-city', 'federal');
-  await next.press('Enter');
-  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
-  await expect(next).toBeFocused();
+  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
 });
 
 test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript', async ({
@@ -554,7 +550,12 @@ test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
   await page.clock.fastForward(24000);
   await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
-  await page.locator('[data-city-next]').click();
+  const rotation = page.locator('[data-city-rotation]');
+  await rotation.focus();
+  await rotation.press('Enter');
+  await page.mouse.move(0, 0);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  await page.clock.fastForward(8100);
   await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
   try {
@@ -566,7 +567,9 @@ test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript
       'concordia',
     );
     await expect(fallback.locator('[data-city-rotation]')).toBeHidden();
-    await expect(fallback.locator('[data-city-picker]')).toBeHidden();
+    await expect(
+      fallback.locator('[data-city-prev], [data-city-next], [data-city-select]'),
+    ).toHaveCount(0);
     await expect(fallback.getByRole('link', { name: 'Hablemos', exact: true })).toHaveAttribute(
       'href',
       '#contacto',

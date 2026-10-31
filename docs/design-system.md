@@ -85,3 +85,7 @@ Página27 del manual actualiza imágenes y profundidad del contenido. SitePhoto 
 ## Versión1.16 · recorrido de ciudades
 
 Página 28 del manual incorpora el carrusel de portada, con mensaje estable y foto/grabado/localidad sincronizados. Automatismo de 8 segundos y controles de pausa; movimiento reducido y teclado. No se incorporan textos de campaña. Ver city-carousel.md.
+
+## Versión1.17 · fotografías y fondo completo
+
+Página28 revisada: solo fotografías, sin flechas, selector, contador o título de ciudad. Epígrafes accesibles y pausa revelada al foco. Grabado a tamaño de sección, suave y con velo marfil; desaparece la franja inferior reservada. Manual28 páginas; checklist1.15 conserva23 páginas y145 campos.

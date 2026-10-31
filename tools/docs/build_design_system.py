@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación del sitio | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.16. Identidad, componentes, contenido, implementación y mantenimiento. 30 de octubre de 2026.')
+c.setSubject('Versión 1.17. Identidad, componentes, contenido, implementación y mantenimiento. 30 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.16 · 30 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.17 · 30 OCT 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación del<br/>sitio institucional',M,510,CW,39,43,PAPER,'Caslon',
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.16',M,770,10,'DM',PAPER)
+text('Versión 1.17',M,770,10,'DM',PAPER)
 right('29 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -409,7 +409,7 @@ y=table(['Necesidad','Archivo / lugar','Verificación'],[
  ['Agregar noticias o un panel','Nueva fase de desarrollo','Definir editor, datos, permisos y mantenimiento.']
 ],[130,177,CW-307],y,8.2)+24
 y=block('Secuencia recomendada','1. Confirmar contenido con el responsable institucional.<br/>2. Editar src/ en una rama corta y revisar npm run dev.<br/>3. Preparar Chromium con npm run test:install; cerrar preview de revisión. Ejecutar npm run validate (51 comprobaciones); revisar pantallas.<br/>4. Hacer commit, push y PR en GitHub; obtener autorización de merge.<br/>5. Conectar y publicar en Vercel con autorización; verificar la URL.',y)
-note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.16. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
+note('VERSIONADO DEL SISTEMA','Este PDF es la versión 1.17. Actualizar documento y registro de cambios cuando se alteren tokens, componentes, estructura o canales de contacto. Registrar fecha, responsable y alcance de cada modificación; mantener la participación del usuario en decisiones visuales.',y)
 
 # 21. QA and pending
 y=begin('operacion_20','Validaciones y próximos pasos','Base inicial aceptada; revisión cálida implementada. La aceptación final y la auditoría integral siguen pendientes.')
@@ -489,9 +489,9 @@ note('CIERRE INSTITUCIONAL PENDIENTE','Revisión de datos, derechos/contexto def
 
 # 28. Identidad y recorrido de ciudades.
 y=begin('ciudades_28','Cerca de vos, en cada localidad','30/10/2026. El usuario pidió aplicar la maqueta de ciudades y que el recorrido avance solo. Una misma portada, con presencia territorial y fotografías propias.')
-y=block('Composición y sentido','Mensaje y accesos permanecen estables. Concordia, Federación y Federal alternan su nombre, fotografía institucional, epígrafe y grabado. El patrimonio funciona como fondo decorativo; no representa instalaciones del Círculo. Se mantienen escudo, Caslon, DM Sans, azul, dorado y marfil.',y)
-y=block('Movimiento con control','Cambio cada 8 segundos con Pausar/Iniciar, anterior/siguiente y selección de ciudad. El foco o una selección manual detienen el automático hasta reanudación explícita. Hover pausa temporalmente; fuera de pantalla o con pestaña oculta se suspende el temporizador.',y)
-y=block('Lectura y accesibilidad','Movimiento reducido impide el inicio automático. Los cambios automáticos no generan anuncios continuos; los manuales comunican ciudad y posición. Controles de 44px y foco visible. Sin JavaScript queda la primera ciudad y se conservan los accesos. Lector real pendiente; no se declara WCAG.',y)
+y=block('Composición y sentido','Mensaje y accesos permanecen estables. Concordia, Federación y Federal alternan fotografía y grabado. El bloque visible contiene solo fotos; epígrafes y créditos permanecen accesibles. El grabado llena toda la sección con una capa marfil para cuidar la lectura. El patrimonio funciona como fondo decorativo; no representa instalaciones del Círculo. Se mantienen escudo, Caslon, DM Sans, azul, dorado y marfil.',y)
+y=block('Movimiento con control','Cambio cada 8 segundos sin flechas, selector, contador ni títulos visibles. Pausar/Iniciar aparece solo al foco de teclado, sobre la foto. El foco detiene el automático hasta reanudación explícita. Hover pausa temporalmente; fuera de pantalla o con pestaña oculta se suspende el temporizador.',y)
+y=block('Lectura y accesibilidad','Movimiento reducido impide el inicio automático. Los cambios automáticos no generan anuncios continuos. Pausa con área de 44px y foco visible cuando se navega con teclado. Fondo suave de sección completa, con recortes según el dispositivo. Sin JavaScript queda la primera ciudad y se conservan los accesos. Lector real pendiente; no se declara WCAG.',y)
 y=block('Ilustraciones con origen','Solo se recortan las franjas ilustradas de las piezas locales, sin generar o reconstruir imágenes. No se publican candidaturas, listas ni fechas electorales. Fuentes, recortes y SHA256 en city-art-sources.json. WebP locales adaptables; fotos del archivo ya registrado.',y)
 y=block('Implementación y evidencia','CityCarousel.astro, hero-cities.ts, city-carousel.ts y hero-cities.css. Una sola tarea programada; estado local, sin almacenamiento, APIs o dependencias nuevas. Matriz de 3 ciudades por 6 anchos y capturas en city-carousel-evidence.json; resultado final de suite y CI en el PR.',y)
 note('REVISIÓN Y PENDIENTES','Implementación solicitada; merge de este lote requiere autorización. Los pendientes de datos, capacidades, dominio, privacidad, CMS/Facebook y lector no se certifican por este cambio visual. Ver docs/city-carousel.md para comportamiento y mantenimiento.',y)

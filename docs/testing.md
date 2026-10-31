@@ -76,8 +76,12 @@ Matriz 25 rutas por 6 anchos y capturas en institutional-content-evidence.json. 
 
 ## Carrusel automático de ciudades
 
-14 Node y 36 Chromium por modo CSP: 86 ejecuciones, más fixture editorial aislada. Tres casos nuevos por dispositivo verifican avance y vuelta al inicio, foto/grabado/localidad, ausencia de anuncios automáticos, pausa por hover, salida de pantalla, foco, pausa voluntaria, selección manual, reanudación explícita, movimiento reducido y fallback sin JS. Se usa page.clock de Playwright para evitar esperar intervalos reales; instalación antes de cargar la página.
+14 Node y 36 Chromium por modo CSP: 86 ejecuciones, más fixture editorial aislada. Tres casos por dispositivo verifican avance y vuelta al inicio, foto/grabado/localidad, ausencia de selectores/flechas/contador, pausa por hover, salida de pantalla, foco, control revelado solo al teclado, reanudación explícita, movimiento reducido y fallback sin JS. Se usa page.clock de Playwright para evitar esperar intervalos reales; instalación antes de cargar la página.
 
 La comprobación visual cubre tres ciudades en seis anchos; evidencia en city-carousel-evidence.json. El lector real permanece pendiente. Referencias: [WAI APG](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/) y [reloj de Playwright](https://playwright.dev/docs/clock).
 
 La prueba de regreso desde 404 espera la carga completa de su fotografía antes de capturar y navegar. Así una descarga lazy cancelada por el propio flujo no se confunde con un recurso roto; se mantiene la aserción estricta de errores locales.
+
+Revisión visual vigente: fondo a tamaño completo de sección y control de pausa de 1px recortado en reposo; al foco se revela con área mínima de 44px. Se conserva la procedencia de las fotos en el árbol accesible.
+
+El fixture distingue únicamente imágenes locales con net::ERR_ABORTED, que Chromium puede cancelar al cambiar de candidato responsive o de página. No las descarta: verifica por HTTP estado200 y MIME image. Otros errores de red/JavaScript y violaciones CSP siguen fallando.

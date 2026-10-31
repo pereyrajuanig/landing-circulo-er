@@ -74,3 +74,7 @@ Se sustituyen las cuatro imágenes generadas por12 fotos de Pexels con registro 
 ## 1.16 · 30/10/2026 · recorrido de ciudades en portada
 
 Se aplica la dirección elegida: foto institucional y grabado local para Concordia, Federación y Federal. Avance automático de 8 segundos, controles, pausas y respaldo sin JS; mensaje y accesos estables. Se conservan paleta, tipografías y escudo. Manual 28 páginas; checklist 23 páginas y 145 campos, sin certificar pendientes institucionales.
+
+## 1.17 · 30/10/2026 · fotografía sin controles visibles
+
+Ajuste solicitado sobre PR14: se retiran flechas, selector, contador y títulos de ciudad; epígrafes accesibles y pausa al foco. El grabado pasa a cubrir toda la sección de portada, con intensidad suave y lectura protegida. Se mantiene el avance de8 segundos. Manual1.17 y checklist1.15; merge pendiente.

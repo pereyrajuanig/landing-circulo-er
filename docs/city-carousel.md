@@ -1,47 +1,44 @@
-# Portada con recorrido automático de ciudades
+# Portada con fotografías y fondo patrimonial
 
-30/10/2026 · Rama codex/portada-carrusel-ciudades · Base main bfe1aef, PR #13 fusionado con autorización.
+30/10/2026 · Rama codex/portada-carrusel-ciudades · PR #14 en revisión, sin merge autorizado.
 
 ## Decisión del usuario
 
-El usuario pidió trasladar al sitio la identidad ilustrada de la campaña y mostrar cercanía alternando ciudades con fotografías reales. Después de revisar las maquetas solicitó aplicar el cambio y que el carrusel avanzara solo. Se implementa un único diseño de portada con Concordia, Federación y Federal; el mensaje, los accesos y la navegación permanecen estables.
+Después de aplicar el recorrido automático, el usuario pidió retirar los botones y mostrar solo fotos, con la ilustración como fondo de toda la sección. La portada mantiene su mensaje y accesos; Concordia, Federación y Federal alternan fotografía y grabado correspondientes cada 8 segundos.
 
-## Contenido e identidad
+## Composición
 
-Las fotos proceden del archivo institucional incorporado en PR #13: encuentro social de Concordia, taller creativo de Federación y actividad sociocultural de Federal. Cada registro conserva su localidad y epígrafe. Los grabados de las respectivas piezas de campaña acompañan la ciudad correspondiente como paisaje o patrimonio decorativo; no representan instalaciones del Círculo.
+Se retiran flechas, selectores, contador y títulos de ciudad. El epígrafe y crédito institucional siguen disponibles para tecnologías de apoyo; el bloque visual muestra exclusivamente la foto. El control Pausar/Iniciar está fuera de la composición habitual y aparece únicamente al recibir foco de teclado, sobre la foto. Mantiene un mecanismo de detención sin añadir controles visibles a la vista normal.
 
-Se extrae solo la franja ilustrada de cada pieza. No se incorporan archivos completos de campaña, candidaturas, nombres, listas o fechas electorales. Fuentes, rectángulos y SHA256 en city-art-sources.json. No hay generación ni reconstrucción de imágenes. WebP adaptables de Astro; originales derivados en src/assets/cities.
+El grabado usa una capa absoluta con inset:0 y altura/ancho de la sección, object-fit:cover y mezcla multiply. Ya no existe franja inferior ni espacio reservado para ella. La capa marfil permite leer el contenido; opacidad 0.22 en escritorio y 0.17 en móvil. El recorte varía según la relación de aspecto: la ilustración funciona como fondo, no como una lámina que deba verse completa. Texto, escudo, paleta y tipografías se preservan.
 
-Se mantienen escudo en cabecera y pie, Caslon, DM Sans, azul, dorado y fondos cálidos. Los controles tienen un área mínima de 44px. La fotografía y el grabado alternan juntos; el texto institucional permanece quieto.
+## Origen
+
+Fotos del archivo ya incorporado: encuentro social en Concordia, taller en Federación y actividad sociocultural en Federal. Los grabados corresponden a cada ciudad y son paisaje o patrimonio decorativo, no instalaciones del Círculo. city-art-sources.json registra franjas recortadas, coordenadas y SHA256. No se generan imágenes ni se publican piezas completas, candidaturas, listas o fechas electorales. Imágenes WebP locales adaptables.
 
 ## Funcionamiento
 
-- Inicio automático y cambio cada 8000ms, definido en CITY_ROTATION_MS de src/lib/hero-cities.ts.
-- Pausar/Iniciar recorrido, anterior/siguiente y tres botones de localidad.
-- Selección manual o foco dentro del carrusel detienen el automático hasta reanudación explícita.
-- Hover pausa temporalmente; salir permite seguir únicamente si no existe una pausa voluntaria.
-- Fuera de pantalla o con pestaña oculta se suspende el temporizador. Al volver espera un intervalo completo.
-- Movimiento reducido impide el inicio automático; la persona puede iniciar explícitamente el recorrido y navegar manualmente.
-- Las actualizaciones automáticas no se anuncian continuamente al lector. Las selecciones manuales comunican ciudad y posición.
-- Sin JavaScript se conserva Concordia, foto y grabado, con accesos funcionales; se ocultan controles que no operarían.
-- Los pequeños recursos locales de las tres ciudades se anticipan para evitar una imagen vacía al avanzar. Sin servicios externos, almacenamiento o dependencias nuevas.
+- Inicio automático cada 8000ms, definido en CITY_ROTATION_MS de src/lib/hero-cities.ts.
+- Un único control accesible de Pausar/Iniciar, visible solo al foco; sin flechas, contador ni elección manual de ciudad.
+- El foco detiene el automático sin reanudación implícita. Enter permite iniciarlo o detenerlo explícitamente.
+- Hover pausa temporalmente; salir continúa solo si no existe pausa voluntaria. Fuera de pantalla o con pestaña oculta se suspende; al volver espera un intervalo completo.
+- Movimiento reducido impide el inicio automático; se puede iniciar mediante el control accesible. Sin transiciones animadas.
+- Los cambios automáticos no generan anuncios continuos ni mueven el foco.
+- Sin JavaScript se conserva Concordia, foto, fondo y accesos; el control inoperante permanece oculto.
+- Recursos locales anticipados para evitar un cuadro vacío al avanzar. Sin almacenamiento, API, paquetes o conexiones nuevas.
 
-Referencia del comportamiento: [WAI APG, Carousel Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/). No se declara conformidad WCAG; la prueba real con lector sigue pendiente.
+Referencia de comportamiento: [WAI APG, Carousel Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/). No se declara conformidad WCAG; lector real pendiente.
 
 ## Implementación y mantenimiento
 
-Hero.astro conserva el contenido estable y renderiza CityCarousel.astro e ilustraciones decorativas. hero-cities.ts relaciona ciudad, foto y grabado. city-carousel.ts mantiene selección, temporizador, pausas, foco y preferencias; hero-cities.css limita los cambios visuales a la portada.
+Hero.astro mantiene texto y capas decorativas; CityCarousel.astro renderiza fotos y control accesible. hero-cities.ts relaciona foto, ciudad y grabado. city-carousel.ts administra índice, timeout y condiciones de pausa; hero-cities.css resuelve fondo completo y lectura. No asociar fotografías o monumentos de otra localidad. Para añadir una ciudad, registrar procedencia y comprobar recortes, lectura, automatismo y fallback.
 
-Para agregar una localidad: recibir foto y grabado correspondientes, registrar procedencia, añadir la entrada de hero-cities.ts y revisar textos, dimensiones, controles, pausa y carga. No reutilizar material de otra localidad como si fuera de la nueva.
-
-La política CSP conserva sus restricciones; se actualizan únicamente hashes de scripts revisados. Alojamiento, salones, novedades y datos institucionales no cambian en este lote.
+Se actualizan solo hashes revisados de la CSP, sin ampliar permisos. Alojamientos, salones, noticias y prestaciones no se alteran.
 
 ## Validación y estado
 
-La suite añade tres casos de carrusel por dispositivo y por modo CSP. Configuración total: 14 Node +36 Chromium Report-Only +36 con CSP exigida (86 ejecuciones), más prueba editorial aislada. Incluye avance con reloj controlado, coherencia ciudad/foto/grabado, pausa, foco, reanudación, salida de pantalla, movimiento reducido y respaldo sin JavaScript.
+Tres casos por dispositivo y modo CSP: automático, sincronización, pausa por foco/hover/visibilidad, control accesible, movimiento reducido y respaldo sin JS. Configuración total: 14 Node +36 Chromium Report-Only +36 exigida (86 ejecuciones), más fixture editorial aislada. Se comprueba que no existan selectores, flechas ni contador.
 
-Revisión visual de tres ciudades por seis anchos (320/390/768/1024/1440/1920): resultados en city-carousel-evidence.json; capturas en docs/media/carrusel-*.png. Resultado final de la suite y CI en el PR.
+Matriz de 3 ciudades ×6 anchos en city-carousel-evidence.json: sin desbordes, fondo a tamaño de sección y control fuera de la composición habitual. Capturas revisadas en docs/media/carrusel-*.png. Resultado final de suite y CI en el PR.
 
-El control conserva su etiqueta durante un gesto de puntero para evitar desplazamientos antes de soltarlo. Un gesto cancelado se descarta y la activación por teclado no hereda acciones de puntero. La prueba verifica ambos casos y la secuencia pausa/inicio/pausa.
-
-Manual 1.16 y checklist 1.14 actualizados; campos y tareas históricas preservados. La solicitud autoriza implementación, no un merge adicional: integración en main pendiente de autorización. CMS, Facebook, dominio, privacidad institucional, lector y validación de contenido variable siguen pendientes.
+Manual 1.17 (28 páginas) y checklist 1.15 (23 páginas,145 campos), conservando estados y campos históricos. Aceptación y merge pendientes. CMS, Facebook, dominio, privacidad, lector y contenido variable continúan pendientes.

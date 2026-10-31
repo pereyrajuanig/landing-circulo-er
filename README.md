@@ -15,6 +15,7 @@ La propuesta se desarrolló con participación del usuario: base institucional y
 - Selección informativa de ocho destinos de alojamiento.
 - Contacto por correo y ubicación de la sede.
 - Diseño adaptable, menú móvil, foco visible y movimiento reducido.
+- Portada en revisión con fotos automáticas sin controles visibles y grabado como fondo completo; pausa disponible al foco de teclado.
 
 [Vista privada histórica en Sites](https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site/) · [Design system](docs/design-system.md) · [Manual en PDF](docs/design-system.pdf)
 

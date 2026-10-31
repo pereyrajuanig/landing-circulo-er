@@ -471,13 +471,13 @@
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "Diseño / carrusel de ciudades",
+    "trace_id": "Diseño / fotos y fondo de portada",
     "trace_status": "Propuesta en revisión",
     "trace_owner": "Desarrollo",
     "trace_date": "30/10/2026",
     "trace_commit": "Base bfe1aef / rama portada-carrusel-ciudades",
-    "trace_method": "3 ciudades; automático de 8 segundos y controles.\nTeclado, pausa, foco, reducido y sin JS.\nResultado de suite y CI en el PR.",
-    "trace_result": "Fotos y grabados correspondientes por localidad.\nMatriz 3 ciudades por 6 anchos; capturas locales.\nVer docs/city-carousel.md.",
+    "trace_method": "Automático de 8 segundos; solo fotos visibles.\nPausa accesible al foco; reducido y sin JS.\nSuite y CI final en el PR #14.",
+    "trace_result": "Grabado como fondo de toda la sección.\nMatriz 3 ciudades por 6 anchos; capturas locales.\nVer docs/city-carousel.md.",
     "trace_limits": "Merge y aceptación final del lote pendientes.\nNo acredita vigencia de servicios o convenios.\nDominio, CMS, Facebook y lector pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
@@ -545,7 +545,7 @@
     "city_carousel": {
       "status": "pending_visual_acceptance",
       "branch": "codex/portada-carrusel-ciudades",
-      "summary": "Portada con3 ciudades, fotografías y grabados propios; avance automático de8 segundos y controles de pausa. Merge pendiente."
+      "summary": "Portada con3 ciudades; fotos sin controles visibles, fondo patrimonial completo y avance automático de8 segundos. Pausa accesible al foco. PR14 y aceptación pendientes."
     }
   }
 }

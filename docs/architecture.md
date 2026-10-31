@@ -81,4 +81,4 @@ src/lib/photos.ts centraliza metadatos de banco y23 recortes propios. SitePhoto 
 
 ## Carrusel de portada · 30/10/2026
 
-Hero mantiene composición estable; CityCarousel presenta las ciudades de src/lib/hero-cities.ts. city-carousel.ts administra el índice, un único timeout de 8 segundos, intención de reproducción y condiciones de visibilidad/hover/foco. Ilustraciones se renderizan en Hero y se sincronizan mediante hidden. Estado local al documento, sin almacenamiento ni API. hero-cities.css limita estilos a la portada. Recursos locales y scripts con la CSP existente. Ver city-carousel.md.
+Hero mantiene composición estable; CityCarousel presenta las ciudades de src/lib/hero-cities.ts. city-carousel.ts administra el índice, un único timeout de 8 segundos, intención de reproducción y condiciones de visibilidad/hover/foco. Ilustraciones se renderizan en Hero y se sincronizan mediante hidden. Estado local al documento, sin almacenamiento ni API. hero-cities.css limita estilos a la portada: grabado a tamaño de sección, fotografías sin controles visibles y pausa revelada al foco de teclado. Recursos locales y scripts con la CSP existente. Ver city-carousel.md.
