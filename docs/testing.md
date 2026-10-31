@@ -73,3 +73,9 @@ El caso de galería usa alt y títulos de referencia y comprueba navegación, Es
 14 pruebas Node y30 Chromium por modo CSP:74 ejecuciones, más el flujo editorial aislado. Se verifican selector con fotografía por destino, galería institucional de dos imágenes y crédito, galería de una imagen, avisos de referencias pendientes, reseñas del archivo, búsqueda/filtros y capacidad ambigua de Los Laureles. Node comprueba las23 fotos seleccionadas en HTML y la separación de fotos propias/de banco por destino. También se verifica que inventario y capturas privadas no se sirven desde la web.
 
 Matriz 25 rutas por 6 anchos y capturas en institutional-content-evidence.json. No sustituye lector real ni certificación WCAG. Ver institutional-content.md.
+
+## Carrusel automático de ciudades
+
+14 Node y 36 Chromium por modo CSP: 86 ejecuciones, más fixture editorial aislada. Tres casos nuevos por dispositivo verifican avance y vuelta al inicio, foto/grabado/localidad, ausencia de anuncios automáticos, pausa por hover, salida de pantalla, foco, pausa voluntaria, selección manual, reanudación explícita, movimiento reducido y fallback sin JS. Se usa page.clock de Playwright para evitar esperar intervalos reales; instalación antes de cargar la página.
+
+La comprobación visual cubre tres ciudades en seis anchos; evidencia en city-carousel-evidence.json. El lector real permanece pendiente. Referencias: [WAI APG](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/) y [reloj de Playwright](https://playwright.dev/docs/clock).

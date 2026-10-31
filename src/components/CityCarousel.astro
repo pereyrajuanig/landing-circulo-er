@@ -1,0 +1,71 @@
+---
+import SitePhoto from './SitePhoto.astro';
+import { heroCities, CITY_ROTATION_MS } from '../lib/hero-cities';
+---
+
+<div
+  class="city-carousel"
+  role="region"
+  aria-roledescription="carrusel"
+  aria-label="La vida del Círculo en nuestras ciudades"
+  data-city-carousel
+  data-city-interval={CITY_ROTATION_MS}
+  data-active-city={heroCities[0].id}
+>
+  <div class="city-carousel-top">
+    <span class="city-carousel-label">Cerca de vos, en cada localidad</span>
+    <button type="button" data-city-rotation hidden>
+      Pausar recorrido
+    </button>
+  </div>
+  <div class="city-slides">
+    {heroCities.map((city, index) => (
+      <div
+        id={'city-slide-' + city.id}
+        role="group"
+        aria-roledescription="diapositiva"
+        aria-label={city.name + ', ' + (index + 1) + ' de ' + heroCities.length}
+        data-city-slide={city.id}
+        hidden={index !== 0}
+      >
+        <h2 class="city-name">{city.name}</h2>
+        <SitePhoto kind={city.photo} variant="compact" loading={index === 0 ? 'eager' : 'lazy'} />
+      </div>
+    ))}
+  </div>
+  <div class="city-controls" data-city-controls hidden>
+    <span class="city-count" data-city-count>
+      01 / 03
+    </span>
+    <div class="city-arrows">
+      <button type="button" data-city-prev aria-label="Ciudad anterior">
+        ← Anterior
+      </button>
+      <button type="button" data-city-next aria-label="Ciudad siguiente">
+        Siguiente →
+      </button>
+    </div>
+  </div>
+  <div class="city-picker" role="group" aria-label="Elegí una ciudad" data-city-picker hidden>
+    {heroCities.map((city, index) => (
+      <button
+        type="button"
+        data-city-select={index}
+        aria-controls={'city-slide-' + city.id}
+        aria-disabled={index === 0 ? 'true' : 'false'}
+      >
+        {city.name}
+      </button>
+    ))}
+  </div>
+  <span
+    class="city-announcement"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+    data-city-status
+  ></span>
+</div>
+<script>
+  import '../scripts/city-carousel';
+</script>

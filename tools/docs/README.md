@@ -53,3 +53,5 @@ Manual1.13:25 páginas, con addendum de fotografías ilustrativas. Checklist1.11
 Manual vigente1.14: 26 páginas; página 25 conservada como antecedente sustituido y página 26 con 12 referencias de internet. Checklist1.12: 23 páginas y 145 campos; conserva estados y campos manuales históricos. Evidencia vigente: docs/reference-photo-evidence.json y docs/photo-sources.json.
 
 Manual vigente 1.15: 27 páginas; addendum institucional en página 27. Checklist1.13 conserva 23 páginas y 145 campos. Nuevas tareas no se certifican por importar material: se actualizan solo trazabilidad y estado del lote. Se conserva el archivo anterior.
+
+Manual vigente 1.16: 28 páginas; addendum de portada automática. Checklist 1.14 conserva 23 páginas,145 campos y estados históricos; actualiza trazabilidad del lote sin cerrar datos institucionales pendientes.

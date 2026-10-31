@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import crest from '../../public/assets/escudo.png';
-import SitePhoto from './SitePhoto.astro';
+import CityCarousel from './CityCarousel.astro';
+import { heroCities } from '../lib/hero-cities';
 ---
 
-<section id="inicio" class="hero" aria-labelledby="hero-title">
+<section id="inicio" class="hero hero-cities" aria-labelledby="hero-title" data-city-hero>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">
@@ -32,34 +32,29 @@ import SitePhoto from './SitePhoto.astro';
         </a>
       </div>
     </div>
-    <div class="hero-emblem">
-      <div class="hero-photo-panel">
-        <SitePhoto kind="concordia-encuentro-social-11" variant="compact" loading="eager" />
-        <div class="hero-photo-signature">
-          <Image
-            src={crest}
-            format="webp"
-            quality={100}
-            width={56}
-            widths={[56, 112]}
-            sizes="56px"
-            loading="eager"
-            height={67}
-            alt="Escudo del Círculo"
-          />
-          <div>
-            <span class="emblem-label">NUESTRA HISTORIA, NUESTRO VÍNCULO</span>
-            <p>
-              Una comunidad
-              <br />
-              <em>de la que sos parte.</em>
-            </p>
-            <span class="emblem-since">Acompañándonos desde 1975</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CityCarousel />
   </div>
+  {heroCities.map((city, index) => (
+    <div
+      class="hero-city-art"
+      data-city-illustration={city.id}
+      hidden={index !== 0}
+      aria-hidden="true"
+    >
+      <Image
+        src={city.art}
+        alt=""
+        format="webp"
+        quality={80}
+        width={Math.min(1440, city.art.width)}
+        widths={[480, 960, Math.min(1440, city.art.width)].filter(
+          (value, index, all) => value <= city.art.width && all.indexOf(value) === index,
+        )}
+        sizes="100vw"
+        loading={index === 0 ? 'eager' : 'lazy'}
+      />
+    </div>
+  ))}
   <div class="wrap hero-bottom">
     <span>Más de medio siglo compartiendo el camino</span>
     <a href="#institucion">

@@ -1,4 +1,4 @@
-# Sistema de diseño · 1.15
+# Sistema de diseño · 1.16
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 
@@ -81,3 +81,7 @@ Página26 del manual sustituye la propuesta de página 25:12 fotos de Pexels dis
 ## Versión1.15 · material institucional
 
 Página27 del manual actualiza imágenes y profundidad del contenido. SitePhoto distingue archivo institucional y referencias; PhotoGallery admite una o varias imágenes. La navegación conserva sus secciones; beneficios, alojamientos y salones ganan detalle. Nuevos componentes SpaceCatalog y BranchHighlights; reseñas con origen y fecha de publicación diferenciada de los hechos. Ver institutional-content.md.
+
+## Versión1.16 · recorrido de ciudades
+
+Página 28 del manual incorpora el carrusel de portada, con mensaje estable y foto/grabado/localidad sincronizados. Automatismo de 8 segundos y controles de pausa; movimiento reducido y teclado. No se incorporan textos de campaña. Ver city-carousel.md.

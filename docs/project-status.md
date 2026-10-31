@@ -57,3 +57,7 @@ Pedido corregido por el usuario: fotos de internet, sin generación, en todas la
 PR #12 fusionado con autorización: main 5aeee25, quality y Vercel aprobados. Nuevo lote en codex/contenido-institucional con material identificado por el usuario:23 recortes, ocho destinos, cinco espacios, nueve filiales con contenido y cuatro reseñas del archivo.25 páginas generadas contando404.
 
 Aceptación del contenido y nuevo merge pendientes; capacidades y vigencia se atribuyen al archivo, sin inventar fechas. No se activan CMS/Facebook. Documentación: institutional-content.md. Resultado de las comprobaciones finales en el PR.
+
+## Portada con recorrido de ciudades · revisión del 30/10/2026
+
+PR #13 fusionado con autorización: main bfe1aef8842b6e21f9e99635294d7097325c5fa7, quality y Vercel aprobados. Nuevo lote en codex/portada-carrusel-ciudades, solicitado tras revisar la maqueta: fotos y grabados por localidad, avance cada 8 segundos y controles de pausa. No cambia las condiciones institucionales ni activa CMS/Facebook. Merge del nuevo lote pendiente. Evidencias en city-carousel.md y el PR.

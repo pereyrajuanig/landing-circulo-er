@@ -59,7 +59,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preview del build                                       | npm run preview      |
 | Medición de rendimiento local                           | npm run perf         |
 
-npm test construye y ejecuta catorce pruebas Node y treinta Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta catorce pruebas Node y treinta y seis Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 
@@ -131,3 +131,9 @@ Manual1.12 y checklist1.10 incorporan esta evolución; las páginas anteriores c
 ## Fotografías de referencia de internet · antecedente integrado
 
 La rama codex/fotos-ilustrativas incorpora 12 fotos de Pexels en las18 páginas públicas y 404, con aviso y crédito visible. Son referencias y no registros institucionales. Galería ampliable en las fichas; archivos locales optimizados por Astro, sin paquetes nuevos. [Alcance y reemplazo](docs/photo-preview.md), [fuentes verificadas](docs/photo-sources.json) y [política de uso](docs/photo-sources.md). Manual1.14 (26 páginas) y checklist1.12 actualizados; fotografías reales pendientes. PR #12 fusionado con autorización en main 5aeee25; el siguiente lote amplía el contenido con material institucional.
+
+## Portada con carrusel de ciudades · propuesta del 30/10/2026
+
+La rama codex/portada-carrusel-ciudades incorpora el recorrido elegido por el usuario: Concordia, Federación y Federal con fotos propias y grabados de cada localidad, cada 8 segundos. Mensaje y accesos estables; pausa/inicio, navegación manual, movimiento reducido y respaldo sin JS. Sin nuevos paquetes ni conexiones externas.
+
+[Diseño, funcionamiento y límites](docs/city-carousel.md) · [Fuentes de grabados](docs/city-art-sources.json). Manual1.16 y checklist1.14 actualizados. Merge de este lote pendiente; contenido del PR #13 previamente integrado en main bfe1aef.

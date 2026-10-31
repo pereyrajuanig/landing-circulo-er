@@ -70,3 +70,7 @@ Se sustituyen las cuatro imágenes generadas por12 fotos de Pexels con registro 
 ## 1.15 · 30/10/2026 · contenido y fotografía institucional
 
 23 recortes recibidos reemplazan referencias donde existe correspondencia por localidad. Beneficios con información detallada; ocho destinos, catálogo de cinco espacios, filiales y cuatro memorias del archivo. Se conservan paleta, tipografías, escudo y tono. Galerías variables sin ampliar originales; selector con figura por destino. Referencias de Pexels aún identificadas. Manual1.15 (27 páginas) y checklist1.13 (23 páginas,145 campos) preservan estados históricos.
+
+## 1.16 · 30/10/2026 · recorrido de ciudades en portada
+
+Se aplica la dirección elegida: foto institucional y grabado local para Concordia, Federación y Federal. Avance automático de 8 segundos, controles, pausas y respaldo sin JS; mensaje y accesos estables. Se conservan paleta, tipografías y escudo. Manual 28 páginas; checklist 23 páginas y 145 campos, sin certificar pendientes institucionales.

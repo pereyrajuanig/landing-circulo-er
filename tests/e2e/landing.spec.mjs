@@ -41,7 +41,8 @@ const test = base.extend({
   },
 });
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page }, testInfo) => {
+  if (testInfo.title.startsWith('carrusel')) await page.clock.install();
   const response = await page.goto('/');
   expect(response.status()).toBe(200);
   await page.evaluate(() => document.fonts.ready);
@@ -127,7 +128,7 @@ test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la se
 }) => {
   const search = page.getByLabel('Encontrá tu localidad', { exact: true });
   const visible = page.locator('#branch-list li:visible');
-  const status = page.getByRole('status');
+  const status = page.locator('#branch-status');
   await search.fill('  COLON  ');
   await expect(visible).toHaveText(['Colón']);
   await expect(status).toHaveText('1 localidad encontrada.');
@@ -448,4 +449,107 @@ test('novedades permite consultar memorias del archivo y salones distinguen capa
   await expect(page.locator('#los-laureles')).toContainText('30 y 50 personas');
   await expect(page.locator('#las-rosas')).toContainText('170 personas');
   await expect(page.locator('#diamante [data-site-photo]')).toHaveCount(0);
+});
+
+test('carrusel avanza automáticamente y sincroniza foto ciudad y grabado', async ({
+  page,
+  isMobile,
+}) => {
+  const carousel = page.locator('[data-city-carousel]');
+  await carousel.scrollIntoViewIfNeeded();
+  await page.mouse.move(0, 0);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  for (const city of ['federacion', 'federal', 'concordia']) {
+    await page.clock.fastForward(8100);
+    await expect(carousel).toHaveAttribute('data-active-city', city);
+    await expect(page.locator('[data-city-slide]:visible')).toHaveAttribute(
+      'data-city-slide',
+      city,
+    );
+    await expect(page.locator('[data-city-illustration]:visible')).toHaveAttribute(
+      'data-city-illustration',
+      city,
+    );
+  }
+  await expect(page.locator('[data-city-status]')).toBeEmpty();
+  if (!isMobile) {
+    await carousel.hover();
+    await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+    await page.clock.fastForward(16000);
+    await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+    await page.mouse.move(0, 0);
+    await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  }
+  await page.locator('#contacto').scrollIntoViewIfNeeded();
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.clock.fastForward(16000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+});
+
+test('carrusel permite pausar elegir ciudad y reanudar de forma explícita', async ({ page }) => {
+  const carousel = page.locator('[data-city-carousel]');
+  const rotation = page.locator('[data-city-rotation]');
+  await carousel.scrollIntoViewIfNeeded();
+  await page.mouse.move(0, 0);
+  await rotation.click();
+  await expect(rotation).toHaveText('Iniciar recorrido');
+  await page.clock.fastForward(24000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  await carousel.getByRole('button', { name: 'Federación', exact: true }).click();
+  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  await expect(page.locator('[data-city-illustration]:visible')).toHaveAttribute(
+    'data-city-illustration',
+    'federacion',
+  );
+  await expect(page.locator('[data-city-status]')).toHaveText('Federación, 2 de 3');
+  await rotation.focus();
+  await rotation.press('Enter');
+  await page.mouse.move(0, 0);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  await page.clock.fastForward(8100);
+  await expect(carousel).toHaveAttribute('data-active-city', 'federal');
+  const next = page.locator('[data-city-next]');
+  await next.focus();
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.mouse.move(0, 0);
+  await page.clock.fastForward(16000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'federal');
+  await next.press('Enter');
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  await expect(next).toBeFocused();
+});
+
+test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript', async ({
+  page,
+  browser,
+  baseURL,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const carousel = page.locator('[data-city-carousel]');
+  await carousel.scrollIntoViewIfNeeded();
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.clock.fastForward(24000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  await page.locator('[data-city-next]').click();
+  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
+  try {
+    const fallback = await context.newPage();
+    await fallback.goto('/');
+    await expect(fallback.locator('[data-city-slide]:visible')).toHaveCount(1);
+    await expect(fallback.locator('[data-city-slide]:visible')).toHaveAttribute(
+      'data-city-slide',
+      'concordia',
+    );
+    await expect(fallback.locator('[data-city-rotation]')).toBeHidden();
+    await expect(fallback.locator('[data-city-picker]')).toBeHidden();
+    await expect(fallback.getByRole('link', { name: 'Hablemos', exact: true })).toHaveAttribute(
+      'href',
+      '#contacto',
+    );
+  } finally {
+    await context.close();
+  }
 });
