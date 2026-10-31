@@ -10,6 +10,7 @@ const test = base.extend({
   page: async ({ page, baseURL }, use) => {
     const origin = new URL(baseURL).origin;
     const errors = [];
+    const cancelledImages = new Set();
     await page.addInitScript(() => {
       window.__securityViolations = [];
       document.addEventListener('securitypolicyviolation', (event) =>
@@ -22,8 +23,12 @@ const test = base.extend({
     });
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('requestfailed', (request) => {
-      if (new URL(request.url()).origin === origin)
-        errors.push(request.url() + ': ' + request.failure()?.errorText);
+      if (new URL(request.url()).origin !== origin) return;
+      const failure = request.failure()?.errorText;
+      // Chromium puede cancelar un candidato responsive o una imagen al navegar.
+      if (failure === 'net::ERR_ABORTED' && request.resourceType() === 'image')
+        cancelledImages.add(request.url());
+      else errors.push(request.url() + ': ' + failure);
     });
     // Solo se visita la preview local; las fuentes remotas no condicionan los flujos.
     await page.route('**/*', (route) =>
@@ -33,6 +38,12 @@ const test = base.extend({
       await use(page);
     } finally {
       expect(errors, 'Errores de JavaScript o recursos locales').toEqual([]);
+      // No ignorar el recurso cancelado: comprobar que existe y se sirve como imagen.
+      for (const url of cancelledImages) {
+        const response = await page.request.get(url);
+        expect(response.status(), 'Imagen cancelada disponible: ' + url).toBe(200);
+        expect(response.headers()['content-type']).toMatch(/^image\//);
+      }
       expect(
         await page.evaluate(() => window.__securityViolations),
         'Violaciones CSP durante flujos reales',
@@ -41,7 +52,8 @@ const test = base.extend({
   },
 });
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page }, testInfo) => {
+  if (testInfo.title.startsWith('carrusel')) await page.clock.install();
   const response = await page.goto('/');
   expect(response.status()).toBe(200);
   await page.evaluate(() => document.fonts.ready);
@@ -127,7 +139,7 @@ test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la se
 }) => {
   const search = page.getByLabel('Encontrá tu localidad', { exact: true });
   const visible = page.locator('#branch-list li:visible');
-  const status = page.getByRole('status');
+  const status = page.locator('#branch-status');
   await search.fill('  COLON  ');
   await expect(visible).toHaveText(['Colón']);
   await expect(status).toHaveText('1 localidad encontrada.');
@@ -276,6 +288,14 @@ test('404 ofrece un regreso por teclado sin desborde', async ({ page }, testInfo
       ),
     )
     .toBeLessThanOrEqual(0);
+  // Esperar la foto lazy antes de navegar evita cancelar su descarga en CI.
+  await expect
+    .poll(() =>
+      page
+        .locator('.not-found [data-site-photo] img')
+        .evaluate((image) => image.complete && image.naturalWidth > 0),
+    )
+    .toBe(true);
   await page.screenshot({ path: testInfo.outputPath('404.png'), fullPage: true });
   await page.keyboard.press('Tab');
   await page.keyboard.press('Enter');
@@ -448,4 +468,113 @@ test('novedades permite consultar memorias del archivo y salones distinguen capa
   await expect(page.locator('#los-laureles')).toContainText('30 y 50 personas');
   await expect(page.locator('#las-rosas')).toContainText('170 personas');
   await expect(page.locator('#diamante [data-site-photo]')).toHaveCount(0);
+});
+
+test('carrusel avanza automáticamente y sincroniza foto ciudad y grabado', async ({
+  page,
+  isMobile,
+}) => {
+  const carousel = page.locator('[data-city-carousel]');
+  await carousel.scrollIntoViewIfNeeded();
+  await page.mouse.move(0, 0);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  for (const city of ['federacion', 'federal', 'concordia']) {
+    await page.clock.fastForward(8100);
+    await expect(carousel).toHaveAttribute('data-active-city', city);
+    await expect(page.locator('[data-city-slide]:visible')).toHaveAttribute(
+      'data-city-slide',
+      city,
+    );
+    await expect(page.locator('[data-city-illustration]:visible')).toHaveAttribute(
+      'data-city-illustration',
+      city,
+    );
+  }
+  await expect(carousel.locator('button')).toHaveCount(1);
+  await expect(
+    carousel.locator('[data-city-prev], [data-city-next], [data-city-select], [data-city-count]'),
+  ).toHaveCount(0);
+  await expect(page.locator('[data-city-rotation]')).toHaveCSS('clip-path', 'inset(50%)');
+  if (!isMobile) {
+    await carousel.hover();
+    await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+    await page.clock.fastForward(16000);
+    await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+    await page.mouse.move(0, 0);
+    await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  }
+  await page.locator('#contacto').scrollIntoViewIfNeeded();
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.clock.fastForward(16000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+});
+
+test('carrusel ofrece pausa accesible por teclado sin controles en la composición', async ({
+  page,
+}) => {
+  const carousel = page.locator('[data-city-carousel]');
+  const rotation = page.locator('[data-city-rotation]');
+  await carousel.scrollIntoViewIfNeeded();
+  await page.mouse.move(0, 0);
+  await expect(rotation).toHaveCSS('clip-path', 'inset(50%)');
+  await rotation.focus();
+  await expect(rotation).toBeFocused();
+  await expect(rotation).toHaveText('Iniciar recorrido');
+  await expect(rotation).toHaveCSS('clip-path', 'none');
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.clock.fastForward(24000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  await rotation.press('Enter');
+  await page.mouse.move(0, 0);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  await page.clock.fastForward(8100);
+  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  await rotation.press('Enter');
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.getByRole('link', { name: 'Hablemos', exact: true }).focus();
+  await expect(rotation).toHaveCSS('clip-path', 'inset(50%)');
+  await page.clock.fastForward(16000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+});
+
+test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript', async ({
+  page,
+  browser,
+  baseURL,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const carousel = page.locator('[data-city-carousel]');
+  await carousel.scrollIntoViewIfNeeded();
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.clock.fastForward(24000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  const rotation = page.locator('[data-city-rotation]');
+  await rotation.focus();
+  await rotation.press('Enter');
+  await page.mouse.move(0, 0);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
+  await page.clock.fastForward(8100);
+  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
+  try {
+    const fallback = await context.newPage();
+    await fallback.goto('/');
+    await expect(fallback.locator('[data-city-slide]:visible')).toHaveCount(1);
+    await expect(fallback.locator('[data-city-slide]:visible')).toHaveAttribute(
+      'data-city-slide',
+      'concordia',
+    );
+    await expect(fallback.locator('[data-city-rotation]')).toBeHidden();
+    await expect(
+      fallback.locator('[data-city-prev], [data-city-next], [data-city-select]'),
+    ).toHaveCount(0);
+    await expect(fallback.getByRole('link', { name: 'Hablemos', exact: true })).toHaveAttribute(
+      'href',
+      '#contacto',
+    );
+  } finally {
+    await context.close();
+  }
 });

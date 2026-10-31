@@ -57,3 +57,7 @@ src/assets/reference contiene12 fotos descargadas de Pexels. No documentan insta
 Ver institutional-content.md e institutional-photo-sources.json. Fotografías propias en src/assets/institutional; SitePhoto y src/lib/photos.ts reemplazan ReferencePhoto/reference-photos. No quitar avisos de referencias que todavía esperan fotos reales. spaces.json mantiene los cinco espacios y sus notas de capacidad. services.details y stays.details amplían fichas sin duplicar textos en los componentes.
 
 Las reseñas publicadas usan fecha de publicación del texto y sourceContext; no asignar esa fecha a los hechos del video. Noticias no está vacía desde este lote. El panel y Facebook continúan pendientes. Confirmar derechos, vigencia, capacidades y condiciones institucionales antes del cierre final.
+
+## Ciudades de portada
+
+Orden, foto, nombre y grabado en src/lib/hero-cities.ts; intervalo en CITY_ROTATION_MS. Fotos reutilizan src/lib/photos.ts y sus epígrafes, disponibles al lector aunque visualmente se muestra solo la fotografía. El grabado llena toda la sección; comprobar recorte y lectura del texto en móvil y escritorio. Grabados recortados en src/assets/cities con procedencia en city-art-sources.json. No identificar el paisaje patrimonial como instalaciones del Círculo ni asociar fotos de otras filiales. Tras una edición, verificar automático, pausas, foco, sincronización y tamaños; ver city-carousel.md.

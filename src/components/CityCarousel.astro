@@ -1,0 +1,35 @@
+---
+import SitePhoto from './SitePhoto.astro';
+import { heroCities, CITY_ROTATION_MS } from '../lib/hero-cities';
+---
+
+<div
+  class="city-carousel"
+  role="region"
+  aria-roledescription="carrusel"
+  aria-label="La vida del Círculo en nuestras ciudades"
+  data-city-carousel
+  data-city-interval={CITY_ROTATION_MS}
+  data-active-city={heroCities[0].id}
+>
+  <button class="city-rotation" type="button" data-city-rotation hidden>
+    Pausar recorrido
+  </button>
+  <div class="city-slides">
+    {heroCities.map((city, index) => (
+      <div
+        id={'city-slide-' + city.id}
+        role="group"
+        aria-roledescription="diapositiva"
+        aria-label={city.name + ', ' + (index + 1) + ' de ' + heroCities.length}
+        data-city-slide={city.id}
+        hidden={index !== 0}
+      >
+        <SitePhoto kind={city.photo} variant="compact" loading={index === 0 ? 'eager' : 'lazy'} />
+      </div>
+    ))}
+  </div>
+</div>
+<script>
+  import '../scripts/city-carousel';
+</script>
