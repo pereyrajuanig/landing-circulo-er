@@ -277,6 +277,14 @@ test('404 ofrece un regreso por teclado sin desborde', async ({ page }, testInfo
       ),
     )
     .toBeLessThanOrEqual(0);
+  // Esperar la foto lazy antes de navegar evita cancelar su descarga en CI.
+  await expect
+    .poll(() =>
+      page
+        .locator('.not-found [data-site-photo] img')
+        .evaluate((image) => image.complete && image.naturalWidth > 0),
+    )
+    .toBe(true);
   await page.screenshot({ path: testInfo.outputPath('404.png'), fullPage: true });
   await page.keyboard.press('Tab');
   await page.keyboard.press('Enter');
