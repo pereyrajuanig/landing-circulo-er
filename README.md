@@ -6,6 +6,12 @@ Sitio institucional en evolución para el Círculo de Retirados y Pensionados de
 
 ![Portal institucional aprobado](docs/media/portal-institucional-desktop.jpg)
 
+## Panel editorial · 3/11/2026
+
+Panel: https://circulo-policia-er.sanity.studio/. Noticias y logros con fotos, borradores y campos en español. Cuatro reseñas actuales migradas. El código de integración está en revisión; activar la fuente Sanity y el webhook de Vercel sigue pendiente. [Guía de uso, instalación y operación](docs/editorial-panel.md).
+
+El sitio público está en https://www.circulopoliciaer.com.ar/. Los apartados históricos de este README registran etapas anteriores; el estado de esta integración está en la guía del panel.
+
 ## Diseño y alcance
 
 Diseño institucional aprobado: Inicio patrimonial, navegación lateral en escritorio, beneficios por categorías, alojamientos con recorrido horizontal manual, salones editoriales, directorio de 24 filiales y noticias del archivo. Las fichas conservan condiciones, fotografías y consultas por correo.
@@ -16,13 +22,13 @@ Detalle del diseño y límites: [portal institucional](docs/portal-institucional
 
 [Vista privada histórica en Sites](https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site/) · [Design system](docs/design-system.md) · [Manual en PDF](docs/design-system.pdf)
 
-La vista histórica requiere una cuenta con acceso en ChatGPT. [Versión para revisión en Vercel](https://landing-circulo-er.vercel.app/): publicada el 13/10/2026, accesible sin cuenta y con noindex; contenido, secciones y dominio pendientes. Ver [registro del despliegue](docs/vercel-preview.md). No hay área de socios, turnos, reservas en línea ni panel editorial.
+La vista histórica requiere una cuenta con acceso en ChatGPT. [Versión para revisión en Vercel](https://landing-circulo-er.vercel.app/): publicada el 13/10/2026, accesible sin cuenta y con noindex; contenido, secciones y dominio pendientes. Ver [registro del despliegue](docs/vercel-preview.md). No hay área de socios, turnos ni reservas en línea. El panel editorial separado está disponible; su conexión automática con la web pública está pendiente.
 
 ## Stack
 
 **Astro 7.3.8**, TypeScript estricto, CSS propio y JavaScript para las interacciones. Node.js 24 (mínimo 24.16) y npm se usan en desarrollo, CI y build. La salida es HTML estático: no necesita un servidor Node en producción.
 
-Seis colecciones de contenido JSON, validadas por esquemas, separan datos de la interfaz. Esta base permite integrar un CMS en una tarea posterior; no incluye uno instalado.
+Seis colecciones validadas separan datos de la interfaz. Cinco siguen en JSON; noticias admite JSON o Sanity mediante NEWS_SOURCE. Studio es una aplicación independiente en studio/, con instalación y lockfile propios.
 
 ## Empezar
 

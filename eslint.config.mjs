@@ -7,6 +7,9 @@ import tseslint from 'typescript-eslint';
 export default defineConfig(
   globalIgnores([
     'node_modules/**',
+    'studio/node_modules/**',
+    'studio/dist/**',
+    'studio/.sanity/**',
     'dist/**',
     '.astro/**',
     '.vercel/**',
@@ -32,6 +35,11 @@ export default defineConfig(
   },
   {
     files: ['tests/e2e/**/*.mjs', 'tools/performance/**/*.mjs', 'tools/testing/**/*.mjs'],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
+  },
+  {
+    files: ['studio/**/*.ts'],
+    extends: [tseslint.configs.recommended],
     languageOptions: { globals: { ...globals.node, ...globals.browser } },
   },
   ...astro.configs.recommended,

@@ -33,6 +33,12 @@ jobs:
         run: npm run security:repo
       - name: Auditoría de dependencias
         run: npm audit --audit-level=high
+      - name: Instalar y auditar panel editorial
+        working-directory: studio
+        run: npm ci && npm audit --audit-level=high
+      - name: Tipos y build del panel editorial
+        working-directory: studio
+        run: npm run check && npm run build
       - name: Diagnóstico Astro y TypeScript
         run: npm run check
       - name: Lint Astro, TypeScript y herramientas

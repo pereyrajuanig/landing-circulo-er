@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
 import { publishedNews } from '../../lib/news';
 import SitePhoto from '../../components/SitePhoto.astro';
+import NewsPhoto from '../../components/NewsPhoto.astro';
 export async function getStaticPaths() {
   return publishedNews(await getCollection('news')).map((item) => ({
     params: { id: item.id },
@@ -23,8 +24,9 @@ const { item } = Astro.props;
   parent={{ label: 'Novedades', href: '/novedades/' }}
 >
   <div class="wrap page-photo">
-    <SitePhoto
-      kind={item.data.cover ?? (item.data.category === 'logro' ? 'gestion' : 'comunidad')}
+    <NewsPhoto
+      image={item.data.coverImage}
+      fallback={item.data.cover ?? (item.data.category === 'logro' ? 'gestion' : 'comunidad')}
     />
   </div>
   <article class="wrap page-section article-body">
@@ -43,8 +45,11 @@ const { item } = Astro.props;
     {item.data.body.map((paragraph) => (
       <p>{paragraph}</p>
     ))}
-    {item.data.gallery.length > 0 && (
+    {(item.data.gallery.length > 0 || item.data.galleryImages.length > 0) && (
       <div class="article-gallery">
+        {item.data.galleryImages.map((image) => (
+          <NewsPhoto image={image} variant="compact" />
+        ))}
         {item.data.gallery.map((key) => (
           <SitePhoto kind={key} variant="compact" />
         ))}

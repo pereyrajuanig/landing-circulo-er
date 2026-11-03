@@ -18,7 +18,7 @@
     "preview": "astro preview",
     "test:update": "npm run build && node scripts/update-content-contract.mjs",
     "validate": "npm run security:repo && npm run check && npm run lint && npm run format:check && npm test",
-    "test:unit": "node --test --test-reporter=spec tests/landing.test.mjs",
+    "test:unit": "node --test --test-reporter=spec tests/landing.test.mjs tests/editorial.test.mjs",
     "test:e2e": "npm run build && playwright test",
     "test:install": "playwright install chromium",
     "perf": "npm run build && node tools/performance/measure.mjs",

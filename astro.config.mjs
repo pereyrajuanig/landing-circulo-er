@@ -15,6 +15,9 @@ if (process.env.TEST_CSP_ENFORCE === 'true') {
 export default defineConfig({
   site: deployment.site,
   output: 'static',
+  image: {
+    remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io', pathname: '/images/**' }],
+  },
   server: { host: '127.0.0.1', port: 4173, headers: localHeaders },
   devToolbar: { enabled: false },
   vite: { build: { cssCodeSplit: false } },
