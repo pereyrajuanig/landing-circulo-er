@@ -35,12 +35,17 @@ const note = institutional
     <div>
       <p class="eyebrow dark">{institutional ? 'Conocé los espacios' : 'Referencia visual'}</p>
       <h2 id="gallery-title">
-        {institutional
-          ? 'Un vistazo a tu próxima estadía.'
-          : 'Una propuesta para visualizar el diseño.'}
+        {institutional ? 'Fotos del alojamiento' : 'Imágenes de referencia'}
       </h2>
     </div>
-    <p>{note}</p>
+    <div class="gallery-context">
+      <p class="ps-gallery-count">
+        {photos.length === 1
+          ? '1 fotografía disponible para ampliar'
+          : photos.length + ' fotografías disponibles para ampliar'}
+      </p>
+      <p>{note}</p>
+    </div>
   </div>
   <div class:list={['photo-gallery-grid', { 'photo-gallery-single': photos.length === 1 }]}>
     {photos.map((photo) => (

@@ -452,7 +452,7 @@ test('carrusel avanza automáticamente y mantiene el mensaje con cada ilustraci�
   await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
   for (const city of ['concordia', 'concepcion-del-uruguay', 'colon', 'diamante']) {
-    await page.clock.fastForward(8100);
+    await page.clock.fastForward(3000);
     await expect(carousel).toHaveAttribute('data-active-city', city);
     await expect(page.locator('[data-city-slide]:visible')).toHaveAttribute(
       'data-city-illustration',
@@ -462,21 +462,18 @@ test('carrusel avanza automáticamente y mantiene el mensaje con cada ilustraci�
   }
   if (!isMobile) {
     await carousel.hover();
-    await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
-    await page.clock.fastForward(16000);
-    await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
-    await page.mouse.move(0, 0);
     await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   }
+  await expect(page.locator('[data-city-next], [data-city-prev], [data-city-select]')).toHaveCount(
+    0,
+  );
   await page.locator('#contacto').scrollIntoViewIfNeeded();
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
   await page.clock.fastForward(16000);
   await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
 });
 
-test('carrusel ofrece pausa de teclado y selección manual con anuncio accesible', async ({
-  page,
-}) => {
+test('carrusel ofrece pausa y reanudación de teclado sin selectores', async ({ page }) => {
   const carousel = page.locator('[data-city-carousel]');
   const rotation = page.locator('[data-city-rotation]');
   await carousel.scrollIntoViewIfNeeded();
@@ -489,21 +486,15 @@ test('carrusel ofrece pausa de teclado y selección manual con anuncio accesible
   await rotation.press('Enter');
   await page.mouse.move(0, 0);
   await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
-  await page.clock.fastForward(8100);
+  await page.clock.fastForward(3000);
   await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
   await rotation.press('Enter');
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
-  const colon = page.locator('[data-city-select="3"]');
-  await colon.focus();
-  await colon.press('Enter');
-  await expect(carousel).toHaveAttribute('data-active-city', 'colon');
-  await expect(colon).toHaveAttribute('aria-pressed', 'true');
-  await expect(page.locator('[data-city-status]')).toContainText('Colón');
   await page.clock.fastForward(16000);
-  await expect(carousel).toHaveAttribute('data-active-city', 'colon');
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
 });
 
-test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript', async ({
+test('carrusel alterna imágenes estáticas con movimiento reducido y conserva respaldo sin JavaScript', async ({
   page,
   browser,
   baseURL,
@@ -512,15 +503,14 @@ test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript
   await page.goto('/');
   const carousel = page.locator('[data-city-carousel]');
   await carousel.scrollIntoViewIfNeeded();
-  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
-  await page.clock.fastForward(24000);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
+  await page.clock.fastForward(3000);
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
   const rotation = page.locator('[data-city-rotation]');
   await rotation.focus();
-  await rotation.press('Enter');
-  await page.mouse.move(0, 0);
-  await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
-  await page.clock.fastForward(8100);
+  await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await page.clock.fastForward(9000);
   await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
   try {

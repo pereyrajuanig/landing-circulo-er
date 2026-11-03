@@ -1,5 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
+import { mailTo } from '../../lib/contact';
 import SectionHeading from './SectionHeading.astro';
 import StayCard from './StayCard.astro';
 import LineIcon from '../LineIcon.astro';
@@ -13,6 +14,8 @@ const stays = (await getCollection('stays')).sort(
     Number(photos[stayPhotoKeys[b.id]].kind === 'institutional') -
       Number(photos[stayPhotoKeys[a.id]].kind === 'institutional') || a.data.order - b.data.order,
 );
+const institution = await getEntry('institution', 'circulo');
+if (!institution) throw new Error('Falta el contacto institucional.');
 ---
 
 <section id="alojamiento" class="ps-section ps-stays" aria-labelledby="ps-stays-title">
@@ -20,8 +23,8 @@ const stays = (await getCollection('stays')).sort(
     <SectionHeading
       id="ps-stays-title"
       eyebrow="Alojamientos del Círculo"
-      title="Un lugar para tu próxima pausa."
-      description="Recorré los destinos de nuestra red y organizá tu visita con la institución."
+      title="Alojamientos para tu próxima visita"
+      description="Conocé los espacios, revisá la información de cada localidad y consultá las fechas de tu estadía con el Círculo."
       href={catalog ? undefined : '/alojamientos/'}
       action="Explorar destinos"
     />
@@ -47,7 +50,11 @@ const stays = (await getCollection('stays')).sort(
         aria-label={catalog ? undefined : 'Alojamientos: desplazate para explorar destinos'}
       >
         {stays.map((stay) => (
-          <StayCard stay={stay} catalog={catalog} />
+          <StayCard
+            stay={stay}
+            catalog={catalog}
+            inquiry={mailTo(institution.data.email, 'Consulta de alojamiento en ' + stay.data.name)}
+          />
         ))}
       </div>
       {!catalog && (

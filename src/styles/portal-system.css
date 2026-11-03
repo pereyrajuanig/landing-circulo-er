@@ -1,6 +1,6 @@
 /* Visual system for the current portal only. The approved Hero and comparison route stay independent. */
 .portal-system {
-  --ps-accent: #31789c;
+  --ps-accent: var(--gold-ink);
   --ps-sky: #65b1d2;
   --ps-border: #ccd4d5;
   --ps-soft: #edf1ef;
@@ -86,7 +86,7 @@
   color: inherit;
   font: 600 16px/1.5 var(--sans);
   text-decoration: underline;
-  text-decoration-color: var(--ps-border);
+  text-decoration-color: var(--gold);
   text-underline-offset: 7px;
   transition: text-decoration-color 0.2s;
 }
@@ -101,7 +101,7 @@
   min-height: 50px;
   max-width: 100%;
   padding: 13px 22px;
-  border: 1px solid var(--navy);
+  border: 1px solid var(--gold-ink);
   border-radius: 28px;
   background: var(--navy);
   color: var(--paper);
@@ -155,7 +155,7 @@
 }
 .portal-system .ps-service-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 .portal-system .ps-service {
@@ -166,7 +166,9 @@
   border-radius: 14px;
 }
 .portal-system .ps-service-featured {
-  grid-row: span 2;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   padding: 0;
   overflow: hidden;
   background: var(--navy);
@@ -174,7 +176,10 @@
 }
 .portal-system .ps-service-featured .reference-photo-frame {
   border-radius: 0;
-  aspect-ratio: 1.5;
+  aspect-ratio: 1.05;
+}
+.portal-system .ps-service-featured .reference-photo-frame img {
+  object-fit: cover;
 }
 .portal-system .ps-service-featured .reference-photo figcaption {
   color: #d3e2e7;
@@ -204,7 +209,7 @@
 .portal-system .ps-service-featured .ps-service-top,
 .portal-system .ps-service-featured .ps-index,
 .portal-system .ps-service-featured .ps-kicker {
-  color: #b6dcee;
+  color: var(--gold);
 }
 .portal-system .ps-service h3 {
   font-size: 30px;
@@ -484,10 +489,10 @@
   color: var(--paper);
 }
 .portal-system .ps-branches .ps-kicker {
-  color: #add7e9;
+  color: var(--gold);
 }
 .portal-system .ps-branches :where(a, button, input):focus-visible {
-  outline-color: #a5d9ef;
+  outline-color: var(--gold);
 }
 .portal-system .ps-branches-masthead {
   display: grid;
@@ -1023,7 +1028,7 @@
   top: 28px;
 }
 .portal-system .ps-booking .ps-kicker {
-  color: #b6dcee;
+  color: var(--gold);
 }
 .portal-system .ps-booking h2 {
   font-size: 35px;
@@ -1506,7 +1511,7 @@ footer.portal-system.ps-footer {
   color: var(--paper);
 }
 .portal-system .ps-benefit-highlights .ps-kicker {
-  color: #b6dcee;
+  color: var(--gold);
 }
 .portal-system .ps-pathways {
   display: grid;
@@ -1585,4 +1590,241 @@ footer.portal-system.ps-footer {
 }
 .portal-system .ps-stay-copy .ps-button {
   margin-top: auto;
+}
+
+/* Warm gold accents complement the navy institutional palette. */
+.portal-system.ps-footer {
+  border-top: 1px solid var(--gold);
+}
+
+/* Benefits lead the home page; localities follow as an independent section. */
+.portal-system .ps-services .ps-heading h2 {
+  font-size: clamp(44px, 4.8vw, 68px);
+  max-width: 760px;
+}
+.portal-system .ps-services .ps-heading {
+  grid-template-columns: 1.5fr 1fr;
+}
+.portal-system .ps-services .ps-service h3 {
+  font-size: 38px;
+}
+.portal-system .ps-service-details {
+  margin: 4px 0 22px;
+}
+.portal-system .ps-service-details details {
+  border-top: 1px solid var(--ps-border);
+}
+.portal-system .ps-service-details summary {
+  padding: 13px 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.portal-system .ps-service-details summary::marker {
+  color: var(--ps-accent);
+}
+.portal-system .ps-service-details details > p {
+  padding: 0 0 16px;
+  margin: 0;
+}
+.portal-system .ps-service-featured .ps-service-details details {
+  border-color: #72828b;
+}
+.portal-system .ps-service-featured .ps-service-details summary::marker {
+  color: var(--gold);
+}
+.portal-system .ps-localities {
+  background: var(--cream);
+  border-block: 1px solid var(--ps-border);
+}
+.portal-system .ps-localities .portal-localities {
+  padding: 0;
+}
+.portal-system .ps-localities .portal-localities-heading h2 {
+  font: italic 400 39px/1.05 var(--serif);
+}
+.portal-system .ps-localities .portal-eyebrow {
+  margin-bottom: 15px;
+  font-size: 11px;
+}
+.portal-system .ps-localities .portal-locality small {
+  color: #dde6e5;
+}
+@media (max-width: 900px) {
+  .portal-system .ps-services .ps-heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .portal-system .ps-services .ps-heading-aside {
+    justify-self: start;
+    max-width: 640px;
+  }
+}
+@media (max-width: 700px) {
+  .portal-system .ps-services .ps-heading h2 {
+    font-size: 42px;
+  }
+  .portal-system .ps-services .ps-service h3 {
+    font-size: 32px;
+  }
+}
+
+/* Lodging: larger photography, destination facts and clear inquiry links. */
+.portal-system .ps-stays .ps-heading h2 {
+  font-size: clamp(44px, 4.6vw, 64px);
+}
+.portal-system .ps-stays .ps-rail-track {
+  grid-auto-columns: 62%;
+}
+.portal-system .ps-stays .ps-stay-card .reference-photo-frame {
+  display: block;
+  aspect-ratio: 1.7;
+}
+.portal-system .ps-stay-card .reference-photo-frame:focus-visible {
+  outline-offset: -5px;
+}
+.portal-system .ps-stay-copy {
+  padding: 28px;
+}
+.portal-system .ps-stay-copy h3 {
+  font-size: 44px;
+  margin-bottom: 18px;
+}
+.portal-system .ps-stay-copy > p:not(.ps-kicker) {
+  font-size: 16px;
+}
+.portal-system .ps-stay-card-location {
+  border-top: 1px solid var(--ps-border);
+  padding-top: 18px;
+  margin: 0 0 22px;
+}
+.portal-system .ps-stay-card-location dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold-ink);
+  font-size: 13px;
+  font-weight: 650;
+  margin-bottom: 8px;
+}
+.portal-system .ps-stay-card-location dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.portal-system .ps-stay-card-details {
+  border-top: 1px solid var(--ps-border);
+  margin-bottom: 24px;
+}
+.portal-system .ps-stay-card-details summary {
+  font-size: 15px;
+  font-weight: 600;
+  padding-block: 15px;
+  cursor: pointer;
+}
+.portal-system .ps-stay-card-details summary::marker {
+  color: var(--gold-ink);
+}
+.portal-system .ps-stay-card-details ul {
+  padding-left: 20px;
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.portal-system .ps-stay-card-details li + li {
+  margin-top: 10px;
+}
+.portal-system .ps-stay-actions {
+  margin-top: auto;
+}
+.portal-system .ps-stay-actions .ps-link {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+  font-size: 15px;
+}
+.portal-system .photo-gallery .gallery-heading h2 {
+  font-size: clamp(36px, 3.6vw, 48px);
+}
+.portal-system .gallery-context {
+  max-width: 420px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.portal-system .gallery-context p {
+  margin: 0;
+}
+.portal-system .gallery-context .ps-gallery-count {
+  color: var(--gold-ink);
+  font-weight: 650;
+  margin-bottom: 10px;
+}
+.portal-system .photo-gallery-grid:not(.photo-gallery-single) {
+  grid-template-columns: 1.5fr 1fr;
+}
+.portal-system .photo-gallery-grid:not(.photo-gallery-single) img {
+  height: 440px;
+}
+.portal-system .photo-gallery-single img {
+  max-height: 640px;
+}
+.portal-system .ps-stay-address {
+  display: flex;
+  gap: 18px;
+  padding: 24px;
+  border: 1px solid var(--ps-border);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  background: var(--cream);
+  margin-bottom: 34px;
+}
+.portal-system .ps-stay-address > svg {
+  flex-shrink: 0;
+  color: var(--gold-ink);
+}
+.portal-system .ps-stay-address h3 {
+  font-size: 29px;
+  margin-bottom: 12px;
+}
+.portal-system .ps-stay-address p {
+  margin: 0;
+  font-size: 16px;
+}
+.portal-system .ps-stay-information-title {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+.portal-system .ps-stay-detail .ps-booking .ps-button {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+}
+.portal-system .ps-stay-detail .ps-booking .ps-button:hover {
+  background: #c3a15c;
+}
+@media (max-width: 700px) {
+  .portal-system .ps-stays .ps-heading h2 {
+    font-size: 42px;
+  }
+  .portal-system .ps-stays .ps-rail-track {
+    grid-auto-columns: 90%;
+  }
+  .portal-system .ps-stay-copy {
+    padding: 22px;
+  }
+  .portal-system .ps-stay-copy h3 {
+    font-size: 36px;
+  }
+  .portal-system .photo-gallery-grid:not(.photo-gallery-single) {
+    grid-template-columns: 1fr;
+  }
+  .portal-system .photo-gallery-grid:not(.photo-gallery-single) img {
+    height: auto;
+    max-height: 420px;
+  }
+  .portal-system .ps-stay-address {
+    padding: 20px;
+  }
 }

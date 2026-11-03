@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import LineIcon from '../LineIcon.astro';
+import { heroCities } from '../../lib/hero-cities';
+import colonArt from '../../assets/cities/colon-background.png';
+const localities = [...heroCities].sort(
+  (a, b) => Number(b.id === 'diamante') - Number(a.id === 'diamante'),
+);
+const places = [...localities, { id: 'colon', name: 'Colón', art: colonArt }];
+---
+
+<section class="ps-section ps-localities" aria-labelledby="portal-localities-title" data-localities>
+  <div class="ps-wrap portal-localities">
+    <div class="portal-localities-heading">
+      <p class="portal-eyebrow">Nuestra presencia</p>
+      <h2 id="portal-localities-title">
+        Filiales en
+        <br /> <em>Entre Ríos</em>
+      </h2>
+      <a href="#filiales">
+        Ver todas las filiales <LineIcon name="arrow" size={18} />
+      </a>
+    </div>
+    <div class="portal-localities-viewport">
+      <div
+        class="portal-localities-track"
+        tabindex="0"
+        role="region"
+        aria-label="Localidades con presencia institucional"
+        data-localities-track
+      >
+        {places.map((city) => (
+          <a class="portal-locality" href="#filiales">
+            <Image
+              src={city.art}
+              alt={'Ilustración patrimonial de ' + city.name}
+              format="webp"
+              quality={78}
+              width={480}
+              widths={[320, 480, 640]}
+              sizes="(max-width: 600px) 75vw, (min-width: 1500px) 280px, 230px"
+              loading="lazy"
+            />
+            <span>
+              <LineIcon name="pin" size={18} />
+              <span>
+                {city.name}
+                <small>Patrimonio local</small>
+              </span>
+            </span>
+          </a>
+        ))}
+      </div>
+      <button
+        type="button"
+        class="portal-localities-next"
+        aria-label="Ver otras localidades"
+        data-localities-next
+      >
+        <LineIcon name="next" size={22} />
+      </button>
+    </div>
+  </div>
+</section>
+<script>
+  import '../../scripts/localities';
+</script>

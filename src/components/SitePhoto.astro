@@ -6,8 +6,18 @@ interface Props {
   variant?: 'wide' | 'compact' | 'card';
   loading?: 'eager' | 'lazy';
   sizes?: string;
+  href?: string;
+  linkLabel?: string;
 }
-const { kind, variant = 'wide', loading = 'lazy', sizes: requestedSizes } = Astro.props;
+const {
+  kind,
+  variant = 'wide',
+  loading = 'lazy',
+  sizes: requestedSizes,
+  href,
+  linkLabel,
+} = Astro.props;
+const Frame = href ? 'a' : 'div';
 const photo = photos[kind];
 if (!photo) throw new Error('Fotografía no registrada: ' + kind);
 const width = Math.min(1440, photo.src.width);
@@ -25,7 +35,7 @@ const sizes =
   data-photo-kind={photo.kind}
   data-photo-key={kind}
 >
-  <div class="reference-photo-frame">
+  <Frame class="reference-photo-frame" href={href} aria-label={href ? linkLabel : undefined}>
     <Image
       src={photo.src}
       alt={photo.alt}
@@ -38,7 +48,7 @@ const sizes =
       fetchpriority={loading === 'eager' ? 'high' : undefined}
     />
     {photo.kind === 'reference' && <span class="reference-photo-badge">FOTO DE REFERENCIA</span>}
-  </div>
+  </Frame>
   <figcaption>
     {photo.note}
     <span class="photo-credit">

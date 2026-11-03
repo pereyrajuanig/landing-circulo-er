@@ -19,8 +19,8 @@ const icons = {
     <SectionHeading
       id="ps-services-title"
       eyebrow="Beneficios y servicios"
-      title="Un respaldo para cada etapa."
-      description="Salud, orientación y tiempo para compartir. Encontrá el acompañamiento que necesitás."
+      title="Servicios y beneficios para acompañarte"
+      description="Conocé las opciones de salud, asesoramiento, farmacia, alojamiento y recreación del Círculo. En cada área encontrás información para preparar tu consulta."
       href="/beneficios/"
       action="Todos los beneficios"
     />
@@ -43,13 +43,17 @@ const icons = {
             <h3>
               <a href={'/beneficios/' + id + '/'}>{data.name}</a>
             </h3>
-            <p>
-              {i === 0
-                ? 'Atención y orientación en la sede central, jornadas de salud y espacios de rehabilitación en las filiales.'
-                : data.description}
-            </p>
+            <p>{data.description}</p>
+            <div class="ps-service-details">
+              {data.details.map((detail) => (
+                <details>
+                  <summary>{detail.title}</summary>
+                  <p>{detail.body}</p>
+                </details>
+              ))}
+            </div>
             <a class="ps-link" href={'/beneficios/' + id + '/'}>
-              Conocer servicios <LineIcon name="arrow" size={20} />
+              Ver información y consultas <LineIcon name="arrow" size={20} />
             </a>
           </div>
         </article>

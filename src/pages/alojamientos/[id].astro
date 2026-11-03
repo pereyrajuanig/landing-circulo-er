@@ -30,14 +30,18 @@ const inquiry = mailTo(entry.data.email, 'Consulta de alojamiento en ' + stay.da
   <section class="wrap page-section ps-stay-detail" aria-labelledby="stay-information-title">
     <div class="ps-stay-facts">
       <p class="ps-kicker">El alojamiento</p>
-      <h2 id="stay-information-title">Organizá tu próxima visita.</h2>
-      {stay.data.location && (
-        <p>
-          <strong>Ubicación</strong>
-          <br />
-          {stay.data.location}
-        </p>
-      )}
+      <h2 id="stay-information-title">Ubicación y características</h2>
+      <div class="ps-stay-address">
+        <LineIcon name="pin" size={28} />
+        <div>
+          <h3>Ubicación</h3>
+          <p>
+            {stay.data.location ??
+              'Consultá la ubicación de ingreso con la institución antes de viajar.'}
+          </p>
+        </div>
+      </div>
+      <h3 class="ps-stay-information-title">Información del alojamiento</h3>
       <ul>
         {stay.data.details.map((detail) => (
           <li>{detail}</li>
@@ -64,7 +68,7 @@ const inquiry = mailTo(entry.data.email, 'Consulta de alojamiento en ' + stay.da
     </div>
     <aside class="ps-booking" aria-labelledby="stay-planning">
       <p class="ps-kicker">Planificá tu estadía</p>
-      <h2 id="stay-planning">Tu visita empieza con una consulta.</h2>
+      <h2 id="stay-planning">{'Tu estadía en ' + stay.data.name}</h2>
       <p>Contanos el destino, las fechas y cuántas personas viajarían.</p>
       <a class="ps-button" href={inquiry}>
         Consultar disponibilidad <LineIcon name="arrow" size={20} />

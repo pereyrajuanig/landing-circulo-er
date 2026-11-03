@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PortalHeader from '../components/PortalHeader.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/portal/Services.astro';
+import Localities from '../components/portal/Localities.astro';
 import Stays from '../components/portal/Stays.astro';
 import Spaces from '../components/portal/Spaces.astro';
 import News from '../components/portal/News.astro';
@@ -23,6 +24,7 @@ if (!entry) throw new Error('Falta el contenido institucional del Círculo.');
       <Hero />
       <div class="portal-system">
         <Services />
+        <Localities />
         <Stays />
         <Spaces />
         <News />

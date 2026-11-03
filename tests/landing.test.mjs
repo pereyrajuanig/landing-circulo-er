@@ -177,10 +177,8 @@ test('el HTML ofrece salto enfocable, estados y relaciones accesibles válidas',
       assert(ids.includes(id), 'Referencia ARIA inexistente: ' + id);
   const buttons = [...html.matchAll(/<button\b([^>]*)>/g)].map((m) => m[1]);
   for (const button of buttons) assert.match(button, /type="button"/);
-  const picks = buttons.filter((b) => b.includes('data-city-select='));
-  assert.equal(picks.length, 4);
-  assert.equal(picks.filter((b) => b.includes('aria-pressed="true"')).length, 1);
-  for (const picker of picks) assert.match(picker, /aria-controls="portal-scene-/);
+  assert.equal(buttons.filter((b) => /data-city-(?:select|next|prev)/.test(b)).length, 0);
+  assert.match(html, /data-city-interval="3000"/);
   assert.equal(buttons.filter((b) => b.includes('data-city-rotation')).length, 1);
   assert.match(html, /data-portal-prev/);
   assert.match(html, /data-portal-next/);
