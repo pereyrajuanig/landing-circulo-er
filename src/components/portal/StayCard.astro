@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SitePhoto from '../SitePhoto.astro';
+import LineIcon from '../LineIcon.astro';
+import { stayPhotoKeys } from '../../lib/photos';
+interface Props {
+  stay: CollectionEntry<'stays'>;
+  catalog?: boolean;
+}
+const { stay, catalog = false } = Astro.props;
+const description = catalog ? stay.data.description : stay.data.description.split(/(?<=\.)\s/)[0];
+---
+
+<article class="ps-stay-card" data-portal-card>
+  <SitePhoto
+    kind={stayPhotoKeys[stay.id]}
+    variant="card"
+    sizes={
+      catalog
+        ? '(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 35vw'
+        : '(max-width: 700px) 83vw, (max-width: 1100px) 41vw, 30vw'
+    }
+  />
+  <div class="ps-stay-copy">
+    <p class="ps-kicker">
+      <LineIcon name="pin" size={17} />
+      Entre Ríos
+    </p>
+    <h3>
+      <a href={'/alojamientos/' + stay.id + '/'}>{stay.data.name}</a>
+    </h3>
+    <p>{description}</p>
+    <p class="ps-stay-meta">
+      <LineIcon name="bed" size={21} /> Estadía con consulta previa
+    </p>
+    {catalog && stay.data.location && (
+      <p class="ps-location">
+        <LineIcon name="pin" size={18} />
+        {stay.data.location}
+      </p>
+    )}
+    <a class="ps-button ps-button-outline" href={'/alojamientos/' + stay.id + '/'}>
+      Ver alojamiento <LineIcon name="arrow" size={20} />
+    </a>
+  </div>
+</article>

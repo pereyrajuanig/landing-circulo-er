@@ -1,26 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
-import NewsList from '../../components/NewsList.astro';
-import SitePhoto from '../../components/SitePhoto.astro';
-import { publishedNews } from '../../lib/news';
-const items = publishedNews(await getCollection('news'));
+import News from '../../components/portal/News.astro';
 ---
 
 <SitePage
   title="Noticias y logros de gestión"
   eyebrow="La vida del Círculo"
-  description="Un lugar para conocer las novedades de la institución, sus actividades y los avances de la gestión."
+  description="Un lugar para conocer la memoria institucional, sus actividades y los avances de la gestión."
 >
-  <div class="wrap page-photo">
-    <SitePhoto kind="concordia-inauguracion-10" />
-  </div>
-  <section class="wrap page-section" aria-label="Publicaciones institucionales">
-    <p class="source-context">
-      Las primeras publicaciones reúnen la memoria del material audiovisual recibido. Su fecha de
-      publicación no es la fecha de los hechos registrados. La agenda y las prestaciones actuales se
-      consultan con la institución.
-    </p>
-    <NewsList items={items} />
-  </section>
+  <News full />
 </SitePage>

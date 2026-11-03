@@ -1,0 +1,108 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import concordiaArt from '../../assets/cities/concordia-background.png';
+import SitePhoto from '../SitePhoto.astro';
+import LineIcon from '../LineIcon.astro';
+import { mailTo } from '../../lib/contact';
+interface Props {
+  full?: boolean;
+}
+const { full = false } = Astro.props;
+const branches = (await getCollection('branches')).sort((a, b) => a.data.order - b.data.order);
+const entry = await getEntry('institution', 'circulo');
+if (!entry) throw new Error('Falta institución.');
+const featured = branches
+  .filter((b) => b.data.photoKey && b.data.overview)
+  .slice(0, full ? branches.length : 3);
+---
+
+<section id="filiales" class="ps-section ps-branches" aria-labelledby="ps-branches-title">
+  <div class="ps-wrap">
+    <div class="ps-branches-masthead">
+      <div>
+        <p class="ps-kicker">Presencia provincial</p>
+        <h2 id="ps-branches-title">
+          Cerca tuyo.
+          <br />
+          <em>En nuestra provincia.</em>
+        </h2>
+        <p>
+          Una sede central y {branches.length} filiales para sostener el vínculo con la comunidad
+          policial entrerriana.
+        </p>
+      </div>
+      <Image
+        src={concordiaArt}
+        alt="Ilustración patrimonial de Concordia"
+        width={680}
+        widths={[400, 680]}
+        sizes="(max-width: 700px) 90vw, 36vw"
+        format="webp"
+        loading="lazy"
+      />
+    </div>
+    <div class="ps-directory">
+      <div class="ps-directory-tools">
+        <label for="branch-search">Encontrá tu localidad</label>
+        <input
+          id="branch-search"
+          type="search"
+          autocomplete="off"
+          placeholder="Escribí una localidad…"
+          aria-controls="branch-list"
+        />
+        <p id="branch-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <a class="ps-central" href="/contacto/">
+          <LineIcon name="institution" size={28} />
+          <span>
+            <small>Sede central · Paraná</small>
+            <strong>{entry.data.address}</strong>
+            <span>Contacto y ubicación ↗</span>
+          </span>
+        </a>
+        <p class="ps-note">
+          La sede central te orienta sobre el contacto y la atención de cada filial.
+        </p>
+      </div>
+      <ul id="branch-list" class="ps-branch-list" aria-label="Localidades con filiales">
+        {branches.map(({ data }) => (
+          <li>
+            <a href={mailTo(entry.data.email, 'Consulta sobre la filial ' + data.name)}>
+              <span>{data.name}</span>
+              <LineIcon name="arrow" size={19} />
+              <span class="visually-hidden">: solicitar contacto a la sede central</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="ps-branch-life">
+      <div class="ps-subheading">
+        <h3>La vida en las filiales.</h3>
+        <p>
+          Espacios y actividades del archivo institucional. Consultá la atención y la agenda actual.
+        </p>
+      </div>
+      <div class="ps-branch-stories">
+        {featured.map(({ data }) => (
+          <article>
+            <SitePhoto
+              kind={data.photoKey!}
+              variant="card"
+              sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 25vw"
+            />
+            <h4>{data.name}</h4>
+            <p>{data.overview}</p>
+            <a
+              class="ps-link"
+              href={mailTo(entry.data.email, 'Consulta sobre la filial ' + data.name)}
+            >
+              Consultar por la filial <LineIcon name="arrow" size={19} />
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

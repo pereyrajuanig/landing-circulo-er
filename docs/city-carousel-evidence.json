@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-30",
+  "matrix": [
+    {
+      "city": "concordia",
+      "width": 320,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federacion",
+      "width": 320,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federal",
+      "width": 320,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "concordia",
+      "width": 390,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federacion",
+      "width": 390,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federal",
+      "width": 390,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "concordia",
+      "width": 768,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federacion",
+      "width": 768,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federal",
+      "width": 768,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "concordia",
+      "width": 1024,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federacion",
+      "width": 1024,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federal",
+      "width": 1024,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "concordia",
+      "width": 1440,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federacion",
+      "width": 1440,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federal",
+      "width": 1440,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "concordia",
+      "width": 1920,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federacion",
+      "width": 1920,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    },
+    {
+      "city": "federal",
+      "width": 1920,
+      "overflow": 0,
+      "backgroundCoversSection": true,
+      "normalControlClipped": true
+    }
+  ],
+  "jsErrors": [],
+  "method": "Astro preview y Chromium: 3 ciudades ×6 anchos. Fondo cubre toda la sección; composición solo con fotos y pausa accesible al foco. Capturas con imágenes decodificadas. No es certificación WCAG.",
+  "validation": {
+    "command": "npm run validate",
+    "result": "passed",
+    "nodeTests": 14,
+    "chromiumReportOnly": 36,
+    "chromiumEnforced": 36,
+    "total": 86,
+    "editorialFixture": "passed",
+    "cspInlineHashes": 2
+  }
+}

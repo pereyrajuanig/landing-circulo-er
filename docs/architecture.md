@@ -78,3 +78,7 @@ BaseLayout admite metadatos por página y noindex explícito. config/seo.mjs val
 Seis colecciones: institution, services, branches, stays, news y spaces. Esta última mantiene datos de cinco espacios fuera de la UI. Servicios incorpora detalles; stays ubicación, detalles y nota de fuente; branches resumen/foto opcionales; news cover, gallery y sourceContext opcionales.
 
 src/lib/photos.ts centraliza metadatos de banco y23 recortes propios. SitePhoto muestra créditos según origen y genera WebP hasta el tamaño nativo. PhotoGallery admite una o varias imágenes y actualiza dimensiones/crédito. Accommodation cambia la figura por destino en landing.ts. SpaceCatalog y BranchHighlights consultan las colecciones y reutilizan SitePhoto. No hay base de datos, endpoints, CMS o Facebook nuevos.
+
+## Carrusel de portada · 30/10/2026
+
+Hero mantiene composición estable; CityCarousel presenta las ciudades de src/lib/hero-cities.ts. city-carousel.ts administra el índice, un único timeout de 8 segundos, intención de reproducción y condiciones de visibilidad/hover/foco. Ilustraciones se renderizan en Hero y se sincronizan mediante hidden. Estado local al documento, sin almacenamiento ni API. hero-cities.css limita estilos a la portada: grabado a tamaño de sección, fotografías sin controles visibles y pausa revelada al foco de teclado. Recursos locales y scripts con la CSP existente. Ver city-carousel.md.

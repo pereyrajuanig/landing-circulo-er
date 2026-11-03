@@ -1,0 +1,52 @@
+---
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import crest from '../../../public/assets/escudo.png';
+const entry = await getEntry('institution', 'circulo');
+if (!entry) throw new Error('Falta institución.');
+---
+
+<footer class="portal-system ps-footer">
+  <div class="ps-wrap">
+    <div class="ps-footer-top">
+      <a class="ps-footer-brand" href="/">
+        <Image
+          src={crest}
+          width={58}
+          height={70}
+          widths={[58, 116]}
+          sizes="58px"
+          format="webp"
+          quality={100}
+          alt="Escudo del Círculo"
+          loading="lazy"
+        />
+        <span>
+          Círculo de Retirados y Pensionados<small>Policía de Entre Ríos</small>
+        </span>
+      </a>
+      <p>
+        Historia compartida.
+        <br />
+        Presencia que acompaña.
+      </p>
+      <a class="ps-link" href="#contenido">
+        Volver arriba ↑
+      </a>
+    </div>
+    <nav class="ps-footer-links" aria-label="Explorar el sitio">
+      <a href="/beneficios/">Beneficios</a>
+      <a href="/alojamientos/">Alojamientos</a>
+      <a href="/salones/">Salones</a>
+      <a href="/institucion/#filiales">Filiales</a>
+      <a href="/novedades/">Novedades</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+    <div class="ps-footer-bottom">
+      <span>
+        © {new Date().getFullYear()} · {entry.data.name}
+      </span>
+      <span>Entre Ríos, Argentina</span>
+    </div>
+  </div>
+</footer>

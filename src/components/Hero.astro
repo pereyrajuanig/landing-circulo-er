@@ -1,92 +1,178 @@
 ---
 import { Image } from 'astro:assets';
-import crest from '../../public/assets/escudo.png';
-import SitePhoto from './SitePhoto.astro';
+import LineIcon from './LineIcon.astro';
+import { heroCities, CITY_ROTATION_MS } from '../lib/hero-cities';
+import colonArt from '../assets/cities/colon-background.png';
+const scenes = [...heroCities].sort(
+  (a, b) => Number(b.id === 'diamante') - Number(a.id === 'diamante'),
+);
+const localities = [...scenes, { id: 'colon', name: 'Colón', art: colonArt }];
+const features = [
+  { href: '/beneficios/salud/', icon: 'health', label: 'Salud y bienestar' },
+  { href: '/alojamientos/', icon: 'bed', label: 'Alojamiento y turismo' },
+  { href: '/salones/', icon: 'events', label: 'Salones para eventos' },
+  { href: '#filiales', icon: 'people', label: 'Filiales en Entre Ríos' },
+] as const;
 ---
 
-<section id="inicio" class="hero" aria-labelledby="hero-title">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">
-        <span></span> BENEFICIOS PARA RETIRADOS Y PENSIONADOS DE LA POLICÍA
+<section id="inicio" class="portal-home-intro" aria-labelledby="hero-title" data-city-hero>
+  <div
+    class="portal-carousel"
+    role="region"
+    aria-roledescription="carrusel"
+    aria-label="Patrimonio de nuestras localidades"
+    data-city-carousel
+    data-city-interval={CITY_ROTATION_MS}
+    data-active-city={localities[0].id}
+  >
+    <div class="portal-hero-copy">
+      <p class="portal-eyebrow">
+        Comunidad policial entrerriana <span aria-hidden="true"></span>
       </p>
       <h1 id="hero-title">
-        Tu historia nos une.
+        Al servicio de nuestros
         <br />
-        <em>Seguimos a tu lado.</em>
+        <em>retirados y pensionados.</em>
       </h1>
-      <p class="hero-description">
-        Servicios, alojamientos y espacios para compartir. En el Círculo de Retirados y Pensionados
-        de la Policía de Entre Ríos, seguimos acompañándote en esta etapa.
+      <svg class="portal-underline" viewBox="0 0 250 18" aria-hidden="true" fill="none">
+        <path d="M4 13C66 3 174 2 246 10" />
+      </svg>
+      <p class="portal-hero-description">
+        Acompañamiento, contención y beneficios para quienes sirvieron a Entre Ríos.
       </p>
-      <p class="hero-welcome">
-        Para quienes se retiraron de la Policía y para quienes perciben una pensión vinculada a
-        ella.
-      </p>
-      <div class="hero-actions">
-        <a class="button button-gold" href="#contacto">
-          Hablemos <span aria-hidden="true">↗</span>
+      <div class="portal-hero-actions">
+        <a class="portal-action-primary" href="#servicios">
+          Conocé nuestros servicios <LineIcon name="arrow" size={20} />
         </a>
-        <a class="text-link" href="#servicios">
-          Cómo podemos acompañarte <span aria-hidden="true">→</span>
+        <a class="portal-action-secondary" href="#institucion">
+          Nuestra institución
         </a>
       </div>
     </div>
-    <div class="hero-emblem">
-      <div class="hero-photo-panel">
-        <SitePhoto kind="concordia-encuentro-social-11" variant="compact" loading="eager" />
-        <div class="hero-photo-signature">
-          <Image
-            src={crest}
-            format="webp"
-            quality={100}
-            width={56}
-            widths={[56, 112]}
-            sizes="56px"
-            loading="eager"
-            height={67}
-            alt="Escudo del Círculo"
-          />
-          <div>
-            <span class="emblem-label">NUESTRA HISTORIA, NUESTRO VÍNCULO</span>
-            <p>
-              Una comunidad
-              <br />
-              <em>de la que sos parte.</em>
-            </p>
-            <span class="emblem-since">Acompañándonos desde 1975</span>
-          </div>
-        </div>
+    {localities.map((city, index) => (
+      <div
+        class="portal-scene"
+        id={'portal-scene-' + city.id}
+        role="group"
+        aria-roledescription="diapositiva"
+        aria-label={city.name + ', ' + (index + 1) + ' de ' + localities.length}
+        data-city-slide={city.id}
+        data-city-illustration={city.id}
+        hidden={index !== 0}
+      >
+        <Image
+          src={city.art}
+          alt=""
+          format="webp"
+          quality={80}
+          width={1440}
+          widths={[480, 960, 1440]}
+          sizes="(min-width: 1101px) calc(100vw - 244px), (max-width: 750px) 1200px, 100vw"
+          loading={index === 0 ? 'eager' : 'lazy'}
+        />
+        <span class="portal-scene-location">
+          <LineIcon name="pin" size={16} />
+          {city.name}, Entre Ríos
+        </span>
       </div>
+    ))}
+    <div class="portal-scene-arrows" data-city-controls hidden>
+      <button type="button" data-city-prev aria-label="Ilustración anterior">
+        <LineIcon name="previous" size={22} />
+      </button>
+      <button type="button" data-city-next aria-label="Ilustración siguiente">
+        <LineIcon name="next" size={22} />
+      </button>
     </div>
+    <div class="portal-scene-pager">
+      <div class="portal-scene-dots" data-city-picker hidden>
+        {localities.map((city, index) => (
+          <button
+            type="button"
+            class="portal-scene-dot"
+            data-city-select={index}
+            aria-label={'Mostrar ' + city.name}
+            aria-controls={'portal-scene-' + city.id}
+            aria-pressed={index === 0}
+          >
+            <span></span>
+          </button>
+        ))}
+      </div>
+      <button type="button" class="portal-scene-pause" data-city-rotation hidden>
+        Pausar recorrido
+      </button>
+    </div>
+    <span
+      class="portal-visually-hidden"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      data-city-status
+    ></span>
   </div>
-  <div class="wrap hero-bottom">
-    <span>Más de medio siglo compartiendo el camino</span>
-    <a href="#institucion">
-      Conocé nuestra historia <span aria-hidden="true">↓</span>
-    </a>
+
+  <nav class="portal-feature-bar" aria-label="Accesos a servicios">
+    {features.map((feature) => (
+      <a href={feature.href}>
+        <LineIcon name={feature.icon} size={34} />
+        <span>{feature.label}</span>
+      </a>
+    ))}
+  </nav>
+
+  <div class="portal-localities">
+    <div class="portal-localities-heading">
+      <p class="portal-eyebrow">Nuestra presencia</p>
+      <h2>
+        Filiales en
+        <br /> <em>Entre Ríos</em>
+      </h2>
+      <a href="#filiales">
+        Ver todas las filiales <LineIcon name="arrow" size={18} />
+      </a>
+    </div>
+    <div class="portal-localities-viewport">
+      <div
+        class="portal-localities-track"
+        tabindex="0"
+        role="region"
+        aria-label="Localidades con presencia institucional"
+        data-localities-track
+      >
+        {localities.map((city) => (
+          <a class="portal-locality" href="#filiales">
+            <Image
+              src={city.art}
+              alt={'Ilustración patrimonial de ' + city.name}
+              format="webp"
+              quality={78}
+              width={480}
+              widths={[320, 480, 640]}
+              sizes="(max-width: 600px) 75vw, (min-width: 1500px) 280px, 230px"
+              loading="eager"
+            />
+            <span>
+              <LineIcon name="pin" size={18} />
+              <span>
+                {city.name}
+                <small>Patrimonio local</small>
+              </span>
+            </span>
+          </a>
+        ))}
+      </div>
+      <button
+        type="button"
+        class="portal-localities-next"
+        aria-label="Ver otras localidades"
+        data-localities-next
+      >
+        <LineIcon name="next" size={22} />
+      </button>
+    </div>
   </div>
 </section>
-<nav class="benefit-paths wrap" aria-label="Conocé tus beneficios">
-  <a href="/beneficios/">
-    <span class="path-number">01 / TU BIENESTAR</span>
-    <h2>
-      Beneficios para vos<span aria-hidden="true">↗</span>
-    </h2>
-    <p>Salud, farmacia y orientación para lo cotidiano.</p>
-  </a>
-  <a href="/alojamientos/">
-    <span class="path-number">02 / TU ESTADÍA</span>
-    <h2>
-      Alojamientos<span aria-hidden="true">↗</span>
-    </h2>
-    <p>Conocé los destinos y consultá por tu próxima visita.</p>
-  </a>
-  <a href="/salones/">
-    <span class="path-number">03 / TUS ENCUENTROS</span>
-    <h2>
-      Salones para eventos<span aria-hidden="true">↗</span>
-    </h2>
-    <p>Un espacio para reunirnos y compartir momentos.</p>
-  </a>
-</nav>
+<script>
+  import '../scripts/city-carousel';
+</script>

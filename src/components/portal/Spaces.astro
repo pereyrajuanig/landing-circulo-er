@@ -1,0 +1,95 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+import SitePhoto from '../SitePhoto.astro';
+import LineIcon from '../LineIcon.astro';
+import { mailTo } from '../../lib/contact';
+interface Props {
+  full?: boolean;
+}
+const { full = false } = Astro.props;
+const spaces = (await getCollection('spaces')).sort((a, b) => a.data.order - b.data.order);
+const institution = await getEntry('institution', 'circulo');
+if (!institution) throw new Error('Falta contacto institucional.');
+const shown = full ? spaces : spaces.slice(0, 2);
+---
+
+<section id="eventos" class="ps-section ps-spaces" aria-labelledby="ps-spaces-title">
+  <div class="ps-wrap">
+    <SectionHeading
+      id="ps-spaces-title"
+      eyebrow="Salones y espacios"
+      title="El lugar también nos reúne."
+      description="Reuniones, celebraciones y actividades: conocé los espacios del Círculo y prepará tu encuentro."
+      href={full ? undefined : '/salones/'}
+      action="Todos los espacios"
+    />
+    <div class="ps-space-mosaic">
+      {shown.map(({ id, data }, i) => (
+        <article
+          class:list={[
+            'ps-space',
+            { 'ps-space-reverse': i % 2 === 1, 'ps-space-no-photo': !data.photoKeys.length },
+          ]}
+          id={id}
+        >
+          {data.photoKeys.length > 0 && (
+            <div class="ps-space-visual">
+              <SitePhoto
+                kind={data.photoKeys[0]}
+                variant="wide"
+                sizes="(max-width: 700px) 90vw, (max-width: 1100px) 53vw, 42vw"
+              />
+              {full && data.photoKeys.length > 1 && (
+                <SitePhoto
+                  kind={data.photoKeys[1]}
+                  variant="compact"
+                  sizes="(max-width: 700px) 90vw, 30vw"
+                />
+              )}
+            </div>
+          )}
+          <div class="ps-space-copy">
+            <p class="ps-kicker">
+              <LineIcon name="pin" size={18} />
+              {data.locality}
+            </p>
+            <h3>{data.name}</h3>
+            <p>{data.description}</p>
+            <details class="ps-space-facts" open={full}>
+              <summary>Características y capacidad</summary>
+              <ul>
+                {data.details.map((detail) => (
+                  <li>{detail}</li>
+                ))}
+              </ul>
+              {data.capacityNote && <p class="ps-capacity">{data.capacityNote}</p>}
+              <p class="ps-note">{data.sourceNote}</p>
+            </details>
+            <a
+              class="ps-button ps-button-outline"
+              href={mailTo(
+                institution.data.email,
+                'Consulta sobre ' + data.name + ' en ' + data.locality,
+              )}
+            >
+              Consultar disponibilidad <LineIcon name="arrow" size={20} />
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+    {!full && (
+      <div class="ps-space-more">
+        <p class="ps-kicker">También en nuestras filiales</p>
+        {spaces.slice(2).map(({ id, data }) => (
+          <a href={'/salones/#' + id}>
+            <span>{data.locality}</span>
+            <strong>{data.name}</strong>
+            <LineIcon name="arrow" />
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

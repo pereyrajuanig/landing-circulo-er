@@ -1,0 +1,46 @@
+{
+  "method": "Recorte directo de ilustraciones existentes de campaña seleccionadas para la maqueta y autorizadas para el cambio web; sin generación ni reconstrucción. Solo la franja ilustrada, sin textos, candidatos, listas o fechas electorales.",
+  "date": "2026-10-30",
+  "artworks": [
+    {
+      "assetSha256": "351c71e8d1aa5ed72a1546b6089810f0f8c171167aac54b88d9758edbf174c51",
+      "asset": "src/assets/cities/concordia.png",
+      "source": "ProyectoCirculo/Localidades/Concordia_FINAL.png",
+      "sourceSha256": "a3322f965a09e8f26871c3bffde8ba39c9f9c9fb8b832bc77e6c6d0c582a77e2",
+      "city": "concordia",
+      "crop": {
+        "height": 341,
+        "y": 1705,
+        "x": 154,
+        "width": 1229
+      }
+    },
+    {
+      "assetSha256": "1a3da8b7199b80a35c1b2eb26acaf1d88cc4ef880ab10a0ae4fab369d67d545c",
+      "asset": "src/assets/cities/federacion.png",
+      "source": "ProyectoCirculo/Localidades/Federacion_FINAL.png",
+      "sourceSha256": "15b0d35d6e1bc60f3806183e7d219c8a41649fb9023a305df6e5df47a4d25996",
+      "city": "federacion",
+      "crop": {
+        "height": 167,
+        "y": 1206,
+        "x": 22,
+        "width": 1043
+      }
+    },
+    {
+      "assetSha256": "dea6e116b893ee93bbed154d04b7017aeb3cae865918075fa8ea09c89e712301",
+      "asset": "src/assets/cities/federal.png",
+      "source": "ProyectoCirculo/Localidades/Federal_FINAL.png",
+      "sourceSha256": "3f4b1581c48d0cc17f85d6e24c8691f3aa334aad17eec57f4d05953d0b03580b",
+      "city": "federal",
+      "crop": {
+        "height": 152,
+        "y": 1231,
+        "x": 33,
+        "width": 608
+      }
+    }
+  ],
+  "meaning": "Patrimonio y paisaje de cada localidad; no representa instalaciones del Círculo. Fotos institucionales independientes, con localidad y origen propios."
+}

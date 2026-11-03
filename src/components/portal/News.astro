@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+import SitePhoto from '../SitePhoto.astro';
+import { publishedNews } from '../../lib/news';
+interface Props {
+  full?: boolean;
+}
+const { full = false } = Astro.props;
+const items = publishedNews(await getCollection('news')).slice(0, full ? undefined : 4);
+---
+
+<section class="ps-section ps-news" aria-labelledby="ps-news-title">
+  <div class="ps-wrap">
+    <SectionHeading
+      id="ps-news-title"
+      eyebrow="La vida del Círculo"
+      title="Historias que seguimos construyendo."
+      description="Noticias, actividades y memoria de la gestión institucional."
+      href={full ? undefined : '/novedades/'}
+      action="Ver todas las publicaciones"
+    />
+    <p class="ps-source">
+      Memoria del archivo institucional: las fechas indican cuándo se publicaron estas reseñas, no
+      cuándo ocurrieron los hechos. La agenda actual se consulta con la institución.
+    </p>
+    {items.length > 0 ? (
+      <div data-news-browser>
+        {full && (
+          <div class="ps-news-tools">
+            <label for="news-search">
+              Buscá una publicación
+              <input
+                id="news-search"
+                type="search"
+                placeholder="Tema o palabra clave"
+                aria-controls="news-list"
+              />
+            </label>
+            <div class="ps-filters" role="group" aria-label="Filtrar novedades">
+              <button type="button" data-category="all" aria-pressed="true">
+                Todas
+              </button>
+              <button type="button" data-category="noticia" aria-pressed="false">
+                Noticias
+              </button>
+              <button type="button" data-category="logro" aria-pressed="false">
+                Logros de gestión
+              </button>
+            </div>
+          </div>
+        )}
+        <p id="news-status" class="ps-note" role="status" aria-live="polite" aria-atomic="true"></p>
+        <ul id="news-list" class="ps-news-grid">
+          {items.map(({ id, data }) => (
+            <li
+              data-news-item
+              data-title={data.title}
+              data-summary={data.summary}
+              data-category={data.category}
+            >
+              <article>
+                {data.cover && (
+                  <SitePhoto
+                    kind={data.cover}
+                    variant="card"
+                    sizes="(max-width: 700px) 90vw, (max-width: 1100px) 50vw, 36vw"
+                  />
+                )}
+                <div class="ps-news-copy">
+                  <p class="ps-kicker">
+                    {data.category === 'logro' ? 'Logros de gestión' : 'Noticias'}
+                  </p>
+                  <h3>
+                    <a href={'/novedades/' + id + '/'}>{data.title}</a>
+                  </h3>
+                  <p>{data.summary}</p>
+                  <p class="ps-date">
+                    Publicado el{' '}
+                    <time datetime={data.publishedAt}>
+                      {new Date(data.publishedAt).toLocaleDateString('es-AR', {
+                        timeZone: 'America/Argentina/Buenos_Aires',
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                    </time>
+                  </p>
+                  <a class="ps-link" href={'/novedades/' + id + '/'}>
+                    Leer publicación <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+        <p id="news-empty" hidden>
+          No encontramos publicaciones. Probá con otra palabra o categoría.
+        </p>
+      </div>
+    ) : (
+      <p>Próximamente compartiremos novedades de la institución.</p>
+    )}
+  </div>
+</section>
+<script>
+  import '../../scripts/news';
+</script>

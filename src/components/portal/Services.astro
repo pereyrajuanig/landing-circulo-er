@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+import SitePhoto from '../SitePhoto.astro';
+import LineIcon from '../LineIcon.astro';
+import { servicePhotoKeys } from '../../lib/photos';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const icons = {
+  salud: 'health',
+  tramites: 'institution',
+  farmacia: 'health',
+  turismo: 'bed',
+  recreacion: 'people',
+} as const;
+---
+
+<section id="servicios" class="ps-section ps-services" aria-labelledby="ps-services-title">
+  <div class="ps-wrap">
+    <SectionHeading
+      id="ps-services-title"
+      eyebrow="Beneficios y servicios"
+      title="Un respaldo para cada etapa."
+      description="Salud, orientación y tiempo para compartir. Encontrá el acompañamiento que necesitás."
+      href="/beneficios/"
+      action="Todos los beneficios"
+    />
+    <div class="ps-service-grid">
+      {services.map(({ id, data }, i) => (
+        <article class:list={['ps-service', { 'ps-service-featured': i === 0 }]}>
+          {i === 0 && (
+            <SitePhoto
+              kind={servicePhotoKeys[id]}
+              variant="card"
+              sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 32vw"
+            />
+          )}
+          <div class="ps-service-copy">
+            <div class="ps-service-top">
+              <LineIcon name={icons[id as keyof typeof icons]} size={30} />
+              <span class="ps-index">0{i + 1}</span>
+            </div>
+            <p class="ps-kicker">{data.caption}</p>
+            <h3>
+              <a href={'/beneficios/' + id + '/'}>{data.name}</a>
+            </h3>
+            <p>
+              {i === 0
+                ? 'Atención y orientación en la sede central, jornadas de salud y espacios de rehabilitación en las filiales.'
+                : data.description}
+            </p>
+            <a class="ps-link" href={'/beneficios/' + id + '/'}>
+              Conocer servicios <LineIcon name="arrow" size={20} />
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="ps-audience">
+      <LineIcon name="people" size={30} />
+      <p>
+        <strong>Un vínculo con la comunidad policial.</strong> Los beneficios se dirigen a retirados
+        de la Policía y a quienes perciben una pensión vinculada a ella. La institución confirma las
+        condiciones de cada prestación.
+      </p>
+    </div>
+  </div>
+</section>

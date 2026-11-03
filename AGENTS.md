@@ -21,7 +21,7 @@
 
 - Preservar el stack y las funciones existentes. Evitar refactors generales y dependencias nuevas sin necesidad.
 - Usar npm y su lockfile. Comandos: `npm ci`, `npm run dev`, `npm run check`, `npm run lint`, `npm run format:check`, `npm test`, `npm run build`, `npm run preview`. `npm run validate` agrupa tipos, lint, formato y tests (incluye build).
-- `check` ejecuta astro check; `lint` ejecuta ESLint sin advertencias; `format:check` comprueba Prettier. Build valida colecciones y referencias de dist; npm test incluye build, catorce tests Node y treinta casos Chromium por cada modo CSP. Preparar el navegador con npm run test:install; Linux/CI usa npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout; el runner abre y cierra su preview en 4175. Guía: docs/testing.md. No son una auditoría CSS o WCAG completa.
+- `check` ejecuta astro check; `lint` ejecuta ESLint sin advertencias; `format:check` comprueba Prettier. Build valida colecciones y referencias de dist; npm test incluye build, catorce tests Node y treinta y seis casos Chromium por cada modo CSP. Preparar el navegador con npm run test:install; Linux/CI usa npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout; el runner abre y cierra su preview en 4175. Guía: docs/testing.md. No son una auditoría CSS o WCAG completa.
 - Revisar cambios visuales en navegador de escritorio y móvil; menú, servicios, búsqueda y alojamientos.
 - Usar Astro dev para desarrollo y Astro preview para revisar dist. No usar esos servidores como hosting de producción; solo public/ y la salida generada son públicos.
 - Mantener documentos y PDF alineados. Registrar progreso y evidencia en docs/checklist-progress.json; el PDF se regenera desde tools/docs/build_checklist.py y conserva campos manuales no sobrescritos por el registro. No marcar tareas o merges pendientes como verificados.
@@ -37,7 +37,7 @@
 
 ## Seguridad preparada
 
-CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 14 Node y30 Chromium por cada modo CSP. Headers de portada/assets/404 y HTTPS comprobados en vercel.app; futuro dominio y privacidad institucional aún por acordar.
+CSP de Vercel en Report-Only; exigida solo para pruebas locales. Build comprueba hashes del script: ante cambio revisado, npm run security:update y revisar diff antes de validar. No sustituir por unsafe-inline/eval. npm test incluye 14 Node y 36 Chromium por cada modo CSP. Headers de portada/assets/404 y HTTPS comprobados en vercel.app; futuro dominio y privacidad institucional aún por acordar.
 
 ## Evolución multipágina en revisión
 
@@ -48,3 +48,7 @@ El usuario pidió ampliar a sitio con fichas de beneficios/alojamientos, salones
 El usuario entregó VideoCirculo-material-recopilado el 30/10/2026. Fuente y limitaciones en docs/institutional-content.md e institutional-photo-sources.json. Se usan 23 recortes seleccionados; no publicar originales completos con datos personales ni cierre de campaña. No inventar fechas de hechos ni vigencia de convenios a partir de un video sin fecha. Las reseñas explican que su fecha corresponde a la publicación del texto.
 
 SitePhoto y src/lib/photos.ts distinguen imágenes institucionales de referencias. Mantener avisos y créditos de Pexels en farmacia,404 y cuatro alojamientos sin fotos propias. No utilizar una imagen de otra localidad como si correspondiera al destino. Las imágenes del selector deben cambiar con su destino. No generar imágenes sin una nueva instrucción explícita del usuario. No marcar contenido, capacidad, equipamiento, fotos reales completas o aceptación institucional como verificados sin cumplir sus criterios.
+
+## Portada con ciudades
+
+El usuario autorizó aplicar la maqueta de ciudades con avance automático. Hero conserva mensaje y accesos; CityCarousel alterna Concordia/Federación/Federal cada 8 segundos con foto y grabado correspondientes. La revisión solicitada elimina flechas, selectores, contador y títulos visibles: solo fotos, con epígrafe accesible. Mantener pausa/inicio accesible al foco de teclado, movimiento reducido, suspensión al ocultarse y respaldo sin JS. El grabado cubre toda la sección como fondo suave. city-art-sources.json registra recortes sin contenido electoral; no copiar piezas completas de campaña al sitio. Ver docs/city-carousel.md.
