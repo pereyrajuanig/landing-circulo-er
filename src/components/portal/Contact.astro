@@ -1,0 +1,140 @@
+---
+import { getEntry } from 'astro:content';
+import LineIcon from '../LineIcon.astro';
+import { mailTo } from '../../lib/contact';
+interface Props {
+  form?: boolean;
+}
+const { form = false } = Astro.props;
+const entry = await getEntry('institution', 'circulo');
+if (!entry) throw new Error('Falta contacto institucional.');
+const institution = entry.data;
+---
+
+<section id="contacto" class="ps-section ps-contact" aria-labelledby="ps-contact-title">
+  <div class="ps-wrap">
+    <div class="ps-contact-heading">
+      <p class="ps-kicker">Estamos para escucharte</p>
+      <h2 id="ps-contact-title">
+        El primer paso puede ser
+        <br />
+        <em>una conversación.</em>
+      </h2>
+      <p>
+        Contanos qué necesitás. Te orientamos para encontrar el servicio, el espacio o la filial que
+        buscás.
+      </p>
+    </div>
+    <div class="ps-contact-grid">
+      <article>
+        <LineIcon name="institution" size={32} />
+        <p class="ps-kicker">Sede central</p>
+        <h3>{institution.address}</h3>
+        <p>
+          {institution.city} · {institution.province}
+          <br />
+          CP {institution.postalCode}
+        </p>
+        <a class="ps-link" href={institution.mapUrl} target="_blank" rel="noopener noreferrer">
+          Cómo llegar <span aria-hidden="true">↗</span>
+        </a>
+      </article>
+      <article>
+        <LineIcon name="people" size={32} />
+        <p class="ps-kicker">Filiales</p>
+        <h3>Tu localidad, más cerca.</h3>
+        <p>Encontrá tu filial y pedí orientación a la sede sobre sus canales de atención.</p>
+        <a class="ps-link" href="/institucion/#filiales">
+          Buscar mi filial <LineIcon name="arrow" size={20} />
+        </a>
+      </article>
+      <article>
+        <LineIcon name="mail" size={32} />
+        <p class="ps-kicker">Consultas generales</p>
+        <h3>Escribinos.</h3>
+        <p>
+          <a class="ps-email" href={mailTo(institution.email)}>
+            {institution.email}
+          </a>
+        </p>
+        <a class="ps-link" href={form ? '#ps-consultation' : '/contacto/#ps-consultation'}>
+          Preparar una consulta <LineIcon name="arrow" size={20} />
+        </a>
+      </article>
+    </div>
+    {form && (
+      <div class="ps-form-layout" id="ps-consultation">
+        <div>
+          <p class="ps-kicker">Tu consulta</p>
+          <h3>¿En qué podemos acompañarte?</h3>
+          <p>
+            Completá estos datos para preparar un correo dirigido al Círculo. Al continuar, se
+            abrirá tu aplicación de correo para que puedas revisarlo y enviarlo.
+          </p>
+          <p class="ps-note">
+            Este formulario no envía ni guarda datos en la web. Evitá incluir documentación personal
+            o información médica.
+          </p>
+          <a class="ps-link" href={mailTo(institution.email)}>
+            También podés escribir directamente ↗
+          </a>
+        </div>
+        <form
+          data-portal-contact
+          data-email={institution.email}
+          aria-label="Preparar consulta por correo"
+          hidden
+        >
+          <div class="ps-form-fields">
+            <label for="consult-name">
+              Nombre
+              <input id="consult-name" name="name" autocomplete="name" required maxlength="100" />
+            </label>
+            <label for="consult-email">
+              Email de contacto
+              <input
+                id="consult-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                maxlength="254"
+              />
+            </label>
+          </div>
+          <label for="consult-type">
+            <span id="consult-type-label">Tipo de consulta</span>
+            <select id="consult-type" name="type" required aria-labelledby="consult-type-label">
+              <option value="">Elegí un tema</option>
+              <option>Beneficios y servicios</option>
+              <option>Alojamiento</option>
+              <option>Salones y espacios</option>
+              <option>Contacto con una filial</option>
+              <option>Consulta general</option>
+            </select>
+          </label>
+          <label for="consult-message">
+            Mensaje
+            <textarea
+              id="consult-message"
+              name="message"
+              rows="5"
+              required
+              maxlength="2000"
+            ></textarea>
+          </label>
+          <button class="ps-button" type="submit">
+            Abrir consulta en mi correo <LineIcon name="arrow" size={20} />
+          </button>
+          <p class="ps-note" data-portal-form-status role="status" aria-live="polite"></p>
+        </form>
+        <noscript>
+          <p>
+            Para preparar tu consulta, escribí a{' '}
+            <a href={mailTo(institution.email)}>{institution.email}</a>.
+          </p>
+        </noscript>
+      </div>
+    )}
+  </div>
+</section>

@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación del sitio | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.17. Identidad, componentes, contenido, implementación y mantenimiento. 30 de octubre de 2026.')
+c.setSubject('Versión 1.18. Identidad, componentes, contenido, implementación y mantenimiento. 2 de noviembre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.17 · 30 OCT 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.18 · 02 NOV 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación del<br/>sitio institucional',M,510,CW,39,43,PAPER,'Caslon',
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.17',M,770,10,'DM',PAPER)
+text('Versión 1.18',M,770,10,'DM',PAPER)
 right('29 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -496,6 +496,15 @@ y=block('Ilustraciones con origen','Solo se recortan las franjas ilustradas de l
 y=block('Implementación y evidencia','CityCarousel.astro, hero-cities.ts, city-carousel.ts y hero-cities.css. Una sola tarea programada; estado local, sin almacenamiento, APIs o dependencias nuevas. Matriz de 3 ciudades por 6 anchos y capturas en city-carousel-evidence.json; resultado final de suite y CI en el PR.',y)
 note('REVISIÓN Y PENDIENTES','Implementación solicitada; merge de este lote requiere autorización. Los pendientes de datos, capacidades, dominio, privacidad, CMS/Facebook y lector no se certifican por este cambio visual. Ver docs/city-carousel.md para comportamiento y mantenimiento.',y)
 
+# Vigente: portal aprobado; los addenda anteriores son antecedentes.
+y=begin('portal_29','Portal institucional aprobado','02/11/2026. El Inicio es el sistema visual maestro. Esta página sustituye las composiciones anteriores. PR y publicación autorizados por el usuario.')
+y=block('Identidad compartida','Escudo íntegro, Libre Caslon Display y DM Sans locales. Azul marino, marfil y acentos celestes. Navegación lateral en escritorio y menú compacto hasta 1100px. Sin fuentes, librerías o servicios nuevos.',y)
+y=block('Prioridades visuales','Beneficios: cinco áreas editoriales y salud destacada. Alojamientos: ocho destinos, fotos grandes, recorrido manual con swipe, flechas y teclado; fichas con galería y consulta móvil. Salones: dossiers con características y capacidades de las fuentes, sin completar datos por suposición.',y)
+y=block('Presencia y vida institucional','Directorio de 24 filiales con búsqueda por localidad, imágenes propias identificadas y consulta a la sede. Historia con fecha fundacional real y contadores de colecciones. Novedades con una reseña principal y secundarias, filtros y fecha de publicación diferenciada de los hechos.',y)
+y=block('Inicio patrimonial y controles','Diamante, Concordia, Concepción del Uruguay y Colón: ilustraciones aportadas por el usuario. Cambio cada 8 segundos, pausa y selección manual. Foco, hover, movimiento reducido y visibilidad controlan el automático. Sin JavaScript queda Diamante. No se anuncia cada cambio automático.',y)
+y=block('Contacto y límites','Sede central, filiales y email real. El formulario valida campos y prepara un borrador en la aplicación de correo; no guarda ni envía consultas desde la web. Se eliminan el comparador y la ruta del diseño anterior por pedido del usuario.',y)
+note('PENDIENTES EXTERNOS','Dominio circulopoliciaer.com.ar confirmado en NIC Argentina: DNS, HTTPS y SEO por configurar. CMS, Facebook, lector real, privacidad y condiciones variables no se certifican con la aceptación visual. Mantener noindex durante la transición.',y)
+
 bad=[b for b in BOUNDS if b[2]>780]
 if bad:
     print('OVERFLOW',bad)
@@ -503,7 +512,7 @@ if bad:
 c.save()
 (ROOT/'tmp').mkdir(exist_ok=True)
 reader=PdfReader(str(OUT))
-assert len(reader.pages)==28, len(reader.pages)
+assert len(reader.pages)==29, len(reader.pages)
 for i,p in enumerate(reader.pages):
     t=p.extract_text()
     assert len(t)>100, f'Empty page {i+1}'

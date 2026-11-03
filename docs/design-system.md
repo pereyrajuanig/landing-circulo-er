@@ -89,3 +89,7 @@ Página 28 del manual incorpora el carrusel de portada, con mensaje estable y fo
 ## Versión1.17 · fotografías y fondo completo
 
 Página28 revisada: solo fotografías, sin flechas, selector, contador o título de ciudad. Epígrafes accesibles y pausa revelada al foco. Grabado a tamaño de sección, suave y con velo marfil; desaparece la franja inferior reservada. Manual28 páginas; checklist1.15 conserva23 páginas y145 campos.
+
+## Versión 1.18 · portal institucional aprobado
+
+El Inicio define el lenguaje visual de todas las secciones e interiores. Navegación lateral, beneficios editoriales, alojamientos con rail manual, salones, directorio, historia y novedades. Contacto prepara un borrador de correo. El usuario aprobó PR/publicación y pidió eliminar la comparación y su ruta. Manual de 29 páginas, addendum vigente en página 29; las páginas previas documentan antecedentes. Detalles, fuentes y límites en [portal-institucional.md](portal-institucional.md).

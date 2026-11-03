@@ -20,7 +20,9 @@ test('CSP permite la aplicación y detecta o bloquea un script inline no autoriz
     ],
   ).toContain("script-src 'self'");
   await page.locator('#branch-search').fill('MARIA');
-  await expect(page.locator('#branch-list li:visible')).toHaveText(['María Grande']);
+  await expect(page.locator('#branch-list li:visible > a > span:first-child')).toHaveText([
+    'María Grande',
+  ]);
   expect(await page.evaluate(() => window.__probeViolations)).toEqual([]);
   await page.evaluate(() => {
     const script = document.createElement('script');

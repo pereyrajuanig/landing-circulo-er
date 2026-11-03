@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+import StayCard from './StayCard.astro';
+import LineIcon from '../LineIcon.astro';
+import { photos, stayPhotoKeys } from '../../lib/photos';
+interface Props {
+  catalog?: boolean;
+}
+const { catalog = false } = Astro.props;
+const stays = (await getCollection('stays')).sort(
+  (a, b) =>
+    Number(photos[stayPhotoKeys[b.id]].kind === 'institutional') -
+      Number(photos[stayPhotoKeys[a.id]].kind === 'institutional') || a.data.order - b.data.order,
+);
+---
+
+<section id="alojamiento" class="ps-section ps-stays" aria-labelledby="ps-stays-title">
+  <div class="ps-wrap">
+    <SectionHeading
+      id="ps-stays-title"
+      eyebrow="Alojamientos del Círculo"
+      title="Un lugar para tu próxima pausa."
+      description="Recorré los destinos de nuestra red y organizá tu visita con la institución."
+      href={catalog ? undefined : '/alojamientos/'}
+      action="Explorar destinos"
+    />
+    {catalog && (
+      <nav class="ps-destination-nav" aria-label="Elegí un destino">
+        {stays.map((stay) => (
+          <a href={'/alojamientos/' + stay.id + '/'}>
+            {stay.data.name}
+            <LineIcon name="next" size={17} />
+          </a>
+        ))}
+      </nav>
+    )}
+    <div
+      class:list={[{ 'ps-rail': !catalog, 'ps-stay-catalog': catalog }]}
+      data-portal-rail={catalog ? undefined : ''}
+    >
+      <div
+        class:list={[{ 'ps-rail-track': !catalog, 'ps-stay-grid': catalog }]}
+        id="ps-stays-track"
+        data-portal-track={catalog ? undefined : ''}
+        tabindex={catalog ? undefined : 0}
+        aria-label={catalog ? undefined : 'Alojamientos: desplazate para explorar destinos'}
+      >
+        {stays.map((stay) => (
+          <StayCard stay={stay} catalog={catalog} />
+        ))}
+      </div>
+      {!catalog && (
+        <div class="ps-rail-controls" data-portal-controls hidden>
+          <p>Deslizá para descubrir más destinos</p>
+          <div>
+            <button
+              type="button"
+              class="ps-round"
+              data-portal-prev
+              aria-label="Alojamientos anteriores"
+              aria-controls="ps-stays-track"
+            >
+              <LineIcon name="previous" />
+            </button>
+            <span
+              class="ps-rail-count"
+              data-portal-count
+              aria-live="polite"
+              aria-atomic="true"
+            ></span>
+            <button
+              type="button"
+              class="ps-round"
+              data-portal-next
+              aria-label="Más alojamientos"
+              aria-controls="ps-stays-track"
+            >
+              <LineIcon name="next" />
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+    <p class="ps-note">
+      La disponibilidad, las tarifas y las condiciones se confirman con el Círculo. Las imágenes de
+      referencia están identificadas en cada destino.
+    </p>
+  </div>
+</section>

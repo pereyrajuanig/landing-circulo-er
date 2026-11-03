@@ -57,3 +57,5 @@ Manual vigente 1.15: 27 páginas; addendum institucional en página 27. Checklis
 Manual vigente 1.16: 28 páginas; addendum de portada automática. Checklist 1.14 conserva 23 páginas,145 campos y estados históricos; actualiza trazabilidad del lote sin cerrar datos institucionales pendientes.
 
 Manual vigente1.17:28 páginas, página28 revisada con fotos sin controles visibles y grabado de fondo completo. Checklist1.15:23 páginas y145 campos; solo trazabilidad actualizada. Se archivan las versiones1.16/1.14 respectivamente.
+
+Manual vigente 1.18: 29 páginas; página 29 documenta el portal aprobado y sustituye las decisiones visuales anteriores. Checklist 1.16: 23 páginas y 145 campos; registro del lote actualizado sin certificar pendientes externos. Ver docs/portal-institucional.md.

@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import crest from '../../public/assets/escudo.png';
+import LineIcon from './LineIcon.astro';
+const isHome = Astro.url.pathname === '/';
+const home = isHome ? '' : '/';
+const currentPath = Astro.url.pathname;
+const links = [
+  { href: '#inicio', label: 'Inicio', icon: 'home' },
+  { href: '/institucion/', label: 'Institución', icon: 'institution' },
+  { href: '/beneficios/', label: 'Beneficios', icon: 'health' },
+  { href: '/alojamientos/', label: 'Alojamientos', icon: 'bed' },
+  { href: '/salones/', label: 'Salones', icon: 'events' },
+  { href: '#filiales', label: 'Filiales', icon: 'people' },
+  { href: '/novedades/', label: 'Novedades', icon: 'news' },
+  { href: '#contacto', label: 'Contacto', icon: 'mail' },
+] as const;
+---
+
+<header class="portal-header">
+  <div class="portal-header-inner">
+    <a
+      class="portal-brand"
+      href={home + '#inicio'}
+      aria-label="Círculo de Retirados y Pensionados, inicio"
+    >
+      <Image
+        src={crest}
+        format="webp"
+        quality={100}
+        width={104}
+        height={124}
+        widths={[104, 208]}
+        sizes="(max-width: 1100px) 48px, 104px"
+        loading="eager"
+        alt="Escudo del Círculo"
+      />
+      <span>
+        Círculo de Retirados y Pensionados<small>Policía de Entre Ríos</small>
+      </span>
+    </a>
+    <button
+      type="button"
+      class="menu-toggle portal-menu"
+      aria-label="Menú principal"
+      aria-expanded="false"
+      aria-controls="navigation"
+      data-breakpoint="(max-width: 1100px)"
+    >
+      <span class="portal-menu-label">Menú</span>
+      <LineIcon name="menu" />
+    </button>
+    <nav id="navigation" class="portal-navigation" aria-label="Navegación principal">
+      {links.map((link) => (
+        <a
+          href={link.href.startsWith('#') ? home + link.href : link.href}
+          aria-current={
+            (isHome && link.href === '#inicio') ||
+            (!link.href.startsWith('#') && currentPath.startsWith(link.href))
+              ? 'page'
+              : undefined
+          }
+        >
+          <LineIcon name={link.icon} size={23} />
+          <span>{link.label}</span>
+        </a>
+      ))}
+    </nav>
+    <div class="portal-sidebar-note">
+      <span>Desde 1975</span>
+      <p>Entre Ríos, Argentina</p>
+      <a href={home + '#contacto'}>
+        Sede Central · Paraná <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</header>

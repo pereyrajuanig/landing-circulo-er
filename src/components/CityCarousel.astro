@@ -26,6 +26,13 @@ import { heroCities, CITY_ROTATION_MS } from '../lib/hero-cities';
         hidden={index !== 0}
       >
         <SitePhoto kind={city.photo} variant="compact" loading={index === 0 ? 'eager' : 'lazy'} />
+        <span class="heritage-location">
+          <svg viewBox="0 0 20 26" width="17" height="23" fill="none" aria-hidden="true">
+            <path d="M17 9c0 6-7 14-7 14S3 15 3 9a7 7 0 1 1 14 0Z" />
+            <circle cx="10" cy="9" r="2.5" />
+          </svg>
+          {city.name}, Entre Ríos
+        </span>
       </div>
     ))}
   </div>

@@ -69,37 +69,23 @@ test.beforeEach(async ({ page }, testInfo) => {
     .toEqual(['DM Sans', 'Libre Caslon Display']);
 });
 
-test('salto de teclado y CTA llevan al contenido y a contacto', async ({ page }) => {
+test('salto de teclado y CTA llevan al contenido y a los servicios', async ({ page }) => {
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Ir al contenido', exact: true })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('main')).toBeFocused();
-  // Esperar el destino de la primera ancla antes de iniciar otra navegación.
-  await expect
-    .poll(() =>
-      page
-        .getByRole('main')
-        .evaluate((element) =>
-          Math.abs(
-            element.getBoundingClientRect().top -
-              parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop),
-          ),
-        ),
-    )
-    .toBeLessThan(2);
-  await page.keyboard.press('Tab');
-  const cta = page.getByRole('link', { name: 'Hablemos', exact: true });
-  await expect(cta).toBeFocused();
+  const cta = page.getByRole('link', { name: 'Conocé nuestros servicios', exact: true });
+  await cta.focus();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/#contacto$/);
-  await expect(page.locator('#contacto h2')).toBeInViewport();
+  await expect(page).toHaveURL(/#servicios$/);
+  await expect(page.locator('#ps-services-title')).toBeInViewport();
 });
 
 test('menú y navegación llevan a las páginas del sitio y conservan retorno de foco', async ({
   page,
   isMobile,
 }) => {
-  const menu = page.getByRole('button', { name: 'Menú', exact: true });
+  const menu = page.locator('.menu-toggle');
   let navigation = page.getByRole('navigation', {
     name: 'Navegación principal',
     includeHidden: true,
@@ -109,7 +95,7 @@ test('menú y navegación llevan a las páginas del sitio y conservan retorno de
     await menu.press('Enter');
     await expect(menu).toHaveAttribute('aria-expanded', 'true');
     await page.keyboard.press('Tab');
-    await expect(navigation.getByRole('link', { name: 'Beneficios', exact: true })).toBeFocused();
+    await expect(navigation.getByRole('link', { name: 'Inicio', exact: true })).toBeFocused();
     await page.keyboard.press('Escape');
     await expect(menu).toBeFocused();
     await expect(navigation).toBeHidden();
@@ -138,7 +124,7 @@ test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la se
   page,
 }) => {
   const search = page.getByLabel('Encontrá tu localidad', { exact: true });
-  const visible = page.locator('#branch-list li:visible');
+  const visible = page.locator('#branch-list li:visible > a > span:first-child');
   const status = page.locator('#branch-status');
   await search.fill('  COLON  ');
   await expect(visible).toHaveText(['Colón']);
@@ -148,64 +134,60 @@ test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la se
   await search.fill('zzzz');
   await expect(visible).toHaveCount(0);
   await expect(status).toHaveText('No encontramos esa localidad. Consultá con la sede central.');
-  await expect(
-    page.getByRole('link', { name: 'SEDE CENTRAL Paraná Urquiza 669', exact: true }),
-  ).toBeVisible();
+  await expect(page.locator('.ps-central')).toBeVisible();
   await search.fill('');
   await expect(visible).toHaveCount(24);
   await expect(status).toBeEmpty();
 });
 
-test('los alojamientos cambian selección única, contenido y asunto del correo', async ({
+test('alojamientos permiten recorrido manual y cada ficha conserva destino y consulta', async ({
   page,
 }) => {
-  const selector = page.getByRole('group', { name: 'Elegí un alojamiento' });
-  for (const [index, stay] of stays.entries()) {
-    const button = selector.getByRole('button', { name: stay.name, exact: true });
-    await button.press(index % 2 ? 'Space' : 'Enter');
-    await expect(button).toBeFocused();
-    await expect(button).toHaveAttribute('aria-pressed', 'true');
-    await expect(selector.locator('button[aria-pressed="true"]')).toHaveCount(1);
-    await expect(page.locator('#stay-title')).toHaveText(stay.name);
-    await expect(page.locator('#stay-detail-link')).toHaveAttribute(
-      'href',
-      '/alojamientos/' + stay.id + '/',
-    );
-    await expect(page.locator('#stay-copy')).toHaveText(stay.description);
-    await expect(page.locator('[data-stay-photo]:visible')).toHaveCount(1);
-    await expect(page.locator('[data-stay-photo]:visible')).toHaveAttribute(
-      'data-stay-photo',
-      stay.id,
-    );
-    const url = new URL(
-      await page
-        .getByRole('link', { name: 'Consultar alojamiento', exact: true })
-        .getAttribute('href'),
-    );
+  const rail = page.locator('[data-portal-track]');
+  await expect(rail.locator('[data-portal-card]')).toHaveCount(stays.length);
+  const next = page.locator('[data-portal-next]');
+  await next.click();
+  await expect.poll(() => rail.evaluate((e) => e.scrollLeft)).toBeGreaterThan(0);
+  await expect(next).toBeFocused();
+  await rail.focus();
+  await page.keyboard.press('End');
+  await expect(next).toHaveAttribute('aria-disabled', 'true');
+  await page.keyboard.press('Home');
+  await expect(page.locator('[data-portal-prev]')).toHaveAttribute('aria-disabled', 'true');
+  for (const stay of stays) {
+    await page.goto('/alojamientos/' + stay.id + '/');
+    await expect(page.locator('h1')).toHaveText('Alojamiento en ' + stay.name);
+    const url = new URL(await page.locator('.ps-booking a').getAttribute('href'));
     expect(url.protocol).toBe('mailto:');
     expect(url.pathname).toBe(institution.email);
     expect(url.searchParams.get('subject')).toBe('Consulta de alojamiento en ' + stay.name);
     expect([...url.searchParams]).toHaveLength(1);
+    await expect(page.locator('[data-photo-gallery] [data-gallery-open]').first()).toBeVisible();
   }
 });
 
-test('servicios nativos abren con teclado y permiten varias categorías', async ({ page }) => {
-  const health = page.locator('details').nth(0);
-  const paperwork = page.locator('details').nth(1);
-  await expect(health).toHaveAttribute('open', '');
-  await health.locator('summary').press('Enter');
-  await expect(health).not.toHaveAttribute('open', '');
-  await health.locator('summary').press('Space');
-  await expect(health).toHaveAttribute('open', '');
-  await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Consultar atención', exact: true })).toBeFocused();
-  await paperwork.locator('summary').press('Enter');
-  await expect(paperwork).toHaveAttribute('open', '');
-  await expect(health).toHaveAttribute('open', '');
-  await expect(page.getByRole('link', { name: 'Consultar un trámite', exact: true })).toBeVisible();
+test('beneficios ofrecen categorías y sus fichas conservan detalles y consulta', async ({
+  page,
+}) => {
+  const services = load('services.json');
+  await expect(page.locator('.ps-service')).toHaveCount(services.length);
+  for (const service of services) {
+    const card = page
+      .locator('.ps-service')
+      .filter({ has: page.getByRole('heading', { level: 3, name: service.name, exact: true }) });
+    await expect(card.locator('h3 a')).toHaveAttribute('href', '/beneficios/' + service.id + '/');
+  }
+  await page.locator('.ps-service h3 a').first().focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/beneficios\/salud\/$/);
+  await expect(page.locator('h1')).toHaveText('Salud y bienestar');
+  await expect(page.locator('.service-facts-grid article')).toHaveCount(3);
+  await expect(
+    page.getByRole('link', { name: 'Consultar atención', exact: false }),
+  ).toHaveAttribute('href', /^mailto:/);
 });
 
-test('anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos', async ({
+test('anclas, correo, Maps y respuesta 404 conservan destinos válidos', async ({
   page,
   request,
 }) => {
@@ -213,21 +195,13 @@ test('anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos', as
     const href = await link.getAttribute('href');
     await expect(page.locator('[id="' + href.slice(1) + '"]')).toHaveCount(1);
   }
-  await page.getByRole('link', { name: 'Cómo podemos acompañarte', exact: true }).click();
-  await expect(page).toHaveURL(/#servicios$/);
-  await page.getByRole('link', { name: 'Conocé nuestra historia', exact: true }).click();
+  await page.getByRole('link', { name: 'Nuestra institución', exact: true }).click();
   await expect(page).toHaveURL(/#institucion$/);
-  await page.getByRole('link', { name: 'Volver al inicio', exact: true }).click();
-  await expect(page).toHaveURL(/#inicio$/);
-  await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
-  await expect(
-    page.getByRole('link', { name: 'Quiero hacer una consulta', exact: true }),
-  ).toHaveAttribute('href', 'mailto:' + institution.email);
-  await expect(page.getByRole('link', { name: institution.email, exact: true })).toHaveAttribute(
+  await expect(page.locator('#contacto .ps-email')).toHaveAttribute(
     'href',
     'mailto:' + institution.email,
   );
-  const map = page.getByRole('link', { name: 'Ver ubicación', exact: true });
+  const map = page.getByRole('link', { name: 'Cómo llegar', exact: false });
   await expect(map).toHaveAttribute('href', institution.mapUrl);
   await expect(map).toHaveAttribute('target', '_blank');
   await expect(map).toHaveAttribute('rel', /noopener/);
@@ -235,44 +209,49 @@ test('anclas, CTA, correo, Maps y respuesta 404 conservan destinos válidos', as
 });
 
 test('cambios de tamaño y menú bajo mantienen foco utilizable sin desborde', async ({ page }) => {
-  await page.setViewportSize({ width: 1024, height: 768 });
-  const navigation = page.getByRole('navigation', {
-    name: 'Navegación principal',
-    includeHidden: true,
-  });
-  await navigation.getByRole('link', { name: 'Beneficios', exact: true }).focus();
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const nav = page.locator('#navigation');
+  const benefit = nav.getByRole('link', { name: 'Beneficios', exact: true });
+  const menu = page.locator('.menu-toggle');
+  await benefit.focus();
   await page.setViewportSize({ width: 390, height: 844 });
-  const menu = page.getByRole('button', { name: 'Menú', exact: true });
   await expect(menu).toBeFocused();
-  await page.setViewportSize({ width: 1024, height: 768 });
-  await expect(navigation.getByRole('link', { name: 'Beneficios', exact: true })).toBeFocused();
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await expect(nav.getByRole('link', { name: 'Inicio', exact: true })).toBeFocused();
   await page.setViewportSize({ width: 640, height: 360 });
   await menu.press('Enter');
-  for (let step = 0; step < 5; step++) await page.keyboard.press('Tab');
-  const contact = navigation.getByRole('link', { name: 'Contacto', exact: true });
-  await expect(contact).toBeFocused();
+  const contact = nav.getByRole('link', { name: 'Contacto', exact: true });
+  await contact.focus();
   await expect
     .poll(async () => {
-      const rect = await contact.boundingBox();
-      return rect.y >= 0 && rect.y + rect.height <= 360;
+      const r = await contact.boundingBox();
+      return r.y >= 0 && r.y + r.height <= 360;
     })
     .toBe(true);
   await page.keyboard.press('Escape');
   await expect(menu).toBeFocused();
   await page.setViewportSize({ width: 320, height: 800 });
-  const search = page.getByLabel('Encontrá tu localidad', { exact: true });
-  await search.fill('MARIA');
-  await expect(page.locator('#branch-list li:visible')).toHaveText(['María Grande']);
-  await page
-    .getByRole('group', { name: 'Elegí un alojamiento' })
-    .getByRole('button', { name: 'Nogoyá', exact: true })
-    .press('Enter');
-  await expect(page.locator('#stay-title')).toHaveText('Nogoyá');
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
-    ),
-  ).toBe(true);
+  await page.locator('#branch-search').fill('MARIA');
+  await expect(page.locator('#branch-list li:visible > a > span:first-child')).toHaveText([
+    'María Grande',
+  ]);
+  for (const route of [
+    '/',
+    '/beneficios/',
+    '/alojamientos/',
+    '/salones/',
+    '/institucion/',
+    '/novedades/',
+    '/contacto/',
+  ]) {
+    await page.goto(route);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
+      ),
+      route,
+    ).toBe(true);
+  }
 });
 
 test('404 ofrece un regreso por teclado sin desborde', async ({ page }, testInfo) => {
@@ -306,7 +285,7 @@ test('404 ofrece un regreso por teclado sin desborde', async ({ page }, testInfo
   await expect(page.getByRole('link', { name: 'Volver al inicio', exact: true })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Tu historia nos une.');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Al servicio de nuestros');
 });
 
 test('recursos locales y consultas no crean almacenamiento de aplicación', async ({
@@ -314,7 +293,7 @@ test('recursos locales y consultas no crean almacenamiento de aplicación', asyn
   context,
 }) => {
   await page.locator('#branch-search').fill('MARIA');
-  await page.locator('[data-stay]').nth(1).click();
+  await page.locator('[data-portal-next]').click();
   expect(await context.cookies()).toEqual([]);
   const inventory = await page.evaluate(async () => ({
     local: Object.keys(localStorage),
@@ -332,19 +311,20 @@ test('recursos locales y consultas no crean almacenamiento de aplicación', asyn
 test('beneficios estadías y salones tienen acceso directo y consulta específica', async ({
   page,
 }) => {
-  const paths = page.getByRole('navigation', { name: 'Conocé tus beneficios' });
-  await expect(paths.locator('a')).toHaveCount(3);
-  await expect(page.locator('.hero-welcome')).toContainText('una pensión vinculada a ella');
-  await paths.getByRole('link', { name: /Salones para eventos/ }).click();
+  const paths = page.getByRole('navigation', { name: 'Accesos a servicios' });
+  await expect(paths.locator('a')).toHaveCount(4);
+  await expect(page.locator('.ps-audience')).toContainText('una pensión vinculada a ella');
+  await paths.getByRole('link', { name: 'Salones para eventos', exact: true }).click();
   await expect(page).toHaveURL(/\/salones\/$/);
-  await expect(page.locator('#events-title')).toBeInViewport();
-  const href = await page
-    .getByRole('link', { name: 'Consultar por un salón', exact: true })
-    .getAttribute('href');
-  const url = new URL(href);
+  const space = page.locator('#los-laureles');
+  const url = new URL(
+    await space
+      .getByRole('link', { name: 'Consultar disponibilidad', exact: false })
+      .getAttribute('href'),
+  );
   expect(url.protocol).toBe('mailto:');
   expect(url.pathname).toBe(institution.email);
-  expect(url.searchParams.get('subject')).toBe('Consulta sobre salones para eventos');
+  expect(url.searchParams.get('subject')).toBe('Consulta sobre Los Laureles en Paraná');
   await page.goto('/contacto/');
   expect(await page.locator('#contacto').innerText()).not.toContain('cómo formar parte');
 });
@@ -353,39 +333,31 @@ test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar'
   page,
 }) => {
   await page
-    .getByRole('navigation', { name: 'Conocé tus beneficios' })
-    .getByRole('link', { name: /Alojamientos/ })
+    .getByRole('navigation', { name: 'Accesos a servicios' })
+    .getByRole('link', { name: 'Alojamiento y turismo', exact: true })
     .click();
   await expect(page).toHaveURL(/\/alojamientos\/$/);
-  await page.getByRole('link', { name: 'Nogoyá', exact: true }).click();
+  await page
+    .locator('.ps-destination-nav')
+    .getByRole('link', { name: 'Nogoyá', exact: false })
+    .click();
   await expect(page).toHaveURL(/\/alojamientos\/nogoya\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Alojamiento en Nogoyá');
   await page.getByText('¿Puedo reservar desde esta página?', { exact: true }).press('Enter');
   await expect(
-    page.getByText('La web ofrece información y prepara una consulta por correo.', {
-      exact: false,
-    }),
+    page.getByText('La web prepara una consulta por correo.', { exact: false }),
   ).toBeVisible();
-  const url = new URL(
-    await page
-      .getByRole('link', { name: 'Consultar alojamiento', exact: true })
-      .getAttribute('href'),
-  );
+  const url = new URL(await page.locator('.ps-booking a').getAttribute('href'));
   expect(url.searchParams.get('subject')).toBe('Consulta de alojamiento en Nogoyá');
-  const navigation = page.getByRole('navigation', { name: 'Explorar el sitio' });
-  await navigation.getByRole('link', { name: 'Beneficios', exact: true }).click();
   await page
-    .getByRole('heading', { level: 2 })
-    .filter({ hasText: 'Farmacia y beneficios' })
+    .getByRole('navigation', { name: 'Explorar el sitio' })
+    .getByRole('link', { name: 'Beneficios', exact: true })
+    .click();
+  await page
+    .getByRole('heading', { level: 3, name: 'Farmacia y beneficios', exact: true })
     .getByRole('link')
     .click();
   await expect(page).toHaveURL(/\/beneficios\/farmacia\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Farmacia y beneficios');
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
-    ),
-  ).toBe(true);
+  await expect(page.locator('h1')).toHaveText('Farmacia y beneficios');
 });
 
 test('galería institucional permite ampliar cambiar imagen y devolver el foco', async ({
@@ -470,7 +442,7 @@ test('novedades permite consultar memorias del archivo y salones distinguen capa
   await expect(page.locator('#diamante [data-site-photo]')).toHaveCount(0);
 });
 
-test('carrusel avanza automáticamente y sincroniza foto ciudad y grabado', async ({
+test('carrusel avanza automáticamente y mantiene el mensaje con cada ilustración', async ({
   page,
   isMobile,
 }) => {
@@ -478,64 +450,57 @@ test('carrusel avanza automáticamente y sincroniza foto ciudad y grabado', asyn
   await carousel.scrollIntoViewIfNeeded();
   await page.mouse.move(0, 0);
   await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
-  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
-  for (const city of ['federacion', 'federal', 'concordia']) {
+  await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
+  for (const city of ['concordia', 'concepcion-del-uruguay', 'colon', 'diamante']) {
     await page.clock.fastForward(8100);
     await expect(carousel).toHaveAttribute('data-active-city', city);
     await expect(page.locator('[data-city-slide]:visible')).toHaveAttribute(
-      'data-city-slide',
-      city,
-    );
-    await expect(page.locator('[data-city-illustration]:visible')).toHaveAttribute(
       'data-city-illustration',
       city,
     );
+    await expect(page.locator('#hero-title')).toContainText('retirados y pensionados.');
   }
-  await expect(carousel.locator('button')).toHaveCount(1);
-  await expect(
-    carousel.locator('[data-city-prev], [data-city-next], [data-city-select], [data-city-count]'),
-  ).toHaveCount(0);
-  await expect(page.locator('[data-city-rotation]')).toHaveCSS('clip-path', 'inset(50%)');
   if (!isMobile) {
     await carousel.hover();
     await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
     await page.clock.fastForward(16000);
-    await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+    await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
     await page.mouse.move(0, 0);
     await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   }
   await page.locator('#contacto').scrollIntoViewIfNeeded();
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
   await page.clock.fastForward(16000);
-  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
 });
 
-test('carrusel ofrece pausa accesible por teclado sin controles en la composición', async ({
+test('carrusel ofrece pausa de teclado y selección manual con anuncio accesible', async ({
   page,
 }) => {
   const carousel = page.locator('[data-city-carousel]');
   const rotation = page.locator('[data-city-rotation]');
   await carousel.scrollIntoViewIfNeeded();
   await page.mouse.move(0, 0);
-  await expect(rotation).toHaveCSS('clip-path', 'inset(50%)');
   await rotation.focus();
-  await expect(rotation).toBeFocused();
-  await expect(rotation).toHaveText('Iniciar recorrido');
-  await expect(rotation).toHaveCSS('clip-path', 'none');
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
+  await expect(rotation).toHaveText('Iniciar recorrido');
   await page.clock.fastForward(24000);
-  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
   await rotation.press('Enter');
   await page.mouse.move(0, 0);
   await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   await page.clock.fastForward(8100);
-  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
   await rotation.press('Enter');
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
-  await page.getByRole('link', { name: 'Hablemos', exact: true }).focus();
-  await expect(rotation).toHaveCSS('clip-path', 'inset(50%)');
+  const colon = page.locator('[data-city-select="3"]');
+  await colon.focus();
+  await colon.press('Enter');
+  await expect(carousel).toHaveAttribute('data-active-city', 'colon');
+  await expect(colon).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('[data-city-status]')).toContainText('Colón');
   await page.clock.fastForward(16000);
-  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  await expect(carousel).toHaveAttribute('data-active-city', 'colon');
 });
 
 test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript', async ({
@@ -549,14 +514,14 @@ test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript
   await carousel.scrollIntoViewIfNeeded();
   await expect(carousel).toHaveAttribute('data-rotation-state', 'paused');
   await page.clock.fastForward(24000);
-  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
   const rotation = page.locator('[data-city-rotation]');
   await rotation.focus();
   await rotation.press('Enter');
   await page.mouse.move(0, 0);
   await expect(carousel).toHaveAttribute('data-rotation-state', 'playing');
   await page.clock.fastForward(8100);
-  await expect(carousel).toHaveAttribute('data-active-city', 'federacion');
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
   try {
     const fallback = await context.newPage();
@@ -564,17 +529,58 @@ test('carrusel respeta movimiento reducido y ofrece portada útil sin JavaScript
     await expect(fallback.locator('[data-city-slide]:visible')).toHaveCount(1);
     await expect(fallback.locator('[data-city-slide]:visible')).toHaveAttribute(
       'data-city-slide',
-      'concordia',
+      'diamante',
     );
     await expect(fallback.locator('[data-city-rotation]')).toBeHidden();
     await expect(
-      fallback.locator('[data-city-prev], [data-city-next], [data-city-select]'),
-    ).toHaveCount(0);
-    await expect(fallback.getByRole('link', { name: 'Hablemos', exact: true })).toHaveAttribute(
+      fallback.getByRole('link', { name: 'Conocé nuestros servicios', exact: true }),
+    ).toHaveAttribute('href', '#servicios');
+    await expect(fallback.locator('[data-portal-card]')).toHaveCount(8);
+    await fallback.goto('/contacto/');
+    await expect(fallback.locator('form')).toBeHidden();
+    await expect(fallback.locator('noscript a')).toHaveAttribute(
       'href',
-      '#contacto',
+      'mailto:' + institution.email,
     );
   } finally {
     await context.close();
   }
+});
+
+test('contacto valida campos y prepara un borrador sin enviar ni guardar consultas', async ({
+  page,
+  context,
+}) => {
+  await page.goto('/contacto/');
+  const form = page.locator('[data-portal-contact]');
+  await expect(form).toBeVisible();
+  expect(await form.evaluate((e) => e.checkValidity())).toBe(false);
+  await page.getByLabel('Nombre', { exact: true }).fill('Revisión local');
+  await page.getByLabel('Email de contacto', { exact: true }).fill('revision@example.com');
+  await page.getByLabel('Tipo de consulta', { exact: true }).selectOption({ label: 'Alojamiento' });
+  await page.getByLabel('Mensaje', { exact: true }).fill('Consulta de prueba & familia');
+  expect(await form.evaluate((e) => e.checkValidity())).toBe(true);
+  // Browser-local activation: no application handles mailto in this isolated context.
+  const protocols = [];
+  page.on('request', (r) => {
+    if (r.url().startsWith('mailto:')) protocols.push(r.url());
+  });
+  await form.getByRole('button', { name: 'Abrir consulta en mi correo', exact: false }).click();
+  await expect(page.locator('[data-portal-form-status]')).toContainText(
+    'Revisá y enviá el borrador',
+  );
+  await expect(page).toHaveURL(/\/contacto\/$/);
+  expect(await context.cookies()).toEqual([]);
+  expect(await page.evaluate(() => Object.keys(localStorage))).toEqual([]);
+  expect(await page.locator('#consult-message').inputValue()).toBe('Consulta de prueba & familia');
+});
+
+test('la publicación muestra solo el diseño vigente y no conserva la ruta anterior', async ({
+  page,
+  request,
+}) => {
+  await expect(page.getByRole('navigation', { name: 'Comparar diseños' })).toHaveCount(0);
+  await expect(page.locator('a[href="/diseno-anterior/"]')).toHaveCount(0);
+  expect((await request.get('/diseno-anterior/')).status()).toBe(404);
+  await expect(page.locator('h1')).toContainText('Al servicio de nuestros');
 });

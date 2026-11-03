@@ -31,7 +31,7 @@ if (menuButton && navigation) {
   header?.addEventListener('focusout', (event) => {
     if (event.relatedTarget instanceof Node && !header.contains(event.relatedTarget)) closeMenu();
   });
-  const mobileMenu = window.matchMedia('(max-width: 800px)');
+  const mobileMenu = window.matchMedia(menuButton.dataset.breakpoint ?? '(max-width: 800px)');
   navigation.addEventListener('focusout', (event) => {
     if (
       event.relatedTarget === null &&

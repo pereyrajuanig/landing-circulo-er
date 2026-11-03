@@ -4,18 +4,15 @@
 
 Sitio institucional en evolución para el Círculo de Retirados y Pensionados de la Policía de Entre Ríos. Combina historia, servicios y contacto con una experiencia centrada en la cercanía y el acompañamiento.
 
-![Portada de la versión cálida](docs/media/landing-desktop.jpg)
+![Portal institucional aprobado](docs/media/portal-institucional-desktop.jpg)
 
 ## Diseño y alcance
 
-La propuesta se desarrolló con participación del usuario: base institucional y revisión cálida con fondos marfil, escudo íntegro y el mensaje **«Tu historia nos une. Seguimos a tu lado»**. La migración a Astro conserva esa composición.
+Diseño institucional aprobado: Inicio patrimonial, navegación lateral en escritorio, beneficios por categorías, alojamientos con recorrido horizontal manual, salones editoriales, directorio de 24 filiales y noticias del archivo. Las fichas conservan condiciones, fotografías y consultas por correo.
 
-- Servicios desplegables con HTML nativo.
-- Búsqueda de 24 filiales que reconoce mayúsculas y tildes.
-- Selección informativa de ocho destinos de alojamiento.
-- Contacto por correo y ubicación de la sede.
-- Diseño adaptable, menú móvil, foco visible y movimiento reducido.
-- Portada en revisión con fotos automáticas sin controles visibles y grabado como fondo completo; pausa disponible al foco de teclado.
+Fuentes locales Libre Caslon Display y DM Sans, azul marino, marfil y acentos celestes; escudo íntegro. Menú móvil, teclado, foco visible y movimiento reducido. El formulario de contacto prepara un borrador en la aplicación de correo: no guarda ni envía datos desde la web. Sin selector ni página de comparación del diseño anterior.
+
+Detalle del diseño y límites: [portal institucional](docs/portal-institucional.md). Dominio confirmado por el usuario: circulopoliciaer.com.ar (NIC Argentina), configuración pendiente.
 
 [Vista privada histórica en Sites](https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site/) · [Design system](docs/design-system.md) · [Manual en PDF](docs/design-system.pdf)
 
@@ -60,7 +57,7 @@ Para desarrollo local no hacen falta variables, claves ni base de datos. El SEO 
 | Preview del build                                       | npm run preview      |
 | Medición de rendimiento local                           | npm run perf         |
 
-npm test construye y ejecuta catorce pruebas Node y treinta y seis Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
+npm test construye y ejecuta catorce pruebas Node y cuarenta Chromium por cada modo CSP. Para preparar Chromium una vez, usar npm run test:install; en Linux, npx playwright install --with-deps chromium. Cerrar el preview de revisión antes de la suite: Astro admite uno por checkout. Ver [guía de pruebas](docs/testing.md). npm run build valida el contenido y genera dist/, que no se versiona; comprueba idioma, título, anclas, recursos y exclusión de archivos internos. ESLint y Prettier se configuran en eslint.config.mjs y .prettierrc.json. Son dependencias de desarrollo; no agregan código al navegador. Estos controles no equivalen a una auditoría completa de accesibilidad.
 
 ## Estructura
 

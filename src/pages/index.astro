@@ -1,44 +1,41 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
+import PortalHeader from '../components/PortalHeader.astro';
 import Hero from '../components/Hero.astro';
-import Institution from '../components/Institution.astro';
-import Services from '../components/Services.astro';
-import Branches from '../components/Branches.astro';
-import Accommodation from '../components/Accommodation.astro';
-import Events from '../components/Events.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
-import NewsTeaser from '../components/NewsTeaser.astro';
-
-const [entry, services, branches, stays] = await Promise.all([
-  getEntry('institution', 'circulo'),
-  getCollection('services'),
-  getCollection('branches'),
-  getCollection('stays'),
-]);
+import Services from '../components/portal/Services.astro';
+import Stays from '../components/portal/Stays.astro';
+import Spaces from '../components/portal/Spaces.astro';
+import News from '../components/portal/News.astro';
+import Institution from '../components/portal/Institution.astro';
+import Branches from '../components/portal/Branches.astro';
+import Contact from '../components/portal/Contact.astro';
+import Footer from '../components/portal/Footer.astro';
+import '../styles/portal-system.css';
+const entry = await getEntry('institution', 'circulo');
 if (!entry) throw new Error('Falta el contenido institucional del Círculo.');
-const institution = entry.data;
-services.sort((a, b) => a.data.order - b.data.order);
-branches.sort((a, b) => a.data.order - b.data.order);
-stays.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title={institution.title} description={institution.description}>
-  <Header />
-  <main id="contenido" tabindex="-1">
-    <Hero />
-    <Services institution={institution} services={services} />
-    <Accommodation institution={institution} stays={stays} />
-    <Events institution={institution} />
-    <NewsTeaser />
-    <Institution institution={institution} />
-    <Branches institution={institution} branches={branches} />
-    <Contact institution={institution} />
-  </main>
-  <Footer institution={institution} />
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <div class="home-portal">
+    <PortalHeader />
+    <main id="contenido" tabindex="-1">
+      <Hero />
+      <div class="portal-system">
+        <Services />
+        <Stays />
+        <Spaces />
+        <News />
+        <Institution />
+        <Branches />
+        <Contact />
+      </div>
+    </main>
+    <Footer />
+  </div>
+
   <script>
     import '../scripts/landing';
+    import '../scripts/portal';
   </script>
 </BaseLayout>

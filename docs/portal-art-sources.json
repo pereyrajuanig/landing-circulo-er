@@ -1,0 +1,34 @@
+{
+  "receivedFrom": "Usuario",
+  "recordedAt": "2026-11-02",
+  "images": [
+    {
+      "id": "diamante",
+      "asset": "src/assets/cities/diamante-background.png",
+      "source": "Ilustración aportada por el usuario en images_background",
+      "use": "Patrimonio decorativo de la localidad; no representa instalaciones del Círculo",
+      "sha256": "a0507c94d8809ffc9d4210f53153a35c613a5c4f1daa43993ac6611c7084505e"
+    },
+    {
+      "id": "concordia",
+      "asset": "src/assets/cities/concordia-background.png",
+      "source": "Ilustración aportada por el usuario en images_background",
+      "use": "Patrimonio decorativo de la localidad; no representa instalaciones del Círculo",
+      "sha256": "cd9ba1d8d6c7ebc039fda2e35baf8cc8610ef5ecda44bc3696655802d7ac4599"
+    },
+    {
+      "id": "concepcion-del-uruguay",
+      "asset": "src/assets/cities/concepcion-del-uruguay-background.png",
+      "source": "Ilustración aportada por el usuario en images_background",
+      "use": "Patrimonio decorativo de la localidad; no representa instalaciones del Círculo",
+      "sha256": "c6165a2fd03119053de4ff73ddc33964acc35364f9fca14f339379857570d03f"
+    },
+    {
+      "id": "colon",
+      "asset": "src/assets/cities/colon-background.png",
+      "source": "Ilustración aportada por el usuario en images_background",
+      "use": "Patrimonio decorativo de la localidad; no representa instalaciones del Círculo",
+      "sha256": "9bfa7e8659ebcb723af73cff55aed089dfabf2ec5f0a73b5f8cea4119b02722a"
+    }
+  ]
+}

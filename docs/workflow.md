@@ -44,4 +44,4 @@ La configuración efectiva se registra en [project-status.md](project-status.md)
 
 ## GitHub, Vercel y Sites
 
-`origin` es GitHub. `.openai/hosting.json` identifica el Site existente. Un push ejecuta CI, pero no publica en Sites. Vercel es el hosting previsto; la integración Git aún no está conectada. Una vez conectada, main y las ramas pueden disparar producción y previews respectivamente. El flujo de publicación está en [deployment.md](deployment.md).
+`origin` es GitHub. `.openai/hosting.json` identifica el Site existente. Un push ejecuta CI, pero no publica en Sites. Vercel es el hosting previsto; la integración Git está conectada: main dispara producción y las ramas generan previews. El flujo de publicación está en [deployment.md](deployment.md).

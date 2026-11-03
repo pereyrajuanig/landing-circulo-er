@@ -87,16 +87,18 @@ test('Astro conserva todo el texto visible y las anclas de la landing aceptada',
   );
   assert.deepEqual(ids, baseline.ids);
 });
-test('el build incluye las filiales y serializa alojamientos desde la misma fuente', () => {
+test('el build publica todas las filiales y fichas de alojamiento desde las colecciones', () => {
   const { html } = validateSite();
-  const branches = load('../src/content/branches.json');
-  const stays = load('../src/content/stays.json').sort((a, b) => a.order - b.order);
-  const rendered = decode(html.match(/data-stays="([^"]+)"/)[1]);
-  assert.deepEqual(JSON.parse(rendered), stays);
-  for (const branch of branches) assert(html.includes('<li>' + branch.name + '</li>'), branch.name);
-  assert.equal([...html.matchAll(/data-stay="/g)].length, stays.length);
-  assert.match(html, /<details open/);
+  for (const branch of load('../src/content/branches.json'))
+    assert(html.includes('<span>' + branch.name + '</span>'), branch.name);
+  const stays = load('../src/content/stays.json');
+  for (const stay of stays)
+    assert(html.includes('href="/alojamientos/' + stay.id + '/"'), stay.name);
+  assert.equal([...html.matchAll(/data-portal-card/g)].length, stays.length);
+  assert.match(html, /data-portal-track/);
+  assert.match(html, /data-portal-next/);
 });
+
 test('filtra tildes, mayúsculas y espacios y comunica el resultado vacío', () => {
   const branches = load('../src/content/branches.json');
   assert.deepEqual(
@@ -162,28 +164,26 @@ test('la preview del build no expone el repositorio o el dossier local', async (
   }
 });
 
-test('el HTML ofrece destino de salto enfocable, estados y relaciones accesibles válidas', () => {
+test('el HTML ofrece salto enfocable, estados y relaciones accesibles válidas', () => {
   const { html, ids } = validateSite();
   assert.match(html, /<main\b[^>]*id="contenido"[^>]*tabindex="-1"/);
-  assert.match(
-    html,
-    /<p\b[^>]*role="status"[^>]*aria-live="polite"[^>]*aria-atomic="true"[^>]*id="branch-status"/,
-  );
-  for (const [, references] of html.matchAll(
-    /aria-(?:controls|labelledby|describedby)="([^"]+)"/g,
-  )) {
+  const status = html.match(/<p\b[^>]*id="branch-status"[^>]*>/)?.[0];
+  assert(status);
+  assert.match(status, /role="status"/);
+  assert.match(status, /aria-live="polite"/);
+  assert.match(status, /aria-atomic="true"/);
+  for (const [, references] of html.matchAll(/aria-(?:controls|labelledby|describedby)="([^"]+)"/g))
     for (const id of references.split(/\s+/))
       assert(ids.includes(id), 'Referencia ARIA inexistente: ' + id);
-  }
-  const buttons = [...html.matchAll(/<button\b([^>]*)>/g)].map((match) => match[1]);
-  assert.equal(buttons.length, load('../src/content/stays.json').length + 2);
-  assert.equal(buttons.filter((button) => button.includes('data-city-')).length, 1);
+  const buttons = [...html.matchAll(/<button\b([^>]*)>/g)].map((m) => m[1]);
   for (const button of buttons) assert.match(button, /type="button"/);
-  const stays = buttons.filter((button) => button.includes('data-stay='));
-  assert.equal(stays.length, load('../src/content/stays.json').length);
-  assert.equal(stays.filter((button) => button.includes('aria-pressed="true"')).length, 1);
-  for (const button of stays) assert.match(button, /aria-controls="stay-detail"/);
-  assert.match(html, /id="stay-detail"[^>]*aria-live="polite"/);
+  const picks = buttons.filter((b) => b.includes('data-city-select='));
+  assert.equal(picks.length, 4);
+  assert.equal(picks.filter((b) => b.includes('aria-pressed="true"')).length, 1);
+  for (const picker of picks) assert.match(picker, /aria-controls="portal-scene-/);
+  assert.equal(buttons.filter((b) => b.includes('data-city-rotation')).length, 1);
+  assert.match(html, /data-portal-prev/);
+  assert.match(html, /data-portal-next/);
 });
 
 test('SEO requiere dominio aprobado y previews conservan noindex', () => {
@@ -314,7 +314,9 @@ test('el sitio genera las fichas de servicios y destinos y todas sus rutas son n
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1, path);
     assert(!html.includes('href="#inicio"'), 'Enlace de inicio sin destino: ' + path);
     assert.match(html, /aria-label="Ubicación"/, path);
-    assert(html.includes('data-site-photo'), 'Falta fotografía: ' + path);
+    if (path !== '/contacto/')
+      assert(html.includes('data-site-photo'), 'Falta fotografía: ' + path);
+    else assert(html.includes('data-portal-contact'), 'Falta preparación de consultas.');
     assert(!html.includes('generada con IA'), 'Queda un aviso de imagen generada: ' + path);
   }
   const newsroom = await (await fetch(new URL('/novedades/', origin))).text();
@@ -337,6 +339,7 @@ test('las fotografías propias conservan su localidad y las referencias siguen i
   const paths = [
     '/',
     '/beneficios/salud/',
+    '/beneficios/tramites/',
     '/salones/',
     '/institucion/',
     ...load('../src/content/news.json').map((item) => '/novedades/' + item.id + '/'),

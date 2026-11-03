@@ -85,3 +85,7 @@ La prueba de regreso desde 404 espera la carga completa de su fotografía antes 
 Revisión visual vigente: fondo a tamaño completo de sección y control de pausa de 1px recortado en reposo; al foco se revela con área mínima de 44px. Se conserva la procedencia de las fotos en el árbol accesible.
 
 El fixture distingue únicamente imágenes locales con net::ERR_ABORTED, que Chromium puede cancelar al cambiar de candidato responsive o de página. No las descarta: verifica por HTTP estado200 y MIME image. Otros errores de red/JavaScript y violaciones CSP siguen fallando.
+
+## Portal institucional aprobado · 02/11/2026
+
+Sustituye los selectores del diseño anterior: 14 Node y 40 Chromium por modo CSP, más fixture editorial aislada. Se mantienen controles de recursos locales, CSP, SEO, fotos y exclusión de borradores. Se comprueban las fichas y el rail de alojamientos, menú a 1100 px, pausa/selección patrimonial, galerías, validación y borrador de contacto sin almacenamiento. Se exige ausencia del comparador y 404 para /diseno-anterior/. La fixture de texto se actualiza después de la aprobación visual; no se relajan los controles de seguridad. CI determina el resultado del commit final.

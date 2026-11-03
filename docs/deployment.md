@@ -42,3 +42,7 @@ Referencias: [Astro estático en Vercel](https://docs.astro.build/en/guides/depl
 ## Headers y privacidad pendientes de hosting
 
 vercel.json prepara headers y CSP Report-Only. Antes de exigir CSP, revisar preview real y scripts del proveedor; portada, recursos y404 deben servir los headers esperados. Astro preview no aplica server.headers a fallback404; no usarlo como verificación de Vercel. HTTPS/certificado/redirecciones y HSTS dependen del dominio. Revisar cookies/logs del hosting y acuerdo institucional de privacidad. Detalles: [seguridad](security-privacy.md).
+
+## Publicación del portal aprobado · 02/11/2026
+
+El usuario autorizó preparar el PR #14 y publicar la versión aprobada. Main despliega automáticamente en Vercel después de quality; comprobar el commit y el estado del despliegue antes de informarlo como publicado. Se retiraron el comparador y /diseno-anterior/. Dominio confirmado: circulopoliciaer.com.ar en NIC Argentina; DNS, HTTPS y SEO de ese dominio pendientes de configuración. Mantener noindex durante esa transición.

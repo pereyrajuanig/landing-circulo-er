@@ -1,12 +1,7 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
 import SitePage from '../layouts/SitePage.astro';
-import Institution from '../components/Institution.astro';
-import Branches from '../components/Branches.astro';
-import BranchHighlights from '../components/BranchHighlights.astro';
-const entry = await getEntry('institution', 'circulo');
-if (!entry) throw new Error('Falta el contenido institucional.');
-const branches = (await getCollection('branches')).sort((a, b) => a.data.order - b.data.order);
+import Institution from '../components/portal/Institution.astro';
+import Branches from '../components/portal/Branches.astro';
 ---
 
 <SitePage
@@ -14,7 +9,6 @@ const branches = (await getCollection('branches')).sort((a, b) => a.data.order -
   eyebrow="Nuestra institución"
   description="Desde 1975, un espacio de representación, orientación y encuentro para la comunidad policial entrerriana."
 >
-  <Institution institution={entry.data} />
-  <Branches institution={entry.data} branches={branches} />
-  <BranchHighlights branches={branches} />
+  <Institution full />
+  <Branches full />
 </SitePage>

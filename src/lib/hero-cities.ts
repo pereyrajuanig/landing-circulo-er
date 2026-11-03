@@ -1,15 +1,20 @@
-import concordiaArt from '../assets/cities/concordia.png';
-import federacionArt from '../assets/cities/federacion.png';
-import federalArt from '../assets/cities/federal.png';
+import concordiaArt from '../assets/cities/concordia-background.png';
+import diamanteArt from '../assets/cities/diamante-background.png';
+import concepcionArt from '../assets/cities/concepcion-del-uruguay-background.png';
 
 export const heroCities = [
   { id: 'concordia', name: 'Concordia', photo: 'concordia-encuentro-social-11', art: concordiaArt },
   {
-    id: 'federacion',
-    name: 'Federación',
-    photo: 'federacion-salud-lentes-talleres-14',
-    art: federacionArt,
+    id: 'diamante',
+    name: 'Diamante',
+    photo: 'diamante-rehabilitacion-obras-18',
+    art: diamanteArt,
   },
-  { id: 'federal', name: 'Federal', photo: 'federal-actividades-16', art: federalArt },
+  {
+    id: 'concepcion-del-uruguay',
+    name: 'Concepción del Uruguay',
+    photo: 'concepcion-del-uruguay-alojamiento-09',
+    art: concepcionArt,
+  },
 ];
 export const CITY_ROTATION_MS = 8000;
