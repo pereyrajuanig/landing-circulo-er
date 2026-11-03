@@ -18,7 +18,9 @@ const favicon = await getImage({ src: crest, width: 64, format: 'png' });
 const indexable = deployment.indexable && !noindex;
 const canonical =
   indexable && Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
-const socialImage = Astro.site ? new URL('/assets/social-card.png', Astro.site).href : undefined;
+const socialImage = Astro.site
+  ? new URL('/assets/social-card.png?v=portal-20261103', Astro.site).href
+  : undefined;
 ---
 
 <!doctype html>
@@ -64,12 +66,12 @@ const socialImage = Astro.site ? new URL('/assets/social-card.png', Astro.site).
         <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
-          content="Escudo del Círculo y mensaje: Tu historia nos une. Seguimos a tu lado."
+          content="Escudo del Círculo, grabado de Diamante y mensaje: Al servicio de nuestros retirados y pensionados."
         />
         <meta name="twitter:image" content={socialImage} />
         <meta
           name="twitter:image:alt"
-          content="Escudo del Círculo y mensaje: Tu historia nos une. Seguimos a tu lado."
+          content="Escudo del Círculo, grabado de Diamante y mensaje: Al servicio de nuestros retirados y pensionados."
         />
       </>
     )}
