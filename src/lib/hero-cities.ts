@@ -17,4 +17,4 @@ export const heroCities = [
     art: concepcionArt,
   },
 ];
-export const CITY_ROTATION_MS = 8000;
+export const CITY_ROTATION_MS = 3000;

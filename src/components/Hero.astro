@@ -76,40 +76,11 @@ const features = [
         </span>
       </div>
     ))}
-    <div class="portal-scene-arrows" data-city-controls hidden>
-      <button type="button" data-city-prev aria-label="Ilustración anterior">
-        <LineIcon name="previous" size={22} />
-      </button>
-      <button type="button" data-city-next aria-label="Ilustración siguiente">
-        <LineIcon name="next" size={22} />
-      </button>
-    </div>
     <div class="portal-scene-pager">
-      <div class="portal-scene-dots" data-city-picker hidden>
-        {localities.map((city, index) => (
-          <button
-            type="button"
-            class="portal-scene-dot"
-            data-city-select={index}
-            aria-label={'Mostrar ' + city.name}
-            aria-controls={'portal-scene-' + city.id}
-            aria-pressed={index === 0}
-          >
-            <span></span>
-          </button>
-        ))}
-      </div>
       <button type="button" class="portal-scene-pause" data-city-rotation hidden>
         Pausar recorrido
       </button>
     </div>
-    <span
-      class="portal-visually-hidden"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-      data-city-status
-    ></span>
   </div>
 
   <nav class="portal-feature-bar" aria-label="Accesos a servicios">
@@ -120,58 +91,6 @@ const features = [
       </a>
     ))}
   </nav>
-
-  <div class="portal-localities">
-    <div class="portal-localities-heading">
-      <p class="portal-eyebrow">Nuestra presencia</p>
-      <h2>
-        Filiales en
-        <br /> <em>Entre Ríos</em>
-      </h2>
-      <a href="#filiales">
-        Ver todas las filiales <LineIcon name="arrow" size={18} />
-      </a>
-    </div>
-    <div class="portal-localities-viewport">
-      <div
-        class="portal-localities-track"
-        tabindex="0"
-        role="region"
-        aria-label="Localidades con presencia institucional"
-        data-localities-track
-      >
-        {localities.map((city) => (
-          <a class="portal-locality" href="#filiales">
-            <Image
-              src={city.art}
-              alt={'Ilustración patrimonial de ' + city.name}
-              format="webp"
-              quality={78}
-              width={480}
-              widths={[320, 480, 640]}
-              sizes="(max-width: 600px) 75vw, (min-width: 1500px) 280px, 230px"
-              loading="eager"
-            />
-            <span>
-              <LineIcon name="pin" size={18} />
-              <span>
-                {city.name}
-                <small>Patrimonio local</small>
-              </span>
-            </span>
-          </a>
-        ))}
-      </div>
-      <button
-        type="button"
-        class="portal-localities-next"
-        aria-label="Ver otras localidades"
-        data-localities-next
-      >
-        <LineIcon name="next" size={22} />
-      </button>
-    </div>
-  </div>
 </section>
 <script>
   import '../scripts/city-carousel';

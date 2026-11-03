@@ -6,8 +6,10 @@ import { stayPhotoKeys } from '../../lib/photos';
 interface Props {
   stay: CollectionEntry<'stays'>;
   catalog?: boolean;
+  inquiry: string;
 }
-const { stay, catalog = false } = Astro.props;
+const { stay, catalog = false, inquiry } = Astro.props;
+const href = '/alojamientos/' + stay.id + '/';
 const description = catalog ? stay.data.description : stay.data.description.split(/(?<=\.)\s/)[0];
 ---
 
@@ -15,32 +17,45 @@ const description = catalog ? stay.data.description : stay.data.description.spli
   <SitePhoto
     kind={stayPhotoKeys[stay.id]}
     variant="card"
+    href={href}
+    linkLabel={'Ver fotos y detalles del alojamiento en ' + stay.data.name}
     sizes={
       catalog
-        ? '(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 35vw'
-        : '(max-width: 700px) 83vw, (max-width: 1100px) 41vw, 30vw'
+        ? '(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 40vw'
+        : '(max-width: 700px) 83vw, (max-width: 1100px) 60vw, 48vw'
     }
   />
   <div class="ps-stay-copy">
-    <p class="ps-kicker">
-      <LineIcon name="pin" size={17} />
-      Entre Ríos
-    </p>
+    <p class="ps-kicker">Alojamiento en Entre Ríos</p>
     <h3>
-      <a href={'/alojamientos/' + stay.id + '/'}>{stay.data.name}</a>
+      <a href={href}>{stay.data.name}</a>
     </h3>
     <p>{description}</p>
-    <p class="ps-stay-meta">
-      <LineIcon name="bed" size={21} /> Estadía con consulta previa
-    </p>
-    {catalog && stay.data.location && (
-      <p class="ps-location">
-        <LineIcon name="pin" size={18} />
-        {stay.data.location}
-      </p>
+    <dl class="ps-stay-card-location">
+      <div>
+        <dt>
+          <LineIcon name="pin" size={18} /> Ubicación
+        </dt>
+        <dd>{stay.data.location ?? 'Consultá la ubicación de ingreso con la institución.'}</dd>
+      </div>
+    </dl>
+    {catalog && (
+      <details class="ps-stay-card-details">
+        <summary>Características y condiciones</summary>
+        <ul>
+          {stay.data.details.map((detail) => (
+            <li>{detail}</li>
+          ))}
+        </ul>
+      </details>
     )}
-    <a class="ps-button ps-button-outline" href={'/alojamientos/' + stay.id + '/'}>
-      Ver alojamiento <LineIcon name="arrow" size={20} />
-    </a>
+    <div class="ps-stay-actions">
+      <a class="ps-button ps-button-outline" href={href}>
+        Ver fotos y detalles <LineIcon name="arrow" size={20} />
+      </a>
+      <a class="ps-link" href={inquiry}>
+        Consultar disponibilidad <LineIcon name="mail" size={18} />
+      </a>
+    </div>
   </div>
 </article>
