@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import SitePhoto from '../SitePhoto.astro';
 import LineIcon from '../LineIcon.astro';
-import { stayPhotoKeys } from '../../lib/photos';
+import { photos, stayGalleryKeys, stayPhotoKeys } from '../../lib/photos';
 interface Props {
   stay: CollectionEntry<'stays'>;
   catalog?: boolean;
@@ -10,21 +10,41 @@ interface Props {
 }
 const { stay, catalog = false, inquiry } = Astro.props;
 const href = '/alojamientos/' + stay.id + '/';
+const extraPhotos = catalog
+  ? []
+  : stayGalleryKeys[stay.id].slice(1, 3).filter((key) => photos[key].kind === 'institutional');
 const description = catalog ? stay.data.description : stay.data.description.split(/(?<=\.)\s/)[0];
 ---
 
 <article class="ps-stay-card" data-portal-card>
-  <SitePhoto
-    kind={stayPhotoKeys[stay.id]}
-    variant="card"
-    href={href}
-    linkLabel={'Ver fotos y detalles del alojamiento en ' + stay.data.name}
-    sizes={
-      catalog
-        ? '(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 40vw'
-        : '(max-width: 700px) 83vw, (max-width: 1100px) 60vw, 48vw'
-    }
-  />
+  <div class:list={['ps-stay-photos', { 'ps-stay-photos-multiple': extraPhotos.length > 0 }]}>
+    <SitePhoto
+      kind={stayPhotoKeys[stay.id]}
+      variant="card"
+      href={href}
+      linkLabel={'Ver fotos y detalles del alojamiento en ' + stay.data.name}
+      sizes={
+        catalog
+          ? '(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 40vw'
+          : '(max-width: 700px) 83vw, (max-width: 1100px) 60vw, 48vw'
+      }
+    />
+    {extraPhotos.length > 0 && (
+      <div class="ps-stay-photo-previews">
+        {extraPhotos.map((key) => (
+          <SitePhoto
+            kind={key}
+            variant="card"
+            href={href}
+            linkLabel={'Ver galería del alojamiento: ' + photos[key].title}
+            sizes="(max-width: 700px) 44vw, 22vw"
+            maxWidth={480}
+            showCaption={false}
+          />
+        ))}
+      </div>
+    )}
+  </div>
   <div class="ps-stay-copy">
     <p class="ps-kicker">Alojamiento en Entre Ríos</p>
     <h3>
