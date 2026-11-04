@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-04",
   "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
@@ -442,13 +442,13 @@
       "status": "in_progress",
       "date": "2026-11-03",
       "responsible": "Desarrollo / usuario / institución",
-      "evidence": "Studio desplegado,4 reseñas y9 fotos migradas; borrador privado comprobado. Astro con Sanity verificado; merge, webhook, permisos institucionales y prueba pública pendientes. Ver docs/editorial-panel.md."
+      "evidence": "Studio y Vercel activos. El 4/11/2026 se confirmó Free y la cuenta administradora actual como responsable única. Respaldo verificado: 4 publicaciones y 9 imágenes. Pendientes recuperación de acceso y paso efectivo a Free. Ver docs/editorial-panel.md."
     },
     "12.06": {
       "status": "in_progress",
       "date": "2026-11-03",
       "responsible": "Desarrollo / usuario / institución",
-      "evidence": "Studio desplegado,4 reseñas y9 fotos migradas; borrador privado comprobado. Astro con Sanity verificado; merge, webhook, permisos institucionales y prueba pública pendientes. Ver docs/editorial-panel.md."
+      "evidence": "Borrador privado y republicación verificados: HTTP 201, despliegue Ready, 4 fichas públicas. Retiro en producción pendiente. https://vercel.com/juan-ignacio-pereyra/landing-circulo-er/2Q7nfkuZMCQP3AsU2GpFErjimpbL"
     },
     "12.07": {
       "status": "pending",
@@ -472,13 +472,13 @@
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
     "trace_id": "Panel editorial Sanity",
-    "trace_status": "Parcial: panel disponible; web pendiente",
+    "trace_status": "Activo en producción; prueba de retiro pendiente",
     "trace_owner": "Desarrollo / usuario / institución",
     "trace_date": "03/11/2026",
-    "trace_commit": "PR #17 / codex/panel-editorial",
-    "trace_method": "Tipos, lint y build Astro/Studio.\n22 Node;40 Chromium por modo CSP.\nCMS real en1280/390px; borrador privado.",
-    "trace_result": "Panel en circulo-policia-er.sanity.studio\n4 reseñas y9 fotos conservadas.\nGuía: docs/editorial-panel.md.",
-    "trace_limits": "Merge, webhook y fuente Vercel pendientes.\nPermisos/plan institucional, backup y capacitación.\nFacebook, lector y privacidad pendientes.",
+    "trace_commit": "PR #17 / main a97957f",
+    "trace_method": "Republicación de Concordia sin cambiar el texto.\nWebhook HTTP 201; build de Vercel listo.\nCuatro fichas, fotos, sitemap y robots verificados.",
+    "trace_result": "Vercel: 2Q7nfkuZMCQP3AsU2GpFErjimpbL\nProducción a las 23:34 (Argentina).\nEvidencia: docs/editorial-panel.md.",
+    "trace_limits": "Retiro de una noticia pendiente de ensayo.\nRecuperación de acceso, paso a Free y capacitación.\nFacebook, restauración, lector y privacidad pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -549,11 +549,13 @@
       "summary": "Portal aprobado y PR/publicación autorizados. Inicio con4 ilustraciones y secciones editoriales; comparación eliminada. Quality y despliegue se comprueban en el commit final."
     },
     "editorial_panel": {
-      "status": "studio_deployed_pending_website_activation",
+      "status": "production_verified",
       "branch": "codex/panel-editorial",
       "studioUrl": "https://circulo-policia-er.sanity.studio/",
-      "summary": "Panel en español con borradores;4 reseñas y9 fotos migradas. Lectura Astro verificada. Producción conserva JSON; webhook y merge pendientes.",
-      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/17"
+      "summary": "Panel en español y publicación automática verificada en producción con una reseña existente. Free elegido y cuenta administradora actual confirmada. Respaldo de 4 publicaciones y 9 imágenes verificado. Retiro, restauración y Facebook pendientes.",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/17",
+      "mergeCommit": "a97957f9eb9af6145afb0d99d81b8a7518fc031a",
+      "productionDeployment": "https://vercel.com/juan-ignacio-pereyra/landing-circulo-er/2Q7nfkuZMCQP3AsU2GpFErjimpbL"
     }
   }
 }

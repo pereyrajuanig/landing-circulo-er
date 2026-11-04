@@ -6,9 +6,9 @@ Sitio institucional en evolución para el Círculo de Retirados y Pensionados de
 
 ![Portal institucional aprobado](docs/media/portal-institucional-desktop.jpg)
 
-## Panel editorial · 3/11/2026
+## Panel editorial · 4/11/2026
 
-Panel: https://circulo-policia-er.sanity.studio/. Noticias y logros con fotos, borradores y campos en español. Cuatro reseñas actuales migradas. El código de integración está en revisión; activar la fuente Sanity y el webhook de Vercel sigue pendiente. [Guía de uso, instalación y operación](docs/editorial-panel.md).
+Panel: https://circulo-policia-er.sanity.studio/. Noticias y logros con fotos, borradores y campos en español. Cuatro reseñas actuales migradas. La publicación automática en Vercel está activa: al publicar desde el panel, el sitio se actualiza tras el despliegue. [Guía de uso, instalación y operación](docs/editorial-panel.md).
 
 El sitio público está en https://www.circulopoliciaer.com.ar/. Los apartados históricos de este README registran etapas anteriores; el estado de esta integración está en la guía del panel.
 
@@ -22,7 +22,7 @@ Detalle del diseño y límites: [portal institucional](docs/portal-institucional
 
 [Vista privada histórica en Sites](https://circulo-policial-entre-rios.spunkydegu8.chatgpt.site/) · [Design system](docs/design-system.md) · [Manual en PDF](docs/design-system.pdf)
 
-La vista histórica requiere una cuenta con acceso en ChatGPT. [Versión para revisión en Vercel](https://landing-circulo-er.vercel.app/): publicada el 13/10/2026, accesible sin cuenta y con noindex; contenido, secciones y dominio pendientes. Ver [registro del despliegue](docs/vercel-preview.md). No hay área de socios, turnos ni reservas en línea. El panel editorial separado está disponible; su conexión automática con la web pública está pendiente.
+La vista histórica requiere una cuenta con acceso en ChatGPT. [Versión para revisión en Vercel](https://landing-circulo-er.vercel.app/): publicada el 13/10/2026, accesible sin cuenta y con noindex; contenido, secciones y dominio pendientes. Ver [registro del despliegue](docs/vercel-preview.md). No hay área de socios, turnos ni reservas en línea. El panel editorial separado está disponible y conectado con la web pública.
 
 ## Stack
 

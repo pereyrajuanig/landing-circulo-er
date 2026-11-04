@@ -31,7 +31,7 @@ SHA = '648e72f7daca19a45c00ae5fc82427d385cce449'
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Design system y documentación del sitio | Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
 c.setAuthor('Círculo de Retirados y Pensionados de la Policía de Entre Ríos')
-c.setSubject('Versión 1.19. Identidad, componentes, contenido, implementación y mantenimiento. 3 de noviembre de 2026.')
+c.setSubject('Versión 1.20. Identidad, componentes, contenido, implementación y mantenimiento. 4 de noviembre de 2026.')
 PAGE = 0
 BOUNDS = []
 
@@ -87,7 +87,7 @@ def begin(k,title,subtitle):
     rect(0,0,W,H,PAPER)
     c.bookmarkPage(k); c.addOutlineEntry(title.replace('<br/>',' '),k,0,False)
     text('CÍRCULO / SISTEMA DE DISEÑO',M,29,7,'DM',MUTED)
-    right('VERSIÓN 1.19 · 03 NOV 2026',W-M,29,7,'DM',MUTED)
+    right('VERSIÓN 1.20 · 04 NOV 2026',W-M,29,7,'DM',MUTED)
     line(M,47,W-M,47,LINE,.6)
     label(k.upper().replace('_',' / '),M,65)
     end=para(title,M,87,CW,32,35,INK,'Caslon')
@@ -113,7 +113,7 @@ para('Documentación del<br/>sitio institucional',M,510,CW,39,43,PAPER,'Caslon',
 para('Una historia de servicio.<br/>Una comunidad que sigue acompañando.',M,628,380,13,20,'#c7d1d9',check=False)
 line(M,728,W-M,728,'#365166',.7)
 text('CALIDEZ / ASTRO / PORTFOLIO',M,751,8,'DM',GOLD)
-text('Versión 1.19',M,770,10,'DM',PAPER)
+text('Versión 1.20',M,770,10,'DM',PAPER)
 right('29 de octubre de 2026',W-M,770,10,'DM',PAPER)
 
 # 02. Scope and contents
@@ -506,13 +506,13 @@ y=block('Contacto y límites','Sede central, filiales y email real. El formulari
 note('PENDIENTES EXTERNOS','Dominio circulopoliciaer.com.ar confirmado en NIC Argentina: DNS, HTTPS y SEO por configurar. CMS, Facebook, lector real, privacidad y condiciones variables no se certifican con la aceptación visual. Mantener noindex durante la transición.',y)
 
 # 30 / Panel editorial: estado vigente frente a los antecedentes.
-y=begin('panel_editorial_30','Panel para noticias y logros','3/11/2026. Actualización operativa. El panel está desplegado; la conexión automática con la web pública permanece pendiente de aprobación y configuración.')
-y=block('Acceso y contenido','https://circulo-policia-er.sanity.studio/. Inicio de sesión con GitHub autorizado por el usuario. Cuatro reseñas del archivo y nueve fotografías migradas, conservando direcciones, fechas y aclaraciones. La institución todavía debe definir titular y editores.',y)
+y=begin('panel_editorial_30','Panel para noticias y logros','4/11/2026. La web lee las noticias y logros del panel. La actualización automática fue verificada en producción el 3 de noviembre.')
+y=block('Acceso y contenido','https://circulo-policia-er.sanity.studio/. Inicio de sesión con GitHub autorizado por el usuario. Cuatro reseñas del archivo y nueve fotografías migradas, conservando direcciones, fechas y aclaraciones. Se eligió Free con la cuenta administradora actual como única responsable de publicar.',y)
 y=block('Interfaz de edición','Tres grupos en español: Contenido, Fotografías y Publicación. Título, noticia/logro, resumen, texto por párrafos, foto principal, galería, fecha y aclaraciones. No hay formato enriquecido ni publicación programada. Conservar el slug después de compartirlo.',y)
 y=block('Borradores y privacidad','Sanity guarda borradores nativos, excluidos de la consulta anónima. El dataset publicado es público: no cargar información interna ni datos personales sensibles. El sitio escapa texto y valida URLs. Las fotos se optimizan a WebP en el build, sin agregar React al sitio público.',y)
-y=block('Estado de la integración','Lectura de Astro comprobada con las cuatro publicaciones reales. En producción sigue activo el JSON local. Faltan merge autorizado, NEWS_SOURCE=sanity y webhook Sanity hacia Vercel; Publicar todavía no actualiza la web automáticamente. Facebook sigue sin conectar.',y)
-y=block('Verificación y mantenimiento','Tipos y build del Studio; sitio con22 pruebas Node y40 Chromium por modo CSP. Consulta real de borrador privado y fichas en1280/390px. Sin alertas altas/críticas en auditoría de Studio;13 moderadas transitivas. Plan definitivo, permisos, respaldo/restauración y capacitación pendientes.',y)
-note('GUÍA VIGENTE','docs/editorial-panel.md describe operación, variables, recuperación y conexión pendiente. El dominio www.circulopoliciaer.com.ar y SEO ya están activos; los estados de dominio/CMS de páginas anteriores son antecedentes. Las condiciones institucionales, lector real y privacidad no se certifican con esta integración.',y)
+y=block('Estado de la integración','PR #17 fusionado. Publicar en el panel dispara un despliegue de Vercel; el contenido aparece tras el build. Los borradores no lo activan. La prueba con una reseña existente conservó su texto, URL y fotos. Facebook sigue sin conectar.',y)
+y=block('Verificación y mantenimiento','Sanity registró HTTP 201. Vercel completó el despliegue y se comprobaron las cuatro fichas públicas. Se verificó el respaldo de las cuatro publicaciones y nueve imágenes. Quedan el ensayo de retiro, la recuperación de acceso, la restauración y la capacitación.',y)
+note('GUÍA VIGENTE','docs/editorial-panel.md describe operación, variables, recuperación y evidencia de la conexión. El dominio www.circulopoliciaer.com.ar y SEO ya están activos; los estados de dominio/CMS de páginas anteriores son antecedentes. Las condiciones institucionales, lector real y privacidad no se certifican con esta integración.',y)
 
 bad=[b for b in BOUNDS if b[2]>780]
 if bad:
