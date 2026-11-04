@@ -442,7 +442,7 @@
       "status": "in_progress",
       "date": "2026-11-03",
       "responsible": "Desarrollo / usuario / institución",
-      "evidence": "Studio y Vercel activos; PR #17 integrado. Pendientes plan y permisos institucionales. Ver docs/editorial-panel.md."
+      "evidence": "Studio y Vercel activos. El 4/11/2026 se confirmó Free y la cuenta administradora actual como responsable única. Respaldo verificado: 4 publicaciones y 9 imágenes. Pendientes recuperación de acceso y paso efectivo a Free. Ver docs/editorial-panel.md."
     },
     "12.06": {
       "status": "in_progress",
@@ -478,7 +478,7 @@
     "trace_commit": "PR #17 / main a97957f",
     "trace_method": "Republicación de Concordia sin cambiar el texto.\nWebhook HTTP 201; build de Vercel listo.\nCuatro fichas, fotos, sitemap y robots verificados.",
     "trace_result": "Vercel: 2Q7nfkuZMCQP3AsU2GpFErjimpbL\nProducción a las 23:34 (Argentina).\nEvidencia: docs/editorial-panel.md.",
-    "trace_limits": "Retiro de una noticia pendiente de ensayo.\nPermisos institucionales, plan y capacitación.\nFacebook, restauración, lector y privacidad pendientes.",
+    "trace_limits": "Retiro de una noticia pendiente de ensayo.\nRecuperación de acceso, paso a Free y capacitación.\nFacebook, restauración, lector y privacidad pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -552,7 +552,7 @@
       "status": "production_verified",
       "branch": "codex/panel-editorial",
       "studioUrl": "https://circulo-policia-er.sanity.studio/",
-      "summary": "Panel en español y publicación automática verificada en producción con una reseña existente. Retiro, roles, plan, restauración y Facebook pendientes.",
+      "summary": "Panel en español y publicación automática verificada en producción con una reseña existente. Free elegido y cuenta administradora actual confirmada. Respaldo de 4 publicaciones y 9 imágenes verificado. Retiro, restauración y Facebook pendientes.",
       "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/17",
       "mergeCommit": "a97957f9eb9af6145afb0d99d81b8a7518fc031a",
       "productionDeployment": "https://vercel.com/juan-ignacio-pereyra/landing-circulo-er/2Q7nfkuZMCQP3AsU2GpFErjimpbL"

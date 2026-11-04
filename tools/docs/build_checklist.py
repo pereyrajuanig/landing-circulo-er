@@ -503,7 +503,7 @@ new_tasks = [
  ('12.02', 'Completar beneficios', 'Recibir alcance, requisitos y condiciones de cada servicio con aprobación institucional.'),
  ('12.03', 'Completar alojamientos', 'Incorporar fotos reales, ubicación, equipamiento y condiciones verificadas de los ocho destinos.'),
  ('12.04', 'Completar salones', 'Confirmar espacios, capacidad, equipamiento y condiciones antes de publicarlos.'),
- ('12.05', 'Activar panel editorial', 'Studio y Vercel conectados. Confirmar el plan y los permisos de los editores institucionales.'),
+ ('12.05', 'Activar panel editorial', 'Studio y Vercel conectados. Free elegido y cuenta administradora actual confirmada. Verificar paso a Free y recuperación de acceso.'),
  ('12.06', 'Probar publicación desde el panel', 'Borrador y publicación comprobados. Ensayar retiro y republicación con contenido aprobado.'),
  ('12.07', 'Verificar acceso a Facebook', 'Recibir enlace y acceso administrativo; comprobar API, permisos y método viable.'),
  ('12.08', 'Probar Facebook hacia el sitio', 'Publicar, editar y retirar una entrada real; evitar duplicados y ensayar fallo de conexión.'),
@@ -511,7 +511,7 @@ new_tasks = [
 ]
 for code, title, detail in new_tasks:
     y = task(code, title, detail, y)
-box('Estado del lote', 'Producción lee Sanity. Una republicación disparó un despliegue listo y se comprobaron las cuatro fichas. Quedan permisos, capacitación y ensayo de retiro. Facebook pendiente. Ver docs/editorial-panel.md.', y+4)
+box('Estado del lote', 'Producción lee Sanity. Una republicación disparó un despliegue listo y se comprobaron las cuatro fichas. Respaldo de cuatro publicaciones y nueve imágenes comprobado. Quedan restauración, capacitación y ensayo de retiro. Ver docs/editorial-panel.md.', y+4)
 
 bad = [entry for entry in BOUNDS if entry[2] > 781]
 if bad:

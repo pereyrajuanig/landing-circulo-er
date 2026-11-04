@@ -18,8 +18,10 @@ Operación, arquitectura, instalación, variables, verificaciones y recuperació
 - [x] Conectar webhook y verificar que publicar una reseña existente actualice la web.
 - [ ] Ensayar el retiro y la republicación en producción con contenido aprobado.
 - [x] Elegir Free y centralizar la publicación en una persona responsable.
-- [ ] Confirmar titularidad, acceso de la persona responsable y paso efectivo a Free.
-- [ ] Ensayar exportación/restauración y acordar retención.
+- [x] Confirmar la cuenta administradora actual como única responsable de publicar.
+- [ ] Acordar recuperación de acceso y verificar el paso efectivo a Free.
+- [x] Exportar y verificar las cuatro publicaciones y sus nueve imágenes.
+- [ ] Ensayar restauración en un entorno aislado y acordar retención.
 - [ ] Capacitar con contenido aprobado.
 - [ ] Evaluar beneficios, alojamientos y espacios editables en una etapa posterior; siguen en JSON.
 - [ ] Activar Facebook cuando exista la página y se verifiquen permisos de Meta.
