@@ -17,7 +17,8 @@ Operación, arquitectura, instalación, variables, verificaciones y recuperació
 - [x] Integrar PR autorizado y activar fuente Sanity en Vercel.
 - [x] Conectar webhook y verificar que publicar una reseña existente actualice la web.
 - [ ] Ensayar el retiro y la republicación en producción con contenido aprobado.
-- [ ] Confirmar titularidad institucional, plan y permisos de quienes editarán.
+- [x] Elegir Free y centralizar la publicación en una persona responsable.
+- [ ] Confirmar titularidad, acceso de la persona responsable y paso efectivo a Free.
 - [ ] Ensayar exportación/restauración y acordar retención.
 - [ ] Capacitar con contenido aprobado.
 - [ ] Evaluar beneficios, alojamientos y espacios editables en una etapa posterior; siguen en JSON.

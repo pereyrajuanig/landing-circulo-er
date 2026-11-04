@@ -15,10 +15,16 @@ Actualizado: 4/11/2026. [PR #17](https://github.com/pereyrajuanig/landing-circul
 ## Qué sigue pendiente
 
 - Ensayar el retiro y la republicación de una noticia cuando la institución autorice una prueba con contenido aprobado. La publicación controlada y la recuperación ante fallo de API se verificaron sin retirar una ficha pública.
-- Designar titular institucional, usuarios y recuperación de acceso. Por ahora solo está la cuenta del usuario, con permisos de propietario/administrador.
-- Confirmar plan definitivo tras la prueba de 30 días creada por Sanity. No se ingresaron pagos ni se autorizó una suscripción. No prometer permisos de editor restringidos sin revisar el plan; los roles disponibles varían.
+- Designar a la persona responsable de publicar y acordar la recuperación de acceso con la institución. Por ahora el panel está a cargo de la cuenta administradora actual.
+- Verificar el paso efectivo al plan Free cuando termine la prueba gratuita.
 - Exportación y restauración ensayada y capacitación. Manual y checklist PDF actualizados con este estado parcial.
 - Facebook → sitio: no conectado, falta página institucional y permisos. El campo de enlace NO sincroniza publicaciones.
+
+## Acceso editorial acordado
+
+El 4/11/2026 se eligió el plan Free con una sola persona responsable de publicar. Esa persona usará su propia cuenta con rol Administrator. Si el equipo necesita consultar el panel, el rol Viewer da acceso de lectura. El personal puede preparar textos y fotos por el canal interno que el Círculo defina. [Roles de Sanity](https://www.sanity.io/docs/content-lake/roles).
+
+Sanity pasa el proyecto a Free al finalizar la prueba gratuita. Queda por identificar a la persona responsable y validar su acceso si el Círculo designa a alguien distinto de quien administra el panel hoy. [Fin del período de prueba](https://www.sanity.io/docs/platform-management/growth-plan-trial).
 
 ## Uso para personal institucional
 
