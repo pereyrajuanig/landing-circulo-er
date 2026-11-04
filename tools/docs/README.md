@@ -61,3 +61,5 @@ Manual vigente1.17:28 páginas, página28 revisada con fotos sin controles visib
 Manual vigente 1.18: 29 páginas; página 29 documenta el portal aprobado y sustituye las decisiones visuales anteriores. Checklist 1.16: 23 páginas y 145 campos; registro del lote actualizado sin certificar pendientes externos. Ver docs/portal-institucional.md.
 
 Manual1.19:30 páginas, con estado del panel editorial en página30. Checklist1.17:23 páginas y145 campos conservados;12.05/12.06 en progreso. Studio disponible, conexión pública pendiente. Ver docs/editorial-panel.md.
+
+Manual 1.20 y checklist 1.18: activación de Sanity en Vercel y prueba pública registradas. Las tareas 12.05/12.06 continúan en progreso por permisos institucionales y ensayo de retiro. Se conservan 145 campos editables.

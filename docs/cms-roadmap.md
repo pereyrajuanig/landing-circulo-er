@@ -1,8 +1,8 @@
 # Panel editorial institucional
 
-Estado vigente: 3/11/2026. El usuario solicitó activar el panel y creó su cuenta mediante GitHub.
+Estado vigente: 4/11/2026. El usuario solicitó activar el panel y creó su cuenta mediante GitHub.
 
-El Studio está alojado en https://circulo-policia-er.sanity.studio/, con cuatro reseñas y nueve fotografías migradas. La integración de lectura de Astro está implementada en `codex/panel-editorial`; la web pública conserva el contenido local hasta el merge y la activación de Vercel.
+El Studio está alojado en https://circulo-policia-er.sanity.studio/, con cuatro reseñas y nueve fotografías migradas. El [PR #17](https://github.com/pereyrajuanig/landing-circulo-er/pull/17) está fusionado y Vercel lee Sanity en producción. La publicación automática quedó verificada con una reseña existente.
 
 Operación, arquitectura, instalación, variables, verificaciones y recuperación: [guía del panel](editorial-panel.md).
 
@@ -14,8 +14,9 @@ Operación, arquitectura, instalación, variables, verificaciones y recuperació
 - [x] Migrar contenido público actual conservando slugs y aclaraciones.
 - [x] Implementar lectura de publicados en build y optimización local de imágenes.
 - [x] Comprobar exclusión de borradores con una prueba autenticada/anónima real.
-- [ ] Aprobar e integrar PR y activar fuente Sanity en Vercel.
-- [ ] Conectar webhook y verificar publicación, actualización y retiro en la web pública.
+- [x] Integrar PR autorizado y activar fuente Sanity en Vercel.
+- [x] Conectar webhook y verificar que publicar una reseña existente actualice la web.
+- [ ] Ensayar el retiro y la republicación en producción con contenido aprobado.
 - [ ] Confirmar titularidad institucional, plan y permisos de quienes editarán.
 - [ ] Ensayar exportación/restauración y acordar retención.
 - [ ] Capacitar con contenido aprobado.

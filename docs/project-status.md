@@ -1,8 +1,8 @@
 # Estado del proyecto
 
-## Actualización vigente · 3/11/2026 · panel editorial
+## Actualización vigente · 4/11/2026 · panel editorial
 
-Studio desplegado y acceso comprobado: https://circulo-policia-er.sanity.studio/. Cuatro reseñas y nueve fotos migradas. Adaptador de Astro verificado con contenido real; integración en rama codex/panel-editorial, sin merge todavía. Producción continúa con JSON; fuente Sanity y webhook pendientes de activar. Facebook y cuentas institucionales siguen pendientes. Guía: [panel editorial](editorial-panel.md). Los registros siguientes son históricos.
+Studio desplegado y acceso comprobado: https://circulo-policia-er.sanity.studio/. Cuatro reseñas y nueve fotos migradas. PR #17 fusionado (a97957f); producción lee Sanity. Republicación controlada disparó un [despliegue Ready](https://vercel.com/juan-ignacio-pereyra/landing-circulo-er/2Q7nfkuZMCQP3AsU2GpFErjimpbL) y las cuatro fichas públicas se verificaron. Facebook y cuentas institucionales siguen pendientes. Guía: [panel editorial](editorial-panel.md). Los registros siguientes son históricos.
 
 Fecha: 13 de octubre de 2026. Proyecto canónico: Desktop/Landing-CirculoER. Repositorio de portfolio: pereyrajuanig/landing-circulo-er.
 

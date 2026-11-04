@@ -30,7 +30,7 @@ CW = W - 2 * M
 NAVY, DEEP, GOLD = '#092b48', '#062139', '#d2b16a'
 PAPER, CREAM, INK, MUTED, LINE = '#fcfaf5', '#f3eee4', '#143049', '#56656c', '#dfd8cb'
 GOLDINK, GREEN = '#826329', '#34664a'
-DATE = '3 de noviembre de 2026'
+DATE = '4 de noviembre de 2026'
 SHA = PROGRESS.get('baselineCommit', 'aec7c2759948f893330e4afe36d224bba26f11b3')
 REPO = 'https://github.com/pereyrajuanig/landing-circulo-er'
 PR = REPO + '/pull/2'
@@ -40,7 +40,7 @@ OUT.parent.mkdir(parents=True, exist_ok=True)
 c = canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1)
 c.setTitle('Checklist y paso a paso | Landing Círculo Entre Ríos')
 c.setAuthor('Proyecto Landing-CirculoER')
-c.setSubject('Plan de trabajo por etapas. Versión 1.17. Corte: 13 de octubre de 2026.')
+c.setSubject('Plan de trabajo por etapas. Versión 1.18. Corte: 13 de octubre de 2026.')
 PAGE = 0
 BOUNDS = []
 FIELDS = {}
@@ -127,7 +127,7 @@ def begin(key, title, subtitle, label='PLAN DE TRABAJO'):
     c.bookmarkPage(key)
     c.addOutlineEntry(title.replace('<br/>', ' '), key, 0, False)
     text('CÍRCULO / CHECKLIST DE PRODUCCIÓN', M, 28, 7.2, ink=MUTED)
-    right('V1.17 / 03 NOV 2026', W-M, 28, 7.2)
+    right('V1.18 / 04 NOV 2026', W-M, 28, 7.2)
     line(M, 47, W-M, 47)
     text(label, M, 65, 8, ink=GOLDINK)
     y = para(title, M, 86, CW, 29, 33, INK, 'Caslon')
@@ -216,7 +216,7 @@ para('Tareas por etapa para construir, verificar,<br/>publicar y mantener el sit
 line(M, 520, M+95, 520, GOLDINK, 2)
 box('Una guía para trabajar juntos', 'Doce etapas con tareas ordenadas, dependencias, controles y criterios de cierre. Casillas y campos editables para registrar el avance. La institución y el usuario participan en contenido y diseño.', 551, PAPER)
 text('Astro + TypeScript / Revisión publicada en Vercel', M, 669, 10, ink=NAVY)
-text('Versión 1.17 / '+DATE, M, 718, 9, ink=MUTED)
+text('Versión 1.18 / '+DATE, M, 718, 9, ink=MUTED)
 para('Documento de trabajo del proyecto. La preparación de este PDF no realiza merges ni despliegues. El alcance de cada tarea se acuerda antes de implementarla.', M, 749, CW, 8.5, 12, MUTED)
 
 # 02 / How to use
@@ -503,15 +503,15 @@ new_tasks = [
  ('12.02', 'Completar beneficios', 'Recibir alcance, requisitos y condiciones de cada servicio con aprobación institucional.'),
  ('12.03', 'Completar alojamientos', 'Incorporar fotos reales, ubicación, equipamiento y condiciones verificadas de los ocho destinos.'),
  ('12.04', 'Completar salones', 'Confirmar espacios, capacidad, equipamiento y condiciones antes de publicarlos.'),
- ('12.05', 'Activar panel editorial', 'Studio disponible con4 reseñas. Faltan plan, permisos institucionales y conexión Vercel; ver editorial-panel.md.'),
- ('12.06', 'Probar publicación desde el panel', 'Comprobar borrador, revisión, publicación, build y recuperación en preview.'),
+ ('12.05', 'Activar panel editorial', 'Studio y Vercel conectados. Confirmar el plan y los permisos de los editores institucionales.'),
+ ('12.06', 'Probar publicación desde el panel', 'Borrador y publicación comprobados. Ensayar retiro y republicación con contenido aprobado.'),
  ('12.07', 'Verificar acceso a Facebook', 'Recibir enlace y acceso administrativo; comprobar API, permisos y método viable.'),
  ('12.08', 'Probar Facebook hacia el sitio', 'Publicar, editar y retirar una entrada real; evitar duplicados y ensayar fallo de conexión.'),
  ('12.09', 'Revalidar antes del lanzamiento', 'Contenido aprobado, accesibilidad, rendimiento, SEO, privacidad y dominio real.'),
 ]
 for code, title, detail in new_tasks:
     y = task(code, title, detail, y)
-box('Estado del lote', 'Studio desplegado y cuatro reseñas migradas. Astro con Sanity verificado. Web pública aún con JSON; faltan merge, webhook, permisos y prueba pública. Facebook pendiente. Ver docs/editorial-panel.md.', y+4)
+box('Estado del lote', 'Producción lee Sanity. Una republicación disparó un despliegue listo y se comprobaron las cuatro fichas. Quedan permisos, capacitación y ensayo de retiro. Facebook pendiente. Ver docs/editorial-panel.md.', y+4)
 
 bad = [entry for entry in BOUNDS if entry[2] > 781]
 if bad:

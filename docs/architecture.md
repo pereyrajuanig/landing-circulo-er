@@ -1,6 +1,6 @@
 # Arquitectura actual de la propuesta multipágina
 
-Actualización 3/11/2026: noticias incorpora lectura de Sanity en build y Studio independiente en studio/. El frontend continúa estático sin React; autenticación y escritura ocurren en Sanity. Producción sigue en JSON hasta activar NEWS_SOURCE y webhook. Arquitectura y límites vigentes en [panel editorial](editorial-panel.md). Los apartados originales siguientes describen el estado anterior.
+Actualización 4/11/2026: noticias incorpora lectura de Sanity en build y Studio independiente en studio/. El frontend continúa estático sin React; autenticación y escritura ocurren en Sanity. Producción lee Sanity y se actualiza mediante webhook; desarrollo/CI conservan la fuente local por defecto. Arquitectura y límites vigentes en [panel editorial](editorial-panel.md). Los apartados originales siguientes describen el estado anterior.
 
 Corte: 29/10/2026. Esta sección actualiza la descripción histórica que sigue más abajo. Propuesta en PR #11; main sigue sin recibir este lote.
 
