@@ -41,7 +41,7 @@ const inquiry = mailTo(entry.data.email, 'Consulta de alojamiento en ' + stay.da
           </p>
         </div>
       </div>
-      <h3 class="ps-stay-information-title">Información del alojamiento</h3>
+      <h3 class="ps-stay-information-title">Habitaciones y servicios</h3>
       <ul>
         {stay.data.details.map((detail) => (
           <li>{detail}</li>
@@ -49,19 +49,19 @@ const inquiry = mailTo(entry.data.email, 'Consulta de alojamiento en ' + stay.da
       </ul>
       {stay.data.sourceNote && <p class="ps-note">{stay.data.sourceNote}</p>}
       <div class="faq-section">
-        <h3>Para organizarte mejor.</h3>
+        <h3>Preguntas sobre tu estadía</h3>
         <details>
           <summary>¿Puedo reservar desde esta página?</summary>
           <p>
-            La web prepara una consulta por correo. Las reservas se coordinan directamente con la
-            institución, según disponibilidad.
+            Podés preparar una consulta por correo desde esta página. El Círculo te confirma si hay
+            lugar y cómo reservar.
           </p>
         </details>
         <details>
           <summary>¿Pueden ir familiares y acompañantes?</summary>
           <p>
-            Incluí esa información en tu consulta. La institución confirma las condiciones para cada
-            visita.
+            Contanos cuántos familiares o acompañantes viajan. El Círculo te confirma las
+            condiciones para tu visita.
           </p>
         </details>
       </div>
@@ -69,7 +69,10 @@ const inquiry = mailTo(entry.data.email, 'Consulta de alojamiento en ' + stay.da
     <aside class="ps-booking" aria-labelledby="stay-planning">
       <p class="ps-kicker">Planificá tu estadía</p>
       <h2 id="stay-planning">{'Tu estadía en ' + stay.data.name}</h2>
-      <p>Contanos el destino, las fechas y cuántas personas viajarían.</p>
+      <p>
+        Indicá las fechas y cuántas personas viajan. Si necesitás alguna adaptación para el ingreso
+        o la estadía, contanos.
+      </p>
       <a class="ps-button" href={inquiry}>
         Consultar disponibilidad <LineIcon name="arrow" size={20} />
       </a>

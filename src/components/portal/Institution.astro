@@ -22,22 +22,25 @@ if (!entry) throw new Error('Falta institución.');
     <div class="ps-story-heading">
       <p class="ps-kicker">Nuestra institución · Desde 1975</p>
       <h2 id="ps-institution-title">
-        Una historia compartida.
+        El Círculo, desde 1975
         <br />
-        <em>Un vínculo que continúa.</em>
+        <em>Un lugar para seguir cerca.</em>
       </h2>
-      <p>Representación, orientación y encuentro para retirados, pensionados y sus familias.</p>
+      <p>
+        El Círculo reúne a retirados y pensionados de la Policía de Entre Ríos y acompaña a sus
+        familias.
+      </p>
     </div>
     <div class="ps-story-grid">
       <div class="ps-story-timeline">
         <div class="ps-milestone">
           <span>21 · 09 · 1975</span>
-          <h3>El comienzo de nuestro Círculo.</h3>
+          <h3>Cómo empezó el Círculo</h3>
           <p>{entry.data.history[0]}</p>
         </div>
         <div class="ps-milestone">
           <span>Nuestro propósito</span>
-          <h3>Seguir acompañándonos.</h3>
+          <h3>Qué hacemos hoy</h3>
           <p>{entry.data.history[1]}</p>
         </div>
         {!full && (
@@ -56,7 +59,7 @@ if (!entry) throw new Error('Falta institución.');
           format="webp"
           loading="lazy"
         />
-        <p>La identidad de nuestra provincia, parte de nuestra historia.</p>
+        <p>Concepción del Uruguay, parte de nuestro patrimonio entrerriano.</p>
         {full && <SitePhoto kind="federal-nueva-sede-15" variant="card" />}
       </div>
     </div>
@@ -66,11 +69,11 @@ if (!entry) throw new Error('Falta institución.');
         <dd>{branches.length}</dd>
       </div>
       <div>
-        <dt>Áreas de servicios publicadas</dt>
+        <dt>Áreas de servicios</dt>
         <dd>{services.length}</dd>
       </div>
       <div>
-        <dt>Destinos de alojamiento en el sitio</dt>
+        <dt>Destinos para consultar por alojamiento</dt>
         <dd>{stays.length}</dd>
       </div>
     </dl>

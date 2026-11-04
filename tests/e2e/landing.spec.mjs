@@ -117,7 +117,9 @@ test('menú y navegación llevan a las páginas del sitio y conservan retorno de
   }
   await navigation.getByRole('link', { name: 'Beneficios', exact: true }).click();
   await expect(page).toHaveURL(/\/beneficios\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Beneficios para acompañarte');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Beneficios y servicios del Círculo',
+  );
 });
 
 test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la sede', async ({
@@ -275,9 +277,7 @@ test('cambios de tamaño y menú bajo mantienen foco utilizable sin desborde', a
 test('404 ofrece un regreso por teclado sin desborde', async ({ page }, testInfo) => {
   const response = await page.goto('/pagina-inexistente');
   expect(response.status()).toBe(404);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    'Te ayudamos a encontrar el camino.',
-  );
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('No encontramos esta página');
   await expect
     .poll(() =>
       page.evaluate(
@@ -362,7 +362,7 @@ test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar'
   await expect(page).toHaveURL(/\/alojamientos\/nogoya\/$/);
   await page.getByText('¿Puedo reservar desde esta página?', { exact: true }).press('Enter');
   await expect(
-    page.getByText('La web prepara una consulta por correo.', { exact: false }),
+    page.getByText('Podés preparar una consulta por correo desde esta página.', { exact: false }),
   ).toBeVisible();
   const url = new URL(await page.locator('.ps-booking a').getAttribute('href'));
   expect(url.searchParams.get('subject')).toBe('Consulta de alojamiento en Nogoyá');
@@ -383,7 +383,7 @@ test('galería institucional permite ampliar cambiar imagen y devolver el foco',
 }) => {
   await page.goto('/alojamientos/maria-grande/');
   const gallery = page.locator('[data-photo-gallery]');
-  await expect(gallery).toContainText('Imágenes del alojamiento identificado');
+  await expect(gallery).toContainText('Conocé los espacios del alojamiento.');
   const openers = gallery.locator('[data-gallery-open]');
   await expect(openers).toHaveCount(3);
   const rail = gallery.getByRole('group', { name: 'Fotos del carrusel' });
@@ -418,7 +418,7 @@ test('galería institucional permite ampliar cambiar imagen y devolver el foco',
     'src',
     await openers.nth(1).evaluate((element) => element.href),
   );
-  await expect(dialog.locator('[data-gallery-local]')).toContainText('Archivo del Círculo');
+  await expect(dialog.locator('[data-gallery-local]')).toContainText('Foto del Círculo');
   await expect(dialog.locator('[data-gallery-source]')).toBeHidden();
   await page.keyboard.press('ArrowLeft');
   await expect(dialog.getByRole('status')).toHaveText('1 / 3 · María Grande · habitación');
@@ -443,9 +443,7 @@ test('galería de una imagen conserva cierre y referencias pendientes siguen avi
   await page.keyboard.press('Escape');
   await expect(page.locator('[data-gallery-open]')).toBeFocused();
   await page.goto('/alojamientos/nogoya/');
-  await expect(page.locator('[data-photo-gallery]')).toContainText(
-    'No corresponden al alojamiento real',
-  );
+  await expect(page.locator('[data-photo-gallery]')).toContainText('Estas fotos son ilustrativas');
 });
 
 test('novedades permite consultar memorias del archivo y salones distinguen capacidades', async ({
@@ -458,11 +456,9 @@ test('novedades permite consultar memorias del archivo y salones distinguen capa
   await expect(items).toHaveCount(1);
   await items.getByRole('link', { name: 'Leer publicación', exact: false }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    'Federación: mejoras, alojamiento y talleres',
+    'Federación hizo mejoras en el salón de la filial',
   );
-  await expect(page.locator('.source-context')).toContainText(
-    'sin fecha de grabación identificada',
-  );
+  await expect(page.locator('.source-context')).toContainText('es la de publicación');
   await expect(page.locator('.article-gallery [data-photo-kind="institutional"]')).toHaveCount(1);
   await page.goto('/novedades/');
   await page.getByRole('button', { name: 'Noticias', exact: true }).click();
@@ -583,7 +579,7 @@ test('contacto valida campos y prepara un borrador sin enviar ni guardar consult
   await expect(form).toBeVisible();
   expect(await form.evaluate((e) => e.checkValidity())).toBe(false);
   await page.getByLabel('Nombre', { exact: true }).fill('Revisión local');
-  await page.getByLabel('Email de contacto', { exact: true }).fill('revision@example.com');
+  await page.getByLabel('Correo electrónico', { exact: true }).fill('revision@example.com');
   await page.getByLabel('Tipo de consulta', { exact: true }).selectOption({ label: 'Alojamiento' });
   await page.getByLabel('Mensaje', { exact: true }).fill('Consulta de prueba & familia');
   expect(await form.evaluate((e) => e.checkValidity())).toBe(true);

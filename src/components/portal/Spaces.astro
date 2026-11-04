@@ -26,8 +26,8 @@ const galleryHref = (id: string) => '/salones/#' + id;
     <SectionHeading
       id="ps-spaces-title"
       eyebrow="Salones y espacios"
-      title="El lugar también nos reúne."
-      description="Reuniones, celebraciones y actividades: conocé los espacios del Círculo y prepará tu encuentro."
+      title="Salones para reuniones y celebraciones"
+      description="Mirá las fotos y consultá por las fechas, el equipamiento y cuántas personas admite cada salón."
       href={full ? undefined : '/salones/'}
       action="Todos los espacios"
     />
@@ -46,7 +46,7 @@ const galleryHref = (id: string) => '/salones/#' + id;
                 <PhotoGallery
                   id={'space-gallery-' + id}
                   title={'Fotos de ' + data.name}
-                  note="Imágenes del archivo institucional del Círculo."
+                  note="Mirá las fotos del salón y sus espacios."
                   photoKeys={data.photoKeys}
                   compact
                 />
@@ -123,7 +123,7 @@ const galleryHref = (id: string) => '/salones/#' + id;
             <span>
               {data.locality}
               {id === 'federacion' && (
-                <small class="ps-space-photo-context"> · Registro de la renovación</small>
+                <small class="ps-space-photo-context"> · Fotos de las obras</small>
               )}
             </span>
             <strong>{data.name}</strong>

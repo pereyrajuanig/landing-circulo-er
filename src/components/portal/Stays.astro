@@ -24,7 +24,7 @@ if (!institution) throw new Error('Falta el contacto institucional.');
       id="ps-stays-title"
       eyebrow="Alojamientos del Círculo"
       title="Alojamientos para tu próxima visita"
-      description="Conocé los espacios, revisá la información de cada localidad y consultá las fechas de tu estadía con el Círculo."
+      description="Elegí una localidad, mirá las fotos y consultá con el Círculo por las fechas de tu viaje."
       href={catalog ? undefined : '/alojamientos/'}
       action="Explorar destinos"
     />
@@ -59,7 +59,7 @@ if (!institution) throw new Error('Falta el contacto institucional.');
       </div>
       {!catalog && (
         <div class="ps-rail-controls" data-portal-controls hidden>
-          <p>Deslizá para descubrir más destinos</p>
+          <p>Deslizá para ver más destinos</p>
           <div>
             <button
               type="button"
@@ -90,8 +90,8 @@ if (!institution) throw new Error('Falta el contacto institucional.');
       )}
     </div>
     <p class="ps-note">
-      La disponibilidad, las tarifas y las condiciones se confirman con el Círculo. Las imágenes de
-      referencia están identificadas en cada destino.
+      Confirmá con el Círculo las fechas, las tarifas y las condiciones antes de viajar. Cada ficha
+      identifica las fotos ilustrativas.
     </p>
   </div>
 </section>

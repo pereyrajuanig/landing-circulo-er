@@ -3,7 +3,7 @@
     "id": "concordia",
     "order": 0,
     "name": "Concordia",
-    "overview": "Espacio institucional, inauguración, obras y encuentros sociales registrados en el archivo.",
+    "overview": "La inauguración de la sede y los encuentros que le dieron vida.",
     "photoKey": "concordia-inauguracion-10"
   },
   {
@@ -15,28 +15,28 @@
     "id": "diamante",
     "order": 2,
     "name": "Diamante",
-    "overview": "Gimnasio de rehabilitación, espacio social y obras descriptas en el material recibido.",
+    "overview": "Consultas sobre rehabilitación, el salón y las obras de la filial.",
     "photoKey": "diamante-rehabilitacion-obras-18"
   },
   {
     "id": "federacion",
     "order": 3,
     "name": "Federación",
-    "overview": "Complejo habitacional, mejoras en espacios y talleres creativos presentados en el recorrido.",
+    "overview": "Mejoras en el salón, alojamiento y actividades de la filial.",
     "photoKey": "federacion-sede"
   },
   {
     "id": "federal",
     "order": 4,
     "name": "Federal",
-    "overview": "Ampliación de sede y área de salud, actividades y viajes socioculturales registrados en el archivo.",
+    "overview": "La ampliación de la sede, las jornadas de salud y los viajes.",
     "photoKey": "federal-nueva-sede-15"
   },
   {
     "id": "feliciano",
     "order": 5,
     "name": "Feliciano",
-    "overview": "Atención a integrantes, jornadas de salud y proyectos territoriales presentados en el video.",
+    "overview": "Consultas sobre atención, jornadas de salud y propuestas turísticas.",
     "photoKey": "feliciano-sede-salud-terreno-17"
   },
   {
@@ -58,7 +58,7 @@
     "id": "hasenkamp",
     "order": 9,
     "name": "Hasenkamp",
-    "overview": "Espacio de atención, salón y cocina mostrados en el recorrido de la filial.",
+    "overview": "Orientación a socios y consultas por el salón y la cocina.",
     "photoKey": "hasenkamp-sede"
   },
   {
@@ -70,14 +70,14 @@
     "id": "chajari",
     "order": 11,
     "name": "Chajarí",
-    "overview": "Oficina y acompañamiento para consultas, trámites y subsidios, según el material institucional.",
+    "overview": "Una oficina donde consultar sobre beneficios, trámites y subsidios.",
     "photoKey": "chajari-asesoramiento-24"
   },
   {
     "id": "crespo",
     "order": 12,
     "name": "Crespo",
-    "overview": "Asesoramiento, acompañamiento y salón de encuentro presentado para la filial.",
+    "overview": "Orientación para afiliados y un salón para encuentros.",
     "photoKey": "crespo-sede"
   },
   {
@@ -99,7 +99,7 @@
     "id": "rosario-del-tala",
     "order": 16,
     "name": "Rosario del Tala",
-    "overview": "Talleres creativos, jornadas de salud y actividades compartidas presentadas en el material.",
+    "overview": "Mejoras en la sede, talleres y jornadas de salud.",
     "photoKey": "rosario-del-tala-sede"
   },
   {

@@ -15,16 +15,14 @@ const items = publishedNews(await getCollection('news')).slice(0, full ? undefin
     <SectionHeading
       id="ps-news-title"
       eyebrow="La vida del Círculo"
-      title="Historias que seguimos construyendo."
-      description="Noticias, actividades y memoria de la gestión institucional."
+      title="Noticias y actividades del Círculo"
+      description="Enterate de las novedades y conocé el trabajo de las filiales."
       href={full ? undefined : '/novedades/'}
       action="Ver todas las publicaciones"
     />
-    {items.some(({ data }) => data.sourceContext?.toLowerCase().includes('archivo')) && (
+    {items.some(({ data }) => data.sourceContext) && (
       <p class="ps-source">
-        En las reseñas identificadas como archivo institucional, las fechas indican cuándo se
-        publicó el texto; las fechas de los hechos pueden ser distintas. Consultá la información
-        actual con la institución.
+        Las fechas indican cuándo se publicó cada nota. Las actividades pueden haber ocurrido antes.
       </p>
     )}
     {items.length > 0 ? (
@@ -103,7 +101,7 @@ const items = publishedNews(await getCollection('news')).slice(0, full ? undefin
         </p>
       </div>
     ) : (
-      <p>Próximamente compartiremos novedades de la institución.</p>
+      <p>Por ahora no hay novedades publicadas.</p>
     )}
   </div>
 </section>

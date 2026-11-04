@@ -25,9 +25,9 @@ const featured = branches
       <div>
         <p class="ps-kicker">Presencia provincial</p>
         <h2 id="ps-branches-title">
-          Cerca tuyo.
+          Encontrá tu filial
           <br />
-          <em>En nuestra provincia.</em>
+          <em>en Entre Ríos.</em>
         </h2>
         <p>
           Una sede central y {branches.length} filiales para sostener el vínculo con la comunidad
@@ -63,9 +63,7 @@ const featured = branches
             <span>Ver sede, contacto y ubicación ↗</span>
           </span>
         </a>
-        <p class="ps-note">
-          La sede central te orienta sobre el contacto y la atención de cada filial.
-        </p>
+        <p class="ps-note">Si necesitás hablar con una filial, la sede central te orienta.</p>
       </div>
       <ul id="branch-list" class="ps-branch-list" aria-label="Localidades con filiales">
         {branches.map(({ id, data }) => (
@@ -91,11 +89,8 @@ const featured = branches
     </div>
     <div class="ps-branch-life">
       <div class="ps-subheading">
-        <h3>La vida en las filiales.</h3>
-        <p>
-          Conocé los espacios, las actividades y las obras documentadas en {profiles.length}{' '}
-          localidades.
-        </p>
+        <h3>Sedes, actividades y encuentros</h3>
+        <p>Conocé las sedes, los espacios y las actividades de {profiles.length} localidades.</p>
       </div>
       <div class="ps-branch-stories">
         {(full
