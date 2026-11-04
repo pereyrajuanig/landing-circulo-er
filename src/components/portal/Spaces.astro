@@ -5,6 +5,7 @@ import SitePhoto from '../SitePhoto.astro';
 import PhotoGallery from '../PhotoGallery.astro';
 import LineIcon from '../LineIcon.astro';
 import { mailTo } from '../../lib/contact';
+import { photos } from '../../lib/photos';
 interface Props {
   full?: boolean;
 }
@@ -13,6 +14,11 @@ const spaces = (await getCollection('spaces')).sort((a, b) => a.data.order - b.d
 const institution = await getEntry('institution', 'circulo');
 if (!institution) throw new Error('Falta contacto institucional.');
 const shown = full ? spaces : spaces.slice(0, 2);
+const homeDetailPhotos: Record<string, string[]> = {
+  'los-laureles': ['parana-laureles-salon-30', 'parana-laureles-parque'],
+  'las-rosas': ['parana-las-rosas-exterior-07', 'parana-rosas-cocina'],
+};
+const galleryHref = (id: string) => '/salones/#' + id;
 ---
 
 <section id="eventos" class="ps-section ps-spaces" aria-labelledby="ps-spaces-title">
@@ -45,11 +51,28 @@ const shown = full ? spaces : spaces.slice(0, 2);
                   compact
                 />
               ) : (
-                <SitePhoto
-                  kind={data.photoKeys[0]}
-                  variant="wide"
-                  sizes="(max-width: 700px) 90vw, (max-width: 1100px) 53vw, 42vw"
-                />
+                <div class="ps-space-preview">
+                  <SitePhoto
+                    kind={data.photoKeys[0]}
+                    variant="wide"
+                    href={galleryHref(id)}
+                    linkLabel={'Ver galería de ' + data.name}
+                    sizes="(max-width: 700px) 90vw, (max-width: 1100px) 36vw, 30vw"
+                  />
+                  <div class="ps-space-preview-details">
+                    {(homeDetailPhotos[id] ?? []).map((key) => (
+                      <SitePhoto
+                        kind={key}
+                        variant="card"
+                        href={galleryHref(id)}
+                        linkLabel={'Ver galería: ' + photos[key].title}
+                        sizes="(max-width: 700px) 44vw, 16vw"
+                        maxWidth={480}
+                        showCaption={false}
+                      />
+                    ))}
+                  </div>
+                </div>
               )}
             </div>
           )}
@@ -87,8 +110,22 @@ const shown = full ? spaces : spaces.slice(0, 2);
       <div class="ps-space-more">
         <p class="ps-kicker">También en nuestras filiales</p>
         {spaces.slice(2).map(({ id, data }) => (
-          <a href={'/salones/#' + id}>
-            <span>{data.locality}</span>
+          <a href={galleryHref(id)} aria-label={'Ver galería de ' + data.name}>
+            {photos[data.photoKeys[0]]?.kind === 'institutional' && (
+              <SitePhoto
+                kind={data.photoKeys[0]}
+                variant="card"
+                sizes="(max-width: 520px) 90vw, (max-width: 900px) 45vw, 22vw"
+                maxWidth={640}
+                showCaption={false}
+              />
+            )}
+            <span>
+              {data.locality}
+              {id === 'federacion' && (
+                <small class="ps-space-photo-context"> · Registro de la renovación</small>
+              )}
+            </span>
             <strong>{data.name}</strong>
             <LineIcon name="arrow" />
           </a>
@@ -97,3 +134,47 @@ const shown = full ? spaces : spaces.slice(0, 2);
     )}
   </div>
 </section>
+
+<style>
+  .ps-space-preview {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 8px;
+  }
+  .ps-space-preview-details {
+    display: grid;
+    gap: 8px;
+  }
+  .ps-space-preview :global(a:focus-visible) {
+    outline-offset: -5px;
+  }
+  :global(.portal-system) .ps-space-more {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .ps-space-more :global(figure) {
+    grid-column: 1 / -1;
+    margin-bottom: 6px;
+  }
+  .ps-space-more :global([data-photo-kind='institutional'] .reference-photo-frame img) {
+    object-fit: cover;
+  }
+  @media (max-width: 900px) {
+    :global(.portal-system) .ps-space-more {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 700px) {
+    .ps-space-preview {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .ps-space-preview-details {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 520px) {
+    :global(.portal-system) .ps-space-more {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

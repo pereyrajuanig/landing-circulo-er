@@ -1,6 +1,9 @@
 .home-portal {
   --portal-sidebar: 244px;
   --portal-accent: var(--gold);
+  --portal-red: #d80100;
+  --portal-red-ink: #a51e24;
+  --portal-red-light: #ff827c;
 }
 .portal-header {
   position: fixed;
@@ -61,7 +64,7 @@
   padding: 8px 14px;
   border-radius: 14px;
   color: var(--paper);
-  font-size: 15px;
+  font-size: 1.0625rem;
   line-height: 1.4;
 }
 .portal-navigation a svg {
@@ -197,15 +200,15 @@
   width: 210px;
   height: 20px;
   margin: 8px 20% 16px auto;
-  color: var(--portal-accent);
+  color: var(--portal-red);
   stroke: currentColor;
-  stroke-width: 4;
+  stroke-width: 6;
   stroke-linecap: round;
 }
 .portal-hero-description {
   max-width: 490px;
   margin: 0;
-  font-size: 19px;
+  font-size: 1.125rem;
   line-height: 1.65;
   color: var(--navy);
 }
@@ -327,7 +330,7 @@
   min-height: 64px;
   padding: 0 15px;
   color: var(--navy);
-  font-size: 16px;
+  font-size: 1.0625rem;
   font-weight: 600;
   line-height: 1.4;
   border-radius: 12px;
@@ -585,7 +588,7 @@
   }
   .portal-hero-description {
     max-width: 350px;
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .portal-eyebrow {
     font-size: 11px;
@@ -613,7 +616,7 @@
     min-height: 82px;
     justify-content: flex-start;
     padding: 12px;
-    font-size: 15px;
+    font-size: 1.0625rem;
   }
   .portal-feature-bar a + a {
     border-left: 0;
@@ -706,7 +709,7 @@
   }
   .portal-hero-description {
     max-width: 79%;
-    font-size: 17px;
+    font-size: 1.125rem;
     line-height: 1.6;
   }
   .portal-hero-actions {
@@ -746,7 +749,7 @@
   .portal-feature-bar a {
     gap: 10px;
     padding: 12px 9px;
-    font-size: 14px;
+    font-size: 1.0625rem;
   }
   .portal-feature-bar svg {
     width: 29px;
@@ -785,11 +788,11 @@
     max-width: 80%;
   }
   .portal-hero-description {
-    font-size: 16px;
+    font-size: 1.125rem;
     max-width: 88%;
   }
   .portal-feature-bar a {
-    font-size: 14px;
+    font-size: 1.0625rem;
     gap: 8px;
   }
 }

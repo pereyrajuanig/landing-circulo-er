@@ -8,6 +8,8 @@ interface Props {
   sizes?: string;
   href?: string;
   linkLabel?: string;
+  maxWidth?: number;
+  showCaption?: boolean;
 }
 const {
   kind,
@@ -16,11 +18,13 @@ const {
   sizes: requestedSizes,
   href,
   linkLabel,
+  maxWidth = 1440,
+  showCaption = true,
 } = Astro.props;
 const Frame = href ? 'a' : 'div';
 const photo = photos[kind];
 if (!photo) throw new Error('Fotografía no registrada: ' + kind);
-const width = Math.min(1440, photo.src.width);
+const width = Math.min(maxWidth, photo.src.width);
 const widths = [...new Set([480, 960, width].filter((value) => value <= width))];
 const sizes =
   requestedSizes ??
@@ -49,7 +53,7 @@ const sizes =
     />
     {photo.kind === 'reference' && <span class="reference-photo-badge">FOTO DE REFERENCIA</span>}
   </Frame>
-  <figcaption>
+  <figcaption class:list={[{ 'visually-hidden': !showCaption }]}>
     {photo.note}
     <span class="photo-credit">
       {photo.source ? (

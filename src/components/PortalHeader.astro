@@ -7,12 +7,12 @@ const home = isHome ? '' : '/';
 const currentPath = Astro.url.pathname;
 const links = [
   { href: '#inicio', label: 'Inicio', icon: 'home' },
-  { href: '/institucion/', label: 'Institución', icon: 'institution' },
   { href: '/beneficios/', label: 'Beneficios', icon: 'health' },
   { href: '/alojamientos/', label: 'Alojamientos', icon: 'bed' },
   { href: '/salones/', label: 'Salones', icon: 'events' },
   { href: '#filiales', label: 'Filiales', icon: 'people' },
   { href: '/novedades/', label: 'Novedades', icon: 'news' },
+  { href: '/institucion/', label: 'Institución', icon: 'institution' },
   { href: '#contacto', label: 'Contacto', icon: 'mail' },
 ] as const;
 ---

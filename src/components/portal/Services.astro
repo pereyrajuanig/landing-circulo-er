@@ -3,8 +3,14 @@ import { getCollection } from 'astro:content';
 import SectionHeading from './SectionHeading.astro';
 import SitePhoto from '../SitePhoto.astro';
 import LineIcon from '../LineIcon.astro';
-import { servicePhotoKeys } from '../../lib/photos';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const homePhotos: Record<string, string> = {
+  salud: 'feliciano-sede-salud-terreno-17',
+  tramites: 'parana-oficina-atencion',
+  farmacia: 'federacion-beneficio-lentes',
+  turismo: 'federacion-complejo-habitacional-13',
+  recreacion: 'concordia-encuentro-social-11',
+};
 const icons = {
   salud: 'health',
   tramites: 'institution',
@@ -26,14 +32,19 @@ const icons = {
     />
     <div class="ps-service-grid">
       {services.map(({ id, data }, i) => (
-        <article class:list={['ps-service', { 'ps-service-featured': i === 0 }]}>
-          {i === 0 && (
+        <article
+          class:list={[
+            'ps-service',
+            { 'ps-service-featured': i === 0, 'ps-service-optica': id === 'farmacia' },
+          ]}
+        >
+          <div class="ps-service-photo">
             <SitePhoto
-              kind={servicePhotoKeys[id]}
+              kind={homePhotos[id]}
               variant="card"
-              sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 32vw"
+              sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 36vw"
             />
-          )}
+          </div>
           <div class="ps-service-copy">
             <div class="ps-service-top">
               <LineIcon name={icons[id as keyof typeof icons]} size={30} />

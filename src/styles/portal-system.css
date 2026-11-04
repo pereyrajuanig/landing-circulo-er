@@ -6,7 +6,7 @@
   --ps-soft: #edf1ef;
   color: var(--navy);
   background: var(--paper);
-  font-size: 17px;
+  font-size: 1.125rem;
   line-height: 1.75;
 }
 .portal-system [hidden] {
@@ -53,7 +53,7 @@
   align-items: center;
   gap: 9px;
   color: var(--ps-accent);
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 650;
   line-height: 1.6;
   letter-spacing: 0.13em;
@@ -66,6 +66,22 @@
   gap: 60px;
   align-items: end;
   margin-bottom: 42px;
+}
+.portal-system :is(.ps-branches, .ps-booking, .ps-benefit-highlights) {
+  --ps-heading-ink: var(--portal-red-light);
+  --ps-heading-rule: var(--portal-red-light);
+}
+.portal-system p:is(.ps-kicker, .portal-eyebrow, .eyebrow):has(+ :is(h1, h2)) {
+  color: var(--ps-heading-ink, var(--portal-red-ink));
+}
+.portal-system :is(h2, .page-intro h1)::after {
+  content: '';
+  display: block;
+  inline-size: clamp(56px, 7vw, 88px);
+  block-size: 4px;
+  margin-block-start: 16px;
+  background-color: var(--ps-heading-rule, var(--portal-red));
+  transform: skewX(-24deg);
 }
 .portal-system .ps-heading h2 {
   max-width: 620px;
@@ -84,7 +100,7 @@
   gap: 14px;
   min-height: 44px;
   color: inherit;
-  font: 600 16px/1.5 var(--sans);
+  font: 600 1.0625rem/1.5 var(--sans);
   text-decoration: underline;
   text-decoration-color: var(--gold);
   text-underline-offset: 7px;
@@ -105,7 +121,7 @@
   border-radius: 28px;
   background: var(--navy);
   color: var(--paper);
-  font: 600 16px/1.45 var(--sans);
+  font: 600 1.0625rem/1.45 var(--sans);
   text-align: center;
   transition:
     background 0.2s,
@@ -127,7 +143,7 @@
   flex-shrink: 0;
 }
 .portal-system .ps-note {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--muted);
 }
@@ -140,9 +156,14 @@
 .portal-system .reference-photo:hover img {
   transform: scale(1.015);
 }
-.portal-system .reference-photo figcaption {
-  font-size: 12px;
+.portal-system .reference-photo figcaption,
+.portal-system .photo-gallery figcaption {
+  font-size: 0.9375rem;
   line-height: 1.5;
+}
+.portal-system :is(.reference-photo, .photo-gallery) figcaption .photo-credit,
+.portal-system .ps-space-photo-context {
+  font-size: 0.875rem;
 }
 .portal-system .reference-photo-badge {
   font-size: 11px;
@@ -173,6 +194,29 @@
   overflow: hidden;
   background: var(--navy);
   color: var(--paper);
+}
+.portal-system .ps-service-photo {
+  min-width: 0;
+}
+.portal-system .ps-service:not(.ps-service-featured) .ps-service-photo {
+  margin-bottom: 20px;
+}
+.portal-system .ps-service:not(.ps-service-featured) .reference-photo-frame {
+  aspect-ratio: 2;
+}
+.portal-system .ps-service:not(.ps-service-featured) .reference-photo-frame img {
+  object-fit: cover;
+}
+.portal-system .ps-service-optica.ps-service:not(.ps-service-featured) .reference-photo-frame img {
+  object-fit: contain;
+}
+.portal-system .ps-service:not(.ps-service-featured) {
+  display: flex;
+  flex-direction: column;
+}
+.portal-system .ps-service:not(.ps-service-featured) .ps-service-copy {
+  flex: 1;
+  height: auto;
 }
 .portal-system .ps-service-featured .reference-photo-frame {
   border-radius: 0;
@@ -216,16 +260,16 @@
   margin-bottom: 16px;
 }
 .portal-system .ps-service p:not(.ps-kicker) {
-  font-size: 15px;
+  font-size: 1.125rem;
   line-height: 1.7;
 }
 .portal-system .ps-service .ps-kicker {
-  font-size: 10px;
+  font-size: 0.875rem;
   margin-bottom: 12px;
 }
 .portal-system .ps-service .ps-link {
   margin-top: auto;
-  font-size: 15px;
+  font-size: 1.0625rem;
 }
 .portal-system .ps-audience {
   display: flex;
@@ -290,7 +334,7 @@
   margin-bottom: 16px;
 }
 .portal-system .ps-stay-copy > p:not(.ps-kicker) {
-  font-size: 15px;
+  font-size: 1.125rem;
   line-height: 1.7;
 }
 .portal-system .ps-stay-meta,
@@ -434,11 +478,11 @@
   font-weight: 600;
 }
 .portal-system .ps-space-facts summary {
-  font-size: 15px;
+  font-size: 1.0625rem;
 }
 .portal-system .ps-space-facts ul {
   padding-left: 20px;
-  font-size: 15px;
+  font-size: 1.0625rem;
 }
 .portal-system .ps-space-facts li {
   margin-bottom: 10px;
@@ -446,7 +490,7 @@
 .portal-system .ps-capacity {
   border-left: 2px solid var(--ps-accent);
   padding-left: 16px;
-  font-size: 14px;
+  font-size: 1.0625rem;
 }
 .portal-system .ps-space-no-photo {
   display: block;
@@ -476,20 +520,18 @@
   border-bottom: 1px solid var(--ps-border);
 }
 .portal-system .ps-space-more a > span {
-  color: var(--muted);
-  font-size: 14px;
+  color: var(--ink);
+  font-size: 1rem;
   grid-column: 1/-1;
 }
 .portal-system .ps-space-more strong {
-  font: 400 25px/1.15 var(--serif);
+  font: 650 1.3125rem/1.3 var(--sans);
+  letter-spacing: -0.015em;
 }
 /* Provincial directory: search and real locality links instead of a fabricated map. */
 .portal-system .ps-branches {
   background: var(--navy);
   color: var(--paper);
-}
-.portal-system .ps-branches .ps-kicker {
-  color: var(--gold);
 }
 .portal-system .ps-branches :where(a, button, input):focus-visible {
   outline-color: var(--gold);
@@ -605,9 +647,12 @@
   align-items: end;
   margin-bottom: 28px;
 }
+.portal-system .ps-subheading h3 {
+  font: 650 clamp(1.5rem, 2.5vw, 1.875rem)/1.3 var(--sans);
+}
 .portal-system .ps-subheading > p {
   max-width: 440px;
-  font-size: 14px;
+  font-size: 1rem;
   margin: 0;
   color: #d3e1e7;
 }
@@ -624,13 +669,15 @@
 }
 .portal-system .ps-branch-stories h4 {
   margin: 22px 0 14px;
+  font: 650 1.4375rem/1.3 var(--sans);
+  letter-spacing: -0.015em;
 }
 .portal-system .ps-branch-stories article > p {
   color: #d3e1e7;
-  font-size: 15px;
+  font-size: 1.0625rem;
 }
 .portal-system .ps-branch-stories .ps-link {
-  font-size: 14px;
+  font-size: 1.0625rem;
 }
 /* Institutional story: verified founding date and collection-based indicators. */
 .portal-system .ps-institution {
@@ -749,18 +796,19 @@
   grid-row: span 3;
 }
 .portal-system .ps-news-grid > li:first-child h3 {
-  font-size: 41px;
+  font-size: clamp(1.625rem, 2.4vw, 2.125rem);
 }
 .portal-system .ps-news-copy {
   padding-top: 20px;
 }
 .portal-system .ps-news-copy h3 {
-  font-size: 29px;
   margin-bottom: 16px;
+  font: 650 1.4375rem/1.3 var(--sans);
+  letter-spacing: -0.015em;
 }
 .portal-system .ps-news-copy > p:not(.ps-kicker) {
-  font-size: 15px;
-  color: var(--muted);
+  font-size: 1.0625rem;
+  color: var(--ink);
 }
 .portal-system .ps-news-grid > li:not(:first-child) article {
   display: grid;
@@ -774,14 +822,14 @@
   aspect-ratio: 1;
 }
 .portal-system .ps-news-grid > li:not(:first-child) .reference-photo figcaption {
-  font-size: 11px;
+  font-size: 0.9375rem;
 }
 .portal-system .ps-news-copy .ps-kicker {
-  font-size: 10px;
+  font-size: 0.875rem;
   margin-bottom: 10px;
 }
 .portal-system .ps-news-copy .ps-date {
-  font-size: 12px !important;
+  font-size: 0.9375rem !important;
 }
 .portal-system .ps-news-tools {
   display: flex;
@@ -859,12 +907,13 @@
   margin-top: 20px;
 }
 .portal-system .ps-contact-grid h3 {
-  font-size: 32px;
   margin-bottom: 20px;
+  font: 650 1.5625rem/1.3 var(--sans);
+  letter-spacing: -0.015em;
 }
 .portal-system .ps-contact-grid article > p:not(.ps-kicker) {
-  color: var(--muted);
-  font-size: 15px;
+  color: var(--ink);
+  font-size: 1.125rem;
 }
 .portal-system .ps-email {
   overflow-wrap: anywhere;
@@ -889,7 +938,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 15px;
+  font-size: 1.0625rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -899,7 +948,7 @@
   gap: 18px;
 }
 .portal-system .ps-form-layout :where(input, textarea, select) {
-  font: 400 16px/1.6 var(--sans);
+  font: 400 1.0625rem/1.6 var(--sans);
   background: var(--paper);
   color: var(--navy);
   min-height: 50px;
@@ -925,9 +974,6 @@
   margin-bottom: 32px;
   font-size: 13px;
 }
-.portal-system .page-intro .eyebrow {
-  color: var(--ps-accent);
-}
 .portal-system .page-intro h1 {
   font: 400 clamp(46px, 4.8vw, 78px)/1.04 var(--serif);
   max-width: 950px;
@@ -938,7 +984,7 @@
 .portal-system .page-lead {
   max-width: 740px;
   color: var(--muted);
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .portal-system .page-section {
   padding-block: 60px;
@@ -981,7 +1027,7 @@
   background: var(--navy);
   color: var(--paper);
   border-color: var(--navy);
-  font-size: 16px;
+  font-size: 1.0625rem;
 }
 .portal-system .text-link {
   color: var(--navy);
@@ -1027,9 +1073,6 @@
   position: sticky;
   top: 28px;
 }
-.portal-system .ps-booking .ps-kicker {
-  color: var(--gold);
-}
 .portal-system .ps-booking h2 {
   font-size: 35px;
   margin-bottom: 20px;
@@ -1044,7 +1087,7 @@
   margin-top: 18px;
 }
 .portal-system .ps-booking ul {
-  font-size: 15px;
+  font-size: 1.0625rem;
   padding-left: 20px;
 }
 .portal-system .ps-mobile-inquiry {
@@ -1212,7 +1255,7 @@ footer.portal-system.ps-footer {
 }
 @media (max-width: 700px) {
   .portal-system {
-    font-size: 16px;
+    font-size: 1.125rem;
   }
   .portal-system .ps-wrap,
   .portal-system > .wrap,
@@ -1226,7 +1269,7 @@ footer.portal-system.ps-footer {
     font-size: 39px;
   }
   .portal-system .ps-kicker {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
   .portal-system .ps-heading {
     grid-template-columns: 1fr;
@@ -1257,14 +1300,14 @@ footer.portal-system.ps-footer {
     font-size: 36px;
   }
   .portal-system .ps-service p:not(.ps-kicker) {
-    font-size: 14px;
+    font-size: 1.125rem;
   }
   .portal-system .ps-service .ps-kicker {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .portal-system .ps-service .ps-link {
     gap: 8px;
-    font-size: 14px;
+    font-size: 1.0625rem;
   }
   .portal-system .ps-service-top {
     margin-bottom: 20px;
@@ -1388,7 +1431,7 @@ footer.portal-system.ps-footer {
     > li:not(:first-child)
     .ps-news-copy
     > p:not(.ps-kicker):not(.ps-date) {
-    font-size: 14px;
+    font-size: 1.0625rem;
   }
   .portal-system .ps-news-tools {
     gap: 20px;
@@ -1407,7 +1450,7 @@ footer.portal-system.ps-footer {
     font-size: 49px;
   }
   .portal-system .page-lead {
-    font-size: 17px;
+    font-size: 1.125rem;
   }
   .portal-system .breadcrumbs {
     margin-bottom: 22px;
@@ -1510,9 +1553,6 @@ footer.portal-system.ps-footer {
   background: var(--navy);
   color: var(--paper);
 }
-.portal-system .ps-benefit-highlights .ps-kicker {
-  color: var(--gold);
-}
 .portal-system .ps-pathways {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1530,11 +1570,12 @@ footer.portal-system.ps-footer {
 }
 .portal-system .ps-pathways span {
   grid-column: 1/-1;
-  font-size: 12px;
-  color: var(--muted);
+  font-size: 0.9375rem;
+  color: var(--ink);
 }
 .portal-system .ps-pathways strong {
-  font: 400 30px/1.15 var(--serif);
+  font: 650 1.4375rem/1.3 var(--sans);
+  letter-spacing: -0.015em;
 }
 .portal-system .visually-hidden {
   position: absolute;
@@ -1563,10 +1604,10 @@ footer.portal-system.ps-footer {
   aspect-ratio: 1.15;
 }
 .portal-system .ps-service-copy .ps-kicker {
-  font-size: 11px;
+  font-size: 0.875rem;
 }
 .portal-system .ps-news-copy .ps-kicker {
-  font-size: 11px;
+  font-size: 0.875rem;
 }
 @media (min-width: 1101px) {
   .portal-system .ps-news-grid > li:first-child article {
@@ -1576,7 +1617,7 @@ footer.portal-system.ps-footer {
 }
 @media (max-width: 700px) {
   .portal-system .ps-service-copy .ps-kicker {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
 }
 .portal-system .ps-stay-card {
@@ -1617,7 +1658,7 @@ footer.portal-system.ps-footer {
 .portal-system .ps-service-details summary {
   padding: 13px 0;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 1.0625rem;
   font-weight: 600;
   line-height: 1.5;
 }
@@ -1681,6 +1722,27 @@ footer.portal-system.ps-footer {
   display: block;
   aspect-ratio: 1.7;
 }
+.portal-system .ps-stay-photos-multiple {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 6px;
+}
+.portal-system .ps-stay-photo-previews {
+  display: grid;
+  gap: 6px;
+}
+.portal-system .ps-stays .ps-stay-photo-previews .reference-photo-frame {
+  aspect-ratio: 1.7;
+}
+@media (max-width: 700px) {
+  .portal-system .ps-stay-photos-multiple {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portal-system .ps-stay-photo-previews {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 .portal-system .ps-stay-card .reference-photo-frame:focus-visible {
   outline-offset: -5px;
 }
@@ -1692,7 +1754,7 @@ footer.portal-system.ps-footer {
   margin-bottom: 18px;
 }
 .portal-system .ps-stay-copy > p:not(.ps-kicker) {
-  font-size: 16px;
+  font-size: 1.125rem;
 }
 .portal-system .ps-stay-card-location {
   border-top: 1px solid var(--ps-border);
@@ -1704,22 +1766,22 @@ footer.portal-system.ps-footer {
   align-items: center;
   gap: 8px;
   color: var(--gold-ink);
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 650;
   margin-bottom: 8px;
 }
 .portal-system .ps-stay-card-location dd {
   margin: 0;
-  font-size: 14px;
+  font-size: 1.0625rem;
   line-height: 1.6;
-  color: var(--muted);
+  color: var(--navy);
 }
 .portal-system .ps-stay-card-details {
   border-top: 1px solid var(--ps-border);
   margin-bottom: 24px;
 }
 .portal-system .ps-stay-card-details summary {
-  font-size: 15px;
+  font-size: 1.0625rem;
   font-weight: 600;
   padding-block: 15px;
   cursor: pointer;
@@ -1730,7 +1792,7 @@ footer.portal-system.ps-footer {
 .portal-system .ps-stay-card-details ul {
   padding-left: 20px;
   margin: 0 0 16px;
-  font-size: 14px;
+  font-size: 1.0625rem;
 }
 .portal-system .ps-stay-card-details li + li {
   margin-top: 10px;
@@ -1742,7 +1804,7 @@ footer.portal-system.ps-footer {
   width: 100%;
   justify-content: center;
   margin-top: 8px;
-  font-size: 15px;
+  font-size: 1.0625rem;
 }
 .portal-system .photo-gallery .gallery-heading h2 {
   font-size: clamp(36px, 3.6vw, 48px);
@@ -1750,7 +1812,7 @@ footer.portal-system.ps-footer {
 .portal-system .gallery-context {
   max-width: 420px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.65;
 }
 .portal-system .gallery-context p {
