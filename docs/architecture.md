@@ -1,5 +1,7 @@
 # Arquitectura actual de la propuesta multipágina
 
+Actualización 3/11/2026: noticias incorpora lectura de Sanity en build y Studio independiente en studio/. El frontend continúa estático sin React; autenticación y escritura ocurren en Sanity. Producción sigue en JSON hasta activar NEWS_SOURCE y webhook. Arquitectura y límites vigentes en [panel editorial](editorial-panel.md). Los apartados originales siguientes describen el estado anterior.
+
 Corte: 29/10/2026. Esta sección actualiza la descripción histórica que sigue más abajo. Propuesta en PR #11; main sigue sin recibir este lote.
 
 Astro7.3.8 y TypeScript estricto generan 18 páginas públicas y la404 desde cinco colecciones JSON. Los artículos publicados añaden rutas. No hay SSR, API, CMS operativo, autenticación, React, base de datos ni escrituras del visitante.

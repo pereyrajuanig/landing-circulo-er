@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import SectionHeading from './SectionHeading.astro';
-import SitePhoto from '../SitePhoto.astro';
+import NewsPhoto from '../NewsPhoto.astro';
 import { publishedNews } from '../../lib/news';
 interface Props {
   full?: boolean;
@@ -20,10 +20,13 @@ const items = publishedNews(await getCollection('news')).slice(0, full ? undefin
       href={full ? undefined : '/novedades/'}
       action="Ver todas las publicaciones"
     />
-    <p class="ps-source">
-      Memoria del archivo institucional: las fechas indican cuándo se publicaron estas reseñas, no
-      cuándo ocurrieron los hechos. La agenda actual se consulta con la institución.
-    </p>
+    {items.some(({ data }) => data.sourceContext?.toLowerCase().includes('archivo')) && (
+      <p class="ps-source">
+        En las reseñas identificadas como archivo institucional, las fechas indican cuándo se
+        publicó el texto; las fechas de los hechos pueden ser distintas. Consultá la información
+        actual con la institución.
+      </p>
+    )}
     {items.length > 0 ? (
       <div data-news-browser>
         {full && (
@@ -60,9 +63,10 @@ const items = publishedNews(await getCollection('news')).slice(0, full ? undefin
               data-category={data.category}
             >
               <article>
-                {data.cover && (
-                  <SitePhoto
-                    kind={data.cover}
+                {(data.cover || data.coverImage) && (
+                  <NewsPhoto
+                    image={data.coverImage}
+                    fallback={data.cover}
                     variant="card"
                     sizes="(max-width: 700px) 90vw, (max-width: 1100px) 50vw, 36vw"
                   />

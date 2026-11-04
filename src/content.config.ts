@@ -1,6 +1,8 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { file } from 'astro/loaders';
+import { editorialNewsLoader } from './loaders/editorial-news';
+import { editorialImageSchema } from './lib/editorial-media';
 
 const text = z.string().trim().min(1);
 const order = z.number().int().nonnegative();
@@ -54,7 +56,7 @@ const stays = defineCollection({
   }),
 });
 const news = defineCollection({
-  loader: file('src/content/news.json'),
+  loader: editorialNewsLoader(),
   schema: z.object({
     title: text,
     summary: text,
@@ -63,6 +65,8 @@ const news = defineCollection({
     publishedAt: z.iso.datetime({ offset: true }),
     body: z.array(text).min(1),
     cover: text.optional(),
+    coverImage: editorialImageSchema.optional(),
+    galleryImages: z.array(editorialImageSchema).max(12).default([]),
     gallery: z.array(text).default([]),
     sourceContext: text.optional(),
     facebookUrl: z

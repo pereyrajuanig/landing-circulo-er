@@ -3,10 +3,14 @@
 ## Contexto y decisiones
 
 - Landing del Círculo de Retirados y Pensionados de la Policía de Entre Ríos; público: retirados, pensionados y familias.
-- Astro 7.3.8, TypeScript estricto, CSS propio y salida estática. Node 24.16 o posterior dentro de la rama 24 y npm para desarrollo, controles y build; sin CMS ni base de datos. Migración solicitada por el usuario el 12/10/2026.
+- Astro 7.3.8, TypeScript estricto, CSS propio y salida estática. Node 24.16 o posterior dentro de la rama 24 y npm para desarrollo, controles y build; con Sanity Studio separado para noticias/logros en integración; el sitio sigue estático. Migración solicitada por el usuario el 12/10/2026.
 - Fuente: `src/pages/`, `src/layouts/`, `src/components/` y colecciones JSON de `src/content/`. `src/styles/styles.css` es la base institucional y `src/styles/warmth.css` la revisión de calidez, importada después. Mantener el escudo, Libre Caslon Display, DM Sans, azul, dorado y fondos cálidos.
 - Datos institucionales variables requieren confirmación; no inventar teléfonos, prestaciones, tarifas, autoridades ni testimonios.
 - Documentación: [README](README.md), [diseño](docs/design-system.md), [arquitectura](docs/architecture.md), [flujo](docs/workflow.md) y [despliegue](docs/deployment.md).
+
+## Panel editorial vigente
+
+Studio desplegado en https://circulo-policia-er.sanity.studio/, proyecto z8e3tt9r/dataset production. Guía: docs/editorial-panel.md. No afirmar actualización automática de la web hasta comprobar webhook y NEWS_SOURCE=sanity en Vercel. Las demás colecciones siguen en JSON. No publicar borradores ni introducir tokens en Astro. Conservar appId de studio/sanity.cli.ts. studio tiene su npm ci/check/build independiente. Facebook aún no conectado. Las notas históricas siguientes no sustituyen este estado.
 
 ## Trabajo y Git
 

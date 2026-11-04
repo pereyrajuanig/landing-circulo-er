@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import SitePhoto from './SitePhoto.astro';
+import type { EditorialImage } from '../lib/editorial-media';
+interface Props {
+  image?: EditorialImage;
+  fallback?: string;
+  variant?: 'wide' | 'compact' | 'card';
+  sizes?: string;
+}
+const { image, fallback, variant = 'wide', sizes } = Astro.props;
+const width = image ? Math.min(image.width, 1440) : 1440;
+---
+
+{image ? (
+  <figure
+    class:list={['reference-photo', 'reference-photo--' + variant]}
+    data-site-photo
+    data-photo-kind={image.kind}
+  >
+    <div class="reference-photo-frame">
+      <Image
+        src={image.url}
+        alt={image.alt}
+        width={width}
+        height={Math.round((width * image.height) / image.width)}
+        widths={[...new Set([480, 960, width].filter((value) => value <= width))]}
+        sizes={sizes ?? '(max-width: 800px) 90vw, 900px'}
+        format="webp"
+        quality={78}
+        loading="lazy"
+      />
+      {image.kind === 'reference' && <span class="reference-photo-badge">FOTO DE REFERENCIA</span>}
+    </div>
+    <figcaption>
+      {image.caption}
+      <span class="photo-credit">{image.credit}</span>
+    </figcaption>
+  </figure>
+) : fallback ? (
+  <SitePhoto kind={fallback} variant={variant} sizes={sizes} />
+) : null}

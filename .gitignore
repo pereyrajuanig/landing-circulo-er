@@ -27,3 +27,8 @@ test-results/
 
 # Material fuente recibido; solo los recortes seleccionados van en src/assets.
 VideoCirculo-material-recopilado/
+
+# Panel editorial separado del sitio público.
+studio/dist/
+studio/.sanity/
+studio/.cache/

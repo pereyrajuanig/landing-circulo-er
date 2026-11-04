@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-03",
   "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
@@ -439,16 +439,16 @@
       "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
     },
     "12.05": {
-      "status": "pending",
-      "date": "2026-10-29",
-      "responsible": "Desarrollo / institución",
-      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+      "status": "in_progress",
+      "date": "2026-11-03",
+      "responsible": "Desarrollo / usuario / institución",
+      "evidence": "Studio desplegado,4 reseñas y9 fotos migradas; borrador privado comprobado. Astro con Sanity verificado; merge, webhook, permisos institucionales y prueba pública pendientes. Ver docs/editorial-panel.md."
     },
     "12.06": {
-      "status": "pending",
-      "date": "2026-10-29",
-      "responsible": "Desarrollo / institución",
-      "evidence": "Nuevo alcance; revisión y activaciones según docs/site-evolution.md. No certificado como completado por el lote anterior."
+      "status": "in_progress",
+      "date": "2026-11-03",
+      "responsible": "Desarrollo / usuario / institución",
+      "evidence": "Studio desplegado,4 reseñas y9 fotos migradas; borrador privado comprobado. Astro con Sanity verificado; merge, webhook, permisos institucionales y prueba pública pendientes. Ver docs/editorial-panel.md."
     },
     "12.07": {
       "status": "pending",
@@ -471,14 +471,14 @@
   },
   "formValues": {
     "owner_01": "Desarrollo / revisión del usuario",
-    "trace_id": "Portal institucional aprobado",
-    "trace_status": "Aprobado visual; CI y deploy pendientes",
-    "trace_owner": "Desarrollo / usuario",
-    "trace_date": "02/11/2026",
-    "trace_commit": "PR #14 / codex/portada-carrusel-ciudades",
-    "trace_method": "Astro y build; revisión 320-1440 px.\n14 Node y 40 Chromium por modo CSP.\nResultado final en quality del PR #14.",
-    "trace_result": "Inicio y secciones con identidad compartida.\nSin comparación ni ruta anterior.\nVer docs/portal-institucional.md.",
-    "trace_limits": "Dominio NIC confirmado; DNS/HTTPS pendientes.\nCMS, Facebook, lector y privacidad pendientes.\nNo certifica vigencia de servicios.",
+    "trace_id": "Panel editorial Sanity",
+    "trace_status": "Parcial: panel disponible; web pendiente",
+    "trace_owner": "Desarrollo / usuario / institución",
+    "trace_date": "03/11/2026",
+    "trace_commit": "PR #17 / codex/panel-editorial",
+    "trace_method": "Tipos, lint y build Astro/Studio.\n22 Node;40 Chromium por modo CSP.\nCMS real en1280/390px; borrador privado.",
+    "trace_result": "Panel en circulo-policia-er.sanity.studio\n4 reseñas y9 fotos conservadas.\nGuía: docs/editorial-panel.md.",
+    "trace_limits": "Merge, webhook y fuente Vercel pendientes.\nPermisos/plan institucional, backup y capacitación.\nFacebook, lector y privacidad pendientes.",
     "date_01": "13/10/2026",
     "owner_02": "Desarrollo / revisión del usuario",
     "responsive_notes": "CSS: 360, 390, 430, 768, 1024, 1440, 1920. Sin desborde; flujos revisados.\nEvidencia: docs/stage-02-evidence.json y docs/stage-02-design-ux.md.",
@@ -547,6 +547,13 @@
       "branch": "codex/portada-carrusel-ciudades",
       "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/14",
       "summary": "Portal aprobado y PR/publicación autorizados. Inicio con4 ilustraciones y secciones editoriales; comparación eliminada. Quality y despliegue se comprueban en el commit final."
+    },
+    "editorial_panel": {
+      "status": "studio_deployed_pending_website_activation",
+      "branch": "codex/panel-editorial",
+      "studioUrl": "https://circulo-policia-er.sanity.studio/",
+      "summary": "Panel en español con borradores;4 reseñas y9 fotos migradas. Lectura Astro verificada. Producción conserva JSON; webhook y merge pendientes.",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/17"
     }
   }
 }

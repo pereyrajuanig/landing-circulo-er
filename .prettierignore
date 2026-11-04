@@ -20,3 +20,8 @@ package-lock.json
 playwright-report/
 test-results/
 VideoCirculo-material-recopilado/
+
+studio/node_modules/
+studio/dist/
+studio/.sanity/
+studio/package-lock.json

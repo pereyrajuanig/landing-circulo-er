@@ -1,4 +1,6 @@
-# Sistema de diseño · 1.16
+# Sistema de diseño · 1.19
+
+Actualización 3/11/2026: el manual incorpora el panel editorial y su estado parcial en página30. Operación: [guía del panel](editorial-panel.md). Las páginas anteriores registran decisiones históricas; el dominio ya está activo. Producción sigue con JSON hasta conectar Sanity/Vercel.
 
 La base institucional fue aceptada el 9/10/2026. El 11/10/2026 se solicitó mayor calidez y acompañamiento. Esta versión documenta la implementación de esa revisión; su aceptación visual final continúa pendiente. El 12/10/2026 se migró la implementación a Astro conservando el diseño.
 

@@ -1,0 +1,83 @@
+[
+  {
+    "key": "concordia-inauguracion-10",
+    "file": "src/assets/institutional/concordia-inauguracion-10.jpg",
+    "alt": "Acto de inauguración de un espacio institucional en Concordia.",
+    "caption": "Concordia · inauguración. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "1ef0c1511ed26a2089df1d6cbae9b368dacf6e5f7f9b20ccf2b745a698c468e3"
+  },
+  {
+    "key": "concordia-encuentro-social-11",
+    "file": "src/assets/institutional/concordia-encuentro-social-11.jpg",
+    "alt": "Encuentro social de integrantes del Círculo en Concordia.",
+    "caption": "Concordia · encuentro. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "1f619c3e996a978aa668d0034f8600c4921af02fb59ff98f9f3f4923ad5faad8"
+  },
+  {
+    "key": "federacion-complejo-habitacional-13",
+    "file": "src/assets/institutional/federacion-complejo-habitacional-13.jpg",
+    "alt": "Exterior del complejo habitacional presentado para Federación.",
+    "caption": "Federación · alojamiento. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "63e0773ed3ea4831a277ee6655cfa44dfa2bcd7c386ffd7d6a0891c454aadabf"
+  },
+  {
+    "key": "federacion-salud-lentes-talleres-14",
+    "file": "src/assets/institutional/federacion-salud-lentes-talleres-14.jpg",
+    "alt": "Personas participando de un taller creativo en Federación.",
+    "caption": "Federación · taller. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "d56769f549a2cea96ad8de086b99cccbe376ef63d71bf5221199e20c08f7b70a"
+  },
+  {
+    "key": "federal-nueva-sede-15",
+    "file": "src/assets/institutional/federal-nueva-sede-15.jpg",
+    "alt": "Frente de la sede del Círculo en Federal.",
+    "caption": "Federal · sede. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "ce05778513bb677c89b26a9135f11ff6d192ecb9f3bc80ff423a46dc58947898"
+  },
+  {
+    "key": "federal-actividades-16",
+    "file": "src/assets/institutional/federal-actividades-16.jpg",
+    "alt": "Grupo participante de una actividad sociocultural de Federal.",
+    "caption": "Federal · viaje. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "ebedf2d6a5c06e877f7233f2ce617f305fe3fba667984f8e882974e6fb17a50f"
+  },
+  {
+    "key": "diamante-rehabilitacion-obras-18",
+    "file": "src/assets/institutional/diamante-rehabilitacion-obras-18.jpg",
+    "alt": "Bicicletas y elementos del gimnasio de rehabilitación de Diamante.",
+    "caption": "Diamante · rehabilitación. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "3886d7c3d33d5d3f9dc28fe7adca1dc1d044e47d14cc740dbb2a327db9b9abd9"
+  },
+  {
+    "key": "feliciano-sede-salud-terreno-17",
+    "file": "src/assets/institutional/feliciano-sede-salud-terreno-17.jpg",
+    "alt": "Atención y conversación con integrantes en Feliciano.",
+    "caption": "Feliciano · atención. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "e537ab0c883f97dc4a8390300ae30d22ace30bb25b98dddb869ec2484d7db0b5"
+  },
+  {
+    "key": "rosario-del-tala-actividades-12",
+    "file": "src/assets/institutional/rosario-del-tala-actividades-12.jpg",
+    "alt": "Salón preparado para una actividad en Rosario del Tala.",
+    "caption": "Rosario del Tala · salón. Archivo institucional.",
+    "credit": "Archivo del Círculo",
+    "kind": "institutional",
+    "sha256": "0c077bf67bcdb35e3fe03db19b84d8a6a8755562763424e974d4637d210f6a38"
+  }
+]

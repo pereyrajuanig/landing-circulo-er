@@ -1,28 +1,25 @@
 # Panel editorial institucional
 
-## Alcance confirmado el 29/10/2026
+Estado vigente: 3/11/2026. El usuario solicitó activar el panel y creó su cuenta mediante GitHub.
 
-El personal institucional administrará el contenido con un panel sencillo. El usuario indicó preparar la base y activarlo después porque todavía no existe una cuenta/proyecto disponible. Facebook será origen de las publicaciones que también se muestran en el sitio; enlace todavía pendiente.
+El Studio está alojado en https://circulo-policia-er.sanity.studio/, con cuatro reseñas y nueve fotografías migradas. La integración de lectura de Astro está implementada en `codex/panel-editorial`; la web pública conserva el contenido local hasta el merge y la activación de Vercel.
 
-El sitio sigue sin CMS, autenticación ni panel operativo. No hay formularios que guarden datos. La colección local news y las rutas editoriales preparan el frontend, sin simular una integración.
+Operación, arquitectura, instalación, variables, verificaciones y recuperación: [guía del panel](editorial-panel.md).
 
-## Propuesta
+## Checklist
 
-Sanity Studio separado del sitio público, Astro estático y Vercel. [Sanity documenta la integración](https://www.sanity.io/docs/astro) y recomienda [Studio separado](https://www.sanity.io/docs/astro/embedding-studio-in-astro). No se contrataron planes ni se instalaron dependencias del proveedor. Confirmar costos, límites, titularidad y cantidad de editores al activarlo.
+- [x] Crear proyecto/dataset público y autorizar CLI.
+- [x] Desplegar Studio independiente en español con autenticación de Sanity.
+- [x] Modelar noticias/logros, fotos, fechas, enlaces y borradores nativos.
+- [x] Migrar contenido público actual conservando slugs y aclaraciones.
+- [x] Implementar lectura de publicados en build y optimización local de imágenes.
+- [x] Comprobar exclusión de borradores con una prueba autenticada/anónima real.
+- [ ] Aprobar e integrar PR y activar fuente Sanity en Vercel.
+- [ ] Conectar webhook y verificar publicación, actualización y retiro en la web pública.
+- [ ] Confirmar titularidad institucional, plan y permisos de quienes editarán.
+- [ ] Ensayar exportación/restauración y acordar retención.
+- [ ] Capacitar con contenido aprobado.
+- [ ] Evaluar beneficios, alojamientos y espacios editables en una etapa posterior; siguen en JSON.
+- [ ] Activar Facebook cuando exista la página y se verifiquen permisos de Meta.
 
-## Checklist de activación
-
-- [ ] Definir cuenta institucional, responsable y recuperación de acceso.
-- [ ] Crear proyecto/dataset, elegir plan y acordar permisos reales.
-- [ ] Modelar beneficios, alojamientos, espacios, institución y publicaciones con campos confirmados.
-- [ ] Validar imágenes, texto alternativo, enlaces, fechas y estados editoriales.
-- [ ] Conectar un adaptador de lectura en build; las credenciales privadas permanecen en entorno de servidor.
-- [ ] Comprobar borrador → revisión → publicación y quién puede realizar cada paso.
-- [ ] Configurar build de Vercel por publicación editorial; proteger el webhook y evitar bucles.
-- [ ] Ensayar errores de esquema y caída del CMS sin publicar contenido incompleto.
-- [ ] Exportar y restaurar contenido de prueba; un rollback de Vercel no restaura el CMS.
-- [ ] Capacitar al personal con una publicación real aprobada.
-
-## Facebook
-
-La conexión no está implementada. Se comprobará al recibir la página y el acceso; permisos y revisión de Meta pendientes de verificación. Mantener Facebook como fuente, identificadores estables y enlaces originales; evitar duplicar noticias importadas. Las condiciones de importación y moderación se documentan en [evolución del sitio](site-evolution.md).
+No se contrataron planes pagos ni se invitó a otras personas. El campo de Facebook solo guarda un enlace y no sincroniza contenido.

@@ -67,7 +67,13 @@ try {
     {
       cwd: workspace,
       encoding: 'utf8',
-      env: { ...process.env, SITE_URL: '', SEO_INDEXABLE: 'false', VERCEL_ENV: 'preview' },
+      env: {
+        ...process.env,
+        NEWS_SOURCE: 'local',
+        SITE_URL: '',
+        SEO_INDEXABLE: 'false',
+        VERCEL_ENV: 'preview',
+      },
     },
   );
   assert.equal(build.status, 0, build.stderr + build.stdout);
