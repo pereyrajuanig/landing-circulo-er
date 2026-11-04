@@ -5,6 +5,7 @@ import SitePage from '../../layouts/SitePage.astro';
 import { publishedNews } from '../../lib/news';
 import SitePhoto from '../../components/SitePhoto.astro';
 import NewsPhoto from '../../components/NewsPhoto.astro';
+import PhotoRail from '../../components/PhotoRail.astro';
 export async function getStaticPaths() {
   return publishedNews(await getCollection('news')).map((item) => ({
     params: { id: item.id },
@@ -46,14 +47,19 @@ const { item } = Astro.props;
       <p>{paragraph}</p>
     ))}
     {(item.data.gallery.length > 0 || item.data.galleryImages.length > 0) && (
-      <div class="article-gallery">
+      <PhotoRail
+        id="news-gallery-track"
+        label="Fotos de la publicación"
+        count={item.data.gallery.length + item.data.galleryImages.length}
+        trackClass="article-gallery"
+      >
         {item.data.galleryImages.map((image) => (
           <NewsPhoto image={image} variant="compact" />
         ))}
         {item.data.gallery.map((key) => (
           <SitePhoto kind={key} variant="compact" />
         ))}
-      </div>
+      </PhotoRail>
     )}
     {item.data.facebookUrl && (
       <a class="text-link" href={item.data.facebookUrl} target="_blank" rel="noopener noreferrer">

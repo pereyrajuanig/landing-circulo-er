@@ -1,0 +1,348 @@
+{
+  "source": "Carpeta images entregada por el usuario",
+  "photos": [
+    {
+      "key": "parana-consultorio-02",
+      "file": "consultorio_parana.png"
+    },
+    {
+      "key": "parana-podologia-03",
+      "file": "consultorio_parana_2.png"
+    },
+    {
+      "key": "parana-habitacion-doble-04",
+      "file": "alojamiento_parana_2.png"
+    },
+    {
+      "key": "parana-los-laureles-30-personas-05",
+      "file": "salon_laureles_parana_2_30p.png"
+    },
+    {
+      "key": "parana-los-laureles-50-personas-06",
+      "file": "salon_laureles_parana_50p_2.png"
+    },
+    {
+      "key": "parana-las-rosas-exterior-07",
+      "file": "salon_rosas_parana_170_2.png"
+    },
+    {
+      "key": "parana-las-rosas-parrillas-08",
+      "file": "salon_rosas_parana_170_7.png"
+    },
+    {
+      "key": "concepcion-del-uruguay-alojamiento-09",
+      "file": "alojamiento_concepcion_2.png"
+    },
+    {
+      "key": "concordia-inauguracion-10",
+      "file": "convenio_concordia_institucional_3.png"
+    },
+    {
+      "key": "concordia-encuentro-social-11",
+      "file": "convenio_concordia_institucional_recreacion (2).png"
+    },
+    {
+      "key": "rosario-del-tala-actividades-12",
+      "file": "rosariodeltala_gestion (5).png"
+    },
+    {
+      "key": "federacion-complejo-habitacional-13",
+      "file": "federacion_alojamiento.png"
+    },
+    {
+      "key": "federal-nueva-sede-15",
+      "file": "federal_gestion (2).png"
+    },
+    {
+      "key": "federal-actividades-16",
+      "file": "federal_recreacion (1).png"
+    },
+    {
+      "key": "feliciano-sede-salud-terreno-17",
+      "file": "feliciano_salud.png"
+    },
+    {
+      "key": "diamante-rehabilitacion-obras-18",
+      "file": "diamante_salud (2).png"
+    },
+    {
+      "key": "crespo-salon-80-personas-19",
+      "file": "crespo_salon.png"
+    },
+    {
+      "key": "maria-grande-alojamiento-20",
+      "file": "mariagrande_alojamiento.png"
+    },
+    {
+      "key": "maria-grande-comedor-21",
+      "file": "mariagrande_alojamiento (2).png"
+    },
+    {
+      "key": "hasenkamp-sede-salon-22",
+      "file": "hasenkamp_salon.png"
+    },
+    {
+      "key": "hasenkamp-sede-salon-23",
+      "file": "hasenkamp_salon (1).png"
+    },
+    {
+      "key": "chajari-asesoramiento-24",
+      "file": "chajari_oficina (2).png"
+    },
+    {
+      "key": "parana-sede",
+      "file": "sede_parana.png"
+    },
+    {
+      "key": "parana-oficina",
+      "file": "oficina_parana_1.png"
+    },
+    {
+      "key": "parana-habitacion-matrimonial",
+      "file": "image.png"
+    },
+    {
+      "key": "parana-alojamiento-bano",
+      "file": "alojamiento_parana_3.png"
+    },
+    {
+      "key": "concepcion-fachada",
+      "file": "alojamiento_concepcion.png"
+    },
+    {
+      "key": "concepcion-comedor",
+      "file": "alojamiento_concepcion_1.png"
+    },
+    {
+      "key": "maria-grande-bano",
+      "file": "mariagrande_alojamiento (1).png"
+    },
+    {
+      "key": "concordia-obras",
+      "file": "convenio_concordia_institucional_4.png"
+    },
+    {
+      "key": "concordia-ambulancia",
+      "file": "convenio_concordia_institucional_convenio_3.png"
+    },
+    {
+      "key": "rosario-del-tala-sede",
+      "file": "rosariodeltala_gestion.png"
+    },
+    {
+      "key": "rosario-del-tala-obras",
+      "file": "rosariodeltala_gestion (4).png"
+    },
+    {
+      "key": "federacion-sede",
+      "file": "federacion_sede.png"
+    },
+    {
+      "key": "federacion-renovacion",
+      "file": "federacion_gestion (2).png"
+    },
+    {
+      "key": "federacion-taller",
+      "file": "federacion_recreacion.png"
+    },
+    {
+      "key": "federal-jornada",
+      "file": "federal_salud.png"
+    },
+    {
+      "key": "feliciano-sede",
+      "file": "feliciano_sede.png"
+    },
+    {
+      "key": "feliciano-terreno",
+      "file": "feliciano_gestion.png"
+    },
+    {
+      "key": "diamante-rehabilitacion",
+      "file": "diamante_salud (1).png"
+    },
+    {
+      "key": "diamante-salon-interior",
+      "file": "diamante_salon (2).png"
+    },
+    {
+      "key": "diamante-salon-sanitarios",
+      "file": "diamante_salon (1).png"
+    },
+    {
+      "key": "crespo-sede",
+      "file": "crespo_sede.png"
+    },
+    {
+      "key": "hasenkamp-sede",
+      "file": "hasenkamp_sede.png"
+    },
+    {
+      "key": "chajari-oficina-acceso",
+      "file": "chajari_oficina (1).png"
+    },
+    {
+      "key": "parana-laureles-salon-30",
+      "file": "salon_laureles_parana_1_30p.png"
+    },
+    {
+      "key": "parana-laureles-parque",
+      "file": "salon_laureles_parana_50p_1.png"
+    },
+    {
+      "key": "parana-rosas-salon",
+      "file": "salon_rosas_parana_170_3.png"
+    },
+    {
+      "key": "parana-rosas-cocina",
+      "file": "salon_rosas_parana_170_8.png"
+    },
+    {
+      "key": "federacion-beneficio-lentes",
+      "file": "beneficio_lentes.png"
+    },
+    {
+      "key": "parana-alojamiento-bano-amplio",
+      "file": "alojamiento_parana_1.png"
+    },
+    {
+      "key": "chajari-oficina-ventana",
+      "file": "chajari_oficina.png"
+    },
+    {
+      "key": "parana-consultorio-equipamiento",
+      "file": "consultorio_parana_1.png"
+    },
+    {
+      "key": "parana-consultorio-mobiliario",
+      "file": "consultorio_parana_3.png"
+    },
+    {
+      "key": "concordia-encuentro-sede",
+      "file": "convenio_concordia_institucional_1.png"
+    },
+    {
+      "key": "concordia-acto",
+      "file": "convenio_concordia_institucional_2.png"
+    },
+    {
+      "key": "concordia-obras-exterior",
+      "file": "convenio_concordia_institucional_5.png"
+    },
+    {
+      "key": "concordia-sede",
+      "file": "convenio_concordia_institucional_6.png"
+    },
+    {
+      "key": "concordia-ambulancia-exterior",
+      "file": "convenio_concordia_institucional_convenio_1.png"
+    },
+    {
+      "key": "concordia-convenio-ambulancia",
+      "file": "convenio_concordia_institucional_convenio.png"
+    },
+    {
+      "key": "concordia-actividad-social",
+      "file": "convenio_concordia_institucional_recreacion (1).png"
+    },
+    {
+      "key": "concordia-mesa-compartida",
+      "file": "convenio_concordia_institucional_recreacion.png"
+    },
+    {
+      "key": "concordia-firma",
+      "file": "convenio_concordia_institucional.png"
+    },
+    {
+      "key": "crespo-sede-entrada",
+      "file": "crespo_sede (1).png"
+    },
+    {
+      "key": "diamante-salon-exterior",
+      "file": "diamante_salon.png"
+    },
+    {
+      "key": "diamante-oficina",
+      "file": "diamante_salud.png"
+    },
+    {
+      "key": "federacion-trabajos-acceso",
+      "file": "federacion_gestion (1).png"
+    },
+    {
+      "key": "federacion-equipo-obras",
+      "file": "federacion_gestion (3).png"
+    },
+    {
+      "key": "federacion-trabajos-interior",
+      "file": "federacion_gestion.png"
+    },
+    {
+      "key": "federacion-jornada-salud",
+      "file": "federacion_salud.png"
+    },
+    {
+      "key": "federacion-sede-frente",
+      "file": "federacion_sede.jpg"
+    },
+    {
+      "key": "federal-sede-exterior",
+      "file": "federal_gestion (1).png"
+    },
+    {
+      "key": "federal-encuentro",
+      "file": "federal_gestion.png"
+    },
+    {
+      "key": "federal-reconocimientos",
+      "file": "federal_recreacion.png"
+    },
+    {
+      "key": "parana-oficina-atencion",
+      "file": "oficina_parana_2.png"
+    },
+    {
+      "key": "rosario-del-tala-trabajos",
+      "file": "rosariodeltala_gestion (1).png"
+    },
+    {
+      "key": "rosario-del-tala-salud",
+      "file": "rosariodeltala_gestion (2).png"
+    },
+    {
+      "key": "rosario-del-tala-entrega",
+      "file": "rosariodeltala_gestion (3).png"
+    },
+    {
+      "key": "parana-laureles-equipamiento-30",
+      "file": "salon_laureles_parana_30p.png"
+    },
+    {
+      "key": "parana-laureles-salon-50",
+      "file": "salon_laureles_parana_50p.png"
+    },
+    {
+      "key": "parana-rosas-patio",
+      "file": "salon_rosas_parana_170_1.png"
+    },
+    {
+      "key": "parana-rosas-sanitarios",
+      "file": "salon_rosas_parana_170_4.png"
+    },
+    {
+      "key": "parana-rosas-parrilla-exterior",
+      "file": "salon_rosas_parana_170_6.png"
+    },
+    {
+      "key": "parana-rosas-frente",
+      "file": "salon_rosas_parana_170.png"
+    }
+  ],
+  "duplicates": [
+    {
+      "file": "salon_rosas_parana_170_5.png",
+      "sameAs": "salon_rosas_parana_170_4.png",
+      "key": "parana-rosas-sanitarios"
+    }
+  ]
+}

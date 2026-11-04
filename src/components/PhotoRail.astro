@@ -1,0 +1,111 @@
+---
+import LineIcon from './LineIcon.astro';
+
+interface Props {
+  id: string;
+  label: string;
+  count: number;
+  trackClass?: string;
+}
+
+const { id, label, count, trackClass } = Astro.props;
+const multiple = count > 1;
+---
+
+{multiple ? (
+  <div class="photo-rail" data-photo-rail role="group" aria-label={label}>
+    <div
+      id={id}
+      class:list={['photo-rail-track', trackClass]}
+      data-photo-track
+      tabindex="0"
+      role="group"
+      aria-label="Fotos del carrusel"
+    >
+      <slot />
+    </div>
+    <div class="photo-rail-controls" data-photo-controls hidden>
+      <button
+        type="button"
+        data-photo-prev
+        aria-label="Ver foto anterior"
+        aria-controls={id}
+        aria-disabled="true"
+      >
+        <LineIcon name="arrow" size={20} />
+      </button>
+      <span data-photo-counter role="status">
+        1 / {count}
+      </span>
+      <button
+        type="button"
+        data-photo-next
+        aria-label="Ver foto siguiente"
+        aria-controls={id}
+        aria-disabled="false"
+      >
+        <LineIcon name="arrow" size={20} />
+      </button>
+    </div>
+  </div>
+) : (
+  <div class={trackClass}>
+    <slot />
+  </div>
+)}
+
+<style>
+  .photo-rail {
+    min-width: 0;
+  }
+  .photo-rail > .photo-rail-track {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  .photo-rail-track > :global(*) {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  .photo-rail-controls:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-block-start: 0.75rem;
+  }
+  .photo-rail-controls button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--ps-border);
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .photo-rail-controls button:hover:not([aria-disabled='true']) {
+    border-color: var(--gold);
+  }
+  .photo-rail-controls button[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .photo-rail-controls [data-photo-prev] :global(svg) {
+    transform: rotate(180deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-rail > .photo-rail-track {
+      scroll-behavior: auto;
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/photo-rail';
+</script>

@@ -1,0 +1,88 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import SitePage from '../../layouts/SitePage.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+import LineIcon from '../../components/LineIcon.astro';
+import { mailTo } from '../../lib/contact';
+
+export async function getStaticPaths() {
+  return (await getCollection('localities')).map((locality) => ({
+    params: { id: locality.id },
+    props: { locality },
+  }));
+}
+
+interface Props {
+  locality: CollectionEntry<'localities'>;
+}
+
+const { locality } = Astro.props;
+const { name, summary, sections, links, photoKeys } = locality.data;
+const institution = await getEntry('institution', 'circulo');
+if (!institution) throw new Error('Falta contacto institucional.');
+const central = locality.id === 'parana';
+const inquiry = mailTo(institution.data.email, 'Consulta sobre la sede del Círculo en ' + name);
+---
+
+<SitePage
+  title={name}
+  eyebrow={central ? 'Sede central' : 'Filiales en Entre Ríos'}
+  description={summary}
+  parent={{ label: 'Directorio de filiales', href: '/institucion/#filiales' }}
+>
+  <section class="wrap page-section ps-stay-detail" aria-labelledby="locality-information">
+    <div class="ps-stay-facts">
+      <h2 id="locality-information">El Círculo en {name}</h2>
+      {sections.map(({ title, body }) => (
+        <div class="locality-topic">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </div>
+      ))}
+      <p class="ps-note">
+        Las obras, actividades y convenios corresponden al período documentado en el archivo
+        institucional. Consultá las condiciones vigentes con el Círculo.
+      </p>
+    </div>
+    <aside class="ps-booking" aria-labelledby="locality-contact">
+      <h2 id="locality-contact">Contacto y consultas</h2>
+      <p>
+        {central
+          ? institution.data.address + ', Paraná, Entre Ríos.'
+          : 'La sede central te orienta para comunicarte con la filial.'}
+      </p>
+      <a class="ps-button" href={inquiry}>
+        Consultar por {name} <LineIcon name="arrow" size={20} />
+      </a>
+      <ul>
+        {links.map(({ label, href }) => (
+          <li>
+            <a class="ps-link" href={href}>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  </section>
+  <PhotoGallery
+    photoKeys={photoKeys}
+    title={'Fotos de ' + name}
+    note="Imágenes del archivo institucional del Círculo."
+  />
+  <div class="wrap page-back">
+    <a class="ps-link" href="/institucion/#filiales">
+      ← Volver al directorio
+    </a>
+  </div>
+</SitePage>
+
+<style>
+  .locality-topic + .locality-topic {
+    margin-block-start: 1.5rem;
+  }
+  .locality-topic h3 {
+    margin-block-end: 0.35rem;
+  }
+</style>

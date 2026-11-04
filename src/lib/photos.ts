@@ -35,6 +35,7 @@ import inst21 from '../assets/institutional/maria-grande-comedor-21.jpg';
 import inst22 from '../assets/institutional/hasenkamp-sede-salon-22.jpg';
 import inst23 from '../assets/institutional/hasenkamp-sede-salon-23.jpg';
 import inst24 from '../assets/institutional/chajari-asesoramiento-24.jpg';
+import dossierCaptions from '../content/dossier-photo-captions.json';
 const stockPhotos = {
   comunidad: {
     src: comunidad,
@@ -362,6 +363,29 @@ photos['chajari-asesoramiento-24'] = {
   credit: 'Archivo del Círculo',
 };
 
+const dossierImages = import.meta.glob<ImageMetadata>('../assets/institutional/dossier/*.webp', {
+  eager: true,
+  import: 'default',
+});
+const captions: Record<string, { title: string; alt: string }> = dossierCaptions;
+for (const [path, src] of Object.entries(dossierImages)) {
+  const key = path.slice(path.lastIndexOf('/') + 1, -'.webp'.length);
+  const caption = captions[key];
+  if (caption) {
+    photos[key] = {
+      ...caption,
+      src,
+      note: caption.title + '. Archivo institucional.',
+      kind: 'institutional',
+      credit: 'Archivo del Círculo',
+    };
+  } else {
+    const existing = photos[key];
+    if (!existing) throw new Error('Falta el epígrafe de ' + key);
+    photos[key] = { ...existing, src };
+  }
+}
+
 export const servicePhotoKeys: Record<string, string> = {
   salud: 'parana-consultorio-02',
   tramites: 'chajari-asesoramiento-24',
@@ -370,9 +394,18 @@ export const servicePhotoKeys: Record<string, string> = {
   recreacion: 'concordia-encuentro-social-11',
 };
 export const stayGalleryKeys: Record<string, string[]> = {
-  parana: ['parana-habitacion-doble-04'],
-  'maria-grande': ['maria-grande-alojamiento-20', 'maria-grande-comedor-21'],
-  'concepcion-del-uruguay': ['concepcion-del-uruguay-alojamiento-09'],
+  parana: [
+    'parana-habitacion-doble-04',
+    'parana-habitacion-matrimonial',
+    'parana-alojamiento-bano',
+    'parana-alojamiento-bano-amplio',
+  ],
+  'maria-grande': ['maria-grande-alojamiento-20', 'maria-grande-comedor-21', 'maria-grande-bano'],
+  'concepcion-del-uruguay': [
+    'concepcion-del-uruguay-alojamiento-09',
+    'concepcion-comedor',
+    'concepcion-fachada',
+  ],
   federacion: ['federacion-complejo-habitacional-13'],
   victoria: ['habitacion3', 'entorno'],
   nogoya: ['habitacion2', 'entorno'],

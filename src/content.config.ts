@@ -44,6 +44,16 @@ const branches = defineCollection({
   loader: file('src/content/branches.json'),
   schema: z.object({ order, name: text, overview: text.optional(), photoKey: text.optional() }),
 });
+const localities = defineCollection({
+  loader: file('src/content/localities.json'),
+  schema: z.object({
+    name: text,
+    summary: text,
+    photoKeys: z.array(text).min(1),
+    sections: z.array(z.object({ title: text, body: text })).min(1),
+    links: z.array(z.object({ label: text, href: z.string().regex(/^\/(?!\/)/) })).min(1),
+  }),
+});
 const stays = defineCollection({
   loader: file('src/content/stays.json'),
   schema: z.object({
@@ -96,4 +106,4 @@ const spaces = defineCollection({
     sourceNote: text,
   }),
 });
-export const collections = { institution, services, branches, stays, news, spaces };
+export const collections = { institution, services, branches, localities, stays, news, spaces };

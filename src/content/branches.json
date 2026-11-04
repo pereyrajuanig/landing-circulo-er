@@ -23,14 +23,14 @@
     "order": 3,
     "name": "Federación",
     "overview": "Complejo habitacional, mejoras en espacios y talleres creativos presentados en el recorrido.",
-    "photoKey": "federacion-salud-lentes-talleres-14"
+    "photoKey": "federacion-sede"
   },
   {
     "id": "federal",
     "order": 4,
     "name": "Federal",
     "overview": "Ampliación de sede y área de salud, actividades y viajes socioculturales registrados en el archivo.",
-    "photoKey": "federal-actividades-16"
+    "photoKey": "federal-nueva-sede-15"
   },
   {
     "id": "feliciano",
@@ -59,7 +59,7 @@
     "order": 9,
     "name": "Hasenkamp",
     "overview": "Espacio de atención, salón y cocina mostrados en el recorrido de la filial.",
-    "photoKey": "hasenkamp-sede-salon-22"
+    "photoKey": "hasenkamp-sede"
   },
   {
     "id": "cerrito",
@@ -78,7 +78,7 @@
     "order": 12,
     "name": "Crespo",
     "overview": "Asesoramiento, acompañamiento y salón de encuentro presentado para la filial.",
-    "photoKey": "crespo-salon-80-personas-19"
+    "photoKey": "crespo-sede"
   },
   {
     "id": "la-paz",
@@ -100,7 +100,7 @@
     "order": 16,
     "name": "Rosario del Tala",
     "overview": "Talleres creativos, jornadas de salud y actividades compartidas presentadas en el material.",
-    "photoKey": "rosario-del-tala-actividades-12"
+    "photoKey": "rosario-del-tala-sede"
   },
   {
     "id": "general-ramirez",
