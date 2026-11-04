@@ -138,6 +138,15 @@ test('filiales reconocen mayúsculas y tildes, informan vacío y conservan la se
   await search.fill('');
   await expect(visible).toHaveCount(24);
   await expect(status).toBeEmpty();
+  await page
+    .locator('#branch-list')
+    .getByRole('link', { name: /María Grande.*ver ficha/ })
+    .click();
+  await expect(page).toHaveURL(/\/filiales\/maria-grande\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('María Grande');
+  await expect(page.locator('[data-photo-key="maria-grande-bano"]')).toBeVisible();
+  await page.getByRole('link', { name: 'Ver fotos y detalles del alojamiento' }).click();
+  await expect(page).toHaveURL(/\/alojamientos\/maria-grande\/$/);
 });
 
 test('alojamientos permiten recorrido manual y cada ficha conserva destino y consulta', async ({
@@ -185,6 +194,13 @@ test('beneficios ofrecen categorías y sus fichas conservan detalles y consulta'
   await expect(
     page.getByRole('link', { name: 'Consultar atención', exact: false }),
   ).toHaveAttribute('href', /^mailto:/);
+  await page.goto('/beneficios/farmacia/');
+  const optics = page.locator('[data-photo-key="federacion-beneficio-lentes"]');
+  await expect(optics).toBeVisible();
+  await expect(optics.locator('img')).toHaveCSS('object-fit', 'contain');
+  await page.getByRole('link', { name: 'Federación', exact: true }).click();
+  await expect(page).toHaveURL(/\/filiales\/federacion\/$/);
+  await expect(page.locator('[data-photo-key="federacion-beneficio-lentes"]')).toBeVisible();
 });
 
 test('anclas, correo, Maps y respuesta 404 conservan destinos válidos', async ({
@@ -241,6 +257,8 @@ test('cambios de tamaño y menú bajo mantienen foco utilizable sin desborde', a
     '/alojamientos/',
     '/salones/',
     '/institucion/',
+    '/filiales/federacion/',
+    '/beneficios/farmacia/',
     '/novedades/',
     '/contacto/',
   ]) {
@@ -367,7 +385,21 @@ test('galería institucional permite ampliar cambiar imagen y devolver el foco',
   const gallery = page.locator('[data-photo-gallery]');
   await expect(gallery).toContainText('Imágenes del alojamiento identificado');
   const openers = gallery.locator('[data-gallery-open]');
-  await expect(openers).toHaveCount(2);
+  await expect(openers).toHaveCount(3);
+  const rail = gallery.getByRole('group', { name: 'Fotos del carrusel' });
+  const counter = gallery.locator('[data-photo-counter]');
+  await expect(counter).toHaveText('1 / 3');
+  await gallery.getByRole('button', { name: 'Ver foto siguiente' }).click();
+  await expect(counter).toHaveText('2 / 3');
+  await rail.focus();
+  await rail.press('End');
+  await expect(counter).toHaveText('3 / 3');
+  await expect(gallery.getByRole('button', { name: 'Ver foto siguiente' })).toHaveAttribute(
+    'aria-disabled',
+    'true',
+  );
+  await rail.press('Home');
+  await expect(counter).toHaveText('1 / 3');
   const opener = openers.first();
   await opener.focus();
   await page.keyboard.press('Enter');
@@ -381,7 +413,7 @@ test('galería institucional permite ampliar cambiar imagen y devolver el foco',
     /alojamiento de María Grande/,
   );
   await dialog.getByRole('button', { name: 'Imagen siguiente', exact: true }).click();
-  await expect(dialog.getByRole('status')).toHaveText('2 / 2 · María Grande · comedor');
+  await expect(dialog.getByRole('status')).toHaveText('2 / 3 · María Grande · comedor');
   await expect(dialog.locator('[data-gallery-image]')).toHaveAttribute(
     'src',
     await openers.nth(1).evaluate((element) => element.href),
@@ -389,7 +421,7 @@ test('galería institucional permite ampliar cambiar imagen y devolver el foco',
   await expect(dialog.locator('[data-gallery-local]')).toContainText('Archivo del Círculo');
   await expect(dialog.locator('[data-gallery-source]')).toBeHidden();
   await page.keyboard.press('ArrowLeft');
-  await expect(dialog.getByRole('status')).toHaveText('1 / 2 · María Grande · habitación');
+  await expect(dialog.getByRole('status')).toHaveText('1 / 3 · María Grande · habitación');
   await page.keyboard.press('Escape');
   await expect(dialog).not.toBeVisible();
   await expect(opener).toBeFocused();
@@ -401,13 +433,13 @@ test('galería institucional permite ampliar cambiar imagen y devolver el foco',
 test('galería de una imagen conserva cierre y referencias pendientes siguen avisadas', async ({
   page,
 }) => {
-  await page.goto('/alojamientos/parana/');
+  await page.goto('/alojamientos/federacion/');
   await page.locator('[data-gallery-open]').click();
   const dialog = page.getByRole('dialog', { name: 'Galería de alojamiento', exact: true });
   await expect(dialog.getByRole('button', { name: 'Imagen siguiente', exact: true })).toHaveCount(
     0,
   );
-  await expect(dialog.getByRole('status')).toHaveText('1 / 1 · Paraná · habitación');
+  await expect(dialog.getByRole('status')).toHaveText('1 / 1 · Federación · alojamiento');
   await page.keyboard.press('Escape');
   await expect(page.locator('[data-gallery-open]')).toBeFocused();
   await page.goto('/alojamientos/nogoya/');
@@ -439,7 +471,12 @@ test('novedades permite consultar memorias del archivo y salones distinguen capa
   await page.goto('/salones/');
   await expect(page.locator('#los-laureles')).toContainText('30 y 50 personas');
   await expect(page.locator('#las-rosas')).toContainText('170 personas');
-  await expect(page.locator('#diamante [data-site-photo]')).toHaveCount(0);
+  const roses = page.locator('#las-rosas');
+  await expect(roses.locator('[data-photo-counter]')).toHaveText('1 / 8');
+  await roses.getByRole('button', { name: 'Ver foto siguiente' }).click();
+  await expect(roses.locator('[data-photo-counter]')).toHaveText('2 / 8');
+  await expect(page.locator('#los-laureles [data-photo-counter]')).toHaveText('1 / 6');
+  await expect(page.locator('#diamante [data-photo-key="diamante-salon-interior"]')).toHaveCount(1);
 });
 
 test('carrusel avanza automáticamente y mantiene el mensaje con cada ilustración', async ({

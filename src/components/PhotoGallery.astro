@@ -1,12 +1,26 @@
 ---
 import { Image, getImage } from 'astro:assets';
+import PhotoRail from './PhotoRail.astro';
 import { photos as registry, stayGalleryKeys } from '../lib/photos';
-interface Props {
-  stayId: string;
-}
-const { stayId } = Astro.props;
-const keys = stayGalleryKeys[stayId];
-if (!keys?.length) throw new Error('Falta galería para ' + stayId);
+type Props =
+  | { stayId: string; photoKeys?: never; title?: never; note?: never }
+  | {
+      photoKeys: string[];
+      title: string;
+      note: string;
+      stayId?: never;
+      id?: string;
+      compact?: boolean;
+    };
+const { stayId, photoKeys, title, note: customNote } = Astro.props;
+const id = 'id' in Astro.props ? (Astro.props.id ?? 'gallery') : 'gallery';
+const compact = 'compact' in Astro.props && Astro.props.compact;
+const headingId = id + '-title';
+const dialogId = id + '-dialog';
+const dialogTitleId = dialogId + '-title';
+const heading = title ?? 'Galería de alojamiento';
+const keys = stayId ? stayGalleryKeys[stayId] : photoKeys;
+if (!keys?.length) throw new Error('Falta galería para ' + (stayId ?? title));
 const photos = await Promise.all(
   keys.map(async (key) => {
     const photo = registry[key];
@@ -25,29 +39,45 @@ const photos = await Promise.all(
 );
 const first = photos[0];
 const institutional = photos.every((photo) => photo.kind === 'institutional');
-const note = institutional
-  ? 'Imágenes del alojamiento identificado en el material institucional recibido. Consultá disponibilidad, equipamiento y condiciones actuales antes de viajar.'
-  : 'Fotografías de referencia. No corresponden al alojamiento real. Todavía no recibimos imágenes propias de este destino.';
+const note =
+  customNote ??
+  (institutional
+    ? 'Imágenes del alojamiento identificado en el material institucional recibido. Consultá disponibilidad, equipamiento y condiciones actuales antes de viajar.'
+    : 'Fotografías de referencia. No corresponden al alojamiento real. Todavía no recibimos imágenes propias de este destino.');
 ---
 
-<section class="wrap page-section photo-gallery" aria-labelledby="gallery-title" data-photo-gallery>
-  <div class="gallery-heading">
-    <div>
-      <p class="eyebrow dark">{institutional ? 'Conocé los espacios' : 'Referencia visual'}</p>
-      <h2 id="gallery-title">
-        {institutional ? 'Fotos del alojamiento' : 'Imágenes de referencia'}
-      </h2>
+<section
+  class:list={['photo-gallery', compact ? 'photo-gallery-compact' : 'wrap page-section']}
+  aria-labelledby={compact ? undefined : headingId}
+  aria-label={compact ? heading : undefined}
+  data-photo-gallery
+>
+  {!compact && (
+    <div class="gallery-heading">
+      <div>
+        <p class="eyebrow dark">{institutional ? 'Conocé los espacios' : 'Referencia visual'}</p>
+        <h2 id={headingId}>
+          {title ?? (institutional ? 'Fotos del alojamiento' : 'Imágenes de referencia')}
+        </h2>
+      </div>
+      <div class="gallery-context">
+        <p class="ps-gallery-count">
+          {photos.length === 1
+            ? '1 fotografía disponible para ampliar'
+            : photos.length + ' fotografías disponibles para ampliar'}
+        </p>
+        <p>{note}</p>
+      </div>
     </div>
-    <div class="gallery-context">
-      <p class="ps-gallery-count">
-        {photos.length === 1
-          ? '1 fotografía disponible para ampliar'
-          : photos.length + ' fotografías disponibles para ampliar'}
-      </p>
-      <p>{note}</p>
-    </div>
-  </div>
-  <div class:list={['photo-gallery-grid', { 'photo-gallery-single': photos.length === 1 }]}>
+  )}
+  <PhotoRail
+    id={id + '-track'}
+    label={heading}
+    count={photos.length}
+    trackClass={
+      photos.length === 1 ? 'photo-gallery-grid photo-gallery-single' : 'photo-gallery-grid'
+    }
+  >
     {photos.map((photo) => (
       <figure data-site-photo data-photo-kind={photo.kind} data-photo-key={photo.key}>
         <a
@@ -63,7 +93,7 @@ const note = institutional
           data-credit={photo.credit}
           aria-label={'Ampliar: ' + photo.title}
           aria-haspopup="dialog"
-          aria-controls="photo-dialog"
+          aria-controls={dialogId}
         >
           <Image
             src={photo.src}
@@ -78,7 +108,11 @@ const note = institutional
                 ),
               ),
             ]}
-            sizes="(max-width: 800px) calc(100vw - 44px), 760px"
+            sizes={
+              compact
+                ? '(max-width: 800px) calc(100vw - 44px), 42vw'
+                : '(max-width: 800px) calc(100vw - 44px), 760px'
+            }
             loading="lazy"
           />
           <span class="gallery-enlarge" aria-hidden="true">
@@ -99,11 +133,11 @@ const note = institutional
         </figcaption>
       </figure>
     ))}
-  </div>
-  <dialog id="photo-dialog" class="photo-dialog" aria-labelledby="photo-dialog-title">
+  </PhotoRail>
+  <dialog id={dialogId} class="photo-dialog" aria-labelledby={dialogTitleId}>
     <div class="photo-dialog-panel">
       <div class="photo-dialog-top">
-        <p id="photo-dialog-title">Galería de alojamiento</p>
+        <p id={dialogTitleId}>{heading}</p>
         <button type="button" data-gallery-close aria-label="Cerrar imagen ampliada">
           Cerrar ×
         </button>
@@ -152,3 +186,15 @@ const note = institutional
 <script>
   import '../scripts/photo-gallery';
 </script>
+
+<style>
+  .photo-gallery-compact :global(.photo-gallery-grid img) {
+    height: clamp(180px, 26vw, 380px);
+  }
+  .photo-gallery {
+    min-width: 0;
+  }
+  .photo-gallery :global(.photo-rail-track) {
+    max-width: 100%;
+  }
+</style>

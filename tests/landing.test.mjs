@@ -346,6 +346,21 @@ test('las fotografías propias conservan su localidad y las referencias siguen i
   const html = (
     await Promise.all(paths.map(async (path) => (await fetch(new URL(path, origin))).text()))
   ).join('\n');
+  const localityPages = await Promise.all(
+    load('../src/content/localities.json').map(async ({ id }) => {
+      const response = await fetch(new URL('/filiales/' + id + '/', origin));
+      assert.equal(response.status, 200, id);
+      return response.text();
+    }),
+  );
+  const rendered = [html, ...localityPages].join(' ');
+  const dossier = load('../docs/dossier-photo-sources.json');
+  assert.equal(
+    new Set(dossier.photos.map(({ file }) => file)).size + dossier.duplicates.length,
+    85,
+  );
+  for (const { key, file } of dossier.photos)
+    assert(rendered.includes('data-photo-key="' + key + '"'), file);
   for (const file of files)
     assert(html.includes('data-photo-key="' + file.id + '-' + file.key.slice(4) + '"'), file.asset);
   for (const id of ['parana', 'maria-grande', 'concepcion-del-uruguay', 'federacion']) {

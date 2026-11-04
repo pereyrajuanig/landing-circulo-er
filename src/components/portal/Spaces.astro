@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import SectionHeading from './SectionHeading.astro';
 import SitePhoto from '../SitePhoto.astro';
+import PhotoGallery from '../PhotoGallery.astro';
 import LineIcon from '../LineIcon.astro';
 import { mailTo } from '../../lib/contact';
 interface Props {
@@ -35,16 +36,19 @@ const shown = full ? spaces : spaces.slice(0, 2);
         >
           {data.photoKeys.length > 0 && (
             <div class="ps-space-visual">
-              <SitePhoto
-                kind={data.photoKeys[0]}
-                variant="wide"
-                sizes="(max-width: 700px) 90vw, (max-width: 1100px) 53vw, 42vw"
-              />
-              {full && data.photoKeys.length > 1 && (
+              {full ? (
+                <PhotoGallery
+                  id={'space-gallery-' + id}
+                  title={'Fotos de ' + data.name}
+                  note="Imágenes del archivo institucional del Círculo."
+                  photoKeys={data.photoKeys}
+                  compact
+                />
+              ) : (
                 <SitePhoto
-                  kind={data.photoKeys[1]}
-                  variant="compact"
-                  sizes="(max-width: 700px) 90vw, 30vw"
+                  kind={data.photoKeys[0]}
+                  variant="wide"
+                  sizes="(max-width: 700px) 90vw, (max-width: 1100px) 53vw, 42vw"
                 />
               )}
             </div>

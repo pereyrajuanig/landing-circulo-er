@@ -4,15 +4,22 @@
     "order": 0,
     "name": "Los Laureles",
     "locality": "Paraná",
-    "description": "Un espacio para reuniones y encuentros con cocina y entorno parquizado, presentado en el recorrido institucional.",
+    "description": "Dos salones para encuentros en un predio parquizado. Uno tiene capacidad para 30 personas y el otro para 50.",
     "details": [
-      "Cocina y horno a gas; heladeras y freezer mencionados en el material.",
-      "Mesas, sillas y aire acondicionado.",
-      "Churrasquera, espacios verdes y sanitarios."
+      "Ambos cuentan con el mismo equipamiento y con mesas y sillas para la capacidad de cada salón.",
+      "Heladeras, freezer, churrasquera, cocina y horno a gas.",
+      "Aire acondicionado, baños privados y sector parquizado."
     ],
-    "photoKeys": ["parana-los-laureles-50-personas-06", "parana-los-laureles-30-personas-05"],
-    "capacityNote": "El video menciona 30 y 50 personas en escenas distintas. Consultá qué sector corresponde a tu encuentro.",
-    "sourceNote": "Características presentadas en el video; confirmar equipamiento y condiciones actuales."
+    "photoKeys": [
+      "parana-los-laureles-50-personas-06",
+      "parana-laureles-salon-30",
+      "parana-los-laureles-30-personas-05",
+      "parana-laureles-parque",
+      "parana-laureles-equipamiento-30",
+      "parana-laureles-salon-50"
+    ],
+    "capacityNote": "Dos salones, para 30 y 50 personas respectivamente.",
+    "sourceNote": "Consultá disponibilidad, equipamiento y condiciones de uso con la sede central."
   },
   {
     "id": "las-rosas",
@@ -21,13 +28,22 @@
     "locality": "Paraná",
     "description": "Un lugar para compartir celebraciones y reuniones, con espacios de cocina y asadores techados.",
     "details": [
-      "Mesas redondas, sillas plegables y un salón extra mencionados en el recorrido.",
+      "Salón principal con mesas redondas y sillas plegables, más un salón adicional con entrada independiente.",
       "Churrasquera, parrilla y asador criollo techado.",
-      "Cocina con horno grande, heladeras y freezers; entrada independiente."
+      "Cocina, horno grande, heladeras, tres freezers, termotanque y baño de servicio."
     ],
-    "photoKeys": ["parana-las-rosas-exterior-07", "parana-las-rosas-parrillas-08"],
+    "photoKeys": [
+      "parana-rosas-salon",
+      "parana-las-rosas-exterior-07",
+      "parana-las-rosas-parrillas-08",
+      "parana-rosas-cocina",
+      "parana-rosas-patio",
+      "parana-rosas-sanitarios",
+      "parana-rosas-parrilla-exterior",
+      "parana-rosas-frente"
+    ],
     "capacityNote": "Referencia anunciada en el video: 170 personas. La capacidad habilitada para cada evento se confirma con la institución.",
-    "sourceNote": "No se equipara esta capacidad con la de otros salones o del camping; consultar el espacio específico."
+    "sourceNote": "Consultá el aforo habilitado del salón principal y las condiciones de uso del anexo."
   },
   {
     "id": "diamante",
@@ -39,9 +55,13 @@
       "Salón para encuentros de la comunidad.",
       "La filial también presenta un gimnasio de rehabilitación y kinesiología; se consulta por separado."
     ],
-    "photoKeys": [],
+    "photoKeys": [
+      "diamante-salon-interior",
+      "diamante-salon-sanitarios",
+      "diamante-salon-exterior"
+    ],
     "capacityNote": "El material anuncia capacidad para 200 personas; confirmar habilitación, modalidad y disponibilidad para tu encuentro.",
-    "sourceNote": "No se recibió un recorte independiente del salón. No se utiliza la foto del gimnasio como si fuera el salón."
+    "sourceNote": "La obra de seis ambientes se documentó por separado. Consultá el equipamiento actual del salón."
   },
   {
     "id": "crespo",
@@ -69,5 +89,23 @@
     ],
     "photoKeys": ["hasenkamp-sede-salon-22", "hasenkamp-sede-salon-23"],
     "sourceNote": "El material no detalla capacidad ni condiciones de uso para eventos."
+  },
+  {
+    "id": "federacion",
+    "order": 5,
+    "name": "Salón multieventos de Federación",
+    "locality": "Federación",
+    "description": "El archivo institucional registra la renovación del espacio multieventos de la filial.",
+    "details": [
+      "El registro menciona colocación de piso de porcelanato y placas antihumedad.",
+      "También documenta la reparación de sanitarios y mejoras en el área de servicios."
+    ],
+    "photoKeys": [
+      "federacion-renovacion",
+      "federacion-trabajos-acceso",
+      "federacion-equipo-obras",
+      "federacion-trabajos-interior"
+    ],
+    "sourceNote": "Consultá a la filial por capacidad habilitada, equipamiento y condiciones de uso."
   }
 ]

@@ -37,9 +37,9 @@ Los originales recibidos y el ZIP permanecen intactos y fuera del versionado/bui
 
 ## Capacidades y consistencia
 
-Los Laureles aparece con 30 y 50 personas en escenas distintas. Se explicita la diferencia y se consulta por el sector; no se elige arbitrariamente una cifra. Las Rosas se presenta con referencia 170; Diamante 200 y Crespo 80, siempre atribuidas al material y sujetas a confirmación. No se asimila Las Rosas al salón de camping publicado con otra capacidad en fuentes anteriores.
+El dossier posterior aclara que Los Laureles tiene dos salones, para 30 y 50 personas, con el mismo equipamiento y mobiliario para la capacidad de cada uno. Las Rosas se presenta con referencia 170; Diamante 200 y Crespo 80, siempre atribuidas al material y sujetas a confirmación. No se asimila Las Rosas al salón de camping publicado con otra capacidad en fuentes anteriores.
 
-Diamante no tiene recorte específico de su salón: su ficha de espacio no usa la imagen de rehabilitación como si mostrara un salón.
+La ficha del salón de Diamante usa fotos propias del interior y de sus sanitarios. Las fotos de rehabilitación se reservan para la ficha de la localidad.
 
 ## Publicaciones del archivo
 
@@ -66,3 +66,11 @@ Farmacia y los alojamientos Victoria, Nogoyá, La Paz y Santa Elena conservan fo
 Tipos y build comprobados durante implementación. Matriz visual: 25 rutas (24 públicas y 404) ×6 anchos; resultados y capturas en institutional-content-evidence.json y docs/media/institucional-*.png. Resultado de la suite y CI en el PR de este lote.
 
 Aceptación institucional, merge y publicación en main pendientes. No se cierran12.02,12.03 ni 12.04 por incorporar material de archivo: siguen pendientes datos, derechos/contexto definitivo y vigencia operativa. Dominio, privacidad, lector real, CMS y Facebook continúan abiertos.
+
+## Actualización con el nuevo dossier
+
+El directorio conserva la sede central y sus 24 filiales. Doce localidades cuentan con ficha propia en `/filiales/`, con enlaces a los servicios, alojamientos o salones correspondientes. Las fichas se generan desde `src/content/localities.json` y distinguen los hechos documentados de las condiciones vigentes que confirma el Círculo.
+
+El registro [dossier-photo-sources.json](dossier-photo-sources.json) vincula cada una de las 84 fotos distintas con su original en `images`. Las copias publicables se optimizaron como WebP. La fotografía `beneficio_lentes.png` se incluye completa en la ficha de Federación y en el apartado de óptica, por indicación expresa del usuario.
+
+Se revisaron los 85 archivos de origen. Dos fotos de sanitarios de Las Rosas son idénticas byte por byte y comparten una sola diapositiva. Las galerías con varias fotos permiten avanzar con botones, teclado o deslizamiento, con ampliación disponible en las fichas de filiales, alojamientos y salones.
