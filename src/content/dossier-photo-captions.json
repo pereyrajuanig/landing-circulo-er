@@ -76,8 +76,8 @@
     "alt": "Frente de la sede de Feliciano."
   },
   "feliciano-terreno": {
-    "title": "Feliciano · terreno mostrado en el archivo",
-    "alt": "Vista del terreno mencionado en el recorrido institucional."
+    "title": "Feliciano · terreno",
+    "alt": "Vista del terreno en Feliciano."
   },
   "diamante-rehabilitacion": {
     "title": "Diamante · área de rehabilitación",
@@ -121,7 +121,7 @@
   },
   "federacion-beneficio-lentes": {
     "title": "Federación · beneficio para lentes",
-    "alt": "Lentes y estuches sobre el comprobante que aparece en el archivo institucional."
+    "alt": "Lentes y estuches sobre un comprobante."
   },
   "parana-alojamiento-bano-amplio": {
     "title": "Paraná · baño del alojamiento",
@@ -157,10 +157,10 @@
   },
   "concordia-ambulancia-exterior": {
     "title": "Concordia · ambulancia",
-    "alt": "Vista exterior de la ambulancia registrada en el material del convenio."
+    "alt": "Vista exterior de la ambulancia en Concordia."
   },
   "concordia-convenio-ambulancia": {
-    "title": "Concordia · registro del convenio de ambulancia",
+    "title": "Concordia · convenio de ambulancia",
     "alt": "Tres personas reunidas junto a un escritorio."
   },
   "concordia-actividad-social": {
@@ -172,7 +172,7 @@
     "alt": "Grupo de asistentes reunidos alrededor de una mesa."
   },
   "concordia-firma": {
-    "title": "Concordia · registro del convenio institucional",
+    "title": "Concordia · convenio institucional",
     "alt": "Dos personas revisan y firman documentación en un escritorio."
   },
   "crespo-sede-entrada": {
@@ -193,7 +193,7 @@
   },
   "federacion-equipo-obras": {
     "title": "Federación · equipo frente al edificio",
-    "alt": "Grupo frente al edificio durante las mejoras documentadas."
+    "alt": "Grupo frente al edificio durante los trabajos de mejora."
   },
   "federacion-trabajos-interior": {
     "title": "Federación · trabajos en el interior",

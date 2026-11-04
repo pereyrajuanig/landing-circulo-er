@@ -16,13 +16,13 @@ const institution = entry.data;
     <div class="ps-contact-heading">
       <p class="ps-kicker">Estamos para escucharte</p>
       <h2 id="ps-contact-title">
-        El primer paso puede ser
+        Estamos cerca
         <br />
-        <em>una conversación.</em>
+        <em>para ayudarte.</em>
       </h2>
       <p>
-        Contanos qué necesitás. Te orientamos para encontrar el servicio, el espacio o la filial que
-        buscás.
+        Escribinos si necesitás información sobre un beneficio, un alojamiento, un salón o tu
+        filial.
       </p>
     </div>
     <div class="ps-contact-grid">
@@ -42,8 +42,8 @@ const institution = entry.data;
       <article>
         <LineIcon name="people" size={32} />
         <p class="ps-kicker">Filiales</p>
-        <h3>Tu localidad, más cerca.</h3>
-        <p>Encontrá tu filial y pedí orientación a la sede sobre sus canales de atención.</p>
+        <h3>Encontrá tu filial</h3>
+        <p>Buscá tu localidad. Si no encontrás un contacto, consultá con la sede central.</p>
         <a class="ps-link" href="/institucion/#filiales">
           Buscar mi filial <LineIcon name="arrow" size={20} />
         </a>
@@ -51,7 +51,7 @@ const institution = entry.data;
       <article>
         <LineIcon name="mail" size={32} />
         <p class="ps-kicker">Consultas generales</p>
-        <h3>Escribinos.</h3>
+        <h3>Escribinos por correo</h3>
         <p>
           <a class="ps-email" href={mailTo(institution.email)}>
             {institution.email}
@@ -66,17 +66,17 @@ const institution = entry.data;
       <div class="ps-form-layout" id="ps-consultation">
         <div>
           <p class="ps-kicker">Tu consulta</p>
-          <h3>¿En qué podemos acompañarte?</h3>
+          <h3>Prepará tu consulta por correo</h3>
           <p>
-            Completá estos datos para preparar un correo dirigido al Círculo. Al continuar, se
-            abrirá tu aplicación de correo para que puedas revisarlo y enviarlo.
+            Completá el formulario y abrí el mensaje en tu correo. Ahí vas a poder revisarlo y
+            enviarlo al Círculo.
           </p>
           <p class="ps-note">
-            Este formulario no envía ni guarda datos en la web. Evitá incluir documentación personal
-            o información médica.
+            El sitio no guarda los datos del formulario. Evitá incluir documentos personales o datos
+            médicos.
           </p>
           <a class="ps-link" href={mailTo(institution.email)}>
-            También podés escribir directamente ↗
+            Abrir un correo nuevo ↗
           </a>
         </div>
         <form
@@ -91,7 +91,7 @@ const institution = entry.data;
               <input id="consult-name" name="name" autocomplete="name" required maxlength="100" />
             </label>
             <label for="consult-email">
-              Email de contacto
+              Correo electrónico
               <input
                 id="consult-email"
                 name="email"

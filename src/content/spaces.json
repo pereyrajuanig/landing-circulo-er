@@ -4,9 +4,9 @@
     "order": 0,
     "name": "Los Laureles",
     "locality": "Paraná",
-    "description": "Dos salones para encuentros en un predio parquizado. Uno tiene capacidad para 30 personas y el otro para 50.",
+    "description": "Dos salones para reuniones y celebraciones en un predio con parque.",
     "details": [
-      "Ambos cuentan con el mismo equipamiento y con mesas y sillas para la capacidad de cada salón.",
+      "Los dos salones tienen el mismo equipamiento, con mesas y sillas acordes a su capacidad.",
       "Heladeras, freezer, churrasquera, cocina y horno a gas.",
       "Aire acondicionado, baños privados y sector parquizado."
     ],
@@ -18,15 +18,15 @@
       "parana-laureles-equipamiento-30",
       "parana-laureles-salon-50"
     ],
-    "capacityNote": "Dos salones, para 30 y 50 personas respectivamente.",
-    "sourceNote": "Consultá disponibilidad, equipamiento y condiciones de uso con la sede central."
+    "capacityNote": "Dos salones con capacidad para 30 y 50 personas, respectivamente.",
+    "sourceNote": "Consultá en la sede central qué salón está disponible para tu fecha y cuáles son las condiciones de uso."
   },
   {
     "id": "las-rosas",
     "order": 1,
     "name": "Las Rosas",
     "locality": "Paraná",
-    "description": "Un lugar para compartir celebraciones y reuniones, con espacios de cocina y asadores techados.",
+    "description": "Un salón principal y un anexo para celebraciones, con espacios para cocinar y hacer asados.",
     "details": [
       "Salón principal con mesas redondas y sillas plegables, más un salón adicional con entrada independiente.",
       "Churrasquera, parrilla y asador criollo techado.",
@@ -42,63 +42,63 @@
       "parana-rosas-parrilla-exterior",
       "parana-rosas-frente"
     ],
-    "capacityNote": "Referencia anunciada en el video: 170 personas. La capacidad habilitada para cada evento se confirma con la institución.",
-    "sourceNote": "Consultá el aforo habilitado del salón principal y las condiciones de uso del anexo."
+    "capacityNote": "La capacidad informada fue de 170 personas. Confirmá cuántas están habilitadas para tu evento.",
+    "sourceNote": "Si necesitás el anexo, preguntá por sus condiciones de uso."
   },
   {
     "id": "diamante",
     "order": 2,
     "name": "Salón de la filial Diamante",
     "locality": "Diamante",
-    "description": "Un espacio social presentado junto a las mejoras y los servicios de la filial.",
+    "description": "Un salón de la filial para reuniones y actividades de la comunidad.",
     "details": [
-      "Salón para encuentros de la comunidad.",
-      "La filial también presenta un gimnasio de rehabilitación y kinesiología; se consulta por separado."
+      "Preguntá qué actividades podés organizar en el salón y qué equipamiento incluye.",
+      "Para rehabilitación y kinesiología, hacé una consulta aparte con la filial."
     ],
     "photoKeys": [
       "diamante-salon-interior",
       "diamante-salon-sanitarios",
       "diamante-salon-exterior"
     ],
-    "capacityNote": "El material anuncia capacidad para 200 personas; confirmar habilitación, modalidad y disponibilidad para tu encuentro.",
-    "sourceNote": "La obra de seis ambientes se documentó por separado. Consultá el equipamiento actual del salón."
+    "capacityNote": "Se informó una capacidad de 200 personas. Confirmá con la filial cuántas admite actualmente.",
+    "sourceNote": "Consultá la disponibilidad y las condiciones antes de fijar la fecha."
   },
   {
     "id": "crespo",
     "order": 3,
     "name": "Salón de la filial Crespo",
     "locality": "Crespo",
-    "description": "Un espacio de encuentro presentado en el material de la filial, acompañado por sus servicios de asesoramiento.",
+    "description": "Un salón para encuentros. Consultá con la filial si se adapta a la actividad que querés organizar.",
     "details": [
-      "El archivo muestra un sector del salón preparado para actividades.",
-      "Consultá tipo de evento, equipamiento, fechas y condiciones de uso."
+      "En la foto podés ver un sector del salón.",
+      "Consultá qué tipo de eventos admite, el equipamiento y los horarios."
     ],
     "photoKeys": ["crespo-salon-80-personas-19"],
-    "capacityNote": "Referencia del video: 80 personas. La filial confirma la capacidad y condiciones actuales.",
-    "sourceNote": "La imagen recibida muestra un sector del espacio, no su distribución completa."
+    "capacityNote": "Se informó una capacidad de 80 personas. Consultá cuántas admite actualmente.",
+    "sourceNote": "Confirmá con la filial las fechas y las condiciones de uso."
   },
   {
     "id": "hasenkamp",
     "order": 4,
     "name": "Espacio de la filial Hasenkamp",
     "locality": "Hasenkamp",
-    "description": "La sede aparece en el recorrido con salón y cocina, junto a su función de asesoramiento y acompañamiento.",
+    "description": "La sede tiene un salón y una cocina. Consultá si podés usarlos para tu actividad.",
     "details": [
-      "Salón y cocina visibles en el registro institucional.",
-      "Consultá si el espacio está disponible para la actividad que querés organizar."
+      "En la galería podés ver el salón con mesas y sillas y conocer la cocina.",
+      "Preguntá qué equipamiento incluye el uso del espacio."
     ],
     "photoKeys": ["hasenkamp-sede-salon-22", "hasenkamp-sede-salon-23"],
-    "sourceNote": "El material no detalla capacidad ni condiciones de uso para eventos."
+    "sourceNote": "Confirmá con la filial la capacidad, los horarios y las condiciones."
   },
   {
     "id": "federacion",
     "order": 5,
     "name": "Salón multieventos de Federación",
     "locality": "Federación",
-    "description": "El archivo institucional registra la renovación del espacio multieventos de la filial.",
+    "description": "En este salón se hicieron mejoras. Consultá cómo se puede usar hoy.",
     "details": [
-      "El registro menciona colocación de piso de porcelanato y placas antihumedad.",
-      "También documenta la reparación de sanitarios y mejoras en el área de servicios."
+      "Los trabajos incluyeron la colocación de porcelanato y placas antihumedad.",
+      "También se repararon los baños y se hicieron mejoras en el área de servicios."
     ],
     "photoKeys": [
       "federacion-renovacion",
@@ -106,6 +106,6 @@
       "federacion-equipo-obras",
       "federacion-trabajos-interior"
     ],
-    "sourceNote": "Consultá a la filial por capacidad habilitada, equipamiento y condiciones de uso."
+    "sourceNote": "Preguntá en la filial por la capacidad, el equipamiento y las condiciones de uso."
   }
 ]

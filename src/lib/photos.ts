@@ -41,7 +41,7 @@ const stockPhotos = {
     src: comunidad,
     title: 'Encuentro de referencia',
     alt: 'Fotografía de referencia: personas mayores conversando y compartiendo una reunión.',
-    note: 'Fotografía de referencia. No muestra integrantes ni actividades del Círculo.',
+    note: 'Imagen ilustrativa de personas y actividades ajenas al Círculo.',
     author: 'Alena Darmel',
     source: 'https://www.pexels.com/photo/elderly-people-having-a-get-together-8153752/',
   },
@@ -49,7 +49,7 @@ const stockPhotos = {
     src: habitacion,
     title: 'Habitación de referencia',
     alt: 'Fotografía de referencia de una habitación de hotel con dos camas y muebles de madera.',
-    note: 'Fotografía de referencia. No corresponde a instalaciones del Círculo.',
+    note: 'Imagen ilustrativa de un espacio ajeno al Círculo.',
     author: 'Quang Nguyen Vinh',
     source: 'https://www.pexels.com/photo/interior-design-of-hotel-room-14021928/',
   },
@@ -57,7 +57,7 @@ const stockPhotos = {
     src: habitacion2,
     title: 'Otra habitación de referencia',
     alt: 'Fotografía de referencia de un dormitorio con camas individuales y luz natural.',
-    note: 'Fotografía de referencia. No corresponde a instalaciones del Círculo.',
+    note: 'Imagen ilustrativa de un espacio ajeno al Círculo.',
     author: 'Amelia Hallsworth',
     source: 'https://www.pexels.com/photo/single-beds-inside-a-hotel-room-5461590/',
   },
@@ -65,7 +65,7 @@ const stockPhotos = {
     src: habitacion3,
     title: 'Dormitorio de referencia',
     alt: 'Fotografía de referencia de un dormitorio con dos camas y revestimientos de madera.',
-    note: 'Fotografía de referencia. No corresponde a instalaciones del Círculo.',
+    note: 'Imagen ilustrativa de un espacio ajeno al Círculo.',
     author: 'Ahmet ÇÖTÜR',
     source: 'https://www.pexels.com/photo/bedroom-with-two-single-beds-26859040/',
   },
@@ -73,7 +73,7 @@ const stockPhotos = {
     src: entorno,
     title: 'Paisaje de referencia',
     alt: 'Fotografía de referencia de un atardecer junto al río en un entorno natural.',
-    note: 'Fotografía de referencia del entorno natural. No identifica la ubicación de un alojamiento.',
+    note: 'Paisaje ilustrativo. La dirección del alojamiento se confirma con el Círculo.',
     author: 'Pato Mec',
     source: 'https://www.pexels.com/photo/relaxing-afternoon-by-river-in-entre-rios-35322404/',
   },
@@ -81,7 +81,7 @@ const stockPhotos = {
     src: salon,
     title: 'Salón de referencia',
     alt: 'Fotografía de referencia de un salón con mesas, sillas, plantas e iluminación para un encuentro.',
-    note: 'Fotografía de referencia. No corresponde a instalaciones del Círculo.',
+    note: 'Imagen ilustrativa de un espacio ajeno al Círculo.',
     author: 'Matheus Bertelli',
     source: 'https://www.pexels.com/photo/decorated-hall-in-restaurant-16985131/',
   },
@@ -89,7 +89,7 @@ const stockPhotos = {
     src: salud,
     title: 'Atención de referencia',
     alt: 'Fotografía de referencia de una profesional de salud conversando con una persona en un consultorio.',
-    note: 'Fotografía de referencia. No muestra servicios ni personal del Círculo.',
+    note: 'Imagen ilustrativa de una atención ajena al Círculo.',
     author: 'cottonbro studio',
     source: 'https://www.pexels.com/photo/a-doctor-talking-the-patient-7579831/',
   },
@@ -97,7 +97,7 @@ const stockPhotos = {
     src: tramites,
     title: 'Asesoramiento de referencia',
     alt: 'Fotografía de referencia de una consulta con documentos sobre una mesa.',
-    note: 'Fotografía de referencia. No muestra servicios ni personal del Círculo.',
+    note: 'Imagen ilustrativa de una atención ajena al Círculo.',
     author: 'RDNE Stock project',
     source: 'https://www.pexels.com/photo/an-agent-showing-documents-to-his-client-7821671/',
   },
@@ -105,7 +105,7 @@ const stockPhotos = {
     src: farmacia,
     title: 'Farmacia de referencia',
     alt: 'Fotografía de referencia de la atención en el mostrador de una farmacia.',
-    note: 'Fotografía de referencia. No muestra servicios ni personal del Círculo.',
+    note: 'Imagen ilustrativa de una atención ajena al Círculo.',
     author: 'cottonbro studio',
     source: 'https://www.pexels.com/photo/a-man-giving-a-small-black-bottle-to-the-woman-8657359/',
   },
@@ -113,7 +113,7 @@ const stockPhotos = {
     src: recreacion,
     title: 'Actividad al aire libre de referencia',
     alt: 'Fotografía de referencia de personas mayores paseando y conversando en un jardín.',
-    note: 'Fotografía de referencia. No muestra integrantes ni actividades del Círculo.',
+    note: 'Imagen ilustrativa de personas y actividades ajenas al Círculo.',
     author: 'Wellness Gallery Catalyst Foundation',
     source: 'https://www.pexels.com/photo/elderly-women-walking-in-the-park-12085752/',
   },
@@ -121,7 +121,7 @@ const stockPhotos = {
     src: gestion,
     title: 'Trabajo de gestión de referencia',
     alt: 'Fotografía de referencia de personas compartiendo documentos durante una reunión.',
-    note: 'Fotografía de referencia. No muestra servicios ni personal del Círculo.',
+    note: 'Imagen ilustrativa de una atención ajena al Círculo.',
     author: 'Mizuno K',
     source: 'https://www.pexels.com/photo/reading-documents-in-office-12899096/',
   },
@@ -129,7 +129,7 @@ const stockPhotos = {
     src: institucion,
     title: 'Vínculos de referencia',
     alt: 'Fotografía de referencia de un abrazo entre dos personas mayores.',
-    note: 'Fotografía de referencia. No muestra integrantes ni actividades del Círculo.',
+    note: 'Imagen ilustrativa de personas y actividades ajenas al Círculo.',
     author: 'Kampus Production',
     source:
       'https://www.pexels.com/photo/photograph-of-an-elderly-man-hugging-another-person-8201170/',
@@ -160,207 +160,207 @@ photos['parana-consultorio-02'] = {
   src: inst02,
   title: 'Paraná · consultorio',
   alt: 'Consultorio de Paraná con camilla y equipamiento de atención.',
-  note: 'Paraná · consultorio. Archivo institucional.',
+  note: 'Paraná · consultorio.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['parana-podologia-03'] = {
   src: inst03,
   title: 'Paraná · podología',
   alt: 'Sillón y equipamiento de podología de la sede de Paraná.',
-  note: 'Paraná · podología. Archivo institucional.',
+  note: 'Paraná · podología.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['parana-habitacion-doble-04'] = {
   src: inst04,
   title: 'Paraná · habitación',
   alt: 'Habitación de Paraná con dos camas individuales, televisor y armario.',
-  note: 'Paraná · habitación. Archivo institucional.',
+  note: 'Paraná · habitación.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['parana-los-laureles-30-personas-05'] = {
   src: inst05,
   title: 'Los Laureles · cocina',
   alt: 'Cocina de Los Laureles con heladera, mesada y cocina.',
-  note: 'Los Laureles · cocina. Archivo institucional.',
+  note: 'Los Laureles · cocina.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['parana-los-laureles-50-personas-06'] = {
   src: inst06,
   title: 'Los Laureles · salón',
   alt: 'Salón Los Laureles con mesas y sillas junto a sus ventanales.',
-  note: 'Los Laureles · salón. Archivo institucional.',
+  note: 'Los Laureles · salón.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['parana-las-rosas-exterior-07'] = {
   src: inst07,
   title: 'Las Rosas · asador',
   alt: 'Asador circular techado y espacio verde de Las Rosas, Paraná.',
-  note: 'Las Rosas · asador. Archivo institucional.',
+  note: 'Las Rosas · asador.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['parana-las-rosas-parrillas-08'] = {
   src: inst08,
   title: 'Las Rosas · parrilla',
   alt: 'Parrillas techadas del espacio Las Rosas en Paraná.',
-  note: 'Las Rosas · parrilla. Archivo institucional.',
+  note: 'Las Rosas · parrilla.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['concepcion-del-uruguay-alojamiento-09'] = {
   src: inst09,
   title: 'C. del Uruguay · habitación',
   alt: 'Habitación con dos camas individuales en Concepción del Uruguay.',
-  note: 'C. del Uruguay · habitación. Archivo institucional.',
+  note: 'C. del Uruguay · habitación.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['concordia-inauguracion-10'] = {
   src: inst10,
   title: 'Concordia · inauguración',
   alt: 'Acto de inauguración de un espacio institucional en Concordia.',
-  note: 'Concordia · inauguración. Archivo institucional.',
+  note: 'Concordia · inauguración.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['concordia-encuentro-social-11'] = {
   src: inst11,
   title: 'Concordia · encuentro',
   alt: 'Encuentro social de integrantes del Círculo en Concordia.',
-  note: 'Concordia · encuentro. Archivo institucional.',
+  note: 'Concordia · encuentro.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['rosario-del-tala-actividades-12'] = {
   src: inst12,
   title: 'Rosario del Tala · salón',
   alt: 'Salón preparado para una actividad en Rosario del Tala.',
-  note: 'Rosario del Tala · salón. Archivo institucional.',
+  note: 'Rosario del Tala · salón.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['federacion-complejo-habitacional-13'] = {
   src: inst13,
   title: 'Federación · alojamiento',
   alt: 'Exterior del complejo habitacional presentado para Federación.',
-  note: 'Federación · alojamiento. Archivo institucional.',
+  note: 'Federación · alojamiento.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['federacion-salud-lentes-talleres-14'] = {
   src: inst14,
   title: 'Federación · taller',
   alt: 'Personas participando de un taller creativo en Federación.',
-  note: 'Federación · taller. Archivo institucional.',
+  note: 'Federación · taller.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['federal-nueva-sede-15'] = {
   src: inst15,
   title: 'Federal · sede',
   alt: 'Frente de la sede del Círculo en Federal.',
-  note: 'Federal · sede. Archivo institucional.',
+  note: 'Federal · sede.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['federal-actividades-16'] = {
   src: inst16,
   title: 'Federal · viaje',
   alt: 'Grupo participante de una actividad sociocultural de Federal.',
-  note: 'Federal · viaje. Archivo institucional.',
+  note: 'Federal · viaje.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['feliciano-sede-salud-terreno-17'] = {
   src: inst17,
   title: 'Feliciano · atención',
   alt: 'Atención y conversación con integrantes en Feliciano.',
-  note: 'Feliciano · atención. Archivo institucional.',
+  note: 'Feliciano · atención.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['diamante-rehabilitacion-obras-18'] = {
   src: inst18,
   title: 'Diamante · rehabilitación',
   alt: 'Bicicletas y elementos del gimnasio de rehabilitación de Diamante.',
-  note: 'Diamante · rehabilitación. Archivo institucional.',
+  note: 'Diamante · rehabilitación.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['crespo-salon-80-personas-19'] = {
   src: inst19,
   title: 'Crespo · salón',
   alt: 'Sector iluminado del salón presentado para Crespo.',
-  note: 'Crespo · salón. Archivo institucional.',
+  note: 'Crespo · salón.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['maria-grande-alojamiento-20'] = {
   src: inst20,
   title: 'María Grande · habitación',
   alt: 'Habitación del alojamiento de María Grande.',
-  note: 'María Grande · habitación. Archivo institucional.',
+  note: 'María Grande · habitación.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['maria-grande-comedor-21'] = {
   src: inst21,
   title: 'María Grande · comedor',
   alt: 'Comedor y cocina del alojamiento de María Grande.',
-  note: 'María Grande · comedor. Archivo institucional.',
+  note: 'María Grande · comedor.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['hasenkamp-sede-salon-22'] = {
   src: inst22,
   title: 'Hasenkamp · salón',
   alt: 'Interior del salón presentado para Hasenkamp.',
-  note: 'Hasenkamp · salón. Archivo institucional.',
+  note: 'Hasenkamp · salón.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['hasenkamp-sede-salon-23'] = {
   src: inst23,
   title: 'Hasenkamp · cocina',
   alt: 'Cocina del espacio institucional de Hasenkamp.',
-  note: 'Hasenkamp · cocina. Archivo institucional.',
+  note: 'Hasenkamp · cocina.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 photos['chajari-asesoramiento-24'] = {
   src: inst24,
   title: 'Chajarí · oficina',
   alt: 'Oficina de asesoramiento presentada para Chajarí.',
-  note: 'Chajarí · oficina. Archivo institucional.',
+  note: 'Chajarí · oficina.',
   kind: 'institutional',
-  credit: 'Archivo del Círculo',
+  credit: 'Foto del Círculo',
 };
 
 const dossierImages = import.meta.glob<ImageMetadata>('../assets/institutional/dossier/*.webp', {
@@ -375,9 +375,9 @@ for (const [path, src] of Object.entries(dossierImages)) {
     photos[key] = {
       ...caption,
       src,
-      note: caption.title + '. Archivo institucional.',
+      note: caption.title + '.',
       kind: 'institutional',
-      credit: 'Archivo del Círculo',
+      credit: 'Foto del Círculo',
     };
   } else {
     const existing = photos[key];

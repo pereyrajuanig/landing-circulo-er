@@ -3,24 +3,24 @@
     "id": "salud",
     "order": 0,
     "name": "Salud y bienestar",
-    "caption": "Cuidarnos en cada etapa",
-    "description": "Atención y orientación para cuidar tu bienestar. El material institucional presenta enfermería, cardiología, podología y nutrición en Paraná, además de jornadas de salud y espacios de rehabilitación en las filiales.",
+    "caption": "Consultas de salud y turnos",
+    "description": "Consultá por atención de salud en Paraná y en las filiales. Te orientamos sobre las especialidades, las jornadas de prevención y cómo pedir un turno.",
     "action": "Consultar atención",
     "target": "email",
     "subject": "Consulta sobre salud y bienestar",
     "initiallyOpen": true,
     "details": [
       {
-        "title": "Atención en Paraná",
-        "body": "El recorrido de la sede muestra consultorios y el espacio de podología. Consultá qué profesionales atienden actualmente, cómo solicitar un turno y qué documentación necesitás."
+        "title": "Consultorios de Paraná",
+        "body": "Preguntá en la sede central por enfermería, cardiología, podología y nutrición. Allí podés confirmar qué profesionales atienden, los horarios y qué llevar al turno."
       },
       {
-        "title": "Salud cerca de tu localidad",
-        "body": "Las filiales organizan jornadas de salud y actividades de prevención. El material recibido también presenta el gimnasio de rehabilitación y kinesiología de Diamante; la atención se coordina con la filial."
+        "title": "Salud en las filiales",
+        "body": "Consultá con tu filial por las próximas jornadas de salud y las actividades de prevención. Para rehabilitación y kinesiología, preguntá en Diamante por la atención disponible."
       },
       {
-        "title": "Orientación para tu consulta",
-        "body": "Podés acercarte para consultar sobre atención, documentación y gestiones relacionadas con prestaciones. La institución informa los procedimientos y condiciones vigentes; no se ofrecen turnos ni atención de urgencias desde esta web."
+        "title": "Cómo consultar",
+        "body": "Si tenés dudas sobre documentación o trámites de salud, escribinos. Para pedir un turno, comunicate con la sede o filial. La web no ofrece atención de urgencias."
       }
     ]
   },
@@ -28,24 +28,24 @@
     "id": "tramites",
     "order": 1,
     "name": "Trámites y asesoramiento",
-    "caption": "Orientación y representación",
-    "description": "Un lugar donde encontrar orientación para tus gestiones. Asesoramiento, documentación, trámites previsionales y acompañamiento desde la sede central y las filiales.",
+    "caption": "Retiros, pensiones y subsidios",
+    "description": "Si tenés que hacer un trámite de retiro, pensión o subsidio, consultá por los pasos y la documentación en la sede central o en tu filial.",
     "action": "Consultar un trámite",
     "target": "email",
     "subject": "Consulta sobre trámites",
     "initiallyOpen": false,
     "details": [
       {
-        "title": "Secretaría y documentación",
-        "body": "Recepción de documentación, orientación para preparar notas y reclamos y acompañamiento en gestiones. Indicá tu localidad y el motivo de tu consulta para que puedan derivarte al área correspondiente."
+        "title": "Notas, reclamos y documentación",
+        "body": "En Secretaría podés preguntar cómo preparar una nota o un reclamo y dónde presentar los documentos. Indicá tu localidad y qué gestión necesitás hacer."
       },
       {
-        "title": "Trámites previsionales y subsidios",
-        "body": "Consultá por gestiones de retiro o pensión y por la documentación de subsidios. Los requisitos, plazos y alcance se informan en cada caso; la consulta desde esta página no inicia un expediente."
+        "title": "Retiros, pensiones y subsidios",
+        "body": "Consultá los requisitos y plazos de tu caso. El correo sirve para pedir orientación. Si necesitás iniciar un expediente, preguntá dónde presentarlo."
       },
       {
-        "title": "Asesoramiento y cercanía",
-        "body": "El material institucional muestra espacios de atención en Paraná, Feliciano, Hasenkamp y Chajarí. Para temas legales o una gestión específica, consultá la modalidad y disponibilidad del asesoramiento."
+        "title": "Dónde pedir asesoramiento",
+        "body": "Podés empezar tu consulta en Paraná, Feliciano, Hasenkamp o Chajarí. Si necesitás asesoramiento legal, preguntá qué atención está disponible y cómo acceder."
       }
     ]
   },
@@ -53,24 +53,24 @@
     "id": "farmacia",
     "order": 2,
     "name": "Farmacia y beneficios",
-    "caption": "Apoyo para la vida cotidiana",
-    "description": "Farmacia Social, orientación sobre beneficios y consultas por compras convenidas. Acercate para conocer las opciones disponibles y sus condiciones actuales.",
+    "caption": "Farmacia Social, lentes y compras",
+    "description": "Averiguá cómo acceder a la Farmacia Social de Paraná, qué opciones de compra hay y a quién consultar por otros beneficios.",
     "action": "Consultar beneficios",
     "target": "email",
     "subject": "Consulta sobre farmacia y beneficios",
     "initiallyOpen": false,
     "details": [
       {
-        "title": "Farmacia Social",
-        "body": "El Círculo publica la Farmacia Social de Paraná como parte de sus servicios. Consultá su atención y las condiciones de acceso antes de organizar una compra."
+        "title": "Farmacia Social de Paraná",
+        "body": "Antes de ir, consultá los horarios de atención y qué necesitás para acceder a la Farmacia Social."
       },
       {
-        "title": "Óptica y otros beneficios",
-        "body": "El archivo de Federación registra el anuncio de un beneficio para adquirir lentes. Consultá con la filial si está vigente, a quiénes alcanza y cómo se solicita."
+        "title": "Consulta por lentes en Federación",
+        "body": "En Federación se anunció un beneficio para la compra de lentes. Preguntá en la filial si sigue vigente, a quiénes alcanza y cómo pedirlo."
       },
       {
         "title": "Órdenes de compra",
-        "body": "La institución ofrece orientación sobre órdenes de compra y comercios adheridos. La disponibilidad de comercios, cuotas y condiciones se consulta directamente, porque puede cambiar."
+        "body": "Preguntá qué comercios participan y en qué condiciones podés usar una orden de compra. Confirmá las cuotas antes de decidir."
       }
     ]
   },
@@ -78,23 +78,23 @@
     "id": "turismo",
     "order": 3,
     "name": "Turismo y alojamiento",
-    "caption": "Descanso y nuevos encuentros",
-    "description": "Opciones de alojamiento y turismo social para retirados, pensionados y sus familias. Conocé los destinos y coordiná cada estadía con el Círculo.",
+    "caption": "Destinos y consultas de reserva",
+    "description": "Conocé los destinos de alojamiento del Círculo en Entre Ríos. Si viajás con tu familia, consultá las plazas y las condiciones para acompañantes.",
     "action": "Explorar alojamientos",
     "target": "alojamiento",
     "initiallyOpen": false,
     "details": [
       {
-        "title": "Una red para organizar tu estadía",
-        "body": "Encontrás fichas de Paraná, María Grande, Victoria, Nogoyá, La Paz y Santa Elena. El material audiovisual recibido amplía el recorrido con Concepción del Uruguay y el complejo habitacional presentado para Federación."
+        "title": "Destinos en Entre Ríos",
+        "body": "Podés consultar por estadías en Paraná, María Grande, Victoria, Nogoyá, La Paz, Santa Elena, Concepción del Uruguay y Federación."
       },
       {
-        "title": "Espacios propios, información de cada destino",
-        "body": "Paraná, María Grande, Concepción del Uruguay y Federación ya cuentan con fotografías del material institucional recibido. Cada ficha distingue esas imágenes de las referencias visuales que todavía esperan reemplazo."
+        "title": "Fotos de los alojamientos",
+        "body": "Las fichas de Paraná, María Grande, Concepción del Uruguay y Federación tienen fotos de sus espacios. En los demás destinos, las imágenes ilustrativas están identificadas."
       },
       {
-        "title": "Antes de viajar",
-        "body": "Consultá fechas, cantidad de personas, acompañantes, equipamiento, accesibilidad, tarifas y contacto de reserva. Los convenios turísticos pueden ser temporarios; la web no confirma disponibilidad ni reservas."
+        "title": "Qué consultar antes de viajar",
+        "body": "Indicá las fechas y cuántas personas viajan. Preguntá por tarifas, equipamiento, accesibilidad, convenios vigentes y cómo reservar. La reserva se confirma con el Círculo."
       }
     ]
   },
@@ -102,24 +102,24 @@
     "id": "recreacion",
     "order": 4,
     "name": "Recreación y comunidad",
-    "caption": "Tiempo para compartir",
-    "description": "Encuentros, talleres, viajes socioculturales y espacios para compartir. La vida del Círculo también se construye en las actividades de cada filial.",
+    "caption": "Talleres, viajes y encuentros",
+    "description": "¿Querés participar en una actividad o reunir a tu gente? Consultá por talleres, viajes y espacios para encuentros en las filiales.",
     "action": "Consultar espacios y actividades",
     "target": "email",
     "subject": "Consulta sobre recreación",
     "initiallyOpen": false,
     "details": [
       {
-        "title": "Tiempo para encontrarnos",
-        "body": "El archivo institucional muestra encuentros sociales en Concordia, talleres creativos en Federación y actividades en Rosario del Tala. Consultá qué propuestas están abiertas hoy en tu localidad."
+        "title": "Talleres y encuentros",
+        "body": "Concordia realizó encuentros sociales y Federación organizó talleres creativos. Preguntá también en Rosario del Tala por las próximas actividades y cómo participar."
       },
       {
         "title": "Salones y espacios al aire libre",
-        "body": "En Paraná podés consultar por los dos salones de Los Laureles y por Las Rosas. El archivo también documenta espacios de encuentro en Diamante, Crespo, Hasenkamp y Federación."
+        "body": "En Paraná podés consultar por los dos salones de Los Laureles y por Las Rosas. También hay fichas de espacios en Diamante, Crespo, Hasenkamp y Federación."
       },
       {
-        "title": "Actividades y viajes",
-        "body": "El material de Federal incluye viajes socioculturales y actividades compartidas. Las fechas, inscripciones y condiciones se coordinan con cada filial; no se presentan los registros del archivo como una agenda vigente."
+        "title": "Viajes y salidas",
+        "body": "Federal organizó viajes socioculturales y otras actividades en grupo. Para próximas propuestas, preguntá en tu filial por fechas, inscripción y condiciones."
       }
     ]
   }

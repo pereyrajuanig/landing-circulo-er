@@ -302,7 +302,7 @@ test('la página inexistente ofrece regreso y conserva estado HTTP 404', async (
   const response = await fetch(new URL('/direccion-que-no-existe', origin));
   assert.equal(response.status, 404);
   const html = await response.text();
-  assert.match(html, /Te ayudamos a encontrar el camino/);
+  assert.match(html, /No encontramos esta página/);
   assert.match(html, /href="\/"[^>]*>Volver al inicio/);
   assert.match(html, /name="robots" content="noindex, follow"/);
   assert(!html.includes('rel="canonical"'));
@@ -380,7 +380,7 @@ test('el sitio genera las fichas de servicios y destinos y todas sus rutas son n
     const response = await fetch(new URL('/novedades/' + article.id + '/', origin));
     assert.equal(response.status, 200);
     const html = await response.text();
-    assert(html.includes('La fecha de publicación corresponde a esta reseña'));
+    assert(html.includes('Las actividades se realizaron con anterioridad'));
   }
   assert.equal((await fetch(new URL('/novedades/noticia-no-publicada/', origin))).status, 404);
 });
@@ -421,11 +421,11 @@ test('las fotografías propias conservan su localidad y las referencias siguen i
     const doc = await (await fetch(new URL('/alojamientos/' + id + '/', origin))).text();
     assert(doc.includes('data-photo-kind="institutional"'), id);
     assert(!doc.includes('FOTO DE REFERENCIA'), id);
-    assert(!doc.includes('No corresponden al alojamiento real'), id);
+    assert(!doc.includes('Estas fotos son ilustrativas'), id);
   }
   for (const id of ['victoria', 'nogoya', 'la-paz', 'santa-elena']) {
     const doc = await (await fetch(new URL('/alojamientos/' + id + '/', origin))).text();
-    assert(doc.includes('No corresponden al alojamiento real'), id);
+    assert(doc.includes('Estas fotos son ilustrativas'), id);
     assert(doc.includes('Foto:'), id);
     assert(!doc.includes('data-photo-kind="institutional"'), id);
   }
