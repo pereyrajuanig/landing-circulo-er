@@ -475,7 +475,7 @@
     "trace_status": "Parcial: panel disponible; web pendiente",
     "trace_owner": "Desarrollo / usuario / institución",
     "trace_date": "03/11/2026",
-    "trace_commit": "codex/panel-editorial / PR pendiente",
+    "trace_commit": "PR #17 / codex/panel-editorial",
     "trace_method": "Tipos, lint y build Astro/Studio.\n22 Node;40 Chromium por modo CSP.\nCMS real en1280/390px; borrador privado.",
     "trace_result": "Panel en circulo-policia-er.sanity.studio\n4 reseñas y9 fotos conservadas.\nGuía: docs/editorial-panel.md.",
     "trace_limits": "Merge, webhook y fuente Vercel pendientes.\nPermisos/plan institucional, backup y capacitación.\nFacebook, lector y privacidad pendientes.",
@@ -552,7 +552,8 @@
       "status": "studio_deployed_pending_website_activation",
       "branch": "codex/panel-editorial",
       "studioUrl": "https://circulo-policia-er.sanity.studio/",
-      "summary": "Panel en español con borradores;4 reseñas y9 fotos migradas. Lectura Astro verificada. Producción conserva JSON; webhook y merge pendientes."
+      "summary": "Panel en español con borradores;4 reseñas y9 fotos migradas. Lectura Astro verificada. Producción conserva JSON; webhook y merge pendientes.",
+      "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/17"
     }
   }
 }

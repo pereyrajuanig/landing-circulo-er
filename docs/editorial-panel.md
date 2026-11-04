@@ -1,6 +1,6 @@
 # Panel editorial · operación y estado
 
-Actualizado: 3/11/2026. Rama de integración: `codex/panel-editorial`.
+Actualizado: 3/11/2026. Rama de integración: `codex/panel-editorial`. [PR #17](https://github.com/pereyrajuanig/landing-circulo-er/pull/17), sin merge todavía.
 
 ## Qué está disponible
 
