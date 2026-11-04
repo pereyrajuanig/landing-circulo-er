@@ -29,6 +29,21 @@
           "value": "default-src 'self'; script-src 'self' 'sha256-CQlEHhlCx+RpJirJ6qwDqOgj3c99wU4NJEGusOCwMHQ=' 'sha256-SWoSopodG47bZQjakM69mt4sD6CNbWo/uS4IM86kX7M=' 'sha256-WLtiG77tRH/V5wu7xXeIOlVdIyn4dHCu8su+985NrR0=' 'sha256-hTZu39AhH1fMx+ir0vg0K0bI5TmgcsH1J77aQUdnoYY='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'"
         }
       ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "landing-circulo-er.vercel.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
     }
   ]
 }

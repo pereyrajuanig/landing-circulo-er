@@ -1,37 +1,27 @@
-# SEO y dominio pendiente
+# SEO y dominio oficial
 
-Corte: 13/10/2026. El usuario pidió continuar y dejar el dominio para decisión de las autoridades. Preferencia de extensión: .com.ar. Ningún nombre está confirmado ni registrado por esta tarea.
+El origen público es [www.circulopoliciaer.com.ar](https://www.circulopoliciaer.com.ar/). Para el diagnóstico, la evidencia inicial y el plan de seguimiento, consultá la [auditoría del 4 de noviembre de 2026](auditoria-seo-2026-11-04.md).
 
-## Configuración
+## Entornos
 
-SITE_URL es el origen HTTPS aprobado, sin ruta, query ni credenciales. SEO_INDEXABLE=true habilita indexación solo con SITE_URL. VERCEL_ENV=preview siempre fuerza noindex. Sin variables, el build es una preview no indexable: no canonical ni og:url ni sitemap. robots.txt permite rastreo para que el buscador pueda leer noindex; no es control de acceso.
+| Entorno                      | Configuración y salida                                                                                                                                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vercel Production            | `SITE_URL` usa por defecto el origen oficial. Si está definido, debe coincidir con ese origen. `SEO_INDEXABLE=true` habilita canonical, metadatos de indexación, datos estructurados de Inicio y sitemap.            |
+| Vercel Preview y Development | Fuerzan `noindex, follow`, sin canonical ni sitemap. Usar además la protección de Vercel cuando corresponda.                                                                                                         |
+| Build local                  | Sin variables genera una salida no indexable. Para simular producción usar `SITE_URL=https://www.circulopoliciaer.com.ar` y `SEO_INDEXABLE=true`. Un origen de prueba permite validar el build sin modificar el DNS. |
 
-Estas variables se leen del entorno del proceso de build. No se requiere archivo .env. Configurarlas en la cuenta de hosting una vez confirmado el dominio; reservar SEO_INDEXABLE=true para producción. Un build sin dominio que intenta indexarse falla explícitamente. No configurar la URL privada histórica de Sites.
+`robots.txt` permite el rastreo para que los buscadores puedan leer `noindex`. El alias público `landing-circulo-er.vercel.app` recibe `X-Robots-Tag: noindex, follow` mediante una regla exacta de Vercel. Confirmar la cabecera en el alojamiento real tras publicar.
 
-El layout conserva title y description de la colección institucional, con propiedades por página. Incluye Open Graph, es_AR, tarjeta Twitter y textos alternativos. La imagen PNG de 1200 × 630 está preparada en public/assets/social-card.png, usando escudo, fuentes y mensaje existentes. Las URLs absolutas de imagen se emiten cuando SITE_URL existe. Tarjeta actualizada el 03/11/2026 con el grabado de Diamante, el escudo, las fuentes y el mensaje del inicio actual. La URL de imagen incluye una versión para distinguirla de la tarjeta anterior. Generador opcional: `node tools/docs/build_social_card.mjs`, con Playwright y fuentes locales; no agrega dependencias al navegador. El script Python anterior se conserva como acceso compatible al mismo generador.
+## Metadatos y descubrimiento
 
-El sitemap de producción enumera únicamente la portada, ruta pública actual. La 404 tiene noindex, enlaces al inicio y contacto; debe mantener estado HTTP 404. No cambiar esto por una redirección global a la portada.
+- `BaseLayout.astro` centraliza idioma, canonical, Open Graph, Twitter Cards y los nodos JSON-LD de la portada. `SitePage.astro` admite un título y descripción para buscadores independientes de los textos visibles.
+- En el build indexable, `/sitemap-index.xml` enumera el sitemap de páginas generado por Astro. `/sitemap.xml` sigue disponible como índice equivalente. Las páginas 404, los borradores y las publicaciones futuras quedan fuera.
+- El favicon de todas las páginas se sirve en la ruta estable `/favicon.png`. Es una versión cuadrada de 96 × 96 del escudo oficial.
+- La tarjeta social institucional se sirve desde `public/assets/social-card.png`. Su generador opcional es `node tools/docs/build_social_card.mjs`.
+- En una nueva ficha, usar datos verificados y una descripción propia. Incorporar solo perfiles y contactos confirmados a los datos estructurados.
 
-## Datos estructurados
+## Control de publicación
 
-Se evaluó Organization. No se agrega JSON-LD todavía: nombre, domicilio y correo proceden del dossier, pero su vigencia institucional y dominio todavía requieren confirmación. No declarar GovernmentOrganization, autoridades, teléfonos, horarios, perfiles sociales ni reservas que no estén confirmados. Incorporar solo datos validados, coherentes con el contenido visible.
-
-## Pendientes de cierre
-
-- 05.01: dominio, titular institucional y política de redirecciones.
-- 05.02 / 05.03 / 05.04: código preparado; verificación con URL real pendiente.
-- 05.05: 404 verificable en build y preview local.
-- 05.06: evaluación completada; datos institucionales por confirmar antes de publicar JSON-LD.
-- 05.07: despliegue autorizado, rastreo real, redirecciones, indexabilidad y Search Console en cuenta institucional. No confundir validación local con indexación efectiva.
-
-## Referencias
-
-[Astro site](https://docs.astro.build/en/reference/configuration-reference/#site), [Google noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing), [Google Organization](https://developers.google.com/search/docs/appearance/structured-data/organization). Consultadas el 13/10/2026.
-
-## Evidencia técnica
-
-Código a154e70, [PR #7](https://github.com/pereyrajuanig/landing-circulo-er/pull/7), [quality aprobado](https://github.com/pereyrajuanig/landing-circulo-er/actions/runs/38464271027). Astro check: 26 archivos sin diagnósticos; lint y formato correctos. Diez pruebas Node y dieciséis Chromium aprobadas localmente y en Ubuntu CI. CI también valida builds de producción y preview con example.invalid. Capturas 404: docs/media/etapa05-404-desktop.png y etapa05-404-mobile.png; fuentes de respaldo en e2e. No prueba indexación real ni lectores de pantalla.
-
-## Propuesta multipágina
-
-Cada ficha usa título y descripción propios, ubicación y navegación interna. Cuando se habilite indexación con dominio aprobado, el sitemap incluye las rutas index.html generadas; excluye 404, borradores y artículos con fecha futura. Previews mantienen noindex. Sin publicaciones reales no hay URLs de artículos que indexar. Datos estructurados y dominio institucional siguen pendientes.
+1. Ejecutar `npm run build` y `npm run test:unit` con las variables del entorno objetivo.
+2. Tras el despliegue autorizado, comprobar el HTTP 404 real, los 308 hacia HTTPS con `www`, las cabeceras del alias y el HTML del host oficial.
+3. En Search Console, enviar el nuevo índice e inspeccionar páginas clave. Conservar el envío anterior hasta confirmar que Google lee el nuevo. Registrar por separado rastreabilidad, indexación y rendimiento en búsquedas.

@@ -7,7 +7,7 @@ import { validateSite } from '../scripts/check-build.mjs';
 import { normalize, branchStatus } from '../src/lib/search.ts';
 import { mailTo } from '../src/lib/contact.ts';
 import { publishedNews, matchesNews } from '../src/lib/news.ts';
-import { getDeployment } from '../config/seo.mjs';
+import { getDeployment, PRODUCTION_SITE } from '../config/seo.mjs';
 import { validateSecurity } from '../scripts/check-security.mjs';
 
 const load = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
@@ -123,7 +123,7 @@ test('el asunto de alojamiento se codifica sin convertir contenido en parámetro
   assert.equal(url.searchParams.get('subject'), subject);
   assert.equal([...url.searchParams].length, 1);
 });
-test('Astro preview sirve HTML, CSS, JavaScript y escudo con sus MIME correctos', async () => {
+test('Astro preview sirve HTML, CSS, JavaScript y escudo y sitemap con sus MIME correctos', async () => {
   const response = await fetch(origin);
   assert.equal(response.status, 200);
   assert.match(response.headers.get('content-type'), /text\/html/);
@@ -141,7 +141,9 @@ test('Astro preview sirve HTML, CSS, JavaScript y escudo con sus MIME correctos'
             ? /image\/webp/
             : /\.(?:png)(?:[?#]|$)/.test(path)
               ? /image\/png/
-              : /text\/html/;
+              : path.endsWith('.xml')
+                ? /(?:text|application)\/xml/
+                : /text\/html/;
     assert.match(asset.headers.get('content-type'), type, path);
     assert((await asset.arrayBuffer()).byteLength > 0, path);
   }
@@ -201,10 +203,13 @@ test('SEO requiere dominio aprobado y previews conservan noindex', () => {
     site: SITE_URL + '/',
     indexable: true,
   });
-  assert.equal(
-    getDeployment({ SITE_URL, SEO_INDEXABLE: 'true', VERCEL_ENV: 'preview' }).indexable,
-    false,
-  );
+  for (const VERCEL_ENV of ['preview', 'development'])
+    assert.equal(getDeployment({ SITE_URL, SEO_INDEXABLE: 'true', VERCEL_ENV }).indexable, false);
+  assert.deepEqual(getDeployment({ VERCEL_ENV: 'production', SEO_INDEXABLE: 'true' }), {
+    site: PRODUCTION_SITE,
+    indexable: true,
+  });
+  assert.throws(() => getDeployment({ VERCEL_ENV: 'production', SITE_URL }), /SITE_URL/);
 });
 
 test('el build SEO mantiene título, metadatos y rastreo coherentes', async () => {
@@ -225,20 +230,69 @@ test('el build SEO mantiene título, metadatos y rastreo coherentes', async () =
     ),
   );
   assert.equal(policy.includes('Sitemap:'), deployment.indexable);
-  const sitemap = await fetch(new URL('/sitemap.xml', origin));
-  assert.equal(sitemap.status, deployment.indexable ? 200 : 404);
+  const [index, legacy, pages] = await Promise.all(
+    ['sitemap-index.xml', 'sitemap.xml', 'sitemap-0.xml'].map((path) =>
+      fetch(new URL(path, origin)),
+    ),
+  );
+  for (const response of [index, legacy, pages])
+    assert.equal(response.status, deployment.indexable ? 200 : 404);
+  const schema = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  assert.equal(Boolean(schema), deployment.indexable);
   if (deployment.indexable) {
-    const xml = await sitemap.text();
+    assert(policy.includes(deployment.site + 'sitemap-index.xml'));
+    const indexXml = await index.text();
+    assert.equal(await legacy.text(), indexXml);
+    assert(indexXml.includes('<loc>' + deployment.site + 'sitemap-0.xml</loc>'));
+    const xml = await pages.text();
     for (const path of [
       '',
       'beneficios/salud/',
       'alojamientos/nogoya/',
       'novedades/',
       'institucion/',
+      'filiales/parana/',
+      'salones/',
     ])
       assert(xml.includes('<loc>' + deployment.site + path + '</loc>'), path);
     assert(!xml.includes('404.html'));
+    const [organization, website] = JSON.parse(schema[1])['@graph'];
+    assert.equal(organization['@type'], 'Organization');
+    assert.equal(website['@type'], 'WebSite');
+    assert.equal(organization.name, load('../src/content/institution.json')[0].name);
+    assert.equal(website.publisher['@id'], organization['@id']);
+    assert.equal(website.url, deployment.site);
+    const routes = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((entry) => new URL(entry[1]));
+    assert(routes.every((url) => url.origin === new URL(deployment.site).origin));
+    assert.equal(new Set(routes.map((url) => url.href)).size, routes.length);
+    assert.equal(
+      routes.length,
+      validateSite().pages.filter((file) => !file.endsWith('404.html')).length,
+    );
+    const results = await Promise.all(
+      routes.map(async (url) => {
+        const response = await fetch(new URL(url.pathname, origin));
+        assert.equal(response.status, 200, url.href);
+        const markup = await response.text();
+        assert(markup.includes('rel="canonical" href="' + url.href + '"'), url.href);
+        assert(markup.includes('property="og:url" content="' + url.href + '"'), url.href);
+        assert(markup.includes('name="robots" content="index, follow"'), url.href);
+        return [
+          markup.match(/<title>([^<]+)<\/title>/)?.[1],
+          markup.match(/name="description" content="([^"]+)"/)?.[1],
+        ];
+      }),
+    );
+    for (const column of [0, 1]) {
+      assert(results.every((item) => item[column]));
+      assert.equal(new Set(results.map((item) => item[column])).size, results.length);
+    }
   }
+  assert.match(html, /<title>Círculo de Retirados y Pensionados \| Policía de Entre Ríos<\/title>/);
+  assert.match(html, /<link rel="icon" href="\/favicon\.png" type="image\/png" sizes="96x96"/);
+  const favicon = Buffer.from(await (await fetch(new URL('/favicon.png', origin))).arrayBuffer());
+  assert.equal(favicon.readUInt32BE(16), 96);
+  assert.equal(favicon.readUInt32BE(20), 96);
   const card = await fetch(new URL('/assets/social-card.png', origin));
   assert.equal(card.status, 200);
   assert.match(card.headers.get('content-type'), /image\/png/);

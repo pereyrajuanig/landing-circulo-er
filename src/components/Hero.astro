@@ -66,9 +66,10 @@ const features = [
           format="webp"
           quality={80}
           width={1440}
-          widths={[480, 960, 1440]}
-          sizes="(min-width: 1101px) calc(100vw - 244px), (max-width: 750px) 1200px, 100vw"
+          widths={[480, 960, 1152, 1440]}
+          sizes="(min-width: 1101px) calc(100vw - 244px), (max-width: 750px) 1152px, 100vw"
           loading={index === 0 ? 'eager' : 'lazy'}
+          fetchpriority={index === 0 ? 'high' : undefined}
         />
         <span class="portal-scene-location">
           <LineIcon name="pin" size={16} />

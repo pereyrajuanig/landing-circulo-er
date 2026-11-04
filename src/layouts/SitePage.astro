@@ -5,14 +5,21 @@ import Footer from '../components/portal/Footer.astro';
 import '../styles/portal-system.css';
 interface Props {
   title: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  pageType?: 'website' | 'article';
   description: string;
   eyebrow: string;
   parent?: { label: string; href: string };
 }
-const { title, description, eyebrow, parent } = Astro.props;
+const { title, description, eyebrow, parent, seoTitle, seoDescription, pageType } = Astro.props;
 ---
 
-<BaseLayout title={title + ' · Círculo de Retirados y Pensionados'} description={description}>
+<BaseLayout
+  title={(seoTitle ?? title) + ' · Círculo de Retirados y Pensionados'}
+  description={seoDescription ?? description}
+  pageType={pageType}
+>
   <div class="home-portal">
     <PortalHeader />
     <main id="contenido" tabindex="-1" class="portal-system">

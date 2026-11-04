@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
-import { writeFile, readdir } from 'node:fs/promises';
+import sitemap from '@astrojs/sitemap';
+import { copyFile, writeFile } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
-import { getDeployment } from './config/seo.mjs';
+import { getDeployment, SITEMAP_INDEX } from './config/seo.mjs';
 const deployment = getDeployment();
 const config = JSON.parse(readFileSync(new URL('./vercel.json', import.meta.url), 'utf8'));
 const localHeaders = Object.fromEntries(
@@ -22,40 +23,23 @@ export default defineConfig({
   devToolbar: { enabled: false },
   vite: { build: { cssCodeSplit: false } },
   integrations: [
+    ...(deployment.indexable
+      ? [sitemap({ filter: (page) => !/^\/404(?:\.html|\/)?$/.test(new URL(page).pathname) })]
+      : []),
     {
-      name: 'landing-seo',
+      name: 'landing-robots',
       hooks: {
         'astro:build:done': async ({ dir }) => {
-          // Permitir rastreo para que los robots puedan leer noindex en las previews.
+          const sitemapUrl = deployment.site ? new URL(SITEMAP_INDEX, deployment.site) : undefined;
+          // Los bots pueden leer el noindex HTML de las previews que tengan acceso.
           await writeFile(
             new URL('robots.txt', dir),
             'User-agent: *\nAllow: /\n' +
-              (deployment.indexable ? `Sitemap: ${deployment.site}sitemap.xml\n` : ''),
+              (deployment.indexable && sitemapUrl ? 'Sitemap: ' + sitemapUrl.href + '\n' : ''),
           );
-          if (deployment.indexable) {
-            const walk = async (directory, prefix = '') => {
-              const entries = await readdir(directory, { withFileTypes: true });
-              const nested = await Promise.all(
-                entries.map((entry) =>
-                  entry.isDirectory()
-                    ? walk(new URL(entry.name + '/', directory), prefix + entry.name + '/')
-                    : [prefix + entry.name],
-                ),
-              );
-              return nested.flat();
-            };
-            const paths = (await walk(dir)).filter((file) => file.endsWith('index.html')).sort();
-            const urls = paths.map((file) =>
-              new URL(file.replace(/index\.html$/, ''), deployment.site).href.replaceAll(
-                '&',
-                '&amp;',
-              ),
-            );
-            await writeFile(
-              new URL('sitemap.xml', dir),
-              `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => '<url><loc>' + url + '</loc></url>').join('')}</urlset>`,
-            );
-          }
+          // Mantener vigente la URL ya enviada a Search Console.
+          if (deployment.indexable)
+            await copyFile(new URL(SITEMAP_INDEX, dir), new URL('sitemap.xml', dir));
         },
       },
     },
