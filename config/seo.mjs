@@ -1,8 +1,12 @@
+export const PRODUCTION_SITE = 'https://www.circulopoliciaer.com.ar/';
+export const SITEMAP_INDEX = 'sitemap-index.xml';
+
 /** @param {Record<string, string | undefined>} env */
 export function getDeployment(env = process.env) {
   const requested = env.SEO_INDEXABLE === 'true';
-  const preview = env.VERCEL_ENV === 'preview';
-  const raw = env.SITE_URL?.trim();
+  const production = env.VERCEL_ENV === 'production';
+  const nonProduction = Boolean(env.VERCEL_ENV && !production);
+  const raw = env.SITE_URL?.trim() || (production ? PRODUCTION_SITE : undefined);
   let site;
   if (raw) {
     const url = new URL(raw);
@@ -21,7 +25,9 @@ export function getDeployment(env = process.env) {
       );
     site = url.origin + '/';
   }
-  if (requested && !preview && !site)
+  if (production && site !== PRODUCTION_SITE)
+    throw new Error('SITE_URL en Vercel Production debe ser ' + PRODUCTION_SITE);
+  if (requested && !nonProduction && !site)
     throw new Error('Para indexar se necesita SITE_URL con el dominio aprobado.');
-  return { site, indexable: requested && !preview && Boolean(site) };
+  return { site, indexable: requested && !nonProduction && Boolean(site) };
 }

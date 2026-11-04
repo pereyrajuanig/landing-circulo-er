@@ -7,8 +7,14 @@ const root = resolve(import.meta.dirname, '..');
 export function validateSecurity() {
   const config = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8'));
   const rules = config.headers;
-  assert.equal(rules.length, 1);
+  assert.equal(rules.length, 2);
   assert.equal(rules[0].source, '/(.*)');
+  assert.equal(rules[0].has, undefined);
+  assert.deepEqual(rules[1], {
+    source: '/(.*)',
+    has: [{ type: 'host', value: 'landing-circulo-er.vercel.app' }],
+    headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
+  });
   const headers = Object.fromEntries(rules[0].headers.map((h) => [h.key, h.value]));
   assert.equal(Object.keys(headers).length, rules[0].headers.length);
   assert.equal(headers['Content-Security-Policy-Report-Only'], reportPolicy());

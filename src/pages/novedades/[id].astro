@@ -20,6 +20,7 @@ const { item } = Astro.props;
 
 <SitePage
   title={item.data.title}
+  pageType="article"
   eyebrow={item.data.category === 'logro' ? 'Logros de gestión' : 'Noticias'}
   description={item.data.summary}
   parent={{ label: 'Novedades', href: '/novedades/' }}

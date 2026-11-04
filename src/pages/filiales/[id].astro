@@ -27,6 +27,7 @@ const inquiry = mailTo(institution.data.email, 'Consulta sobre la sede del Círc
 
 <SitePage
   title={name}
+  seoTitle={central ? 'Sede central en Paraná' : 'Filial ' + name}
   eyebrow={central ? 'Sede central' : 'Filiales en Entre Ríos'}
   description={summary}
   parent={{ label: 'Directorio de filiales', href: '/institucion/#filiales' }}
