@@ -23,7 +23,6 @@ const href = data.target === 'email' ? mailTo(entry.data.email, data.subject) : 
 const localitiesByBenefit: Record<string, string[]> = {
   salud: ['parana', 'diamante', 'federal', 'rosario-del-tala', 'feliciano', 'concordia'],
   tramites: ['parana', 'chajari', 'crespo', 'hasenkamp'],
-  farmacia: ['federacion'],
   turismo: ['parana', 'concepcion-del-uruguay', 'maria-grande', 'federacion', 'feliciano'],
   recreacion: ['concordia', 'rosario-del-tala', 'federacion', 'federal'],
 };
@@ -100,8 +99,14 @@ const questions: Record<string, string[]> = {
       <div class="service-photo-detail">
         <SitePhoto kind="federacion-beneficio-lentes" variant="compact" />
         <div>
-          <h3>Beneficio para adquirir lentes en Federación</h3>
-          <p>Preguntá en la filial si el beneficio sigue vigente y qué necesitás para pedirlo.</p>
+          <h3>Beneficio de lentes en todas las localidades</h3>
+          <p>
+            Si sos afiliado al Círculo, podés consultar por el beneficio desde cualquier localidad.
+            <a class="text-link" href="/institucion/#filiales">
+              Buscá tu filial
+            </a>{' '}
+            o escribí a la sede central para conocer los requisitos.
+          </p>
         </div>
       </div>
     )}

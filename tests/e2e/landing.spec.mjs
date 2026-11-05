@@ -200,7 +200,17 @@ test('beneficios ofrecen categorías y sus fichas conservan detalles y consulta'
   const optics = page.locator('[data-photo-key="federacion-beneficio-lentes"]');
   await expect(optics).toBeVisible();
   await expect(optics.locator('img')).toHaveCSS('object-fit', 'contain');
-  await page.getByRole('link', { name: 'Federación', exact: true }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Beneficio de lentes en todas las localidades' }),
+  ).toBeVisible();
+  const directory = page.getByRole('link', { name: 'Buscá tu filial', exact: true });
+  await expect(directory).toHaveAttribute('href', '/institucion/#filiales');
+  await directory.click();
+  await expect(page).toHaveURL(/\/institucion\/#filiales$/);
+  await page
+    .locator('#branch-list')
+    .getByRole('link', { name: /Federación.*ver ficha/ })
+    .click();
   await expect(page).toHaveURL(/\/filiales\/federacion\/$/);
   await expect(page.locator('[data-photo-key="federacion-beneficio-lentes"]')).toBeVisible();
 });
