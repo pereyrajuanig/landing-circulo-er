@@ -42,7 +42,7 @@ before(async () => {
     ],
     {
       cwd: new URL('../', import.meta.url),
-      env: { ...process.env, NO_COLOR: '1' },
+      env: { ...process.env, NO_COLOR: '1', TEST_CSP_ENFORCE: 'true' },
       stdio: ['ignore', 'pipe', 'pipe'],
     },
   );
@@ -314,7 +314,7 @@ test('preview sirve los headers preparados en portada y recursos', async () => {
     const response = await fetch(new URL(path, origin));
     for (const [name, value] of Object.entries(headers))
       assert.equal(response.headers.get(name), value, path + ': ' + name);
-    assert.equal(response.headers.get('content-security-policy'), null);
+    assert.equal(response.headers.get('content-security-policy-report-only'), null);
     assert.equal(response.headers.get('strict-transport-security'), null);
   }
 });

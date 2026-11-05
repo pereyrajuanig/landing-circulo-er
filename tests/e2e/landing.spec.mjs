@@ -516,6 +516,32 @@ test('carrusel avanza automáticamente y mantiene el mensaje con cada ilustraci�
   await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
 });
 
+test('carrusel conserva la ilustración actual mientras se prepara la siguiente', async ({
+  page,
+}) => {
+  const nextImage = page.locator('[data-city-slide="concordia"] img');
+  const carousel = page.locator('[data-city-carousel]');
+  const imageGate = Promise.withResolvers();
+  await page.route('**/*concordia-background*.webp', async (route) => {
+    await imageGate.promise;
+    await route.continue();
+  });
+  try {
+    await page.goto('/?carrusel=imagen-lenta', { waitUntil: 'domcontentloaded' });
+    await expect(nextImage).toHaveAttribute('loading', 'eager');
+    await expect(page.locator('[data-city-slide="concepcion-del-uruguay"] img')).toHaveAttribute(
+      'loading',
+      'lazy',
+    );
+    await page.clock.fastForward(3000);
+    await expect(carousel).toHaveAttribute('data-active-city', 'diamante');
+  } finally {
+    imageGate.resolve();
+  }
+  await expect(carousel).toHaveAttribute('data-active-city', 'concordia');
+  expect(await nextImage.evaluate((image) => image.complete && image.naturalWidth > 0)).toBe(true);
+});
+
 test('carrusel ofrece pausa y reanudación de teclado sin selectores', async ({ page }) => {
   const carousel = page.locator('[data-city-carousel]');
   const rotation = page.locator('[data-city-rotation]');

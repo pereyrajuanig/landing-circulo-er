@@ -8,10 +8,10 @@ const config = JSON.parse(readFileSync(new URL('./vercel.json', import.meta.url)
 const localHeaders = Object.fromEntries(
   config.headers[0].headers.map(({ key, value }) => [key, value]),
 );
-// Solo para pruebas locales: verificar compatibilidad en modo exigido, sin cambiar Vercel.
-if (process.env.TEST_CSP_ENFORCE === 'true') {
-  localHeaders['Content-Security-Policy'] = localHeaders['Content-Security-Policy-Report-Only'];
-  delete localHeaders['Content-Security-Policy-Report-Only'];
+// La suite local compara los modos de observación y bloqueo.
+if (process.env.TEST_CSP_ENFORCE !== 'true') {
+  localHeaders['Content-Security-Policy-Report-Only'] = localHeaders['Content-Security-Policy'];
+  delete localHeaders['Content-Security-Policy'];
 }
 export default defineConfig({
   site: deployment.site,
