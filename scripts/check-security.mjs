@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
-import { reportPolicy, scriptHashes } from './security-policy.mjs';
+import { contentPolicy, scriptHashes } from './security-policy.mjs';
 const root = resolve(import.meta.dirname, '..');
 export function validateSecurity() {
   const config = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8'));
@@ -17,11 +17,8 @@ export function validateSecurity() {
   });
   const headers = Object.fromEntries(rules[0].headers.map((h) => [h.key, h.value]));
   assert.equal(Object.keys(headers).length, rules[0].headers.length);
-  assert.equal(headers['Content-Security-Policy-Report-Only'], reportPolicy());
-  assert(
-    !headers['Content-Security-Policy'],
-    'La CSP de hosting sigue en Report-Only hasta revisión real.',
-  );
+  assert.equal(headers['Content-Security-Policy'], contentPolicy());
+  assert(!headers['Content-Security-Policy-Report-Only']);
   assert(!headers['Strict-Transport-Security'], 'HSTS requiere decisión sobre dominio real.');
   assert.equal(headers['X-Content-Type-Options'], 'nosniff');
   assert.equal(headers['Referrer-Policy'], 'no-referrer');
