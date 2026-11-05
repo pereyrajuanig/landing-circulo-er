@@ -54,7 +54,7 @@
     "order": 2,
     "name": "Farmacia y beneficios",
     "caption": "Farmacia Social, lentes y compras",
-    "description": "Averiguá cómo acceder a la Farmacia Social de Paraná, qué opciones de compra hay y a quién consultar por otros beneficios.",
+    "description": "Consultá por la Farmacia Social de Paraná, las órdenes de compra y el beneficio de lentes para afiliados de todas las localidades.",
     "action": "Consultar beneficios",
     "target": "email",
     "subject": "Consulta sobre farmacia y beneficios",
@@ -65,8 +65,8 @@
         "body": "Antes de ir, consultá los horarios de atención y qué necesitás para acceder a la Farmacia Social."
       },
       {
-        "title": "Consulta por lentes en Federación",
-        "body": "En Federación se anunció un beneficio para la compra de lentes. Preguntá en la filial si sigue vigente, a quiénes alcanza y cómo pedirlo."
+        "title": "Ayuda para comprar lentes",
+        "body": "El beneficio para la compra de lentes está disponible para afiliados de todas las localidades. Consultá con tu filial o con la sede central cómo solicitarlo."
       },
       {
         "title": "Órdenes de compra",
