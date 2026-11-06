@@ -1,0 +1,355 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import { boundaryPath, graticulePath, mapLocations, mapSize } from '../lib/mapa-filiales';
+import { mailTo } from '../lib/contact';
+
+interface Props {
+  id?: string;
+}
+const { id = 'mapa-filiales' } = Astro.props;
+const institution = await getEntry('institution', 'circulo');
+if (!institution) throw new Error('Falta institución.');
+const profileIds = new Set((await getCollection('localities')).map((entry) => entry.id));
+const localities = mapLocations.map((site) => ({
+  ...site,
+  href: profileIds.has(site.id)
+    ? `/filiales/${site.id}/`
+    : mailTo(institution.data.email, 'Consulta sobre la filial ' + site.name),
+  linkLabel: profileIds.has(site.id) ? 'Ver información de la sede' : 'Consultar a la sede central',
+}));
+---
+
+<div class="filiales-map" data-filiales-map>
+  <svg
+    class="filiales-map-sheet"
+    viewBox={`0 0 ${mapSize.width} ${mapSize.height}`}
+    role="group"
+    aria-labelledby={`${id}-title`}
+    aria-describedby={`${id}-description`}
+  >
+    <title id={`${id}-title`}>Mapa de las filiales del Círculo en Entre Ríos</title>
+    <desc id={`${id}-description`}>
+      24 filiales y la sede central en Paraná. Las bases de las banderas indican coordenadas
+      oficiales de las localidades, no las direcciones de los edificios. Seleccioná una localidad o
+      usá el selector debajo del mapa.
+    </desc>
+    <defs>
+      <path id={`${id}-outline`} d={boundaryPath}></path>
+      <pattern id={`${id}-paper`} width="8" height="8" patternUnits="userSpaceOnUse">
+        <circle cx="1" cy="2" r="0.55" fill="#102f49" opacity="0.09"></circle>
+        <circle cx="6" cy="6" r="0.4" fill="#102f49" opacity="0.06"></circle>
+      </pattern>
+      <pattern id={`${id}-hatch`} width="7" height="7" patternUnits="userSpaceOnUse">
+        <path
+          d="M-1 1L1-1M0 7L7 0M6 8L8 6"
+          stroke="#102f49"
+          stroke-width="0.55"
+          opacity="0.25"
+        ></path>
+      </pattern>
+      <clipPath id={`${id}-province`}>
+        <use href={`#${id}-outline`}></use>
+      </clipPath>
+    </defs>
+    <g aria-hidden="true">
+      <rect width="900" height="930" fill="#f8f3e9"></rect>
+      <rect width="900" height="930" fill={`url(#${id}-paper)`}></rect>
+      <rect
+        x="12"
+        y="12"
+        width="876"
+        height="906"
+        rx="2"
+        fill="none"
+        stroke="#102f49"
+        stroke-opacity="0.35"
+      ></rect>
+      <path d="M26 80H874M26 865H874" stroke="#102f49" stroke-opacity="0.35"></path>
+      <text x="450" y="51" text-anchor="middle" class="map-heading">
+        Entre Ríos
+      </text>
+      <text x="450" y="72" text-anchor="middle" class="map-country">
+        REPÚBLICA ARGENTINA
+      </text>
+      <use
+        href={`#${id}-outline`}
+        fill="#eee9dc"
+        stroke="#102f49"
+        stroke-width="1.7"
+        stroke-linejoin="round"
+      ></use>
+      <use href={`#${id}-outline`} fill={`url(#${id}-hatch)`}></use>
+      <path
+        d={graticulePath}
+        fill="none"
+        stroke="#102f49"
+        stroke-width="0.6"
+        stroke-dasharray="2 5"
+        opacity="0.25"
+        clip-path={`url(#${id}-province)`}
+      ></path>
+      <g transform="translate(835 120)" class="map-north">
+        <text y="-10" text-anchor="middle">
+          N
+        </text>
+        <path d="M0 0L-6 23L0 18L6 23Z" fill="#102f49"></path>
+        <path d="M0 18V36M-12 23H12" stroke="#102f49" stroke-width="0.7"></path>
+      </g>
+      <text x="450" y="893" text-anchor="middle" class="map-footnote">
+        24 filiales · Una sede central
+      </text>
+    </g>
+    {localities.map((site) => {
+      const left = site.side === 'left';
+      const labelX = left ? 27 : 676;
+      const labelWidth = left ? 208 : 190;
+      const edgeX = left ? 242 : 671;
+      const type = site.type === 'central' ? 'Sede central' : 'Filial';
+      const labelHeight = site.lines.length * 22 + (site.type === 'central' ? 20 : 0) + 16;
+      return (
+        <a
+          href={site.href}
+          class:list={['map-site', { 'map-central': site.type === 'central' }]}
+          data-map-location={site.id}
+          data-name={site.name}
+          data-type={type}
+          data-link-label={site.linkLabel}
+          data-longitude={site.longitude}
+          data-latitude={site.latitude}
+          data-x={site.x}
+          data-y={site.y}
+          aria-label={`${site.name} · ${type}`}
+          aria-controls={`${id}-detail`}
+        >
+          <title>{site.name} · {type}</title>
+          <path
+            class="map-leader"
+            d={`M${site.x},${site.y}L${edgeX},${site.labelY - 7}`}
+            fill="none"
+          ></path>
+          <rect
+            class="map-label-back"
+            x={labelX - 5}
+            y={site.labelY - 23}
+            width={labelWidth + 10}
+            height={labelHeight}
+            rx="2"
+          ></rect>
+          <text class="map-label" x={labelX} y={site.labelY - 3}>
+            {site.lines.map((line, index) => (
+              <tspan x={labelX} dy={index === 0 ? 0 : 22}>
+                {line}
+              </tspan>
+            ))}
+            {site.type === 'central' && (
+              <tspan x={labelX} dy="21" class="map-central-label">
+                Sede central
+              </tspan>
+            )}
+          </text>
+          <g transform={`translate(${site.x} ${site.y})`} class="map-marker">
+            <circle r="17" fill="transparent"></circle>
+            <circle class="map-pin-halo" r="7"></circle>
+            <path class="map-pole" d="M0 0V-27"></path>
+            <path class="map-flag" d="M0-27H20L15-21L20-15H0Z"></path>
+            <circle class="map-pin" r="3.4"></circle>
+          </g>
+        </a>
+      );
+    })}
+  </svg>
+  <div class="map-tools" data-map-tools hidden>
+    <label for={`${id}-select`}>Elegí una localidad</label>
+    <select id={`${id}-select`} data-map-select aria-controls={`${id}-detail`}>
+      {localities.map((site) => (
+        <option value={site.id} selected={site.id === 'parana'}>
+          {site.name}
+          {site.type === 'central' ? ' · Sede central' : ''}
+        </option>
+      ))}
+    </select>
+  </div>
+  <div id={`${id}-detail`} class="map-detail">
+    <div>
+      <strong data-map-name>Paraná</strong>
+      <span data-map-type>Sede central</span>
+    </div>
+    <a href="/filiales/parana/" data-map-link>
+      Ver información de la sede
+    </a>
+  </div>
+  <p class="map-source">Ubicación de localidades · Fuentes: IGN y Georef Argentina.</p>
+  <noscript>
+    <p class="map-source">
+      Las banderas enlazan a la información disponible. También podés usar el directorio de
+      filiales.
+    </p>
+  </noscript>
+  <span
+    class="visually-hidden"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+    data-map-status
+  ></span>
+</div>
+
+<script>
+  import '../scripts/mapa-filiales';
+</script>
+
+<style>
+  .filiales-map {
+    min-width: 0;
+    width: 100%;
+    color: #102f49;
+    background: #f8f3e9;
+    border: 1px solid #b7ae97;
+  }
+  .filiales-map-sheet {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .map-heading {
+    font: 36px var(--serif);
+    fill: #102f49;
+  }
+  .map-country {
+    font: 11px var(--sans);
+    letter-spacing: 3px;
+    fill: #102f49;
+  }
+  .map-footnote {
+    font: 18px var(--sans);
+    letter-spacing: 1px;
+    fill: #102f49;
+  }
+  .map-north {
+    font: 15px var(--sans);
+    fill: #102f49;
+  }
+  .map-site {
+    cursor: pointer;
+    outline: none;
+  }
+  .map-leader {
+    stroke: #102f49;
+    stroke-width: 0.8;
+    opacity: 0.5;
+  }
+  .map-label-back {
+    fill: #f8f3e9;
+    fill-opacity: 0.95;
+    stroke: transparent;
+  }
+  .map-label {
+    fill: #102f49;
+    font: 600 24px var(--sans);
+  }
+  .map-central-label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .map-pole {
+    stroke: #102f49;
+    stroke-width: 1.7;
+  }
+  .map-flag,
+  .map-pin {
+    fill: #102f49;
+  }
+  .map-pin-halo {
+    fill: #f8f3e9;
+  }
+  .map-central .map-flag,
+  .map-central .map-pin {
+    fill: #8a641c;
+  }
+  .map-central .map-label {
+    fill: #795617;
+  }
+  .map-site:is(:hover, :focus-visible, .is-selected) .map-label-back {
+    stroke: #8a641c;
+    stroke-width: 1.4;
+  }
+  .map-site:is(:hover, :focus-visible, .is-selected) .map-leader {
+    stroke: #8a641c;
+    stroke-width: 1.5;
+    opacity: 1;
+  }
+  .map-site:focus-visible .map-pin-halo {
+    stroke: #8a641c;
+    stroke-width: 2;
+  }
+  .map-tools {
+    padding: 0 22px 18px;
+  }
+  .map-tools label {
+    display: block;
+    font: 600 1rem/1.5 var(--sans);
+    margin-bottom: 6px;
+  }
+  .map-tools select {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #8a8373;
+    background: #fffdf8;
+    color: #102f49;
+    padding: 8px 12px;
+    font: 1.125rem var(--sans);
+    border-radius: 3px;
+  }
+  .map-detail {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid #c7bdab;
+    padding: 18px 22px;
+  }
+  .map-detail strong {
+    display: block;
+    font: 650 1.25rem/1.4 var(--sans);
+  }
+  .map-detail span {
+    display: block;
+    font: 1rem/1.5 var(--sans);
+  }
+  .map-detail a {
+    color: #102f49;
+    font: 600 1rem/1.5 var(--sans);
+    text-underline-offset: 5px;
+    padding-block: 10px;
+  }
+  .filiales-map :is(a, select):focus-visible {
+    outline: 3px solid #795617;
+    outline-offset: 4px;
+  }
+  .filiales-map .map-source {
+    color: #465566;
+    font: 0.875rem/1.5 var(--sans);
+    margin: 0;
+    padding: 0 22px 18px;
+    max-width: none;
+  }
+  @media (max-width: 700px) {
+    .map-site:not(.is-selected) :is(.map-label-back, .map-label, .map-leader) {
+      display: none;
+    }
+    .map-label {
+      font-size: 24px;
+    }
+    .map-marker {
+      transform-box: view-box;
+    }
+    .map-tools {
+      padding-inline: 16px;
+    }
+    .map-detail {
+      padding-inline: 16px;
+    }
+  }
+</style>

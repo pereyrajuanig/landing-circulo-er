@@ -528,7 +528,7 @@
   font: 650 1.3125rem/1.3 var(--sans);
   letter-spacing: -0.015em;
 }
-/* Provincial directory: search and real locality links instead of a fabricated map. */
+/* Provincial directory and official georeferenced map. */
 .portal-system .ps-branches {
   background: var(--navy);
   color: var(--paper);
@@ -538,18 +538,13 @@
 }
 .portal-system .ps-branches-masthead {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
   gap: 48px;
   align-items: center;
   margin-bottom: 48px;
 }
 .portal-system .ps-branches-masthead h2 {
   margin-bottom: 22px;
-}
-.portal-system .ps-branches-masthead > img {
-  width: 100%;
-  height: auto;
-  border-radius: 80px 14px 14px 14px;
 }
 .portal-system .ps-branches-masthead p:not(.ps-kicker) {
   max-width: 490px;
@@ -1364,9 +1359,6 @@ footer.portal-system.ps-footer {
     gap: 26px;
     margin-bottom: 30px;
   }
-  .portal-system .ps-branches-masthead > img {
-    border-radius: 40px 12px 12px 12px;
-  }
   .portal-system .ps-directory {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1888,5 +1880,12 @@ footer.portal-system.ps-footer {
   }
   .portal-system .ps-stay-address {
     padding: 20px;
+  }
+}
+
+/* Give the cartographic labels room without changing the directory layout. */
+@media (max-width: 1100px) {
+  .portal-system .ps-branches-masthead {
+    grid-template-columns: 1fr;
   }
 }
