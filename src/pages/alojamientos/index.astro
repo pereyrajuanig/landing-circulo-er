@@ -1,12 +1,23 @@
 ---
 import SitePage from '../../layouts/SitePage.astro';
 import Stays from '../../components/portal/Stays.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import heritage from '../../assets/headers/entre-rios-heritage-panorama.png';
+const title = 'Alojamientos en Entre Ríos';
+const eyebrow = 'Alojamientos del Círculo';
+const description =
+  'Consultá por alojamiento del Círculo en Entre Ríos. Elegí un destino para ver fotos, conocer los espacios y preguntar cómo reservar.';
 ---
 
-<SitePage
-  title="Alojamientos en Entre Ríos"
-  eyebrow="Alojamientos del Círculo"
-  description="Consultá por alojamiento del Círculo en Entre Ríos. Elegí un destino para ver fotos, conocer los espacios y preguntar cómo reservar."
->
+<SitePage title={title} eyebrow={eyebrow} description={description}>
+  <PageIntro
+    slot="intro"
+    title={title}
+    eyebrow={eyebrow}
+    description={description}
+    action={{ label: 'Ver destinos', href: '#alojamiento' }}
+    note="Confirmá las fechas y las condiciones antes de viajar."
+    background={heritage}
+  />
   <Stays catalog />
 </SitePage>

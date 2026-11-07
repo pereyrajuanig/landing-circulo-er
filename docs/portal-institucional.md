@@ -34,3 +34,15 @@ Publicación mediante squash merge del PR con quality aprobado; main dispara Ver
 ## Pendientes externos
 
 El dominio público es https://www.circulopoliciaer.com.ar/, con redirección desde el dominio raíz, HTTPS e indexación habilitada. El sitemap contiene 24 páginas y Google Search Console lo procesó correctamente; esto no acredita que las 24 estén indexadas. La propiedad de Search Console está verificada provisionalmente con la cuenta del desarrollador y debe incorporarse la institución. Continúan pendientes la revisión de salones, las condiciones institucionales variables, las fotografías faltantes, privacidad, lector real, CMS y Facebook. La aceptación del diseño no certifica esos datos o integraciones.
+
+## Cabecera ilustrada de Alojamientos — 6/11/2026
+
+Cabecera aprobada visualmente por el usuario, aplicada solo en /alojamientos/. Publicación autorizada el 6/11/2026. Se utiliza la ilustración elegida y entregada por el usuario, Entre Ríos Engraved Heritage Panorama.png, de 2172 × 724 píxeles. El original de Downloads permanece intacto; la copia de trabajo está en src/assets/headers/entre-rios-heritage-panorama.png. Astro genera WebP responsive; el PNG no se sirve directamente.
+
+El texto se conserva en blanco/marfil sobre azul. En escritorio, el grabado se usa como fondo y se protege la columna de lectura con una capa azul uniforme y una línea dorada fina, sin degradados. En tablet y móvil, el texto se presenta sobre azul liso y el arte queda debajo, con encuadre hacia la derecha para conservar la silueta ilustrada. Se mantienen las fuentes, el CTA Ver destinos, los acentos rojos y el catálogo.
+
+La silueta de Entre Ríos en esta imagen es un recurso artístico decorativo, no cartografía ni ubicación de sedes: no se colocan marcadores sobre ella. MapaFiliales.astro y sus coordenadas oficiales permanecen intactos. El arte tiene alt vacío y contenedor aria-hidden. No se presenta como fotografía de instalaciones ni atribuye prestaciones o alojamiento a los edificios ilustrados.
+
+Solo Alojamientos usa esta variante mediante el slot intro de SitePage.astro. Las otras cabeceras, fichas, galerías, metadatos y funcionalidades se conservan. No se agregan librerías, animaciones, scripts ni llamadas externas. Fuentes e imágenes del Home permanecen intactas.
+
+Validación: tipos y lint sin errores; formato del cambio, build, seguridad, 24 pruebas Node y 47 Chromium por cada modo CSP aprobados (un caso desktop/tablet del mapa no aplicable a móvil por modo). Revisión visual y CTA por teclado a 1440/820/390/320 px: sin desbordes ni errores JS. La imagen servida en las mediciones a DPR 1 pesó 129.958 bytes en escritorio y 62.816 en tablet/móvil, frente a 2.445.712 bytes del PNG original; el navegador puede elegir otro tamaño según pantalla y densidad. Comparación de cuerpos HTML: solo cambia alojamientos/index.html. El usuario aprobó el diseño y autorizó publicar el 6/11/2026. El resultado de CI y del despliegue se registra en el PR de esta rama.

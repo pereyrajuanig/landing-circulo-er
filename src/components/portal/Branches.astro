@@ -1,7 +1,6 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import concordiaArt from '../../assets/cities/concordia-background.png';
+import MapaFiliales from '../MapaFiliales.astro';
 import SitePhoto from '../SitePhoto.astro';
 import LineIcon from '../LineIcon.astro';
 import { mailTo } from '../../lib/contact';
@@ -34,15 +33,7 @@ const featured = branches
           policial entrerriana.
         </p>
       </div>
-      <Image
-        src={concordiaArt}
-        alt="Ilustración patrimonial de Concordia"
-        width={680}
-        widths={[400, 680]}
-        sizes="(max-width: 700px) 90vw, 36vw"
-        format="webp"
-        loading="lazy"
-      />
+      <MapaFiliales />
     </div>
     <div class="ps-directory">
       <div class="ps-directory-tools">

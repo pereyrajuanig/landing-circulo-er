@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-06",
   "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
@@ -554,6 +554,15 @@
       "studioUrl": "https://circulo-policia-er.sanity.studio/",
       "summary": "Panel en español con borradores;4 reseñas y9 fotos migradas. Lectura Astro verificada. Producción conserva JSON; webhook y merge pendientes.",
       "pullRequest": "https://github.com/pereyrajuanig/landing-circulo-er/pull/17"
+    },
+    "provincial_map": {
+      "status": "ready_for_release",
+      "branch": "codex/mapa-filiales",
+      "summary": "Mapa SVG con contorno IGN y centroides Georef de 24 filiales más Paraná. Build, tipos, lint, pruebas geográficas y navegación con ambos modos CSP verificados. Fuentes y ambigüedades en docs/mapa-filiales.md. Publicación del estado local autorizada por el usuario el 6/11/2026; CI y resultado del despliegue se registran en el PR de esta rama."
+    },
+    "accommodation_intro": {
+      "status": "visual_approved_ready_for_release",
+      "summary": "Cabecera de /alojamientos/ aprobada visualmente y publicación autorizada el 6/11/2026. Ilustración azul entregada por el usuario, texto blanco protegido, WebP responsive y adaptación móvil. Tipos, lint, formato del cambio, build, 24 pruebas Node y 47 Chromium por cada modo CSP aprobados; un caso desktop/tablet del mapa no aplica a móvil por modo. Revisados 1440/820/390/320 px. Catálogo y demás páginas preservados; CI y despliegue se verifican en el PR de esta rama."
     }
   }
 }
