@@ -1,5 +1,7 @@
 ---
 import SitePage from '../../layouts/SitePage.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import benefitsArt from '../../assets/headers/beneficios-consultorio-grabado.png';
 import Services from '../../components/portal/Services.astro';
 import { getCollection } from 'astro:content';
 import LineIcon from '../../components/LineIcon.astro';
@@ -12,6 +14,15 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
   eyebrow="Para retirados y pensionados policiales"
   description="Consultá por salud, trámites, Farmacia Social, alojamiento y actividades. Te contamos dónde preguntar en Entre Ríos."
 >
+  <PageIntro
+    slot="intro"
+    title="Beneficios y servicios del Círculo"
+    eyebrow="Para retirados y pensionados policiales"
+    description="Consultá por salud, trámites, Farmacia Social, alojamiento y actividades. Te contamos dónde preguntar en Entre Ríos."
+    action={{ label: 'Explorar beneficios', href: '#servicios' }}
+    background={benefitsArt}
+    artSide="left"
+  />
   <Services />
   <section class="ps-section ps-benefit-highlights" aria-labelledby="benefit-paths">
     <div class="ps-wrap">

@@ -10,17 +10,28 @@ interface Props {
   action: { label: string; href: string };
   background: ImageMetadata;
   note?: string;
+  artSide?: 'left' | 'right';
 }
-const { title, eyebrow, description, action, background, note } = Astro.props;
+const { title, eyebrow, description, action, background, note, artSide = 'right' } = Astro.props;
+const imageWidths = [
+  ...new Set([640, 960, 1440, 1920, background.width].filter((width) => width <= background.width)),
+].sort((a, b) => a - b);
 ---
 
-<div class="page-intro page-intro--patrimonial" data-editorial-intro>
+<div
+  class:list={[
+    'page-intro',
+    'page-intro--patrimonial',
+    { 'page-intro--art-left': artSide === 'left' },
+  ]}
+  data-editorial-intro
+>
   <div class="intro-art" aria-hidden="true">
     <Image
       src={background}
       alt=""
       width={background.width}
-      widths={[640, 960, 1440, 1920, background.width]}
+      widths={imageWidths}
       sizes="(max-width: 700px) 800px, (max-width: 1100px) 100vw, calc(100vw - 244px)"
       format="webp"
       quality={78}
@@ -140,7 +151,40 @@ const { title, eyebrow, description, action, background, note } = Astro.props;
     max-width: 43ch;
     margin: 14px 0 0;
   }
+  .page-intro--art-left .intro-art::after {
+    inset: 0 0 0 auto;
+    border-right: 0;
+    border-left: 1px solid rgb(210 177 106 / 35%);
+  }
+  .page-intro--art-left .intro-art :global(img) {
+    object-position: left center;
+  }
+  .page-intro--art-left .breadcrumbs {
+    width: 46%;
+    max-width: 540px;
+    margin-left: auto;
+  }
+  .page-intro--art-left .intro-copy {
+    margin-left: auto;
+    width: 46%;
+    max-width: 540px;
+  }
+  :global(.portal-system) .page-intro--art-left .intro-title {
+    max-width: 16ch;
+    font-size: clamp(44px, 4.3vw, 64px);
+  }
   @media (max-width: 1000px) {
+    .page-intro--art-left .breadcrumbs {
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+    }
+    .page-intro--art-left .intro-copy {
+      width: 100%;
+      max-width: 740px;
+      margin-left: 0;
+    }
+
     .intro-art::after {
       display: none;
     }

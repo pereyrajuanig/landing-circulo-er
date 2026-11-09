@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-09",
   "baselineCommit": "e1e830ba7800a0076ce1e7949c21669cf605e51b",
   "stages": {
     "01": {
@@ -563,6 +563,19 @@
     "accommodation_intro": {
       "status": "visual_approved_ready_for_release",
       "summary": "Cabecera de /alojamientos/ aprobada visualmente y publicación autorizada el 6/11/2026. Ilustración azul entregada por el usuario, texto blanco protegido, WebP responsive y adaptación móvil. Tipos, lint, formato del cambio, build, 24 pruebas Node y 47 Chromium por cada modo CSP aprobados; un caso desktop/tablet del mapa no aplica a móvil por modo. Revisados 1440/820/390/320 px. Catálogo y demás páginas preservados; CI y despliegue se verifican en el PR de esta rama."
+    },
+    "benefits_intro": {
+      "status": "ready_for_release",
+      "branch": "codex/cabecera-beneficios",
+      "summary": "Cabecera de /beneficios/ con ilustración médica entregada por el usuario. Variante artSide left: grabado a la izquierda y texto a la derecha; en móvil arte debajo del texto. Tipos y lint sin errores, formato del cambio, build, 24 pruebas Node y 47 Chromium por cada modo CSP aprobados; un caso desktop/tablet del mapa no aplica a móvil por modo. Revisados 1440/820/390/320 px, CTA por teclado funcional, sin desbordes ni errores JS. Solo cambia el cuerpo HTML de beneficios/index.html; Alojamientos y demás páginas conservados. Publicación autorizada el 9/11/2026. CI y despliegue se registran en el PR.",
+      "imageSource": "Engraved Medical Office and Pharmacy.png",
+      "imageUpdateValidation": "Nueva imagen: build y seguridad de salida aprobados; revisión visual y CTA por teclado a 1440/390 px sin desbordes ni errores JavaScript. Sin cambios de lógica, textos, estructura o publicación."
+    },
+    "salons_intro": {
+      "status": "ready_for_release",
+      "branch": "codex/cabecera-beneficios",
+      "imageSource": "Engraved Garden Banquet Hall Panorama.png",
+      "summary": "Cabecera de /salones/ con grabado decorativo del usuario, texto blanco y CTA Ver salones hacia #eventos. Original preservado; WebP sin ampliar la resolución original. Tipos, lint, formato del cambio, build, 24 pruebas Node y 47 Chromium por modo CSP aprobados; un caso desktop/tablet del mapa no aplica a móvil por modo. Revisión a 1440/820/390/320 px sin desbordes ni errores JS, CTA por teclado correcto. Solo cambia el cuerpo HTML de salones/index.html en esta etapa; Alojamientos, Beneficios, galerías y condiciones intactos. Publicación autorizada el 9/11/2026. CI y despliegue se registran en el PR."
     }
   }
 }
