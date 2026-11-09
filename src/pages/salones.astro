@@ -1,5 +1,7 @@
 ---
 import SitePage from '../layouts/SitePage.astro';
+import PageIntro from '../components/PageIntro.astro';
+import salonsArt from '../assets/headers/salones-jardin-grabado.png';
 import Spaces from '../components/portal/Spaces.astro';
 ---
 
@@ -10,6 +12,14 @@ import Spaces from '../components/portal/Spaces.astro';
   eyebrow="Momentos en comunidad"
   description="Mirá las fotos de Los Laureles y Las Rosas en Paraná y de los salones de las filiales. Consultá capacidad, equipamiento y fechas."
 >
+  <PageIntro
+    slot="intro"
+    title="Salones del Círculo en Entre Ríos"
+    eyebrow="Momentos en comunidad"
+    description="Mirá las fotos de Los Laureles y Las Rosas en Paraná y de los salones de las filiales. Consultá capacidad, equipamiento y fechas."
+    action={{ label: 'Ver salones', href: '#eventos' }}
+    background={salonsArt}
+  />
   <Spaces full />
   <section class="wrap page-section faq-section" aria-labelledby="events-faq">
     <h2 id="events-faq">Cómo consultar por un salón</h2>
