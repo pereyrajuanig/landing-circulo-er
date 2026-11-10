@@ -11,8 +11,18 @@ interface Props {
   background: ImageMetadata;
   note?: string;
   artSide?: 'left' | 'right' | 'bottom';
+  panoramic?: boolean;
 }
-const { title, eyebrow, description, action, background, note, artSide = 'right' } = Astro.props;
+const {
+  title,
+  eyebrow,
+  description,
+  action,
+  background,
+  note,
+  artSide = 'right',
+  panoramic = false,
+} = Astro.props;
 const imageWidths = [
   ...new Set([640, 960, 1440, 1920, background.width].filter((width) => width <= background.width)),
 ].sort((a, b) => a - b);
@@ -22,7 +32,11 @@ const imageWidths = [
   class:list={[
     'page-intro',
     'page-intro--patrimonial',
-    { 'page-intro--art-left': artSide === 'left', 'page-intro--art-bottom': artSide === 'bottom' },
+    {
+      'page-intro--art-left': artSide === 'left',
+      'page-intro--art-bottom': artSide === 'bottom',
+      'page-intro--panoramic': panoramic,
+    },
   ]}
   data-editorial-intro
 >
@@ -173,7 +187,31 @@ const imageWidths = [
     max-width: 16ch;
     font-size: clamp(44px, 4.3vw, 64px);
   }
+  :global(.portal-system) .page-intro--panoramic {
+    background: #01264c;
+  }
+  .page-intro--panoramic .intro-art::after {
+    width: 49%;
+    background: #01264c;
+    opacity: 0.86;
+    border: 0;
+  }
+  @media (min-width: 1001px) {
+    .page-intro--panoramic .intro-art {
+      top: 48px;
+    }
+    .page-intro--panoramic .intro-art :global(img) {
+      object-position: 34% bottom;
+    }
+    .page-intro--panoramic .intro-copy {
+      padding-block: 26px 50px;
+    }
+  }
   @media (max-width: 1000px) {
+    .page-intro--panoramic .intro-art :global(img) {
+      object-position: 16% center;
+    }
+
     .page-intro--art-left .breadcrumbs {
       width: 100%;
       max-width: none;

@@ -1,15 +1,27 @@
 ---
 import SitePage from '../layouts/SitePage.astro';
+import PageIntro from '../components/PageIntro.astro';
+import institutionArt from '../assets/headers/institucion-fachada-grabado.png';
 import Institution from '../components/portal/Institution.astro';
 import Branches from '../components/portal/Branches.astro';
+
+const intro = {
+  title: 'Historia del Círculo',
+  eyebrow: 'Nuestra institución',
+  description:
+    'Conocé cómo nació el Círculo en 1975 y cómo la sede central y las filiales acompañan a la comunidad policial de Entre Ríos.',
+};
 ---
 
-<SitePage
-  title="Historia del Círculo"
-  seoTitle="Institución y filiales del Círculo en Entre Ríos"
-  eyebrow="Nuestra institución"
-  description="Conocé cómo nació el Círculo en 1975 y cómo la sede central y las filiales acompañan a la comunidad policial de Entre Ríos."
->
+<SitePage {...intro} seoTitle="Institución y filiales del Círculo en Entre Ríos">
+  <PageIntro
+    slot="intro"
+    {...intro}
+    action={{ label: 'Ver filiales', href: '#filiales' }}
+    background={institutionArt}
+    artSide="left"
+    panoramic
+  />
   <Institution full />
   <Branches full />
 </SitePage>

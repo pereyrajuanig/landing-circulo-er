@@ -68,3 +68,9 @@ Validación de Salones: tipos, lint, formato del cambio y build aprobados; 24 pr
 ## Cabecera ilustrada de Novedades
 
 Novedades usa el grabado panorámico de 2508 × 627 píxeles entregado por el usuario, incorporado en `src/assets/headers/novedades-gestion-grabado.png`. La cabecera conserva el título y la descripción en blanco sobre azul y ubica la ilustración debajo del texto. Astro genera variantes WebP. Ver publicaciones lleva al encabezado del listado. Publicación autorizada el 9/11/2026. Los controles y el despliegue se registran en el PR.
+
+## Cabecera ilustrada de Institución
+
+Institución usa la ilustración panorámica de 2508 × 627 píxeles entregada por el usuario, incorporada como `src/assets/headers/institucion-fachada-grabado.png`. Astro sirve variantes WebP. La fachada se usa como ilustración decorativa.
+
+La variante panorámica de `PageIntro.astro` da espacio a la fachada en la izquierda y protege el texto marfil de la derecha con una capa azul. En pantallas angostas el grabado se centra en la fachada debajo del texto. Ver filiales lleva al directorio de la página. Publicación autorizada el 10/11/2026. El PR registra los controles y el despliegue.
