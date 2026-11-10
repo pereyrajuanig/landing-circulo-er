@@ -581,6 +581,11 @@
       "status": "ready_for_release",
       "branch": "codex/cabecera-novedades",
       "summary": "Grabado entregado por el usuario en la cabecera de Novedades. Imagen WebP adaptable y enlace Ver publicaciones al listado. Vista local comprobada a 1440, 820, 390 y 320 px con el buscador operativo. Publicación autorizada el 9/11/2026. El PR registra CI y despliegue."
+    },
+    "institution_intro": {
+      "status": "ready_for_release",
+      "branch": "codex/cabecera-institucion",
+      "summary": "Cabecera ilustrada de Institución con el grabado entregado por el usuario. Vista local comprobada en escritorio, tablet y celular. Ver filiales enlaza al directorio. Publicación autorizada el 10/11/2026."
     }
   }
 }
