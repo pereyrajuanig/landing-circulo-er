@@ -576,6 +576,11 @@
       "branch": "codex/cabecera-beneficios",
       "imageSource": "Engraved Garden Banquet Hall Panorama.png",
       "summary": "Cabecera de /salones/ con grabado decorativo del usuario, texto blanco y CTA Ver salones hacia #eventos. Original preservado; WebP sin ampliar la resolución original. Tipos, lint, formato del cambio, build, 24 pruebas Node y 47 Chromium por modo CSP aprobados; un caso desktop/tablet del mapa no aplica a móvil por modo. Revisión a 1440/820/390/320 px sin desbordes ni errores JS, CTA por teclado correcto. Solo cambia el cuerpo HTML de salones/index.html en esta etapa; Alojamientos, Beneficios, galerías y condiciones intactos. Publicación autorizada el 9/11/2026. CI y despliegue se registran en el PR."
+    },
+    "news_intro": {
+      "status": "ready_for_release",
+      "branch": "codex/cabecera-novedades",
+      "summary": "Grabado entregado por el usuario en la cabecera de Novedades. Imagen WebP adaptable y enlace Ver publicaciones al listado. Vista local comprobada a 1440, 820, 390 y 320 px con el buscador operativo. Publicación autorizada el 9/11/2026. El PR registra CI y despliegue."
     }
   }
 }

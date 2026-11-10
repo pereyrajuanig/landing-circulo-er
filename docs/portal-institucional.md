@@ -64,3 +64,7 @@ Muestra local de /salones/ con Engraved Garden Banquet Hall Panorama.png, entreg
 Se reutiliza PageIntro.astro con texto blanco a la izquierda y grabado visible a la derecha; en móvil el arte queda debajo del texto. Ver salones lleva a #eventos. Se conservan las fuentes, metadatos, galerías, capacidades, condiciones y preguntas frecuentes. El componente limita los tamaños WebP a la resolución original para evitar ampliar esta imagen de 1916 píxeles. Alojamientos y Beneficios mantienen sus variantes. Sin scripts ni dependencias nuevas; publicación autorizada el 9/11/2026.
 
 Validación de Salones: tipos, lint, formato del cambio y build aprobados; 24 pruebas Node y 47 Chromium por modo CSP aprobados (un caso desktop/tablet del mapa no aplicable a móvil por modo). Revisión a 1440/820/390/320 px sin desbordes ni errores JavaScript; CTA por teclado correcto. Comparación de cuerpos HTML respecto de la etapa anterior: solo cambia salones/index.html. Publicación autorizada el 9/11/2026. El PR registra CI y despliegue.
+
+## Cabecera ilustrada de Novedades
+
+Novedades usa el grabado panorámico de 2508 × 627 píxeles entregado por el usuario, incorporado en `src/assets/headers/novedades-gestion-grabado.png`. La cabecera conserva el título y la descripción en blanco sobre azul y ubica la ilustración debajo del texto. Astro genera variantes WebP. Ver publicaciones lleva al encabezado del listado. Publicación autorizada el 9/11/2026. Los controles y el despliegue se registran en el PR.

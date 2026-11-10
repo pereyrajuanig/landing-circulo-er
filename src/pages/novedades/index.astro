@@ -1,12 +1,24 @@
 ---
 import SitePage from '../../layouts/SitePage.astro';
+import PageIntro from '../../components/PageIntro.astro';
 import News from '../../components/portal/News.astro';
+import newsArt from '../../assets/headers/novedades-gestion-grabado.png';
+
+const intro = {
+  title: 'Noticias y logros de gestión',
+  eyebrow: 'La vida del Círculo',
+  description:
+    'Leé las novedades del Círculo y conocé las actividades y el trabajo de sus filiales en Entre Ríos.',
+};
 ---
 
-<SitePage
-  title="Noticias y logros de gestión"
-  eyebrow="La vida del Círculo"
-  description="Leé las novedades del Círculo y conocé las actividades y el trabajo de sus filiales en Entre Ríos."
->
+<SitePage {...intro}>
+  <PageIntro
+    slot="intro"
+    {...intro}
+    action={{ label: 'Ver publicaciones', href: '#ps-news-title' }}
+    background={newsArt}
+    artSide="bottom"
+  />
   <News full />
 </SitePage>
