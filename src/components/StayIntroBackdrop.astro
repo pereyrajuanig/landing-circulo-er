@@ -1,0 +1,182 @@
+---
+import { Image } from 'astro:assets';
+import type { StayIntroPhoto } from '../lib/stay-intro-photos';
+
+interface Props {
+  photos: readonly StayIntroPhoto[];
+}
+
+const { photos } = Astro.props;
+---
+
+<div class="stay-intro-backdrop">
+  {photos.map((photo, index) => {
+    const Resource = index === 0 ? 'div' : 'template';
+    return (
+      <div
+        class="stay-intro-slide"
+        data-city-slide={String(index + 1)}
+        data-photo-focus={photo.focus}
+        hidden={index !== 0}
+      >
+        <Resource>
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            widths={[
+              ...new Set(
+                [480, 768, 1120, 1440, 1600].map((width) => Math.min(width, photo.src.width)),
+              ),
+            ]}
+            sizes="(max-width: 1050px) 100vw, calc(100vw - 220px)"
+            format="webp"
+            quality={82}
+            loading="eager"
+            fetchpriority={index === 0 ? 'high' : 'low'}
+          />
+        </Resource>
+      </div>
+    );
+  })}
+</div>
+<div class="stay-intro-footer">
+  <div class="stay-intro-credits">
+    {photos.map((photo, index) => (
+      <div class="stay-intro-credit" data-city-caption data-active={index === 0 || undefined}>
+        <strong>{photo.landmark}</strong>
+        <span>
+          {photo.source ? (
+            <>
+              Foto de <a href={photo.source}>{photo.author}</a>
+            </>
+          ) : (
+            photo.author
+          )}
+          {photo.license && (
+            <>
+              {' · '}
+              {photo.licenseUrl ? <a href={photo.licenseUrl}>{photo.license}</a> : photo.license}
+            </>
+          )}
+          {' · Encuadre adaptado'}
+        </span>
+      </div>
+    ))}
+  </div>
+  {photos.length > 1 && (
+    <div class="portal-scene-pager">
+      <button type="button" class="portal-scene-pause" data-city-rotation hidden>
+        Pausar recorrido
+      </button>
+    </div>
+  )}
+</div>
+
+<script>
+  import '../scripts/city-carousel';
+</script>
+
+<style>
+  .stay-intro-backdrop {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .stay-intro-backdrop::after {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    content: '';
+    background: linear-gradient(
+      90deg,
+      rgb(4 23 40 / 92%),
+      rgb(4 23 40 / 80%) 46%,
+      rgb(4 23 40 / 33%) 76%,
+      rgb(4 23 40 / 21%)
+    );
+  }
+
+  .stay-intro-slide {
+    position: absolute;
+    inset: 0;
+    transition: display 1s allow-discrete;
+  }
+
+  .stay-intro-slide:not([hidden]) {
+    z-index: 1;
+  }
+
+  .stay-intro-slide:not([hidden]) :global(img) {
+    animation: stay-intro-enter 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes stay-intro-enter {
+    from {
+      opacity: 0;
+      transform: translateX(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .stay-intro-slide :global(img) {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 46%;
+  }
+
+  .stay-intro-slide[data-photo-focus='upper'] :global(img) {
+    object-position: center 24%;
+  }
+
+  .stay-intro-slide[data-photo-focus='lower'] :global(img) {
+    object-position: center 70%;
+  }
+
+  .stay-intro-footer {
+    min-width: 0;
+    padding-top: 16px;
+  }
+
+  .stay-intro-credits {
+    display: grid;
+    width: fit-content;
+    min-width: 0;
+    padding: 7px 12px;
+    border-radius: 6px;
+    background: rgb(4 23 40 / 82%);
+  }
+
+  .stay-intro-credit {
+    display: grid;
+    grid-area: 1 / 1;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .stay-intro-credit:not([data-active]) {
+    visibility: hidden;
+  }
+
+  .stay-intro-credit a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  @media (max-width: 800px) {
+    .stay-intro-backdrop::after {
+      background: linear-gradient(155deg, rgb(4 23 40 / 84%) 18%, rgb(4 23 40 / 60%));
+    }
+  }
+</style>

@@ -1,11 +1,18 @@
 document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
-  const carousel = hero.querySelector<HTMLElement>('[data-city-carousel]');
+  const carousel = hero.matches('[data-city-carousel]')
+    ? hero
+    : hero.querySelector<HTMLElement>('[data-city-carousel]');
   const slides = [...hero.querySelectorAll<HTMLElement>('[data-city-slide]')];
   const art = [...hero.querySelectorAll<HTMLElement>('[data-city-illustration]')];
+  const captions = [...hero.querySelectorAll<HTMLElement>('[data-city-caption]')];
   const rotation = hero.querySelector<HTMLButtonElement>('[data-city-rotation]');
-  if (!carousel || !rotation || slides.length < 2 || slides.length !== art.length) return;
+  if (!carousel || !rotation || slides.length < 2) return;
+  if (
+    (art.length && art.length !== slides.length) ||
+    (captions.length && captions.length !== slides.length)
+  )
+    return;
   const interval = Math.max(3000, Number(carousel.dataset.cityInterval) || 3000);
-  const images = slides.map((slide) => slide.querySelector('img'));
   let selected = 0;
   let next = 1;
   let initialImageSettled = false;
@@ -24,10 +31,22 @@ document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
     art.forEach((image, i) => {
       image.hidden = i !== selected;
     });
+    captions.forEach((caption, i) => {
+      caption.toggleAttribute('data-active', i === selected);
+    });
     carousel.dataset.activeCity = slides[selected].dataset.citySlide;
   };
-  const prepareImage = async (image: HTMLImageElement | null) => {
-    if (!image) return false;
+  const prepareImage = async (slide: HTMLElement) => {
+    let image = slide.querySelector('img');
+    if (!image) {
+      const resource = slide
+        .querySelector('template')
+        ?.content.querySelector('img')
+        ?.cloneNode(true);
+      if (!(resource instanceof HTMLImageElement)) return false;
+      image = resource;
+      slide.append(image);
+    }
     image.loading = 'eager';
     try {
       await image.decode();
@@ -46,7 +65,7 @@ document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
     rotation.textContent = labelPlaying ? 'Pausar recorrido' : 'Iniciar recorrido';
     if (!running || !initialImageSettled) return;
     const index = next;
-    const ready = prepareImage(images[index]);
+    const ready = prepareImage(slides[index]);
     timer = window.setTimeout(async () => {
       const loaded = await ready;
       if (version !== rotationVersion) return;
@@ -57,7 +76,7 @@ document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
     }, interval);
   };
   rotation.hidden = false;
-  void prepareImage(images[0]).then(() => {
+  void prepareImage(slides[0]).then(() => {
     initialImageSettled = true;
     refresh();
   });
