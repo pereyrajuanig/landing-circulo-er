@@ -5,6 +5,7 @@ import SitePage from '../../layouts/SitePage.astro';
 import PhotoGallery from '../../components/PhotoGallery.astro';
 import LineIcon from '../../components/LineIcon.astro';
 import { mailTo } from '../../lib/contact';
+import { getStayIntroPhotos } from '../../lib/stay-intro-photos';
 export async function getStaticPaths() {
   return (await getCollection('stays')).map((stay) => ({
     params: { id: stay.id },
@@ -25,6 +26,7 @@ const inquiry = mailTo(entry.data.email, 'Consulta de alojamiento en ' + stay.da
   eyebrow="Tu estadía en Entre Ríos"
   description={stay.data.description}
   parent={{ label: 'Alojamientos', href: '/alojamientos/' }}
+  introPhotos={getStayIntroPhotos(stay.id)}
 >
   <PhotoGallery stayId={stay.id} />
   <section class="wrap page-section ps-stay-detail" aria-labelledby="stay-information-title">
