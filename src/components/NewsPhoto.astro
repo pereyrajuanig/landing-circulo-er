@@ -32,10 +32,6 @@ const width = image ? Math.min(image.width, 1440) : 1440;
       />
       {image.kind === 'reference' && <span class="reference-photo-badge">FOTO DE REFERENCIA</span>}
     </div>
-    <figcaption>
-      {image.caption}
-      <span class="photo-credit">{image.credit}</span>
-    </figcaption>
   </figure>
 ) : fallback ? (
   <SitePhoto kind={fallback} variant={variant} sizes={sizes} />

@@ -106,7 +106,7 @@ test('menú y navegación llevan a las páginas del sitio y conservan retorno de
   await navigation.getByRole('link', { name: 'Novedades', exact: true }).click();
   await expect(page).toHaveURL(/\/novedades\/$/);
   await page.waitForLoadState('load');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Noticias y logros de gestión');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Novedades');
   navigation = page.getByRole('navigation', { name: 'Navegación principal', includeHidden: true });
   await expect(
     navigation.getByRole('link', { name: 'Novedades', exact: true, includeHidden: true }),
@@ -193,9 +193,10 @@ test('beneficios ofrecen categorías y sus fichas conservan detalles y consulta'
   await expect(page).toHaveURL(/\/beneficios\/salud\/$/);
   await expect(page.locator('h1')).toHaveText('Salud y bienestar');
   await expect(page.locator('.service-facts-grid article')).toHaveCount(3);
+  const sanidad = page.getByRole('complementary', { name: 'WhatsApp de Sanidad' });
   await expect(
-    page.getByRole('link', { name: 'Consultar atención', exact: false }),
-  ).toHaveAttribute('href', /^mailto:/);
+    sanidad.getByRole('link', { name: 'Escribir a Sanidad por WhatsApp' }),
+  ).toHaveAttribute('href', /^https:\/\/wa\.me\/5493435362998\?text=/);
   await page.goto('/beneficios/farmacia/');
   const optics = page.locator('[data-photo-key="federacion-beneficio-lentes"]');
   await expect(optics).toBeVisible();

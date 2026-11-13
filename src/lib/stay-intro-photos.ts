@@ -54,7 +54,7 @@ export interface StayIntroPhoto {
   focus?: 'upper' | 'lower';
 }
 
-const stayIntroPhotos: Partial<Record<string, readonly StayIntroPhoto[]>> = {
+export const stayIntroPhotos: Partial<Record<string, readonly StayIntroPhoto[]>> = {
   parana: [
     {
       src: paranaGobierno,

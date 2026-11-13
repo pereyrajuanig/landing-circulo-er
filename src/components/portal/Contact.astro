@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import LineIcon from '../LineIcon.astro';
-import { mailTo } from '../../lib/contact';
+import { mailTo, sanidadWhatsApp } from '../../lib/contact';
 interface Props {
   form?: boolean;
 }
@@ -62,6 +62,20 @@ const institution = entry.data;
         </a>
       </article>
     </div>
+    {form && (
+      <aside class="sanidad-contact" aria-labelledby="ps-sanidad-title">
+        <div>
+          <h3 id="ps-sanidad-title">WhatsApp de Sanidad</h3>
+          <p>Para consultas de salud, turnos y orientación sobre recetas.</p>
+        </div>
+        <div>
+          <a class="ps-button" href={sanidadWhatsApp.href}>
+            Escribir a Sanidad por WhatsApp <LineIcon name="arrow" size={20} />
+          </a>
+          <p class="ps-note">{sanidadWhatsApp.number}</p>
+        </div>
+      </aside>
+    )}
     {form && (
       <div class="ps-form-layout" id="ps-consultation">
         <div>
@@ -138,3 +152,19 @@ const institution = entry.data;
     )}
   </div>
 </section>
+
+<style>
+  .sanidad-contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid #aabac0;
+  }
+
+  .sanidad-contact p {
+    margin-block: 0.5rem 0;
+  }
+</style>
