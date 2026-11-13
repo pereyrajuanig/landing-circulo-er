@@ -4,13 +4,8 @@ document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
     : hero.querySelector<HTMLElement>('[data-city-carousel]');
   const slides = [...hero.querySelectorAll<HTMLElement>('[data-city-slide]')];
   const art = [...hero.querySelectorAll<HTMLElement>('[data-city-illustration]')];
-  const captions = [...hero.querySelectorAll<HTMLElement>('[data-city-caption]')];
   const rotation = hero.querySelector<HTMLButtonElement>('[data-city-rotation]');
-  if (!carousel || !rotation || slides.length < 2) return;
-  if (
-    (art.length && art.length !== slides.length) ||
-    (captions.length && captions.length !== slides.length)
-  )
+  if (!carousel || !rotation || slides.length < 2 || (art.length && art.length !== slides.length))
     return;
   const interval = Math.max(3000, Number(carousel.dataset.cityInterval) || 3000);
   let selected = 0;
@@ -30,9 +25,6 @@ document.querySelectorAll<HTMLElement>('[data-city-hero]').forEach((hero) => {
     });
     art.forEach((image, i) => {
       image.hidden = i !== selected;
-    });
-    captions.forEach((caption, i) => {
-      caption.toggleAttribute('data-active', i === selected);
     });
     carousel.dataset.activeCity = slides[selected].dataset.citySlide;
   };

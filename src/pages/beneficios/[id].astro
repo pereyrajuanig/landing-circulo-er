@@ -2,7 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import SitePage from '../../layouts/SitePage.astro';
-import { mailTo } from '../../lib/contact';
+import { mailTo, sanidadWhatsApp } from '../../lib/contact';
 import SitePhoto from '../../components/SitePhoto.astro';
 import PhotoGallery from '../../components/PhotoGallery.astro';
 import { servicePhotoKeys } from '../../lib/photos';
@@ -19,7 +19,13 @@ const { service } = Astro.props;
 const entry = await getEntry('institution', 'circulo');
 if (!entry) throw new Error('Falta el contacto institucional.');
 const { data } = service;
-const href = data.target === 'email' ? mailTo(entry.data.email, data.subject) : '/alojamientos/';
+const isHealth = service.id === 'salud';
+const href = isHealth
+  ? sanidadWhatsApp.href
+  : data.target === 'email'
+    ? mailTo(entry.data.email, data.subject)
+    : '/alojamientos/';
+const action = isHealth ? 'Escribir a Sanidad por WhatsApp' : data.action;
 const localitiesByBenefit: Record<string, string[]> = {
   salud: ['parana', 'diamante', 'federal', 'rosario-del-tala', 'feliciano', 'concordia'],
   tramites: ['parana', 'chajari', 'crespo', 'hasenkamp'],
@@ -65,7 +71,7 @@ const questions: Record<string, string[]> = {
   description={data.description}
   parent={{ label: 'Beneficios', href: '/beneficios/' }}
 >
-  {service.id !== 'salud' && (
+  {!isHealth && (
     <div class="wrap page-photo">
       <SitePhoto kind={servicePhotoKeys[service.id] ?? 'salud'} />
     </div>
@@ -73,6 +79,19 @@ const questions: Record<string, string[]> = {
   <section class="wrap page-section service-facts" aria-labelledby="service-facts-title">
     <p class="eyebrow dark">Conocé el beneficio</p>
     <h2 id="service-facts-title">Qué podés consultar sobre este servicio</h2>
+    {isHealth && (
+      <aside class="consultation-panel sanidad-contact" aria-labelledby="sanidad-contact-title">
+        <h3 id="sanidad-contact-title">WhatsApp de Sanidad</h3>
+        <p>
+          Consultá por turnos de podología, kinesiología, cardiología y clínica médica, o pedí
+          orientación sobre recetas.
+        </p>
+        <a class="button button-navy" href={href}>
+          {action}
+        </a>
+        <p class="small-note">{sanidadWhatsApp.number} · Consultas y turnos programados.</p>
+      </aside>
+    )}
     <div class="service-facts-grid">
       {data.details.map((detail) => (
         <article>
@@ -81,7 +100,7 @@ const questions: Record<string, string[]> = {
         </article>
       ))}
     </div>
-    {service.id === 'salud' && (
+    {isHealth && (
       <PhotoGallery
         id="salud-parana"
         title="Consultorios de Paraná"
@@ -133,9 +152,13 @@ const questions: Record<string, string[]> = {
   <section class="wrap page-section detail-grid" aria-labelledby="service-consult">
     <div>
       <h2 id="service-consult">Hacé tu consulta al Círculo</h2>
-      <p>Escribinos con tu localidad y lo que necesitás. Te orientamos sobre cómo acceder.</p>
+      <p>
+        {isHealth
+          ? 'Indicá tu localidad y el tipo de consulta para que Sanidad te oriente.'
+          : 'Escribinos con tu localidad y lo que necesitás. Te orientamos sobre cómo acceder.'}
+      </p>
       <a class="button button-navy" href={href}>
-        {data.action} <span aria-hidden="true">↗</span>
+        {action} <span aria-hidden="true">↗</span>
       </a>
       <p class="small-note">
         Los beneficios están destinados a retirados de la Policía y a quienes reciben una pensión
@@ -161,6 +184,14 @@ const questions: Record<string, string[]> = {
 </SitePage>
 
 <style>
+  .sanidad-contact {
+    margin-block: 1.5rem;
+  }
+
+  .sanidad-contact .small-note {
+    margin-block: 0.75rem 0;
+  }
+
   .service-localities {
     margin-block: 2rem;
   }

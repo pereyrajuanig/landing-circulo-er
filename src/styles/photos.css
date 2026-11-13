@@ -25,13 +25,6 @@
 .reference-photo--card .reference-photo-frame {
   aspect-ratio: 1.6;
 }
-.reference-photo figcaption,
-.photo-gallery figcaption {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--muted);
-  margin-top: 10px;
-}
 .reference-photo-badge {
   position: absolute;
   bottom: 14px;
@@ -48,9 +41,6 @@
 }
 .destination-entry .reference-photo {
   margin-bottom: 24px;
-}
-.destination-entry .reference-photo figcaption {
-  font-size: 11px;
 }
 .events-visual {
   grid-column: 1 / -1;
@@ -221,9 +211,6 @@
 .hero-photo-panel .reference-photo-frame {
   aspect-ratio: 1.5;
   border-radius: 100px 12px 0 0;
-}
-.hero-photo-panel .reference-photo figcaption {
-  padding: 0 18px;
 }
 .hero-photo-signature {
   display: flex;

@@ -39,38 +39,13 @@ const { photos } = Astro.props;
     );
   })}
 </div>
-<div class="stay-intro-footer">
-  <div class="stay-intro-credits">
-    {photos.map((photo, index) => (
-      <div class="stay-intro-credit" data-city-caption data-active={index === 0 || undefined}>
-        <strong>{photo.landmark}</strong>
-        <span>
-          {photo.source ? (
-            <>
-              Foto de <a href={photo.source}>{photo.author}</a>
-            </>
-          ) : (
-            photo.author
-          )}
-          {photo.license && (
-            <>
-              {' · '}
-              {photo.licenseUrl ? <a href={photo.licenseUrl}>{photo.license}</a> : photo.license}
-            </>
-          )}
-          {' · Encuadre adaptado'}
-        </span>
-      </div>
-    ))}
+{photos.length > 1 && (
+  <div class="portal-scene-pager">
+    <button type="button" class="portal-scene-pause" data-city-rotation hidden>
+      Pausar recorrido
+    </button>
   </div>
-  {photos.length > 1 && (
-    <div class="portal-scene-pager">
-      <button type="button" class="portal-scene-pause" data-city-rotation hidden>
-        Pausar recorrido
-      </button>
-    </div>
-  )}
-</div>
+)}
 
 <script>
   import '../scripts/city-carousel';
@@ -140,38 +115,6 @@ const { photos } = Astro.props;
 
   .stay-intro-slide[data-photo-focus='lower'] :global(img) {
     object-position: center 70%;
-  }
-
-  .stay-intro-footer {
-    min-width: 0;
-    padding-top: 16px;
-  }
-
-  .stay-intro-credits {
-    display: grid;
-    width: fit-content;
-    min-width: 0;
-    padding: 7px 12px;
-    border-radius: 6px;
-    background: rgb(4 23 40 / 82%);
-  }
-
-  .stay-intro-credit {
-    display: grid;
-    grid-area: 1 / 1;
-    font-size: 0.75rem;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-  }
-
-  .stay-intro-credit:not([data-active]) {
-    visibility: hidden;
-  }
-
-  .stay-intro-credit a {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
   }
 
   @media (max-width: 800px) {

@@ -1,0 +1,102 @@
+---
+import { getCollection } from 'astro:content';
+import SitePage from '../layouts/SitePage.astro';
+import { publishedNews } from '../lib/news';
+import { photos } from '../lib/photos';
+import { stayIntroPhotos } from '../lib/stay-intro-photos';
+
+const destinations = (await getCollection('stays')).sort((a, b) => a.data.order - b.data.order);
+const referencePhotos = Object.values(photos).filter((photo) => photo.source);
+const editorialCredits = publishedNews(await getCollection('news')).flatMap(({ id, data }) => {
+  const credits = [
+    ...new Set(
+      [data.coverImage, ...data.galleryImages].flatMap((image) => (image ? [image.credit] : [])),
+    ),
+  ];
+  return credits.length ? [{ id, title: data.title, credits }] : [];
+});
+---
+
+<SitePage
+  title="Créditos fotográficos"
+  eyebrow="Fuentes de las imágenes"
+  description="Autoría, fuentes y licencias de las fotografías utilizadas en el sitio del Círculo."
+>
+  <section class="wrap page-section" aria-labelledby="creditos-alojamientos">
+    <h2 id="creditos-alojamientos">Fotos de los destinos</h2>
+    <p>Las imágenes se adaptaron al encuadre de cada cabecera.</p>
+    {destinations.map(({ id, data }) => (
+      <div class="credit-group">
+        <h3>
+          <a class="text-link" href={'/alojamientos/' + id + '/'}>
+            {data.name}
+          </a>
+        </h3>
+        <ul>
+          {stayIntroPhotos[id]?.map((photo) => (
+            <li>
+              <strong>{photo.landmark}</strong>
+              {' · '}
+              {photo.source ? (
+                <a class="text-link" href={photo.source}>
+                  {photo.author}
+                </a>
+              ) : (
+                photo.author
+              )}
+              {photo.license && (
+                <>
+                  {' · '}
+                  {photo.licenseUrl ? (
+                    <a class="text-link" href={photo.licenseUrl}>
+                      {photo.license}
+                    </a>
+                  ) : (
+                    photo.license
+                  )}
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+  <section class="wrap page-section" aria-labelledby="creditos-archivo">
+    <h2 id="creditos-archivo">Archivo y fotos de referencia</h2>
+    <p>Las imágenes institucionales pertenecen al archivo fotográfico del Círculo.</p>
+    <ul>
+      {referencePhotos.map((photo) => (
+        <li>
+          <strong>{photo.title}</strong>
+          {' · '}
+          <a class="text-link" href={photo.source}>
+            {photo.credit}
+          </a>
+        </li>
+      ))}
+    </ul>
+    {editorialCredits.length > 0 && (
+      <>
+        <h3>Fotos de las publicaciones</h3>
+        <ul>
+          {editorialCredits.map(({ id, title, credits }) => (
+            <li>
+              <a class="text-link" href={'/novedades/' + id + '/'}>
+                {title}
+              </a>
+              {' · '}
+              {credits.join(' · ')}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </section>
+</SitePage>
+
+<style>
+  .credit-group {
+    margin-top: 1.5rem;
+  }
+</style>
