@@ -247,7 +247,7 @@ test('el build SEO mantiene título, metadatos y rastreo coherentes', async () =
     const xml = await pages.text();
     for (const path of [
       '',
-      'beneficios/salud/',
+      'beneficios/',
       'alojamientos/nogoya/',
       'novedades/',
       'institucion/',
@@ -256,6 +256,7 @@ test('el build SEO mantiene título, metadatos y rastreo coherentes', async () =
     ])
       assert(xml.includes('<loc>' + deployment.site + path + '</loc>'), path);
     assert(!xml.includes('404.html'));
+    assert.doesNotMatch(xml, /\/beneficios\/(salud|tramites|farmacia|turismo|recreacion)\//);
     const [organization, website] = JSON.parse(schema[1])['@graph'];
     assert.equal(organization['@type'], 'Organization');
     assert.equal(website['@type'], 'WebSite');
@@ -348,7 +349,7 @@ test('las publicaciones excluyen borradores y fechas futuras y ordenan las notic
     /Identificador/,
   );
 });
-test('el sitio genera las fichas de servicios y destinos y todas sus rutas son navegables', async () => {
+test('beneficios está unificado y las fichas de destinos siguen navegables', async () => {
   const paths = [
     '/beneficios/',
     '/alojamientos/',
@@ -356,7 +357,6 @@ test('el sitio genera las fichas de servicios y destinos y todas sus rutas son n
     '/institucion/',
     '/contacto/',
     '/novedades/',
-    ...load('../src/content/services.json').map((entry) => '/beneficios/' + entry.id + '/'),
     ...load('../src/content/stays.json').map((entry) => '/alojamientos/' + entry.id + '/'),
   ];
   for (const path of paths) {
@@ -370,6 +370,24 @@ test('el sitio genera las fichas de servicios y destinos y todas sus rutas son n
       assert(html.includes('data-site-photo'), 'Falta fotografía: ' + path);
     else assert(html.includes('data-portal-contact'), 'Falta preparación de consultas.');
     assert(!html.includes('generada con IA'), 'Queda un aviso de imagen generada: ' + path);
+  }
+  const benefits = await (await fetch(new URL('/beneficios/', origin))).text();
+  const redirects = load('../vercel.json').redirects;
+  for (const { id } of load('../src/content/services.json')) {
+    assert(benefits.includes('id="' + id + '"'), id);
+    for (const slash of ['', '/']) {
+      const source = '/beneficios/' + id + slash;
+      assert.deepEqual(
+        redirects.find((rule) => rule.source === source),
+        {
+          source,
+          destination: '/beneficios/#' + id,
+          permanent: true,
+        },
+      );
+    }
+    const legacy = await fetch(new URL('/beneficios/' + id + '/', origin));
+    assert.equal(legacy.status, 404, id + ': la ruta anterior no genera una ficha en Astro');
   }
   const newsroom = await (await fetch(new URL('/novedades/', origin))).text();
   assert(!newsroom.includes('Todavía no hay publicaciones para mostrar'));
@@ -390,8 +408,7 @@ test('las fotografías propias conservan su localidad y las referencias siguen i
   assert.equal(files.length, 23);
   const paths = [
     '/',
-    '/beneficios/salud/',
-    '/beneficios/tramites/',
+    '/beneficios/',
     '/salones/',
     '/institucion/',
     ...load('../src/content/news.json').map((item) => '/novedades/' + item.id + '/'),

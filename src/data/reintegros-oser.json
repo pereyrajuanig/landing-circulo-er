@@ -1,0 +1,389 @@
+[
+  {
+    "category": "Biopsias",
+    "items": [
+      {
+        "code": "031311",
+        "name": "Biopsia de faringe"
+      },
+      {
+        "code": "090107",
+        "name": "Biopsia de ganglio"
+      },
+      {
+        "code": "130108",
+        "name": "Biopsia de piel y/o…"
+      },
+      {
+        "code": "110311",
+        "name": "Biopsia de vagina"
+      },
+      {
+        "code": "100407",
+        "name": "Biopsia prostática"
+      }
+    ]
+  },
+  {
+    "category": "Consultas médicas",
+    "items": [
+      {
+        "code": "420101",
+        "name": "Consulta general"
+      },
+      {
+        "code": "420110",
+        "name": "Consulta oftalmológica"
+      },
+      {
+        "code": "420131",
+        "name": "Control con nutricionista"
+      },
+      {
+        "code": "420132",
+        "name": "Consulta por celiaquía"
+      },
+      {
+        "code": "500101",
+        "name": "Consulta podológica"
+      }
+    ]
+  },
+  {
+    "category": "Centellogramas",
+    "items": [
+      {
+        "code": "260508",
+        "name": "Centellograma Os."
+      },
+      {
+        "code": "260215",
+        "name": "Centellograma De."
+      },
+      {
+        "code": "260517",
+        "name": "Centellograma He."
+      }
+    ]
+  },
+  {
+    "category": "Ecografías",
+    "items": [
+      {
+        "code": "180107",
+        "name": "Ecografía cerebral"
+      },
+      {
+        "code": "180109",
+        "name": "Ecografía oftalmológica"
+      },
+      {
+        "code": "180110",
+        "name": "Ecografía tiroidea"
+      },
+      {
+        "code": "180112",
+        "name": "Ecografía completa"
+      },
+      {
+        "code": "180116",
+        "name": "Ecografía renal bil."
+      },
+      {
+        "code": "180222",
+        "name": "Ecografía de cadera"
+      },
+      {
+        "code": "185004",
+        "name": "Ecografía transvaginal"
+      },
+      {
+        "code": "185006",
+        "name": "Ecografía prostática"
+      },
+      {
+        "code": "300209",
+        "name": "Ecografía oftalmológica"
+      }
+    ]
+  },
+  {
+    "category": "Eco-Doppler",
+    "items": [
+      {
+        "code": "180154",
+        "name": "Eco-Doppler intra."
+      },
+      {
+        "code": "185002",
+        "name": "Eco-Doppler vasc."
+      }
+    ]
+  },
+  {
+    "category": "Electrocardiogramas y monitoreo",
+    "items": [
+      {
+        "code": "170101",
+        "name": "Electrocardiograma"
+      },
+      {
+        "code": "170118",
+        "name": "Electrocardiograma"
+      },
+      {
+        "code": "170125",
+        "name": "Holter"
+      },
+      {
+        "code": "170191",
+        "name": "MAPA"
+      }
+    ]
+  },
+  {
+    "category": "Electroencefalograma",
+    "items": [
+      {
+        "code": "295005",
+        "name": "E.E.G."
+      }
+    ]
+  },
+  {
+    "category": "Ergometría",
+    "items": [
+      {
+        "code": "170111",
+        "name": "Ergometría"
+      },
+      {
+        "code": "170211",
+        "name": "Ergometría comp."
+      }
+    ]
+  },
+  {
+    "category": "Espirometría",
+    "items": [
+      {
+        "code": "280101",
+        "name": "Espirometría comp."
+      },
+      {
+        "code": "289001",
+        "name": "Espirometría com."
+      }
+    ]
+  },
+  {
+    "category": "Laboratorio",
+    "items": [
+      {
+        "code": "475",
+        "name": "Hemograma"
+      },
+      {
+        "code": "412",
+        "name": "Glucemia"
+      },
+      {
+        "code": "190",
+        "name": "Creatinquinasa"
+      },
+      {
+        "code": "191",
+        "name": "Creatina sérica"
+      },
+      {
+        "code": "192",
+        "name": "Creatinina sérica"
+      },
+      {
+        "code": "193",
+        "name": "Creatinina clearen."
+      },
+      {
+        "code": "194",
+        "name": "Crioaglutinina"
+      },
+      {
+        "code": "195",
+        "name": "Crioglobulinas"
+      },
+      {
+        "code": "711",
+        "name": "Orina completa"
+      },
+      {
+        "code": "902",
+        "name": "Uremia"
+      },
+      {
+        "code": "911",
+        "name": "Urocultivo"
+      },
+      {
+        "code": "481",
+        "name": "Hepatograma"
+      },
+      {
+        "code": "1035",
+        "name": "Colesterol HDL"
+      },
+      {
+        "code": "1040",
+        "name": "Colesterol LDL"
+      },
+      {
+        "code": "174",
+        "name": "Colesterol total"
+      },
+      {
+        "code": "876",
+        "name": "Triglicéridos"
+      },
+      {
+        "code": "905",
+        "name": "Ácido úrico"
+      },
+      {
+        "code": "865",
+        "name": "TSH tirotrofina"
+      },
+      {
+        "code": "2734",
+        "name": "Antígeno prostático (PSA)"
+      },
+      {
+        "code": "1000",
+        "name": "Antígeno prostático (PSA)"
+      },
+      {
+        "code": "1070",
+        "name": "Hemoglobina glic."
+      },
+      {
+        "code": "472",
+        "name": "Hemoglobina plas."
+      },
+      {
+        "code": "833",
+        "name": "Sangre oculta mat. fec."
+      },
+      {
+        "code": "133",
+        "name": "Calcemia total"
+      },
+      {
+        "code": "9913",
+        "name": "Vitamina D3 (25H)"
+      },
+      {
+        "code": "134",
+        "name": "Calcio iónico"
+      },
+      {
+        "code": "135",
+        "name": "Prueba de calcio"
+      }
+    ]
+  },
+  {
+    "category": "Oftalmología",
+    "items": [
+      {
+        "code": "300204",
+        "name": "Fondo de ojos y E."
+      },
+      {
+        "code": "300208",
+        "name": "Gonioscopia"
+      },
+      {
+        "code": "300254",
+        "name": "Campo visual"
+      },
+      {
+        "code": "310115",
+        "name": "Cauterización"
+      },
+      {
+        "code": "300195",
+        "name": "OCT (tomografía de coherencia óptica)"
+      }
+    ]
+  },
+  {
+    "category": "Radiografías",
+    "items": [
+      {
+        "code": "340301",
+        "name": "RX tórax frente y P."
+      },
+      {
+        "code": "340209",
+        "name": "RX columna cervic."
+      },
+      {
+        "code": "340421",
+        "name": "RX abdomen"
+      },
+      {
+        "code": "340213",
+        "name": "RX codo y antebrazo"
+      }
+    ]
+  },
+  {
+    "category": "Resonancias",
+    "items": [
+      {
+        "code": "345099",
+        "name": "Resonancia magnética"
+      }
+    ]
+  },
+  {
+    "category": "Tomografías",
+    "items": [
+      {
+        "code": "341003",
+        "name": "T.A.C. cerebral"
+      },
+      {
+        "code": "341005",
+        "name": "T.A.C. tiroidea"
+      },
+      {
+        "code": "341008",
+        "name": "T.A.C. completa"
+      },
+      {
+        "code": "341011",
+        "name": "T.A.C. vejiga y próstata"
+      },
+      {
+        "code": "341013",
+        "name": "T.A.C. columna"
+      }
+    ]
+  },
+  {
+    "category": "Videocolposcopia y videoendoscopias",
+    "items": [
+      {
+        "code": "229506",
+        "name": "Videocolposcopia"
+      },
+      {
+        "code": "200146",
+        "name": "Videoendoscopia alta"
+      },
+      {
+        "code": "200147",
+        "name": "Videoendoscopia baja"
+      }
+    ]
+  }
+]

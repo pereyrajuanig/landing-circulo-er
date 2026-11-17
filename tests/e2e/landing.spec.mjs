@@ -177,7 +177,7 @@ test('alojamientos permiten recorrido manual y cada ficha conserva destino y con
   }
 });
 
-test('beneficios ofrecen categorías y sus fichas conservan detalles y consulta', async ({
+test('beneficios reúne categorías, reintegros y el Plan Óptico en una sola página', async ({
   page,
 }) => {
   const services = load('services.json');
@@ -186,25 +186,41 @@ test('beneficios ofrecen categorías y sus fichas conservan detalles y consulta'
     const card = page
       .locator('.ps-service')
       .filter({ has: page.getByRole('heading', { level: 3, name: service.name, exact: true }) });
-    await expect(card.locator('h3 a')).toHaveAttribute('href', '/beneficios/' + service.id + '/');
+    await expect(card.locator('h3 a')).toHaveAttribute('href', '/beneficios/#' + service.id);
   }
   await page.locator('.ps-service h3 a').first().focus();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/\/beneficios\/salud\/$/);
-  await expect(page.locator('h1')).toHaveText('Salud y bienestar');
-  await expect(page.locator('.service-facts-grid article')).toHaveCount(3);
+  await expect(page).toHaveURL(/\/beneficios\/#salud$/);
+  await expect(page.locator('h1')).toHaveText('Beneficios y servicios del Círculo');
+  const navigation = page.getByRole('navigation', { name: 'En esta página' });
+  for (const service of services) {
+    await expect(navigation.getByRole('link', { name: service.name })).toHaveAttribute(
+      'href',
+      '#' + service.id,
+    );
+    await expect(page.getByRole('region', { name: service.name })).toBeVisible();
+  }
   const sanidad = page.getByRole('complementary', { name: 'WhatsApp de Sanidad' });
   await expect(
     sanidad.getByRole('link', { name: 'Escribir a Sanidad por WhatsApp' }),
   ).toHaveAttribute('href', /^https:\/\/wa\.me\/5493435362998\?text=/);
-  await page.goto('/beneficios/farmacia/');
+  await page.getByRole('link', { name: /Ver reintegros y códigos/ }).click();
+  await expect(page).toHaveURL(/\/beneficios\/#reintegros-oser$/);
+  await page.getByText('Ver las 78 prestaciones y sus códigos').click();
+  await page.getByLabel('Buscar por prestación o código').fill('031311');
+  await expect(
+    page.getByRole('status').filter({ hasText: '1 prestación encontrada.' }),
+  ).toBeVisible();
+  await expect(page.getByRole('cell', { name: '031311' })).toBeVisible();
+  await navigation.getByRole('link', { name: 'Farmacia y beneficios' }).click();
+  await expect(page).toHaveURL(/\/beneficios\/#farmacia$/);
+  await page.getByRole('link', { name: 'Ver el Plan Óptico Solidario' }).click();
+  await expect(page).toHaveURL(/\/beneficios\/#plan-optico$/);
   const optics = page.locator('[data-photo-key="federacion-beneficio-lentes"]');
   await expect(optics).toBeVisible();
   await expect(optics.locator('img')).toHaveCSS('object-fit', 'contain');
-  await expect(
-    page.getByRole('heading', { name: 'Beneficio de lentes en todas las localidades' }),
-  ).toBeVisible();
-  const directory = page.getByRole('link', { name: 'Buscá tu filial', exact: true });
+  const plan = page.getByRole('region', { name: 'Plan Óptico Solidario' });
+  const directory = plan.getByRole('link', { name: 'Buscá tu filial', exact: true });
   await expect(directory).toHaveAttribute('href', '/institucion/#filiales');
   await directory.click();
   await expect(page).toHaveURL(/\/institucion\/#filiales$/);
@@ -271,7 +287,7 @@ test('cambios de tamaño y menú bajo mantienen foco utilizable sin desborde', a
     '/salones/',
     '/institucion/',
     '/filiales/federacion/',
-    '/beneficios/farmacia/',
+    '/beneficios/#farmacia',
     '/novedades/',
     '/contacto/',
   ]) {
@@ -385,8 +401,8 @@ test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar'
     .getByRole('heading', { level: 3, name: 'Farmacia y beneficios', exact: true })
     .getByRole('link')
     .click();
-  await expect(page).toHaveURL(/\/beneficios\/farmacia\/$/);
-  await expect(page.locator('h1')).toHaveText('Farmacia y beneficios');
+  await expect(page).toHaveURL(/\/beneficios\/#farmacia$/);
+  await expect(page.getByRole('heading', { name: 'Farmacia y beneficios' })).toBeVisible();
 });
 
 test('galería institucional permite ampliar cambiar imagen y devolver el foco', async ({

@@ -52,7 +52,7 @@ const icons = {
             </div>
             <p class="ps-kicker">{data.caption}</p>
             <h3>
-              <a href={'/beneficios/' + id + '/'}>{data.name}</a>
+              <a href={'/beneficios/#' + id}>{data.name}</a>
             </h3>
             <p>{data.description}</p>
             <div class="ps-service-details">
@@ -63,7 +63,7 @@ const icons = {
                 </details>
               ))}
             </div>
-            <a class="ps-link" href={'/beneficios/' + id + '/'}>
+            <a class="ps-link" href={'/beneficios/#' + id}>
               Ver información y consultas <LineIcon name="arrow" size={20} />
             </a>
           </div>

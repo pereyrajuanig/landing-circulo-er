@@ -4,6 +4,58 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
+  "redirects": [
+    {
+      "source": "/beneficios/salud",
+      "destination": "/beneficios/#salud",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/salud/",
+      "destination": "/beneficios/#salud",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/tramites",
+      "destination": "/beneficios/#tramites",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/tramites/",
+      "destination": "/beneficios/#tramites",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/farmacia",
+      "destination": "/beneficios/#farmacia",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/farmacia/",
+      "destination": "/beneficios/#farmacia",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/turismo",
+      "destination": "/beneficios/#turismo",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/turismo/",
+      "destination": "/beneficios/#turismo",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/recreacion",
+      "destination": "/beneficios/#recreacion",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios/recreacion/",
+      "destination": "/beneficios/#recreacion",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

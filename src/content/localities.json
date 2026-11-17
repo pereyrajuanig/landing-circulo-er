@@ -95,7 +95,7 @@
     "links": [
       {
         "label": "Ver salud y bienestar",
-        "href": "/beneficios/salud/"
+        "href": "/beneficios/#salud"
       }
     ]
   },
@@ -124,7 +124,7 @@
     "links": [
       {
         "label": "Ver recreación y comunidad",
-        "href": "/beneficios/recreacion/"
+        "href": "/beneficios/#recreacion"
       }
     ]
   },
@@ -148,7 +148,7 @@
       },
       {
         "title": "Alojamiento, talleres y salud",
-        "body": "Consultá en la filial por el alojamiento y por las próximas actividades. Se realizaron talleres y jornadas de salud. También podés consultar por el beneficio para comprar lentes, disponible para afiliados de todas las localidades."
+        "body": "Consultá en la filial por el alojamiento y por las próximas actividades. Se realizaron talleres y jornadas de salud. En tu filial también podés solicitar el formulario del Plan Óptico Solidario."
       }
     ],
     "links": [
@@ -162,7 +162,7 @@
       },
       {
         "label": "Ver información sobre óptica y beneficios",
-        "href": "/beneficios/farmacia/"
+        "href": "/beneficios/#farmacia"
       }
     ]
   },
@@ -191,7 +191,7 @@
     "links": [
       {
         "label": "Ver recreación y comunidad",
-        "href": "/beneficios/recreacion/"
+        "href": "/beneficios/#recreacion"
       }
     ]
   },
@@ -213,7 +213,7 @@
     "links": [
       {
         "label": "Ver turismo y alojamiento",
-        "href": "/beneficios/turismo/"
+        "href": "/beneficios/#turismo"
       }
     ]
   },
@@ -244,7 +244,7 @@
       },
       {
         "label": "Ver salud y bienestar",
-        "href": "/beneficios/salud/"
+        "href": "/beneficios/#salud"
       }
     ]
   },
@@ -320,7 +320,7 @@
     "links": [
       {
         "label": "Ver trámites y asesoramiento",
-        "href": "/beneficios/tramites/"
+        "href": "/beneficios/#tramites"
       }
     ]
   }

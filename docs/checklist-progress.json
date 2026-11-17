@@ -586,6 +586,11 @@
       "status": "ready_for_release",
       "branch": "codex/cabecera-institucion",
       "summary": "Cabecera ilustrada de Institución con el grabado entregado por el usuario. Vista local comprobada en escritorio, tablet y celular. Ver filiales enlaza al directorio. Publicación autorizada el 10/11/2026."
+    },
+    "unified_benefits": {
+      "status": "ready_for_release",
+      "branch": "codex/unificar-beneficios",
+      "summary": "Beneficios y Servicios reúne las cinco categorías, Reintegros OSER, Plan Óptico y atención en Paraná. Vista local revisada a 1440, 820, 390 y 320 px, con búsqueda, galería y enlaces verificados. Publicación autorizada el 17/11/2026. El PR registra CI, despliegue y comprobación de redirecciones."
     }
   }
 }
