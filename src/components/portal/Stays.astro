@@ -18,16 +18,42 @@ const institution = await getEntry('institution', 'circulo');
 if (!institution) throw new Error('Falta el contacto institucional.');
 ---
 
-<section id="alojamiento" class="ps-section ps-stays" aria-labelledby="ps-stays-title">
+<section
+  id="alojamiento"
+  class:list={['ps-section', 'ps-stays', { 'home-stays': !catalog }]}
+  aria-labelledby="ps-stays-title"
+>
   <div class="ps-wrap">
-    <SectionHeading
-      id="ps-stays-title"
-      eyebrow="Alojamientos del Círculo"
-      title="Alojamientos para tu próxima visita"
-      description="Elegí una localidad, mirá las fotos y consultá con el Círculo por las fechas de tu viaje."
-      href={catalog ? undefined : '/alojamientos/'}
-      action="Explorar destinos"
-    />
+    {catalog ? (
+      <SectionHeading
+        id="ps-stays-title"
+        eyebrow="Alojamientos del Círculo"
+        title="Alojamientos para tu próxima visita"
+        description="Elegí una localidad, mirá las fotos y consultá con el Círculo por las fechas de tu viaje."
+        href={catalog ? undefined : '/alojamientos/'}
+        action="Explorar destinos"
+      />
+    ) : (
+      <div class="home-stays-heading">
+        <div>
+          <p class="ps-kicker">Alojamientos del Círculo</p>
+          <h2 id="ps-stays-title">
+            Tu próxima visita,
+            <br />
+            <em>más cerca.</em>
+          </h2>
+        </div>
+        <div class="home-stays-heading-aside">
+          <p>
+            Espacios para descansar y compartir en Entre Ríos. Elegí un destino, mirá las fotos y
+            consultá por tu estadía.
+          </p>
+          <a class="ps-link" href="/alojamientos/">
+            Explorar destinos <LineIcon name="arrow" size={22} />
+          </a>
+        </div>
+      </div>
+    )}
     {catalog && (
       <nav class="ps-destination-nav" aria-label="Elegí un destino">
         {stays.map((stay) => (
@@ -95,3 +121,121 @@ if (!institution) throw new Error('Falta el contacto institucional.');
     </p>
   </div>
 </section>
+
+<style>
+  :global(.portal-system) .home-stays {
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+    background: #fffaf1;
+    color: var(--navy);
+    --ps-heading-rule: var(--portal-red);
+    --ps-heading-ink: var(--portal-red-ink);
+  }
+  .home-stays-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 1.5rem 3rem;
+    margin-block-end: clamp(2rem, 4vw, 3.5rem);
+  }
+  :global(.portal-system) .home-stays h2 {
+    font-size: clamp(2.8rem, 5.6vw, 5.2rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+  :global(.portal-system) .home-stays h2 em {
+    color: #8a602a;
+  }
+  .home-stays-heading-aside {
+    max-width: 38ch;
+    padding-block-end: 0.4rem;
+  }
+  .home-stays-heading-aside a {
+    color: #8a602a;
+    min-height: 44px;
+  }
+  :global(.portal-system) .home-stays :global(.ps-rail-track) {
+    grid-auto-columns: 88%;
+    gap: 1.5rem;
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-card) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: stretch;
+    border-radius: 0.5rem;
+    background: #f4ead9;
+    border-color: #d1bd98;
+    color: var(--navy);
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-photos-multiple) {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    align-self: start;
+    gap: 6px;
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-photo-previews) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-card .reference-photo-frame) {
+    aspect-ratio: 1.5;
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-photo-previews .reference-photo-frame) {
+    aspect-ratio: 2.8;
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-copy) {
+    align-self: center;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-copy h3) {
+    font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+    line-height: 1.05;
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-copy .ps-kicker) {
+    color: var(--portal-red-ink);
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-copy .ps-button) {
+    background: var(--navy);
+    color: #fffaf1;
+  }
+  :global(.portal-system) .home-stays :global(.ps-stay-copy .ps-button:hover) {
+    background: #174868;
+  }
+  :global(.portal-system) .home-stays :global(.ps-rail-controls p),
+  :global(.portal-system) .home-stays > .ps-wrap > .ps-note {
+    color: #4c6571;
+  }
+  :global(.portal-system) .home-stays :global(.ps-rail-count) {
+    color: var(--navy);
+  }
+  :global(.portal-system) .home-stays :global(:focus-visible) {
+    outline-color: var(--gold-ink);
+  }
+  @media (max-width: 1050px) {
+    :global(.portal-system) .home-stays :global(.ps-rail-track) {
+      grid-auto-columns: 92%;
+    }
+    :global(.portal-system) .home-stays :global(.ps-stay-card) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 700px) {
+    .home-stays-heading {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    :global(.portal-system) .home-stays :global(.ps-stay-card) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    :global(.portal-system) .home-stays :global(.ps-rail-track) {
+      grid-auto-columns: 90%;
+      gap: 1rem;
+    }
+    :global(.portal-system) .home-stays :global(.ps-stay-card .reference-photo-frame) {
+      aspect-ratio: 1.5;
+    }
+    :global(.portal-system) .home-stays :global(.ps-stay-photo-previews .reference-photo-frame) {
+      aspect-ratio: 2.5;
+    }
+    :global(.portal-system) .home-stays :global(.ps-stay-copy h3) {
+      font-size: 2.9rem;
+    }
+  }
+</style>

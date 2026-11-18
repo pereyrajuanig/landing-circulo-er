@@ -1,0 +1,172 @@
+---
+import SitePhoto from '../SitePhoto.astro';
+import LineIcon from '../LineIcon.astro';
+---
+
+<section class="home-optical" aria-labelledby="home-optical-title" id="optica">
+  <div class="ps-wrap optical-layout">
+    <div class="optical-visual">
+      <div class="optical-arch" aria-hidden="true">
+        <LineIcon name="glasses" size={56} />
+      </div>
+      <SitePhoto
+        kind="federacion-beneficio-lentes"
+        variant="card"
+        sizes="(max-width: 760px) 85vw, 37vw"
+        maxWidth={960}
+      />
+    </div>
+    <div class="optical-main">
+      <h2 id="home-optical-title">
+        Plan Óptico
+        <br />
+        <em>Solidario.</em>
+      </h2>
+      <p class="optical-lead">Anteojos sin cargo para vos y tu cónyuge.</p>
+      <ul class="optical-pairs" aria-label="Anteojos incluidos">
+        <li>
+          <LineIcon name="glasses" size={28} />
+          <span>Un par de cerca</span>
+        </li>
+        <li>
+          <LineIcon name="glasses" size={28} />
+          <span>Un par de lejos</span>
+        </li>
+      </ul>
+      <p class="optical-renewal">Podés renovar el beneficio cada dos años.</p>
+      <div class="optical-request">
+        <h3>El primer paso está en tu filial</h3>
+        <p>
+          Estés donde estés en Entre Ríos, pedí el formulario en tu filial. Allí te indican cómo
+          solicitar los anteojos, retirarlos y renovarlos.
+        </p>
+        <a class="ps-button" href="/beneficios/#plan-optico">
+          Conocé el Plan Óptico <LineIcon name="arrow" size={22} />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :global(.portal-system) .home-optical {
+    background: #efe4d1;
+    color: var(--navy);
+    padding-block: clamp(3.5rem, 7vw, 7rem);
+    scroll-margin-top: 7rem;
+    border-block-start: 1px solid #d4bd98;
+  }
+  .optical-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 3rem clamp(1.75rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .optical-visual {
+    min-width: 0;
+    width: min(100%, 32rem);
+    justify-self: center;
+    padding: 1rem 1.5rem 1.5rem;
+    border: 1px solid #a58050;
+    border-radius: 50% 50% 0.5rem 0.5rem / 7rem 7rem 0.5rem 0.5rem;
+    background: #fffaf1;
+    overflow: hidden;
+  }
+  .optical-arch {
+    display: grid;
+    place-items: center;
+    min-height: 6.5rem;
+    color: var(--portal-red-ink);
+  }
+  .optical-visual :global(.reference-photo--card .reference-photo-frame) {
+    aspect-ratio: 3 / 4;
+    border-radius: 0;
+    background: #fffaf1;
+  }
+  .optical-visual :global(.reference-photo img) {
+    object-fit: contain;
+    transform: none;
+    transition: none;
+  }
+  :global(.portal-system) .home-optical h2 {
+    font: 400 clamp(3.2rem, 5.4vw, 5.6rem) / 0.98 var(--serif);
+    letter-spacing: -0.035em;
+    max-width: 12ch;
+  }
+  :global(.portal-system) .home-optical h2::after {
+    display: none;
+  }
+  :global(.portal-system) .home-optical h2 em {
+    color: var(--portal-red-ink);
+    font-weight: 400;
+  }
+  :global(.portal-system) .home-optical .optical-lead {
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    line-height: 1.5;
+    max-width: 26ch;
+    margin-block: 1.5rem;
+  }
+  .optical-pairs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+    border-block: 1px solid #bca783;
+  }
+  .optical-pairs li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .optical-pairs :global(svg) {
+    flex: 0 0 28px;
+    color: #8a5e2e;
+  }
+  :global(.portal-system) .home-optical .optical-renewal {
+    margin-block: 0.75rem 1.5rem;
+    font-size: 1.0625rem;
+  }
+  .optical-request {
+    padding-inline-start: 1.25rem;
+    border-inline-start: 3px solid var(--portal-red-ink);
+  }
+  :global(.portal-system) .home-optical .optical-request h3 {
+    font: 700 1.25rem / 1.4 var(--sans);
+    letter-spacing: normal;
+  }
+  :global(.portal-system) .home-optical .optical-request p {
+    margin-block: 0.6rem 1.2rem;
+    max-width: 43ch;
+  }
+  .optical-request a {
+    min-height: 50px;
+  }
+  @media (max-width: 760px) {
+    .optical-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+    }
+    .optical-main {
+      grid-row: 1;
+    }
+    .optical-visual {
+      width: min(100%, 27rem);
+      justify-self: center;
+    }
+    :global(.portal-system) .home-optical h2 {
+      font-size: clamp(3.15rem, 12vw, 4.2rem);
+    }
+  }
+  @media (max-width: 390px) {
+    .optical-pairs {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .optical-visual {
+      padding-inline: 0.75rem;
+    }
+  }
+</style>

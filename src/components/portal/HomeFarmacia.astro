@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import LineIcon from '../LineIcon.astro';
+import art from '../../assets/headers/beneficios-consultorio-grabado.png';
+---
+
+<section class="ps-section home-pharmacy" aria-labelledby="home-pharmacy-title">
+  <div class="ps-wrap pharmacy-layout">
+    <header>
+      <p class="ps-kicker">Beneficios para la vida cotidiana</p>
+      <h2 id="home-pharmacy-title">
+        Farmacia
+        <br />
+        <em>Social.</em>
+      </h2>
+      <p class="pharmacy-location">
+        <LineIcon name="pin" size={21} /> Paraná, Entre Ríos
+      </p>
+    </header>
+    <div class="pharmacy-information">
+      <p>Consultá los horarios de atención y qué necesitás para acceder a la Farmacia Social.</p>
+      <div class="pharmacy-orders">
+        <h3>Órdenes de compra</h3>
+        <p>Preguntá qué comercios participan y cuáles son las condiciones de uso.</p>
+      </div>
+      <a href="/beneficios/#farmacia">
+        Ver farmacia y beneficios <LineIcon name="arrow" size={22} />
+      </a>
+    </div>
+  </div>
+  <div class="pharmacy-art" aria-hidden="true">
+    <Image
+      src={art}
+      alt=""
+      format="webp"
+      width={960}
+      widths={[480, 960]}
+      sizes="(max-width: 650px) 100vw, 65vw"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<style>
+  :global(.portal-system) .home-pharmacy {
+    position: relative;
+    isolation: isolate;
+    background: #9c2832;
+    color: #fffaf1;
+    overflow: hidden;
+    --ps-heading-ink: #f6d5af;
+  }
+  .pharmacy-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    position: relative;
+    z-index: 1;
+    align-items: center;
+  }
+  :global(.portal-system) .home-pharmacy h2 {
+    font-size: clamp(3.8rem, 7vw, 7rem);
+    line-height: 0.95;
+  }
+  :global(.portal-system) .home-pharmacy h2 em {
+    color: #f6dfb8;
+  }
+  :global(.portal-system) .home-pharmacy h2::after {
+    display: none;
+  }
+  .pharmacy-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-block: 1.3rem 0;
+    font-weight: 600;
+  }
+  .pharmacy-art {
+    position: absolute;
+    z-index: 0;
+    width: 68%;
+    left: -9%;
+    bottom: -20%;
+    height: 85%;
+    opacity: 0.13;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+  .pharmacy-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .pharmacy-information {
+    padding-inline-start: 2rem;
+    border-inline-start: 1px solid #f4d4b585;
+  }
+  .pharmacy-information > p {
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    line-height: 1.5;
+    max-width: 32ch;
+  }
+  .pharmacy-orders {
+    padding-block-start: 1.1rem;
+    border-block-start: 1px solid #f4d4b585;
+  }
+  :global(.portal-system) .home-pharmacy h3 {
+    font: 700 1.25rem / 1.4 var(--sans);
+    letter-spacing: normal;
+  }
+  .pharmacy-orders p {
+    margin-block: 0.5rem 1.5rem;
+    max-width: 40ch;
+  }
+  .pharmacy-information a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 52px;
+    padding: 0.8rem 1.1rem;
+    border-radius: 5px;
+    background: #fffaf1;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .pharmacy-information a:hover {
+    background: #f6dfb8;
+  }
+  .pharmacy-information :global(svg) {
+    flex-shrink: 0;
+  }
+  .home-pharmacy a:focus-visible {
+    outline-color: #fffaf1;
+  }
+  @media (max-width: 700px) {
+    .pharmacy-layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .pharmacy-information {
+      border-inline-start: 0;
+      border-block-start: 1px solid #f4d4b585;
+      padding: 1.5rem 0 0;
+    }
+    .pharmacy-art {
+      width: 130%;
+      bottom: 0;
+      height: 50%;
+    }
+  }
+</style>

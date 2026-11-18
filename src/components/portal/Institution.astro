@@ -17,7 +17,11 @@ const [entry, branches, services, stays] = await Promise.all([
 if (!entry) throw new Error('Falta institución.');
 ---
 
-<section id="institucion" class="ps-section ps-institution" aria-labelledby="ps-institution-title">
+<section
+  id="institucion"
+  class:list={['ps-section ps-institution', { 'home-story': !full }]}
+  aria-labelledby="ps-institution-title"
+>
   <div class="ps-wrap">
     <div class="ps-story-heading">
       <p class="ps-kicker">Nuestra institución · Desde 1975</p>

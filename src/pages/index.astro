@@ -3,8 +3,12 @@ import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PortalHeader from '../components/PortalHeader.astro';
 import Hero from '../components/Hero.astro';
-import Services from '../components/portal/Services.astro';
-import Localities from '../components/portal/Localities.astro';
+import HomeReintegros from '../components/portal/HomeReintegros.astro';
+import HomeOptica from '../components/portal/HomeOptica.astro';
+import HomeSanidad from '../components/portal/HomeSanidad.astro';
+import HomeComunidad from '../components/portal/HomeComunidad.astro';
+import HomeTramites from '../components/portal/HomeTramites.astro';
+import HomeFarmacia from '../components/portal/HomeFarmacia.astro';
 import Stays from '../components/portal/Stays.astro';
 import Spaces from '../components/portal/Spaces.astro';
 import News from '../components/portal/News.astro';
@@ -13,21 +17,26 @@ import Branches from '../components/portal/Branches.astro';
 import Contact from '../components/portal/Contact.astro';
 import Footer from '../components/portal/Footer.astro';
 import '../styles/portal-system.css';
+import '../styles/home-editorial.css';
 const entry = await getEntry('institution', 'circulo');
 if (!entry) throw new Error('Falta el contenido institucional del Círculo.');
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
-  <div class="home-portal">
+  <div class="home-portal home-revision">
     <PortalHeader />
     <main id="contenido" tabindex="-1">
       <Hero />
-      <div class="portal-system">
-        <Services />
-        <Localities />
+      <div class="portal-system home-revision-body">
+        <HomeReintegros />
         <Stays />
+        <HomeOptica />
+        <HomeSanidad />
         <Spaces />
+        <HomeComunidad />
         <News />
+        <HomeFarmacia />
+        <HomeTramites />
         <Institution />
         <Branches />
         <Contact />
@@ -39,5 +48,6 @@ if (!entry) throw new Error('Falta el contenido institucional del Círculo.');
   <script>
     import '../scripts/landing';
     import '../scripts/portal';
+    import '../scripts/home-motion';
   </script>
 </BaseLayout>

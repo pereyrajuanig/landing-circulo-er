@@ -10,16 +10,38 @@ const { full = false } = Astro.props;
 const items = publishedNews(await getCollection('news')).slice(0, full ? undefined : 4);
 ---
 
-<section class="ps-section ps-news" aria-labelledby="ps-news-title">
+<section
+  class:list={['ps-section ps-news', { 'home-news': !full }]}
+  aria-labelledby="ps-news-title"
+>
   <div class="ps-wrap">
-    <SectionHeading
-      id="ps-news-title"
-      eyebrow="La vida del Círculo"
-      title="Noticias y actividades del Círculo"
-      description="Enterate de las novedades y conocé el trabajo de las filiales."
-      href={full ? undefined : '/novedades/'}
-      action="Ver todas las publicaciones"
-    />
+    {!full ? (
+      <header class="home-news-heading">
+        <div>
+          <p class="ps-kicker">Novedades</p>
+          <h2 id="ps-news-title">
+            Lo que pasa
+            <br />
+            <em>en el Círculo.</em>
+          </h2>
+        </div>
+        <div>
+          <p>Historias, actividades y trabajo compartido en nuestras filiales.</p>
+          <a class="ps-link" href="/novedades/">
+            Ver todas las publicaciones <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+    ) : (
+      <SectionHeading
+        id="ps-news-title"
+        eyebrow="La vida del Círculo"
+        title="Noticias y actividades del Círculo"
+        description="Enterate de las novedades y conocé el trabajo de las filiales."
+        href={full ? undefined : '/novedades/'}
+        action="Ver todas las publicaciones"
+      />
+    )}
     {items.some(({ data }) => data.sourceContext) && (
       <p class="ps-source">
         Las fechas indican cuándo se publicó cada nota. Las actividades pueden haber ocurrido antes.
