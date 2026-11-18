@@ -398,8 +398,8 @@ test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar'
     .getByRole('link', { name: 'Beneficios', exact: true })
     .click();
   await page
-    .getByRole('heading', { level: 3, name: 'Farmacia y beneficios', exact: true })
-    .getByRole('link')
+    .getByRole('navigation', { name: 'En esta página' })
+    .getByRole('link', { name: 'Farmacia y beneficios', exact: true })
     .click();
   await expect(page).toHaveURL(/\/beneficios\/#farmacia$/);
   await expect(page.getByRole('heading', { name: 'Farmacia y beneficios' })).toBeVisible();
