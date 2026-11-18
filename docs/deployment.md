@@ -46,3 +46,7 @@ vercel.json prepara headers y CSP Report-Only. Antes de exigir CSP, revisar prev
 ## Publicación del portal aprobado · 02/11/2026
 
 El usuario autorizó preparar el PR #14 y publicar la versión aprobada. Main despliega automáticamente en Vercel después de quality; comprobar el commit y el estado del despliegue antes de informarlo como publicado. Se retiraron el comparador y /diseno-anterior/. Dominio confirmado: circulopoliciaer.com.ar en NIC Argentina; DNS, HTTPS y SEO de ese dominio pendientes de configuración. Mantener noindex durante esa transición.
+
+## Excepción temporal en la auditoría de dependencias
+
+El control `quality` permite únicamente el aviso alto de `picomatch` GHSA-fc5q-39xc-vjpf hasta el 1 de diciembre de 2026 a las 00:00 UTC. La auditoría sigue reportando el aviso y bloquea cualquier otro aviso alto o crítico, además de los errores al consultar el registro. Se aplica a la auditoría del sitio y del Studio. Revisar ambos lockfiles y retirar la excepción cuando se publique una versión corregida.

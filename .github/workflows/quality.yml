@@ -32,10 +32,10 @@ jobs:
       - name: Exclusiones y patrones del repositorio
         run: npm run security:repo
       - name: Auditoría de dependencias
-        run: npm audit --audit-level=high
+        run: node scripts/audit-dependencies.mjs
       - name: Instalar y auditar panel editorial
         working-directory: studio
-        run: npm ci && npm audit --audit-level=high
+        run: npm ci && node ../scripts/audit-dependencies.mjs
       - name: Tipos y build del panel editorial
         working-directory: studio
         run: npm run check && npm run build

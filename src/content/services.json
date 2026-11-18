@@ -54,7 +54,7 @@
     "order": 2,
     "name": "Farmacia y beneficios",
     "caption": "Farmacia Social, lentes y compras",
-    "description": "Consultá por la Farmacia Social de Paraná, las órdenes de compra y el beneficio de lentes para afiliados de todas las localidades.",
+    "description": "Consultá por la Farmacia Social de Paraná, las órdenes de compra y el Plan Óptico Solidario.",
     "action": "Consultar beneficios",
     "target": "email",
     "subject": "Consulta sobre farmacia y beneficios",
@@ -65,8 +65,8 @@
         "body": "Antes de ir, consultá los horarios de atención y qué necesitás para acceder a la Farmacia Social."
       },
       {
-        "title": "Ayuda para comprar lentes",
-        "body": "El beneficio para la compra de lentes está disponible para afiliados de todas las localidades. Consultá con tu filial o con la sede central cómo solicitarlo."
+        "title": "Plan Óptico Solidario",
+        "body": "La persona afiliada y su cónyuge pueden solicitar anteojos sin cargo. Pedí el formulario en tu filial."
       },
       {
         "title": "Órdenes de compra",
