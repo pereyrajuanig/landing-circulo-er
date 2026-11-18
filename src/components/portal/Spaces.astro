@@ -21,16 +21,42 @@ const homeDetailPhotos: Record<string, string[]> = {
 const galleryHref = (id: string) => '/salones/#' + id;
 ---
 
-<section id="eventos" class="ps-section ps-spaces" aria-labelledby="ps-spaces-title">
+<section
+  id="eventos"
+  class:list={['ps-section', 'ps-spaces', { 'home-spaces': !full }]}
+  aria-labelledby="ps-spaces-title"
+>
   <div class="ps-wrap">
-    <SectionHeading
-      id="ps-spaces-title"
-      eyebrow="Salones y espacios"
-      title="Salones para reuniones y celebraciones"
-      description="Mirá las fotos y consultá por las fechas, el equipamiento y cuántas personas admite cada salón."
-      href={full ? undefined : '/salones/'}
-      action="Todos los espacios"
-    />
+    {full ? (
+      <SectionHeading
+        id="ps-spaces-title"
+        eyebrow="Salones y espacios"
+        title="Salones para reuniones y celebraciones"
+        description="Mirá las fotos y consultá por las fechas, el equipamiento y cuántas personas admite cada salón."
+        href={full ? undefined : '/salones/'}
+        action="Todos los espacios"
+      />
+    ) : (
+      <div class="home-spaces-heading">
+        <div>
+          <p class="ps-kicker">Salones y espacios</p>
+          <h2 id="ps-spaces-title">
+            Un lugar para
+            <br />
+            <em>encontrarnos.</em>
+          </h2>
+        </div>
+        <div class="home-spaces-heading-aside">
+          <p>
+            Reuniones, celebraciones y tiempo compartido. Conocé los espacios del Círculo y consultá
+            cómo organizar tu encuentro.
+          </p>
+          <a class="ps-link" href="/salones/">
+            Todos los espacios <LineIcon name="arrow" size={22} />
+          </a>
+        </div>
+      </div>
+    )}
     <div class="ps-space-mosaic">
       {shown.map(({ id, data }, i) => (
         <article
@@ -134,6 +160,109 @@ const galleryHref = (id: string) => '/salones/#' + id;
 </section>
 
 <style>
+  :global(.portal-system) .home-spaces {
+    background: #f8f3e9;
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  }
+  .home-spaces-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 1.5rem 3rem;
+    margin-block-end: clamp(2rem, 4vw, 3.5rem);
+  }
+  :global(.portal-system) .home-spaces h2 {
+    font-size: clamp(2.8rem, 5.6vw, 5.2rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+  :global(.portal-system) .home-spaces h2 em {
+    color: var(--gold-ink);
+  }
+  .home-spaces-heading-aside {
+    max-width: 38ch;
+    padding-block-end: 0.4rem;
+  }
+  .home-spaces-heading-aside a {
+    min-height: 44px;
+  }
+  :global(.portal-system) .home-spaces .ps-space-mosaic {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: start;
+  }
+  :global(.portal-system) .home-spaces .ps-space {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: 0;
+    border: 1px solid #d6c5a8;
+    background: #fffaf1;
+  }
+  :global(.portal-system) .home-spaces .ps-space-reverse {
+    margin-block-start: 5rem;
+  }
+  :global(.portal-system) .home-spaces .ps-space-reverse .ps-space-visual {
+    order: 0;
+  }
+  .home-spaces .ps-space-preview {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .home-spaces .ps-space-preview-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    padding-top: 5px;
+  }
+  :global(.portal-system) .home-spaces .ps-space-visual {
+    display: block;
+  }
+  :global(.portal-system) .home-spaces .ps-space-preview > :global(figure .reference-photo-frame) {
+    aspect-ratio: 1.65;
+    border-radius: 0;
+  }
+  :global(.portal-system) .home-spaces .ps-space-preview-details :global(.reference-photo-frame) {
+    aspect-ratio: 2.6;
+    border-radius: 0;
+  }
+  :global(.portal-system)
+    .home-spaces
+    .ps-space-preview
+    :global([data-photo-kind='institutional'] img) {
+    object-fit: cover;
+  }
+  :global(.portal-system) .home-spaces .ps-space-copy {
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+  }
+  :global(.portal-system) .home-spaces .ps-space-copy h3 {
+    font-size: clamp(2.4rem, 4vw, 3.7rem);
+    line-height: 1.05;
+  }
+  :global(.portal-system) .home-spaces .ps-space-copy > p {
+    color: var(--navy);
+    font-size: 1.125rem;
+  }
+  :global(.portal-system) .home-spaces .ps-space-copy .ps-kicker {
+    color: var(--portal-red-ink);
+  }
+  :global(.portal-system) .home-spaces .ps-space-copy .ps-button {
+    min-height: 48px;
+  }
+  :global(.portal-system) .home-spaces .ps-space-more {
+    padding-top: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid #d6c5a8;
+  }
+  @media (max-width: 820px) {
+    .home-spaces-heading {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    :global(.portal-system) .home-spaces .ps-space-mosaic {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    :global(.portal-system) .home-spaces .ps-space-reverse {
+      margin-block-start: 0;
+    }
+  }
   .ps-space-preview {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);

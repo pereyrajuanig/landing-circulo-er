@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import LineIcon from '../LineIcon.astro';
 import { heroCities } from '../../lib/hero-cities';
 import colonArt from '../../assets/cities/colon-background.png';
@@ -7,19 +8,13 @@ const localities = [...heroCities].sort(
   (a, b) => Number(b.id === 'diamante') - Number(a.id === 'diamante'),
 );
 const places = [...localities, { id: 'colon', name: 'Colón', art: colonArt }];
+const profileIds = new Set((await getCollection('localities')).map(({ id }) => id));
 ---
 
-<section class="ps-section ps-localities" aria-labelledby="portal-localities-title" data-localities>
-  <div class="ps-wrap portal-localities">
+<div class="branch-localities" data-localities>
+  <div class="portal-localities">
     <div class="portal-localities-heading">
-      <p class="portal-eyebrow">Nuestra presencia</p>
-      <h2 id="portal-localities-title">
-        Filiales en
-        <br /> <em>Entre Ríos</em>
-      </h2>
-      <a href="#filiales">
-        Ver todas las filiales <LineIcon name="arrow" size={18} />
-      </a>
+      <h3 id="portal-localities-title">Patrimonio de nuestras localidades</h3>
     </div>
     <div class="portal-localities-viewport">
       <div
@@ -30,7 +25,10 @@ const places = [...localities, { id: 'colon', name: 'Colón', art: colonArt }];
         data-localities-track
       >
         {places.map((city) => (
-          <a class="portal-locality" href="#filiales">
+          <a
+            class="portal-locality"
+            href={profileIds.has(city.id) ? '/filiales/' + city.id + '/' : '#branch-list'}
+          >
             <Image
               src={city.art}
               alt={'Ilustración patrimonial de ' + city.name}
@@ -61,7 +59,49 @@ const places = [...localities, { id: 'colon', name: 'Colón', art: colonArt }];
       </button>
     </div>
   </div>
-</section>
+</div>
 <script>
   import '../../scripts/localities';
 </script>
+
+<style>
+  .branch-localities {
+    padding-block-start: clamp(2rem, 4vw, 3.5rem);
+    margin-block-start: clamp(2rem, 4vw, 3.5rem);
+    border-block-start: 1px solid #ffffff40;
+    min-width: 0;
+  }
+  .branch-localities .portal-localities {
+    padding: 0;
+    align-items: center;
+  }
+  :global(.portal-system) .branch-localities h3 {
+    font: 400 clamp(1.9rem, 3vw, 2.6rem) / 1.1 var(--serif);
+    color: #f0d4a1;
+  }
+  .branch-localities .portal-locality {
+    background: #123b56;
+    border-radius: 1rem;
+    border: 1px solid #7a8c90;
+  }
+  .branch-localities .portal-locality > img {
+    height: 210px;
+  }
+  .branch-localities .portal-localities-viewport {
+    min-width: 0;
+  }
+  .branch-localities .portal-localities-track {
+    padding: 6px 6px 14px;
+  }
+  .branch-localities .portal-localities-next {
+    right: 0;
+  }
+  @media (max-width: 750px) {
+    .branch-localities .portal-localities {
+      display: block;
+    }
+    .branch-localities .portal-localities-heading {
+      margin-block-end: 1.5rem;
+    }
+  }
+</style>

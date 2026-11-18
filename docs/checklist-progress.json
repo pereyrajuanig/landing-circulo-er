@@ -587,6 +587,11 @@
       "branch": "codex/cabecera-institucion",
       "summary": "Cabecera ilustrada de Institución con el grabado entregado por el usuario. Vista local comprobada en escritorio, tablet y celular. Ver filiales enlaza al directorio. Publicación autorizada el 10/11/2026."
     },
+    "home_editorial_review": {
+      "status": "local_review",
+      "branch": "codex/home-editorial",
+      "summary": "Propuesta local del 18/11/2026. Inicio conserva el Hero anterior por indicación del usuario. Beneficios independientes distribuidos en el home, con Reintegros como prioridad y Alojamientos a continuación. Profundidad 3D y entradas de sección adaptadas a movimiento reducido. Foto óptica contenida e ilustraciones de localidades integradas en Filiales. Publicación pendiente."
+    },
     "unified_benefits": {
       "status": "ready_for_release",
       "branch": "codex/unificar-beneficios",

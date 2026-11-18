@@ -1,0 +1,183 @@
+---
+import LineIcon from '../LineIcon.astro';
+import groups from '../../data/reintegros-oser.json';
+const count = groups.reduce((total, group) => total + group.items.length, 0);
+---
+
+<section id="servicios" class="ps-section home-refunds" aria-labelledby="home-refunds-title">
+  <div class="ps-wrap refund-layout">
+    <div class="refund-heading">
+      <p class="ps-kicker">Para afiliados de toda Entre Ríos</p>
+      <h2 id="home-refunds-title">
+        Reintegros OSER,
+        <br />
+        <em>mes a mes.</em>
+      </h2>
+      <p class="refund-description">
+        Si estás afiliado al Círculo y tenés OSER, podés acceder a reintegros de prestaciones
+        médicas <strong>desde cualquier localidad.</strong>
+      </p>
+    </div>
+    <div class="refund-code" aria-label="Código 817 de reintegros" data-home-depth>
+      <span>Código de reintegros</span>
+      <strong>817</strong>
+      <span>OSER</span>
+      <p>
+        Consultá cómo solicitarlo
+        <br />
+        en tu filial o en Sanidad.
+      </p>
+    </div>
+    <div class="refund-guide">
+      <h3>Encontrá tu prestación</h3>
+      <p>
+        Consultas médicas, estudios y análisis. Consultá el listado de {count} prestaciones y sus
+        códigos.
+      </p>
+      <a class="ps-button" href="/beneficios/#reintegros-oser">
+        Ver reintegros <LineIcon name="arrow" size={22} />
+      </a>
+      <a class="ps-link" href="/beneficios/">
+        Todos los beneficios <LineIcon name="arrow" size={18} />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  :global(.portal-system) .home-refunds {
+    --ps-heading-ink: #f6b4a5;
+    background: #092b42;
+    color: #fffaf1;
+    border-block-start: 5px solid #c34449;
+    padding-block: clamp(3rem, 7vw, 7rem);
+  }
+  .refund-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
+    grid-template-areas: 'heading code' 'guide code';
+    align-items: center;
+    gap: 1.75rem clamp(2rem, 6vw, 6rem);
+  }
+  .refund-heading {
+    grid-area: heading;
+  }
+  :global(.portal-system) .home-refunds h2 {
+    font-size: clamp(3.5rem, 6.8vw, 6.8rem);
+    line-height: 0.97;
+    letter-spacing: -0.035em;
+  }
+  :global(.portal-system) .home-refunds h2 em {
+    color: #f0d4a1;
+  }
+  :global(.portal-system) .home-refunds h2::after {
+    display: none;
+  }
+  .refund-description {
+    max-width: 44ch;
+    margin-block: 1.4rem 0;
+    font-size: 1.2rem;
+  }
+  .refund-code {
+    grid-area: code;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 4vw, 3rem) 1.25rem;
+    border: 1px solid #e1be83;
+    border-block-start: 7px solid #c2a16a;
+    outline: 1px solid #c7ac7d;
+    outline-offset: -13px;
+    border-radius: 8px;
+    background: #fff4dd;
+    color: var(--navy);
+    transform: perspective(1000px) rotateY(-8deg) rotateZ(2deg);
+    box-shadow: 12px 15px 0 #051a2a55;
+  }
+  .refund-code strong {
+    display: block;
+    font: 400 clamp(7rem, 14vw, 14rem) / 1.15 var(--serif);
+    letter-spacing: -0.04em;
+    font-variant-numeric: lining-nums;
+    transform: translateZ(30px);
+  }
+  .refund-code span {
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .refund-code > span:nth-of-type(2) {
+    padding-inline: 1.3rem;
+    border-block-end: 3px solid var(--portal-red);
+    letter-spacing: 0.17em;
+  }
+  .refund-code p {
+    margin: 1.25rem 0 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .refund-guide {
+    grid-area: guide;
+    border-block-start: 1px solid #99a6a670;
+    padding-block-start: 1.25rem;
+  }
+  :global(.portal-system) .refund-guide h3 {
+    font: 700 1.25rem / 1.4 var(--sans);
+    letter-spacing: normal;
+  }
+  .refund-guide p {
+    margin-block: 0.75rem 1.2rem;
+  }
+  .refund-guide .ps-button {
+    min-height: 58px;
+    padding-inline: 1.5rem;
+    border-radius: 5px;
+    background: #f0d4a1;
+    color: var(--navy);
+    font-size: 1.2rem;
+  }
+  .refund-guide .ps-button:hover {
+    background: #fffaf1;
+  }
+  .refund-guide .ps-link {
+    margin: 0.6rem 0 0 1.1rem;
+  }
+  .home-refunds a:focus-visible {
+    outline-color: #f0d4a1;
+  }
+  @media (max-width: 740px) {
+    .refund-layout {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: 'heading' 'code' 'guide';
+    }
+    .refund-code {
+      width: min(100%, 23rem);
+      justify-self: center;
+      padding: 1.5rem;
+    }
+    .refund-code strong {
+      font-size: clamp(7rem, 37vw, 10rem);
+    }
+    :global(.portal-system) .home-refunds h2 {
+      font-size: clamp(3.15rem, 12vw, 4.6rem);
+    }
+    .refund-guide .ps-link {
+      margin-inline-start: 0;
+      display: flex;
+      width: fit-content;
+    }
+    .refund-guide .ps-button {
+      width: 100%;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .refund-code {
+      transform: none;
+      box-shadow: none;
+    }
+    .refund-code strong {
+      transform: none;
+    }
+  }
+</style>

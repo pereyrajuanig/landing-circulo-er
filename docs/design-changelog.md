@@ -1,5 +1,11 @@
 # Registro de diseño
 
+## 18/11/2026 · Propuesta local de composición del home
+
+Inicio conserva el Hero de la versión publicada. Se retira la sección agrupada de Servicios. Reintegros OSER, Plan Óptico, Sanidad en Paraná, Trámites y Recreación se distribuyen como secciones independientes entre alojamientos, salones y novedades. Cada beneficio tiene composición propia y acceso a su información completa. Se conservan las fotografías institucionales y las fuentes existentes. Las páginas interiores conservan su composición. Propuesta pendiente de aceptación visual y publicación.
+
+Reintegros pasa a ser el bloque principal, con fondo azul profundo, título ampliado y Código 817 en un panel con profundidad. Alojamientos continúa inmediatamente después en superficie clara. Se incorporan entradas de sección y respuesta de profundidad al puntero mediante Web Animations API, con suspensión al activar movimiento reducido y sin interacción por hover en pantallas táctiles. El Plan Óptico utiliza un marco único que contiene la fotografía completa. El carrusel de grabados de localidades se integra en Filiales únicamente en el home.
+
 ## 1.1 - 11 de octubre de 2026
 
 Ajuste solicitado: una experiencia más cercana, cálida y orientada al acompañamiento, conservando la identidad institucional aprobada en la versión inicial.

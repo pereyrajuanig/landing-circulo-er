@@ -78,7 +78,7 @@ test('salto de teclado y CTA llevan al contenido y a los servicios', async ({ pa
   await cta.focus();
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/#servicios$/);
-  await expect(page.locator('#ps-services-title')).toBeInViewport();
+  await expect(page.locator('#home-refunds-title')).toBeInViewport();
 });
 
 test('menú y navegación llevan a las páginas del sitio y conservan retorno de foco', async ({
@@ -181,16 +181,19 @@ test('beneficios reúne categorías, reintegros y el Plan Óptico en una sola p�
   page,
 }) => {
   const services = load('services.json');
-  await expect(page.locator('.ps-service')).toHaveCount(services.length);
-  for (const service of services) {
-    const card = page
-      .locator('.ps-service')
-      .filter({ has: page.getByRole('heading', { level: 3, name: service.name, exact: true }) });
-    await expect(card.locator('h3 a')).toHaveAttribute('href', '/beneficios/#' + service.id);
+  for (const anchor of [
+    'reintegros-oser',
+    'plan-optico',
+    'atencion-parana',
+    'tramites',
+    'farmacia',
+    'recreacion',
+  ]) {
+    await expect(page.locator('main a[href="/beneficios/#' + anchor + '"]').first()).toBeVisible();
   }
-  await page.locator('.ps-service h3 a').first().focus();
+  await page.getByRole('link', { name: 'Ver reintegros', exact: true }).focus();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/\/beneficios\/#salud$/);
+  await expect(page).toHaveURL(/\/beneficios\/#reintegros-oser$/);
   await expect(page.locator('h1')).toHaveText('Beneficios y servicios del Círculo');
   const navigation = page.getByRole('navigation', { name: 'En esta página' });
   for (const service of services) {
@@ -358,7 +361,9 @@ test('beneficios estadías y salones tienen acceso directo y consulta específic
 }) => {
   const paths = page.getByRole('navigation', { name: 'Accesos a servicios' });
   await expect(paths.locator('a')).toHaveCount(4);
-  await expect(page.locator('.ps-audience')).toContainText('una pensión vinculada a ella');
+  await expect(page.getByRole('region', { name: 'Reintegros OSER, mes a mes.' })).toContainText(
+    'desde cualquier localidad',
+  );
   await paths.getByRole('link', { name: 'Salones para eventos', exact: true }).click();
   await expect(page).toHaveURL(/\/salones\/$/);
   const space = page.locator('#los-laureles');
@@ -372,6 +377,43 @@ test('beneficios estadías y salones tienen acceso directo y consulta específic
   expect(url.searchParams.get('subject')).toBe('Consulta sobre Los Laureles en Paraná');
   await page.goto('/contacto/');
   expect(await page.locator('#contacto').innerText()).not.toContain('cómo formar parte');
+});
+
+test('home integra localidades, contiene la foto óptica y adapta la profundidad al movimiento reducido', async ({
+  page,
+  isMobile,
+}) => {
+  await expect(page.locator('.ps-localities')).toHaveCount(0);
+  await expect(page.locator('#filiales [data-localities]')).toHaveCount(1);
+  const optical = page.locator('.optical-visual');
+  const image = optical.locator('img');
+  await optical.scrollIntoViewIfNeeded();
+  await expect(image).toHaveCSS('object-fit', 'contain');
+  await expect(optical).toHaveCSS('overflow', 'hidden');
+  const contained = await image.evaluate((element) => {
+    const photo = element.getBoundingClientRect();
+    const frame = element.closest('.optical-visual').getBoundingClientRect();
+    return (
+      photo.left >= frame.left &&
+      photo.right <= frame.right &&
+      photo.top >= frame.top &&
+      photo.bottom <= frame.bottom
+    );
+  });
+  expect(contained).toBe(true);
+  const code = page.locator('.refund-code');
+  await code.scrollIntoViewIfNeeded();
+  await expect(code).toHaveAttribute('data-home-depth', '');
+  if (!isMobile) {
+    const box = await code.boundingBox();
+    await page.mouse.move(box.x + box.width * 0.7, box.y + box.height * 0.3);
+    await expect(code).toHaveAttribute('data-depth-active', 'true');
+  }
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(code).not.toHaveAttribute('data-depth-active');
+  await expect(code).toHaveCSS('transform', 'none');
+  expect(await code.evaluate((element) => element.getAnimations().length)).toBe(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
 test('las fichas y preguntas frecuentes permiten explorar el sitio sin reservar', async ({

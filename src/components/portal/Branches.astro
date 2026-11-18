@@ -3,6 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import MapaFiliales from '../MapaFiliales.astro';
 import SitePhoto from '../SitePhoto.astro';
 import LineIcon from '../LineIcon.astro';
+import Localities from './Localities.astro';
 import { mailTo } from '../../lib/contact';
 interface Props {
   full?: boolean;
@@ -13,9 +14,6 @@ const entry = await getEntry('institution', 'circulo');
 if (!entry) throw new Error('Falta institución.');
 const profiles = await getCollection('localities');
 const profileIds = new Set(profiles.map(({ id }) => id));
-const featured = branches
-  .filter((b) => b.data.photoKey && b.data.overview)
-  .slice(0, full ? branches.length : 3);
 ---
 
 <section id="filiales" class="ps-section ps-branches" aria-labelledby="ps-branches-title">
@@ -78,41 +76,38 @@ const featured = branches
         ))}
       </ul>
     </div>
-    <div class="ps-branch-life">
-      <div class="ps-subheading">
-        <h3>Sedes, actividades y encuentros</h3>
-        <p>Conocé las sedes, los espacios y las actividades de {profiles.length} localidades.</p>
-      </div>
-      <div class="ps-branch-stories">
-        {(full
-          ? profiles.map(({ id, data }) => ({
+    {!full && <Localities />}
+    {full && (
+      <div class="ps-branch-life">
+        <div class="ps-subheading">
+          <h3>Sedes, actividades y encuentros</h3>
+          <p>Conocé las sedes, los espacios y las actividades de {profiles.length} localidades.</p>
+        </div>
+        <div class="ps-branch-stories">
+          {profiles
+            .map(({ id, data }) => ({
               id,
               name: data.name,
               overview: data.summary,
               photoKey: data.photoKeys[0],
             }))
-          : featured.map(({ id, data }) => ({
-              id,
-              name: data.name,
-              overview: data.overview,
-              photoKey: data.photoKey!,
-            }))
-        ).map(({ id, name, overview, photoKey }) => (
-          <article>
-            <SitePhoto
-              kind={photoKey}
-              variant="card"
-              sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 25vw"
-            />
-            <h4>{name}</h4>
-            <p>{overview}</p>
-            <a class="ps-link" href={'/filiales/' + id + '/'}>
-              {id === 'parana' ? 'Ver ficha de la sede' : 'Ver ficha de la filial'}{' '}
-              <LineIcon name="arrow" size={19} />
-            </a>
-          </article>
-        ))}
+            .map(({ id, name, overview, photoKey }) => (
+              <article>
+                <SitePhoto
+                  kind={photoKey}
+                  variant="card"
+                  sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 25vw"
+                />
+                <h4>{name}</h4>
+                <p>{overview}</p>
+                <a class="ps-link" href={'/filiales/' + id + '/'}>
+                  {id === 'parana' ? 'Ver ficha de la sede' : 'Ver ficha de la filial'}{' '}
+                  <LineIcon name="arrow" size={19} />
+                </a>
+              </article>
+            ))}
+        </div>
       </div>
-    </div>
+    )}
   </div>
 </section>
